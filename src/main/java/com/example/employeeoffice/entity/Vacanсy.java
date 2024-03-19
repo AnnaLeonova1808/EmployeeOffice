@@ -4,7 +4,9 @@ import com.example.employeeoffice.entity.enums.EmploymentType;
 import com.example.employeeoffice.entity.enums.Position;
 import com.example.employeeoffice.entity.enums.VacancyStatus;
 import com.example.employeeoffice.entity.enums.WorkPlaceLocation;
+
 import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

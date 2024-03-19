@@ -32,6 +32,7 @@ public class Employee {
 
     @Column(name = "last_lame")
     private String lastName;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "emp_grade")
     private EmployeeGrade empGrade;
