@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.employeeoffice.entity</OriginalElement>
+  <nodes>
+    <node x="2248.5191296863904" y="38.348599923104665">com.example.employeeoffice.entity.WorkSchedule</node>
+    <node x="-139.83058375840946" y="127.0797490635626">com.example.employeeoffice.entity.enums</node>
+    <node x="1731.4412266375934" y="-457.3325253218741">com.example.employeeoffice.entity.Department</node>
+    <node x="-189.588853360791" y="-139.85416759152628">com.example.employeeoffice.entity.Authority</node>
+    <node x="2024.6890741721172" y="-256.18280899857467">com.example.employeeoffice.entity.PersonalInfo</node>
+    <node x="1197.7429495882718" y="-360.51662196420364">com.example.employeeoffice.entity.Address</node>
+    <node x="63.4174957758504" y="-214.41090393126433">com.example.employeeoffice.entity.Roles</node>
+    <node x="340.4657802325945" y="-398.3601925747046">com.example.employeeoffice.entity.Employee</node>
+    <node x="934.6973061474675" y="-285.5291512585313">com.example.employeeoffice.entity.Events</node>
+    <node x="1445.4722958265586" y="-166.00844600489467">com.example.employeeoffice.entity.Vacanсy</node>
+    <node x="661.7741286675486" y="-319.2855495281595">com.example.employeeoffice.entity.Vacation</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.employeeoffice.entity.Employee" target="com.example.employeeoffice.entity.Department" relationship="TO_ONE">
+      <point x="2.1976740549689566E-4" y="225.5001925747046" />
+      <point x="467.466" y="134.57999999999998" />
+      <point x="1716.0" y="134.57999999999998" />
+      <point x="1716.0" y="-352.833" />
+      <point x="-115.00022663759341" y="-4.7467812595414216E-4" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Events" target="com.example.employeeoffice.entity.Events" relationship="DEPENDENCY">
+      <point x="0.0" y="104.5" />
+      <point x="1036.1973061474675" y="-59.02915125853127" />
+      <point x="1155.1973061474675" y="-59.02915125853127" />
+      <point x="1155.1973061474675" y="-181.02915125853127" />
+      <point x="101.5" y="0.0" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Roles" target="com.example.employeeoffice.entity.Roles" relationship="DEPENDENCY">
+      <point x="19.499504224149604" y="-71.5" />
+      <point x="190.917" y="-231.911" />
+      <point x="310.0" y="-231.911" />
+      <point x="310.0" y="-187.86" />
+      <point x="108.0" y="-44.949096068735685" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Vacation" target="com.example.employeeoffice.entity.Employee" relationship="TO_ONE">
+      <point x="-1.2866754855167528E-4" y="-104.50045047184051" />
+      <point x="767.774" y="-394.0" />
+      <point x="1271.0" y="-394.0" />
+      <point x="1271.0" y="-479.0" />
+      <point x="467.466" y="-479.0" />
+      <point x="2.1976740549689566E-4" y="-225.4998074252954" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Employee" target="com.example.employeeoffice.entity.Vacation" relationship="TO_MANY">
+      <point x="127.0" y="15.000192574704613" />
+      <point x="-106.0" y="56.92554952815948" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Vacanсy" target="com.example.employeeoffice.entity.Vacanсy" relationship="DEPENDENCY">
+      <point x="0.0" y="137.5" />
+      <point x="1572.4722958265586" y="149.57999999999998" />
+      <point x="1738.9412266375934" y="149.57999999999998" />
+      <point x="1738.9412266375934" y="-43.50799999999998" />
+      <point x="127.0" y="-14.999553995105316" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Department" target="com.example.employeeoffice.entity.Department" relationship="DEPENDENCY">
+      <point x="0.0" y="104.5" />
+      <point x="1846.4412266375934" y="-230.83252532187407" />
+      <point x="1978.9412266375934" y="-230.83252532187407" />
+      <point x="1978.9412266375934" y="-352.8325253218741" />
+      <point x="115.0" y="0.0" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Employee" target="com.example.employeeoffice.entity.Address" relationship="TO_MANY">
+      <point x="127.0002197674055" y="1.9257470461297999E-4" />
+      <point x="644.274" y="-172.86" />
+      <point x="644.274" y="-377.0" />
+      <point x="1274.743" y="-377.0" />
+      <point x="-14.999949588271875" y="-115.50037803579636" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Employee" target="com.example.employeeoffice.entity.Employee" relationship="TO_ONE">
+      <point x="2.1976740549689566E-4" y="-225.4998074252954" />
+      <point x="467.466" y="-479.0" />
+      <point x="467.466" y="-479.0" />
+      <point x="2.1976740549689566E-4" y="-225.4998074252954" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Address" target="com.example.employeeoffice.entity.Employee" relationship="TO_ONE">
+      <point x="5.041172812525474E-5" y="-115.50037803579636" />
+      <point x="1289.743" y="-394.0" />
+      <point x="1271.0" y="-394.0" />
+      <point x="1271.0" y="-479.0" />
+      <point x="467.466" y="-479.0" />
+      <point x="2.1976740549689566E-4" y="-225.4998074252954" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Department" target="com.example.employeeoffice.entity.Employee" relationship="TO_MANY">
+      <point x="-2.2663759341412515E-4" y="-104.5004746781259" />
+      <point x="1846.441" y="-479.0" />
+      <point x="467.466" y="-479.0" />
+      <point x="2.1976740549689566E-4" y="-225.4998074252954" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Address" target="com.example.employeeoffice.entity.Address" relationship="DEPENDENCY">
+      <point x="0.0" y="115.5" />
+      <point x="1289.7429495882718" y="-112.01662196420364" />
+      <point x="1399.2429495882718" y="-112.01662196420364" />
+      <point x="1399.2429495882718" y="-198.50799999999998" />
+      <point x="92.0" y="46.508621964203655" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.PersonalInfo" target="com.example.employeeoffice.entity.PersonalInfo" relationship="DEPENDENCY">
+      <point x="0.0" y="115.5" />
+      <point x="2113.189074172117" y="-7.6828089985746715" />
+      <point x="2256.0191296863904" y="-7.6828089985746715" />
+      <point x="2256.0191296863904" y="-140.68280899857467" />
+      <point x="88.5" y="0.0" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.WorkSchedule" target="com.example.employeeoffice.entity.WorkSchedule" relationship="DEPENDENCY">
+      <point x="0.0" y="104.5" />
+      <point x="2360.0191296863904" y="264.84859992310464" />
+      <point x="2489.0191296863904" y="264.84859992310464" />
+      <point x="2489.0191296863904" y="142.84859992310467" />
+      <point x="111.5" y="0.0" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Vacation" target="com.example.employeeoffice.entity.Vacation" relationship="DEPENDENCY">
+      <point x="14.999871332451448" y="-104.5" />
+      <point x="782.774" y="-336.7855495281595" />
+      <point x="891.2741286675486" y="-336.7855495281595" />
+      <point x="891.2741286675486" y="-214.7855495281595" />
+      <point x="106.0" y="0.0" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Employee" target="com.example.employeeoffice.entity.PersonalInfo" relationship="TO_ONE">
+      <point x="-126.9997802325945" y="1.9257470461297999E-4" />
+      <point x="310.0" y="-172.86" />
+      <point x="310.0" y="70.14" />
+      <point x="1414.243" y="70.14" />
+      <point x="1414.243" y="-183.50799999999998" />
+      <point x="-88.50007417211714" y="-42.82519100142531" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.PersonalInfo" target="com.example.employeeoffice.entity.Employee" relationship="TO_ONE">
+      <point x="-7.417211736537865E-5" y="-115.50019100142532" />
+      <point x="2113.189" y="-479.0" />
+      <point x="467.466" y="-479.0" />
+      <point x="2.1976740549689566E-4" y="-225.4998074252954" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Authority" target="com.example.employeeoffice.entity.Roles" relationship="TO_MANY">
+      <point x="94.99985336079101" y="1.6759152626377727E-4" />
+      <point x="32.0" y="-79.35400000000001" />
+      <point x="32.0" y="-142.911" />
+      <point x="-108.0004957758504" y="-9.606873567236107E-5" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Roles" target="com.example.employeeoffice.entity.Authority" relationship="TO_MANY">
+      <point x="-108.0" y="48.556903931264316" />
+      <point x="95.0" y="-14.999832408473736" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Roles" target="com.example.employeeoffice.entity.PersonalInfo" relationship="TO_MANY">
+      <point x="107.99950422414958" y="-9.606873567236107E-5" />
+      <point x="310.0" y="-142.911" />
+      <point x="310.0" y="70.14" />
+      <point x="1414.243" y="70.14" />
+      <point x="1414.243" y="-183.50799999999998" />
+      <point x="-88.50007417211714" y="-42.82519100142531" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.PersonalInfo" target="com.example.employeeoffice.entity.Roles" relationship="TO_MANY">
+      <point x="14.999925827882635" y="-115.50019100142532" />
+      <point x="2128.189" y="-494.0" />
+      <point x="175.917" y="-494.0" />
+      <point x="175.917" y="-231.911" />
+      <point x="32.0" y="-231.911" />
+      <point x="32.0" y="-142.911" />
+      <point x="-108.0004957758504" y="-9.606873567236107E-5" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.PersonalInfo" target="com.example.employeeoffice.entity.Address" relationship="TO_ONE">
+      <point x="-88.50007417211714" y="-57.82519100142531" />
+      <point x="1414.243" y="-198.50799999999998" />
+      <point x="1414.243" y="-377.0" />
+      <point x="1274.743" y="-377.0" />
+      <point x="-14.999949588271875" y="-115.50037803579636" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Events" target="com.example.employeeoffice.entity.Employee" relationship="TO_MANY">
+      <point x="-3.061474675405407E-4" y="-104.49984874146872" />
+      <point x="1036.1970000000001" y="-394.0" />
+      <point x="1271.0" y="-394.0" />
+      <point x="1271.0" y="-479.0" />
+      <point x="467.466" y="-479.0" />
+      <point x="2.1976740549689566E-4" y="-225.4998074252954" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Employee" target="com.example.employeeoffice.entity.Events" relationship="TO_MANY">
+      <point x="127.0" y="80.07464304654513" />
+      <point x="-101.5" y="88.24360173037178" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Department" target="com.example.employeeoffice.entity.Vacanсy" relationship="TO_MANY">
+      <point x="-115.0" y="14.999525321874046" />
+      <point x="1572.4722958265586" y="-337.833" />
+      <point x="0.0" y="-137.5" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Vacanсy" target="com.example.employeeoffice.entity.Department" relationship="TO_ONE">
+      <point x="126.99970417344139" y="4.4600489466972704E-4" />
+      <point x="1716.0" y="-28.507999999999996" />
+      <point x="1716.0" y="-352.833" />
+      <point x="-115.00022663759341" y="-4.7467812595414216E-4" />
+    </edge>
+    <edge source="com.example.employeeoffice.entity.Authority" target="com.example.employeeoffice.entity.Authority" relationship="DEPENDENCY">
+      <point x="0.0" y="60.5" />
+      <point x="-94.588853360791" y="-1.3541675915262772" />
+      <point x="70.9174957758504" y="-1.3541675915262772" />
+      <point x="70.9174957758504" y="-53.91090393126433" />
+      <point x="95.0" y="25.443263660261948" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6272147413182141" showDependencies="true" x="1034.4610169491525" y="-114.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

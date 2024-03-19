@@ -1,0 +1,10 @@
+spring:
+  main:
+    banner-mode: off
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee_office
+    username: root
+    password: Fredom1808
+
+
