@@ -12,30 +12,37 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "vacation")
+@NoArgsConstructor
+@Table(name = "vacations")
 
 public class Vacation {
+
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "vacation_id", columnDefinition = "BINARY(16)")
+    @Column(name = "vac_id")
     private UUID vacId;
-    @Column(name = "vacation_start_date")
+
+    @Column(name = "vac_start_date")
     private LocalDate vacStartDate;
-    @Column(name = "vacation_end_date")
+
+    @Column(name = "vac_end_date")
     private LocalDate vacEndDate;
-    @Column(name = "vacation_type")
+
+    @Column(name = "vac_type")
     private boolean vacType;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "vacation_category")
+    @Column(name = "vac_category")
     private VacationCategory vacCategory;
+
     @ManyToOne
     @JoinColumn(name = "substitution_emp_id")
     private Employee substitutionEmp; //(10) связь между сотрудником, который замещает другого во время отпуска и отпуском
+
     @ManyToOne
-    @JoinColumn(name = "employee_id") // (7) Связь с сущностью Employee
+    @JoinColumn(name = "emp_id") // (7) Связь с сущностью Employee
     private Employee employee;
 
     @Override

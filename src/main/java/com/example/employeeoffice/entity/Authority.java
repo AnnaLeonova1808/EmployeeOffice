@@ -9,26 +9,29 @@ import lombok.Setter;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "authority")
+@NoArgsConstructor
+@Table(name = "authorities")
 
 public class Authority {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "authority_id", columnDefinition = "BINARY(16)")
+    @Column(name = "auth_id")
     private UUID authId;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "authority_name")
+    @Column(name = "auth_name")
     private AuthorityName authName;
+
     @ManyToMany
     @JoinTable(
-            name = "role_authority", // ? какую именно таблицу, промежуточная дополнительная?
-            joinColumns = @JoinColumn(name = "authority_id"),
+            name = "roles_authorities",
+            joinColumns = @JoinColumn(name = "auth_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Roles> roles; //(1) Права могут быть назначены нескольким ролям
+    private Set<Role> roles; //(1) Права могут быть назначены нескольким ролям
 
     @Override
     public boolean equals(Object o) {

@@ -9,33 +9,37 @@ import lombok.Setter;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "department")
+@NoArgsConstructor
+@Table(name = "departments")
+
 public class Department {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "department_id", columnDefinition = "BINARY(16)")
+    @Column(name = "dep_id")
     private UUID depId;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "department_name")
+    @Column(name = "dep_name")
     private DepartmentName depName;
-    @ManyToOne
-    @JoinColumn(name = "department_manager_id")
-    private Employee depManager;  //  ! (11) Связь с руководителем департамента, который кто то из сотрудников и связь сотрудника с руководителем
 
-    @Column(name = "phone_number_departament")
-    private String phoneNumberDepartament;
-    @Column(name = "email_departament")
-    private String emailDepartament;
+    @Column(name = "dep_phone")
+    private String depPhone;
 
-    @OneToMany(mappedBy = "department")
-    private Set<Vacanсy> vacancies; // (5)  в одном отделе может быть несколько вакансий. Связь с вакансиями в отделе
+    @Column(name = "dep_email")
+    private String depEmail;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "departments")
     private Set<Employee> employees; // (4) Связь с сотрудниками отдела
+
+    @OneToMany(mappedBy = "dep_manager_id")
+    private Set<Employee> managerEmployees; // Связь с сотрудниками, которые находятся под управлением этого департамента// (11) Связь с руководителем департамента, который кто то из сотрудников и связь сотрудника с руководителем
+
+    @OneToMany(mappedBy = "departments")
+    private Set<Vacanсy> vacancies; // (5)  в одном отделе может быть несколько вакансий. Связь с вакансиями в отделе
 
     @Override
     public boolean equals(Object o) {
@@ -55,11 +59,11 @@ public class Department {
         return "Department{" +
                 "depId=" + depId +
                 ", depName=" + depName +
-                ", depManager=" + depManager +
-                ", phoneNumberDepartament='" + phoneNumberDepartament + '\'' +
-                ", emailDepartament='" + emailDepartament + '\'' +
-                ", vacancies=" + vacancies +
+                ", depPhone='" + depPhone + '\'' +
+                ", depEmail='" + depEmail + '\'' +
                 ", employees=" + employees +
+                ", managerEmployees=" + managerEmployees +
+                ", vacancies=" + vacancies +
                 '}';
     }
 }

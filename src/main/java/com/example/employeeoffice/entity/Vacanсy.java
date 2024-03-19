@@ -11,34 +11,43 @@ import lombok.Setter;
 
 import java.util.Objects;
 import java.util.UUID;
+
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "vacancy")
+@NoArgsConstructor
+@Table(name = "vacancies")
 
 public class Vacanсy {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "vacancy_id", columnDefinition = "BINARY(16)")
+    @Column(name = "vacancy_id")
     private UUID vacancyId;
+
     @Enumerated(EnumType.STRING)
     @Column(name = " position_title")
     private Position positionTitle;
+
     @Column(name = "vacancy_description")
     private String vacancyDescription;
+
     @Column(name = "vacancy_requirements")
     private String vacancyRequirements;
+
     @Column(name = "vacancy_salary")
     private double vacancySalary;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "workplace_location")
     private WorkPlaceLocation workplaceLocation;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "vacancy_status")
     private VacancyStatus vacancyStatus;
-    @Column(name = "vacancy_contact_information")
-    private String vacancyContactInformation;
+
+    @Column(name = "vacancy_contact_info")
+    private String vacancyContactInfo;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "employment_type")
     private EmploymentType employmentType;
@@ -46,7 +55,6 @@ public class Vacanсy {
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department depName; // (5) Одна вакансия (Vacancy) принадлежит только к одному отделу (Department). Связь с отделом, к которому относится вакансия
-
 
     @Override
     public boolean equals(Object o) {
@@ -71,8 +79,9 @@ public class Vacanсy {
                 ", vacancySalary=" + vacancySalary +
                 ", workplaceLocation=" + workplaceLocation +
                 ", vacancyStatus=" + vacancyStatus +
-                ", vacancyContactInformation='" + vacancyContactInformation + '\'' +
+                ", vacancyContactInfo='" + vacancyContactInfo + '\'' +
                 ", employmentType=" + employmentType +
+                ", depName=" + depName +
                 '}';
     }
 }

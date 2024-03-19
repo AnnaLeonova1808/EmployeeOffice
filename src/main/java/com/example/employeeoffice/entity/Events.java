@@ -12,31 +12,38 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "events")
+
 public class Events {
     @Id
     @GeneratedValue(generator = "UUID")
-    @Column(name = "event_id", columnDefinition = "BINARY(16)")
+    @Column(name = "ev_id")
     private UUID evId;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "event_type")
+    @Column(name = "ev_type")
     private EventType evType;
+
     @Column(name = "start_date_time")
     private LocalDateTime startDateTime;
+
     @Column(name = "location")
     private String location;
+
     @Column(name = "description")
     private String description;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "event_status ")
+    @Column(name = "ev_status ")
     private EventStatus evStatus;
 
     @ManyToMany(mappedBy = "events")
-    private Set<Employee> employee = new HashSet<>();// (9)  Одно событие (Events) может быть связано с несколькими сотрудниками (Employee)
+    private Set<Employee> employees;// (9)  Одно событие (Events) может быть связано с несколькими сотрудниками (Employee)
 
     @Override
     public boolean equals(Object o) {
@@ -60,7 +67,7 @@ public class Events {
                 ", location='" + location + '\'' +
                 ", description='" + description + '\'' +
                 ", evStatus=" + evStatus +
-                ", employee=" + employee +
+                ", employees=" + employees +
                 '}';
     }
 }
