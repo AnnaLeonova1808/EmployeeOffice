@@ -43,7 +43,7 @@ public class WorkSchedule {
     @Column(name = "holiday_date")
     private LocalDate holidayDate;
 
-    @OneToMany(mappedBy = "work_schedule")
+    @OneToMany(mappedBy = "work_schedules")
     private Set<Employee> employees; // (6) Связь с сотрудниками: один график работы может быть связан с несколькими сотрудниками.
 
     @Override
