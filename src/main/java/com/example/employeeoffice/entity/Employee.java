@@ -4,10 +4,12 @@ import com.example.employeeoffice.entity.enums.EmployeeGrade;
 import com.example.employeeoffice.entity.enums.StatusEmployee;
 import com.example.employeeoffice.entity.enums.WorkScheduleName;
 import com.example.employeeoffice.entity.enums.WorkPlaceLocation;
+import com.example.employeeoffice.generator.UuidGenerator;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -24,6 +26,7 @@ import java.util.UUID;
 public class Employee {
     @Id
     @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "uuid", type = UuidGenerator.class)
     @Column(name = "emp_id")
     private UUID empId;
 

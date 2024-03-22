@@ -1,10 +1,12 @@
 package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.RolesName;
+import com.example.employeeoffice.generator.UuidGenerator;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Objects;
 import java.util.Set;
@@ -20,6 +22,7 @@ import java.util.UUID;
 public class Role {
     @Id
     @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "uuid", type = UuidGenerator.class)
     @Column(name = "role_id")
     private UUID roleId;
 

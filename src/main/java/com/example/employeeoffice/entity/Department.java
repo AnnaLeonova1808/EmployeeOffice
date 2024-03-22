@@ -1,10 +1,12 @@
 package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.DepartmentName;
+import com.example.employeeoffice.generator.UuidGenerator;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Objects;
 import java.util.Set;
@@ -19,6 +21,7 @@ import java.util.UUID;
 public class Department {
     @Id
     @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "uuid", type = UuidGenerator.class)
     @Column(name = "dep_id")
     private UUID depId;
 

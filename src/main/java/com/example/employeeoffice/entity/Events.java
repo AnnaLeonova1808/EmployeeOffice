@@ -2,10 +2,12 @@ package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.EventStatus;
 import com.example.employeeoffice.entity.enums.EventType;
+import com.example.employeeoffice.generator.UuidGenerator;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -21,6 +23,7 @@ import java.util.UUID;
 public class Events {
     @Id
     @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "uuid", type = UuidGenerator.class)
     @Column(name = "ev_id")
     private UUID evId;
 

@@ -1,10 +1,12 @@
 package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.VacationCategory;
+import com.example.employeeoffice.generator.UuidGenerator;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -21,6 +23,7 @@ public class Vacation {
 
     @Id
     @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "uuid", type = UuidGenerator.class)
     @Column(name = "vac_id")
     private UUID vacId;
 
