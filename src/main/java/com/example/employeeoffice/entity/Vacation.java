@@ -1,7 +1,7 @@
 package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.VacationCategory;
-import com.example.employeeoffice.generator.UuidGenerator;
+import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -20,10 +19,10 @@ import java.util.UUID;
 @Table(name = "vacations")
 
 public class Vacation {
-
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "uuid", type = UuidGenerator.class)
+    @GenericGenerator(name = "UUID",
+            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
     @Column(name = "vac_id")
     private UUID vacId;
 

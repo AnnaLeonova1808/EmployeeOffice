@@ -5,7 +5,7 @@ import com.example.employeeoffice.entity.enums.Position;
 import com.example.employeeoffice.entity.enums.VacancyStatus;
 import com.example.employeeoffice.entity.enums.WorkPlaceLocation;
 
-import com.example.employeeoffice.generator.UuidGenerator;
+import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -25,7 +25,8 @@ import java.util.UUID;
 public class Vacanсy {
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "uuid", type = UuidGenerator.class)
+    @GenericGenerator(name = "UUID",
+            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
     @Column(name = "vacancy_id")
     private UUID vacancyId;
 

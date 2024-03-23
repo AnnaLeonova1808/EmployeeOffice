@@ -1,6 +1,6 @@
 package com.example.employeeoffice.entity;
 
-import com.example.employeeoffice.generator.UuidGenerator;
+import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +21,8 @@ import java.util.UUID;
 public class PersonalInfo {
     @Id
     @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "uuid", type = UuidGenerator.class)
+    @GenericGenerator(name = "UUID",
+            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
     @Column(name = "pers_info_id")
     private UUID persInfoId;
 
