@@ -19,18 +19,17 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "work_schedules")
-
 public class WorkSchedule {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
-    @Column(name = "schedule_id")
-    private UUID scheduleId;
+            type = UuidTimeSequenceGenerator.class)
+    @Column(name = "sched_id")
+    private UUID schedId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "schedule_name")
-    private WorkScheduleName scheduleName;
+    @Column(name = "sched_name")
+    private WorkScheduleName schedName;
 
     @Column(name = "is_day_off")
     private boolean isDayOff;
@@ -41,13 +40,16 @@ public class WorkSchedule {
     @Column(name = "end_time")
     private LocalTime endTime;
 
+    @Column(name = "holiday")
+    private String holiday;
+
     @Column(name = "holidays_id")
     private UUID holidayId;
 
     @Column(name = "holiday_date")
     private LocalDate holidayDate;
 
-    @OneToMany(mappedBy = "work_schedules")
+    @OneToMany(mappedBy = "workSchedule", fetch = FetchType.LAZY)
     private Set<Employee> employees; // (6) Связь с сотрудниками: один график работы может быть связан с несколькими сотрудниками.
 
     @Override
@@ -55,22 +57,23 @@ public class WorkSchedule {
         if (this == o) return true;
         if (!(o instanceof WorkSchedule)) return false;
         WorkSchedule that = (WorkSchedule) o;
-        return scheduleId.equals(that.scheduleId) && scheduleName == that.scheduleName;
+        return schedId.equals(that.schedId) && schedName == that.schedName;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(scheduleId, scheduleName);
+        return Objects.hash(schedId, schedName);
     }
 
     @Override
     public String toString() {
         return "WorkSchedule{" +
-                "scheduleId=" + scheduleId +
-                ", scheduleName=" + scheduleName +
+                "schedId=" + schedId +
+                ", schedName=" + schedName +
                 ", isDayOff=" + isDayOff +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
+                ", holiday='" + holiday + '\'' +
                 ", holidayId=" + holidayId +
                 ", holidayDate=" + holidayDate +
                 ", employees=" + employees +

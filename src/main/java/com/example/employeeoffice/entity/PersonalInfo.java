@@ -17,18 +17,18 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "personal_info")
-
 public class PersonalInfo {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "pers_info_id")
     private UUID persInfoId;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "emp_id") // (2) у каждого сотрудника может быть только одна личная информация.
-    private Employee empId;
+    private Employee employee;
 
     @Column(name = "birthday")
     private LocalDate birthday;
@@ -42,16 +42,18 @@ public class PersonalInfo {
     @Column(name = "salary")
     private double salary;
 
-    @OneToOne
-    @JoinColumn(name = "home_address_id")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "home_address_id")   // 8)каждый экземпляр PersonalInfo имеет один адрес домашний.
     private Address homeAddress;
 
-    @OneToOne
-    @JoinColumn(name = "office_address_id")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "office_address_id") // 8) каждый экземпляр PersonalInfo имеет один адрес рабочего места.
     private Address officeAddress;
 
-    @ManyToMany
-    @JoinTable(name = "pers_info_roles") // (3) Один пользователь (сотрудник) может иметь несколько ролей
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "pers_info_role",
+            joinColumns = @JoinColumn(name = "pers_info_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))  // (3) Один пользователь (сотрудник) может иметь несколько ролей
     private Set<Role> roles;
 
     @Override
@@ -71,7 +73,7 @@ public class PersonalInfo {
     public String toString() {
         return "PersonalInfo{" +
                 "persInfoId=" + persInfoId +
-                ", empId=" + empId +
+                ", employee=" + employee +
                 ", birthday=" + birthday +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +

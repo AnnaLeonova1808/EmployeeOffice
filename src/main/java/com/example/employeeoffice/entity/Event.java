@@ -19,12 +19,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "events")
-
-public class Events {
+public class Event {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "ev_id")
     private UUID evId;
 
@@ -45,14 +44,14 @@ public class Events {
     @Column(name = "ev_status ")
     private EventStatus evStatus;
 
-    @ManyToMany(mappedBy = "events")
+    @ManyToMany(mappedBy = "events", fetch = FetchType.LAZY)
     private Set<Employee> employees;// (9)  Одно событие (Events) может быть связано с несколькими сотрудниками (Employee)
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Events)) return false;
-        Events events = (Events) o;
+        if (!(o instanceof Event)) return false;
+        Event events = (Event) o;
         return Objects.equals(evId, events.evId) && evType == events.evType;
     }
 

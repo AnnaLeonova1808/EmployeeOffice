@@ -21,12 +21,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "employees")
-
 public class Employee {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "emp_id")
     private UUID empId;
 
@@ -54,11 +53,12 @@ public class Employee {
     @Column(name = "status_emp")
     private StatusEmployee statusEmp;
 
-    @ManyToOne
+    @ManyToOne (cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE},
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_id")
     private Department department; // ! связь с департаментом, 1) для определения руководителя(11) и 2) для определения списка кто входит в департамент из сотрудников(4)
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_manager_id")
     private Employee depManager; // (11)Руководитель сотрудника (или руководитель департамента)
 
@@ -68,30 +68,29 @@ public class Employee {
     @Column(name = "created_at")
     private Timestamp createdAt;
 
-    @OneToOne
-    @JoinColumn(name = "personal_info_id")
-    private PersonalInfo personalInfo; //(2) у каждого сотрудника может быть только одна личная информация
-
-    @OneToMany(mappedBy = "employees")
-    private Set<Address> addresses; // (8) Один сотрудник может иметь несколько адресов (например, домашний и рабочий адрес)
-
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "schedule_id")
     private WorkSchedule workSchedule; // (6) Связь с графиком работы: у сотрудника может быть один график работы,
     // а у одного графика работы может быть несколько сотрудников
 
-    @OneToMany(mappedBy = "employee_id")
+    @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "pers_info_id")
+    private PersonalInfo persInfo; //(2) у каждого сотрудника может быть только одна личная информация
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    private Set<Address> addresses; // (8) Один сотрудник может иметь несколько адресов (например, домашний и рабочий адрес)
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<Vacation> vacations; // (7) один сотрудник может иметь несколько записей об отпусках.
 
-    @OneToMany(mappedBy = "substitution_emp_id")
+    @OneToMany(mappedBy = "substitutionEmp", fetch = FetchType.LAZY)
     private Set<Vacation> substitutedVacations; //(10) связь между сотрудником, который замещает другого во время отпуска и отпуском
 
-    @ManyToMany
-    @JoinTable(
-            name = "events_employee",
-            joinColumns = @JoinColumn(name = "employee_id"),
+    @ManyToMany (fetch = FetchType.LAZY)
+    @JoinTable (name = "events_employee",
+            joinColumns = @JoinColumn(name = "emp_id"),
             inverseJoinColumns = @JoinColumn(name = "event_id"))
-    private Set<Events> events;  // (9)  На разные события (корпоратив, конференция) приглашают несколько сотрудников
+    private Set<Event> events;  // (9)  На разные события (корпоратив, конференция) приглашают несколько сотрудников
 
 
     @Override
@@ -122,9 +121,9 @@ public class Employee {
                 ", depManager=" + depManager +
                 ", vacPlan='" + vacPlan + '\'' +
                 ", createdAt=" + createdAt +
-                ", personalInfo=" + personalInfo +
-                ", addresses=" + addresses +
                 ", workSchedule=" + workSchedule +
+                ", persInfo=" + persInfo +
+                ", addresses=" + addresses +
                 ", vacations=" + vacations +
                 ", substitutedVacations=" + substitutedVacations +
                 ", events=" + events +

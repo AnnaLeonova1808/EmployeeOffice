@@ -17,12 +17,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "departments")
-
 public class Department {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "dep_id")
     private UUID depId;
 
@@ -36,13 +35,14 @@ public class Department {
     @Column(name = "dep_email")
     private String depEmail;
 
-    @OneToMany(mappedBy = "departments")
-    private Set<Employee> employees; // (4) Связь с сотрудниками отдела
-
-    @OneToMany(mappedBy = "dep_manager_id")
+    @OneToMany(mappedBy = "depManager", fetch = FetchType.LAZY)
     private Set<Employee> managerEmployees; // Связь с сотрудниками, которые находятся под управлением этого департамента// (11) Связь с руководителем департамента, который кто то из сотрудников и связь сотрудника с руководителем
 
-    @OneToMany(mappedBy = "departments")
+    @OneToMany(mappedBy = "department",  fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
+    private Set<Employee> employees; // (4) Связь с сотрудниками отдела
+
+    @OneToMany(mappedBy = "depName", fetch = FetchType.LAZY)
     private Set<Vacanсy> vacancies; // (5)  в одном отделе может быть несколько вакансий. Связь с вакансиями в отделе
 
     @Override

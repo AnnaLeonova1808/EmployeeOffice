@@ -16,12 +16,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "addresses")
-
 public class Address {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "address_id")
     private UUID addressId;
 
@@ -44,7 +43,7 @@ public class Address {
     @Column(name = "address_type")
     private AddressType addressType;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "emp_id")
     private Employee employee; // (8) ссылка на сущность Employee, к которому относится данный адрес.
 

@@ -17,12 +17,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "vacations")
-
 public class Vacation {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "vac_id")
     private UUID vacId;
 
@@ -39,11 +38,11 @@ public class Vacation {
     @Column(name = "vac_category")
     private VacationCategory vacCategory;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "substitution_emp_id")
     private Employee substitutionEmp; //(10) связь между сотрудником, который замещает другого во время отпуска и отпуском
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "emp_id") // (7) Связь с сущностью Employee
     private Employee employee;
 

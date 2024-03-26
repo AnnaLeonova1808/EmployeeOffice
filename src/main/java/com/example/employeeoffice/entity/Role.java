@@ -17,13 +17,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "roles")
-
-
 public class Role {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "role_id")
     private UUID roleId;
 
@@ -31,16 +29,18 @@ public class Role {
     @Column(name = "role_name")
     private RolesName roleName;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "role_pers_info",
             joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "personal_info")
-    )
+            inverseJoinColumns = @JoinColumn(name = "pers_info_id"))
     private Set<PersonalInfo> personalInfo; //(3) каждая роль может быть назначена нескольким пользователям
 
-    @ManyToMany(mappedBy = "role")
-    private Set<Authority> auth; //(1) каждая роль может иметь несколько прав
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "role_authority",
+            joinColumns = @JoinColumn(name = "role_id"),
+            inverseJoinColumns = @JoinColumn(name = "auth_id"))
+    private Set<Authority> authorities; //(1) каждая роль может иметь несколько прав
 
     @Override
     public boolean equals(Object o) {
@@ -61,7 +61,7 @@ public class Role {
                 "roleId=" + roleId +
                 ", roleName=" + roleName +
                 ", personalInfo=" + personalInfo +
-                ", auth=" + auth +
+                ", authorities=" + authorities +
                 '}';
     }
 }

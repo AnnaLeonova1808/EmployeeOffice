@@ -21,12 +21,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "vacancies")
-
 public class Vacanсy {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "vacancy_id")
     private UUID vacancyId;
 
@@ -58,7 +57,7 @@ public class Vacanсy {
     @Column(name = "employment_type")
     private EmploymentType employmentType;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "department_id")
     private Department depName; // (5) Одна вакансия (Vacancy) принадлежит только к одному отделу (Department). Связь с отделом, к которому относится вакансия
 

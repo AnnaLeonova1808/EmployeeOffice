@@ -17,44 +17,39 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "authorities")
-
 public class Authority {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
-            strategy = "com.example.employeeOffice.generator.UuidTimeSequenceGenerator")
+            type = UuidTimeSequenceGenerator.class)
     @Column(name = "auth_id")
     private UUID authId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "auth_name")
-    private AuthorityName authName;
+    @Column(name = "authority")
+    private AuthorityName authority;
 
-    @ManyToMany
-    @JoinTable(
-            name = "roles_authorities",
-            joinColumns = @JoinColumn(name = "auth_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @ManyToMany(mappedBy = "authorities", fetch = FetchType.LAZY)
     private Set<Role> roles; //(1) Права могут быть назначены нескольким ролям
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Authority)) return false;
-        Authority authority = (Authority) o;
-        return Objects.equals(authId, authority.authId) && authName == authority.authName;
+        Authority authority1 = (Authority) o;
+        return Objects.equals(authId, authority1.authId) && authority == authority1.authority;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authId, authName);
+        return Objects.hash(authId, authority);
     }
 
     @Override
     public String toString() {
         return "Authority{" +
                 "authId=" + authId +
-                ", authName=" + authName +
+                ", authority=" + authority +
                 ", roles=" + roles +
                 '}';
     }
