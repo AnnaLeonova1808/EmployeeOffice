@@ -53,7 +53,8 @@ public class PersonalInfo {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "pers_info_role",
             joinColumns = @JoinColumn(name = "pers_info_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))  // (3) Один пользователь (сотрудник) может иметь несколько ролей
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    // (3) Один пользователь (сотрудник) может иметь несколько ролей
     private Set<Role> roles;
 
     @Override

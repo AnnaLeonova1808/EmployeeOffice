@@ -38,11 +38,11 @@ public class Vacation {
     @Column(name = "vac_category")
     private VacationCategory vacCategory;
 
-    @ManyToOne (fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "substitution_emp_id")
     private Employee substitutionEmp; //(10) связь между сотрудником, который замещает другого во время отпуска и отпуском
 
-    @ManyToOne (fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "emp_id") // (7) Связь с сущностью Employee
     private Employee employee;
 
