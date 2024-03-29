@@ -25,11 +25,6 @@ public class PersonalInfo {
     @Column(name = "pers_info_id")
     private UUID persInfoId;
 
-    @OneToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    @JoinColumn(name = "emp_id") // (2) у каждого сотрудника может быть только одна личная информация.
-    private Employee employee;
-
     @Column(name = "birthday")
     private LocalDate birthday;
 
@@ -42,6 +37,11 @@ public class PersonalInfo {
     @Column(name = "salary")
     private double salary;
 
+    @OneToOne(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "emp_id") // (2) у каждого сотрудника может быть только одна личная информация.
+    private Employee employee;
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "home_address_id")   // 8)каждый экземпляр PersonalInfo имеет один адрес домашний.
     private Address homeAddress;
@@ -53,8 +53,7 @@ public class PersonalInfo {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "pers_info_role",
             joinColumns = @JoinColumn(name = "pers_info_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    // (3) Один пользователь (сотрудник) может иметь несколько ролей
+            inverseJoinColumns = @JoinColumn(name = "role_id"))// (3) Один пользователь (сотрудник) может иметь несколько ролей
     private Set<Role> roles;
 
     @Override
@@ -74,11 +73,11 @@ public class PersonalInfo {
     public String toString() {
         return "PersonalInfo{" +
                 "persInfoId=" + persInfoId +
-                ", employee=" + employee +
                 ", birthday=" + birthday +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", salary=" + salary +
+                ", employee=" + employee +
                 ", homeAddress=" + homeAddress +
                 ", officeAddress=" + officeAddress +
                 ", roles=" + roles +

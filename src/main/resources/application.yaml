@@ -7,4 +7,10 @@ spring:
     username: root
     password: Fredom1808
 
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
 
+  liquibase:
+    change-log: classpath:/db/changelog-master.xml

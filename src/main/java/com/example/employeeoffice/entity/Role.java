@@ -29,11 +29,7 @@ public class Role {
     @Column(name = "role_name")
     private RolesName roleName;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "role_pers_info",
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "pers_info_id"))
+    @ManyToMany(mappedBy = "roles")
     private Set<PersonalInfo> personalInfo; //(3) каждая роль может быть назначена нескольким пользователям
 
     @ManyToMany(fetch = FetchType.LAZY)
