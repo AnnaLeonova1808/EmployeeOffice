@@ -5,5 +5,6 @@ public enum Position {
     ECONOMIST,
     SALES_MANAGER,
     PROGRAMMER,
+    HR_MANAGER,
     DRIVER;
 }

@@ -43,9 +43,9 @@ public class Address {
     @Column(name = "address_type")
     private AddressType addressType;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "emp_id")
-    private Employee employee; // (8) ссылка на сущность Employee, к которому относится данный адрес.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pers_info_id")
+    private PersonalInfo personalInfo; // (8) ссылка на сущность PersonalInfo, к которому относится данный адрес.
 
     @Override
     public boolean equals(Object o) {
@@ -70,6 +70,7 @@ public class Address {
                 ", houseNumber='" + houseNumber + '\'' +
                 ", apartNumber='" + apartNumber + '\'' +
                 ", addressType=" + addressType +
+                ", personalInfo=" + personalInfo +
                 '}';
     }
 }

@@ -59,14 +59,14 @@ public class Employee {
     @Column(name = "vac_plan")
     private String vacPlan;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE},
-            fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER,
+            cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn(name = "dep_id")
-    private Department department; // ! связь с департаментом, 1) для определения руководителя(11) и 2) для определения списка кто входит в департамент из сотрудников(4)
+    private Department department; // ! связь с департаментом, 1) для определения руководителя(11)
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_manager_id")
-    private Employee depManager; // (11)Руководитель сотрудника (или руководитель департамента)
+    private Employee depManager; // (4) связь между руководителем департамента и сотрудниками, которые находятся под его управлением
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "schedule_id")
@@ -76,9 +76,6 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "pers_info_id")
     private PersonalInfo persInfo; //(2) у каждого сотрудника может быть только одна личная информация
-
-    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
-    private Set<Address> addresses; // (8) Один сотрудник может иметь несколько адресов (например, домашний и рабочий адрес)
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<Vacation> vacations; // (7) один сотрудник может иметь несколько записей об отпусках.
@@ -123,7 +120,6 @@ public class Employee {
                 ", depManager=" + depManager +
                 ", workSchedule=" + workSchedule +
                 ", persInfo=" + persInfo +
-                ", addresses=" + addresses +
                 ", vacations=" + vacations +
                 ", substitutedVacations=" + substitutedVacations +
                 ", events=" + events +

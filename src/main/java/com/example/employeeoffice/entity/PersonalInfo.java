@@ -34,21 +34,18 @@ public class PersonalInfo {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "salary")
     private double salary;
 
-    @OneToOne(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-    @JoinColumn(name = "emp_id") // (2) у каждого сотрудника может быть только одна личная информация.
+    @OneToOne(mappedBy = "personalInfo",
+            cascade = CascadeType.ALL, fetch = FetchType.EAGER)    // (2) у каждого сотрудника может быть только одна личная информация.
     private Employee employee;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "home_address_id")   // 8)каждый экземпляр PersonalInfo имеет один адрес домашний.
-    private Address homeAddress;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "office_address_id") // 8) каждый экземпляр PersonalInfo имеет один адрес рабочего места.
-    private Address officeAddress;
+    @OneToMany(mappedBy = "personalInfo", fetch = FetchType.LAZY) // 8)каждый экземпляр PersonalInfo имеет  не один адрес (рабочий и домашний).
+    private Set<Address> addresses;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "pers_info_role",
@@ -76,10 +73,10 @@ public class PersonalInfo {
                 ", birthday=" + birthday +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", salary=" + salary +
                 ", employee=" + employee +
-                ", homeAddress=" + homeAddress +
-                ", officeAddress=" + officeAddress +
+                ", addresses=" + addresses +
                 ", roles=" + roles +
                 '}';
     }

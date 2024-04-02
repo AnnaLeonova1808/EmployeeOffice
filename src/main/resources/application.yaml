@@ -12,5 +12,16 @@ spring:
     hibernate:
       ddl-auto: none
 
-  liquibase:
-    change-log: classpath:/db/changelog-master.xml
+#  logging:
+#    level:
+#      root: DEBUG
+
+  sql:
+    init:
+      schema-locations:
+        classpath: db/schema.sql
+      data-locations:
+        classpath: db/data.sql
+
+#  liquibase:
+#    change-log: classpath:/db/changelog-master.xml

@@ -35,14 +35,19 @@ public class Department {
     @Column(name = "dep_email")
     private String depEmail;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
+    @JoinColumn(name = "dep_manager_id")
+    private Employee depManager; //  (11) Связь с руководителем департамента, который кто то из сотрудников
+
     @OneToMany(mappedBy = "depManager", fetch = FetchType.LAZY)
-    private Set<Employee> managerEmployees; // Связь с сотрудниками, которые находятся под управлением этого департамента// (11) Связь с руководителем департамента, который кто то из сотрудников и связь сотрудника с руководителем
+    private Set<Employee> managerEmployees; // (4) Связь с сотрудниками, которые находятся под управлением этого департамента//
 
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     private Set<Employee> employees; // (4) Связь с сотрудниками отдела
 
-    @OneToMany(mappedBy = "depName", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     private Set<Vacanсy> vacancies; // (5)  в одном отделе может быть несколько вакансий. Связь с вакансиями в отделе
 
     @Override

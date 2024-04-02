@@ -40,15 +40,6 @@ public class WorkSchedule {
     @Column(name = "end_time")
     private LocalTime endTime;
 
-    @Column(name = "holiday")
-    private String holiday;
-
-    @Column(name = "holidays_id")
-    private UUID holidayId;
-
-    @Column(name = "holiday_date")
-    private LocalDate holidayDate;
-
     @OneToMany(mappedBy = "workSchedule", fetch = FetchType.LAZY)
     private Set<Employee> employees; // (6) Связь с сотрудниками: один график работы может быть связан с несколькими сотрудниками.
 
@@ -73,9 +64,6 @@ public class WorkSchedule {
                 ", isDayOff=" + isDayOff +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
-                ", holiday='" + holiday + '\'' +
-                ", holidayId=" + holidayId +
-                ", holidayDate=" + holidayDate +
                 ", employees=" + employees +
                 '}';
     }

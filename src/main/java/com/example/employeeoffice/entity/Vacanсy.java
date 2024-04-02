@@ -58,7 +58,7 @@ public class Vacanсy {
     private EmploymentType employmentType;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "department_id")
+    @JoinColumn(name = "dep_id")
     private Department depName; // (5) Одна вакансия (Vacancy) принадлежит только к одному отделу (Department). Связь с отделом, к которому относится вакансия
 
     @Override
