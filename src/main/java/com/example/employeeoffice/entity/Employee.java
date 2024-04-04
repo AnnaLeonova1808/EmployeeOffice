@@ -69,7 +69,7 @@ public class Employee {
     private Employee depManager; // (4) связь между руководителем департамента и сотрудниками, которые находятся под его управлением
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "schedule_id")
+    @JoinColumn(name = "sched_id")
     private WorkSchedule workSchedule; // (6) Связь с графиком работы: у сотрудника может быть один график работы,
     // а у одного графика работы может быть несколько сотрудников
 

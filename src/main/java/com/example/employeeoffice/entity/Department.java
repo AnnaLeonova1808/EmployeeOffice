@@ -39,12 +39,14 @@ public class Department {
     @JoinColumn(name = "dep_manager_id")
     private Employee depManager; //  (11) Связь с руководителем департамента, который кто то из сотрудников
 
+    //    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+//    private Set<Employee> managerEmployees; // (4) Связь с сотрудниками, которые находятся под управлением этого департамента//
+//
+//    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
+//            cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
+//    private Set<Employee> employees; // (4) Связь с сотрудниками отдела
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
     private Set<Employee> managerEmployees; // (4) Связь с сотрудниками, которые находятся под управлением этого департамента//
-
-    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
-            cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
-    private Set<Employee> employees; // (4) Связь с сотрудниками отдела
 
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
@@ -70,7 +72,7 @@ public class Department {
                 ", depName=" + depName +
                 ", depPhone='" + depPhone + '\'' +
                 ", depEmail='" + depEmail + '\'' +
-                ", employees=" + employees +
+                ", depManager=" + depManager +
                 ", managerEmployees=" + managerEmployees +
                 ", vacancies=" + vacancies +
                 '}';
