@@ -1,11 +1,11 @@
 DROP TABLE IF EXISTS role_authority;
 DROP TABLE IF EXISTS pers_info_role;
 DROP TABLE IF EXISTS events_employee;
-DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS addresses;
 DROP TABLE IF EXISTS vacations;
 DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS departments;
 DROP TABLE IF EXISTS work_schedules;
 DROP TABLE IF EXISTS personal_info;
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS roles
 CREATE TABLE IF NOT EXISTS authorities
 (
     auth_id   BINARY(16) PRIMARY KEY,
-    authority VARCHAR(60) NOT NULL UNIQUE
+    authority ENUM ('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT')
 );
 
 CREATE TABLE IF NOT EXISTS personal_info
@@ -51,6 +51,26 @@ CREATE TABLE IF NOT EXISTS departments
     dep_email      VARCHAR(60),
     dep_manager_id BINARY(16),
     FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id)
+);
+
+CREATE TABLE IF NOT EXISTS employees
+(
+    emp_id             BINARY(16) PRIMARY KEY,
+    first_name         VARCHAR(50),
+    last_name          VARCHAR(50),
+    emp_grade          VARCHAR(50),
+    hire_date          DATE,
+    term_date          DATE,
+    workplace_location VARCHAR(50),
+    status_emp         VARCHAR(50),
+    created_at         TIMESTAMP,
+    vac_plan           VARCHAR(255),
+    dep_id             BINARY(16) NOT NULL,
+    sched_id           BINARY(16) NOT NULL,
+    pers_info_id       BINARY(16) NOT NULL,
+    FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+    FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+    FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
 );
 
 CREATE TABLE IF NOT EXISTS vacancies
@@ -88,7 +108,7 @@ CREATE TABLE IF NOT EXISTS addresses
     street       VARCHAR(255),
     house_number VARCHAR(20),
     apart_number VARCHAR(20),
-    address_type VARCHAR(20),
+    address_type ENUM ('HOME', 'WORK'),
     pers_info_id BINARY(16) NOT NULL,
     FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
 );
@@ -100,27 +120,6 @@ CREATE TABLE IF NOT EXISTS events
     location        VARCHAR(255),
     description     VARCHAR(255),
     ev_status       VARCHAR(50)
-);
-CREATE TABLE IF NOT EXISTS employees
-(
-    emp_id             BINARY(16) PRIMARY KEY,
-    first_name         VARCHAR(50),
-    last_name          VARCHAR(50),
-    emp_grade          VARCHAR(50),
-    hire_date          DATE,
-    term_date          DATE,
-    workplace_location VARCHAR(50),
-    status_emp         VARCHAR(50),
-    created_at         TIMESTAMP,
-    vac_plan           VARCHAR(255),
-    dep_id             BINARY(16) NOT NULL,
-    dep_manager_id     BINARY(16),
-    sched_id           BINARY(16) NOT NULL,
-    pers_info_id       BINARY(16) NOT NULL,
-    FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
-    FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
-    FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
-    FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
 );
 
 CREATE TABLE IF NOT EXISTS events_employee

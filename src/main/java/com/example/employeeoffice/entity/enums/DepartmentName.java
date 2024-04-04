@@ -4,5 +4,6 @@ public enum DepartmentName {
     IT,
     WAREHOUSE,
     SALES,
-    FINANCE;
+    FINANCE,
+    HR;
 }

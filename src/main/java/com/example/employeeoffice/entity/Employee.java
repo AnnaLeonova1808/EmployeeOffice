@@ -59,14 +59,14 @@ public class Employee {
     @Column(name = "vac_plan")
     private String vacPlan;
 
-    @ManyToOne(fetch = FetchType.EAGER,
+    @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn(name = "dep_id")
     private Department department; // ! связь с департаментом, 1) для определения руководителя(11)
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "dep_manager_id")
-    private Employee depManager; // (4) связь между руководителем департамента и сотрудниками, которые находятся под его управлением
+//    @OneToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "dep_manager_id")
+//    private Employee depManager; // (4) связь между руководителем департамента и сотрудниками, которые находятся под его управлением
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sched_id")
@@ -117,7 +117,6 @@ public class Employee {
                 ", createdAt=" + createdAt +
                 ", vacPlan='" + vacPlan + '\'' +
                 ", department=" + department +
-                ", depManager=" + depManager +
                 ", workSchedule=" + workSchedule +
                 ", persInfo=" + persInfo +
                 ", vacations=" + vacations +
