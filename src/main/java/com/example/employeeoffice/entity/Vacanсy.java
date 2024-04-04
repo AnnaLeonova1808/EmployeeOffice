@@ -59,7 +59,7 @@ public class Vacanсy {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_id")
-    private Department depName; // (5) Одна вакансия (Vacancy) принадлежит только к одному отделу (Department). Связь с отделом, к которому относится вакансия
+    private Department department; // (5) Одна вакансия (Vacancy) принадлежит только к одному отделу (Department). Связь с отделом, к которому относится вакансия
 
     @Override
     public boolean equals(Object o) {
@@ -86,7 +86,7 @@ public class Vacanсy {
                 ", vacancyStatus=" + vacancyStatus +
                 ", vacancyContactInfo='" + vacancyContactInfo + '\'' +
                 ", employmentType=" + employmentType +
-                ", depName=" + depName +
+                ", department=" + department +
                 '}';
     }
 }

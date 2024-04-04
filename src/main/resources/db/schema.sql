@@ -21,7 +21,6 @@ CREATE TABLE IF NOT EXISTS personal_info (
     password VARCHAR(128),
     salary DECIMAL(10, 2),
     FOREIGN KEY (emp_id) REFERENCES employees(emp_id)
-
 );
 
 CREATE TABLE IF NOT EXISTS roles (

@@ -39,7 +39,7 @@ public class Department {
     @JoinColumn(name = "dep_manager_id")
     private Employee depManager; //  (11) Связь с руководителем департамента, который кто то из сотрудников
 
-    @OneToMany(mappedBy = "depManager", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
     private Set<Employee> managerEmployees; // (4) Связь с сотрудниками, которые находятся под управлением этого департамента//
 
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,

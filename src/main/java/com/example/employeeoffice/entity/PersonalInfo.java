@@ -40,8 +40,8 @@ public class PersonalInfo {
     @Column(name = "salary")
     private double salary;
 
-    @OneToOne(mappedBy = "personalInfo",
-            cascade = CascadeType.ALL, fetch = FetchType.EAGER)    // (2) у каждого сотрудника может быть только одна личная информация.
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)    // (2) у каждого сотрудника может быть только одна личная информация.
+    @JoinColumn(name = "emp_id")
     private Employee employee;
 
     @OneToMany(mappedBy = "personalInfo", fetch = FetchType.LAZY) // 8)каждый экземпляр PersonalInfo имеет  не один адрес (рабочий и домашний).
