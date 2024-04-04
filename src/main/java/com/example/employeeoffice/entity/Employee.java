@@ -73,9 +73,9 @@ public class Employee {
     private WorkSchedule workSchedule; // (6) Связь с графиком работы: у сотрудника может быть один график работы,
     // а у одного графика работы может быть несколько сотрудников
 
-    @OneToOne(mappedBy = "employee",
-            cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-   private PersonalInfo persInfo; //(2) у каждого сотрудника может быть только одна личная информация
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "pers_info_id")
+    private PersonalInfo persInfo; //(2) у каждого сотрудника может быть только одна личная информация
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<Vacation> vacations; // (7) один сотрудник может иметь несколько записей об отпусках.
