@@ -1,6 +1,6 @@
 package com.example.employeeoffice.entity;
 
-import com.example.employeeoffice.entity.enums.EmployeeGrade;
+import com.example.employeeoffice.entity.enums.Position;
 import com.example.employeeoffice.entity.enums.StatusEmployee;
 import com.example.employeeoffice.entity.enums.WorkPlaceLocation;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
@@ -36,8 +36,8 @@ public class Employee {
     private String lastName;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "emp_grade")
-    private EmployeeGrade empGrade;
+    @Column(name = "position")
+    private Position position;
 
     @Column(name = "hire_date")
     private LocalDate hireDate;
@@ -64,9 +64,12 @@ public class Employee {
     @JoinColumn(name = "dep_id")
     private Department department; // ! связь с департаментом, 1) для определения руководителя(11)
 
-//    @OneToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "dep_manager_id")
-//    private Employee depManager; // (4) связь между руководителем департамента и сотрудниками, которые находятся под его управлением
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "dep_manager_id")
+    private Employee depManager; // (4) связь между руководителем департамента и сотрудниками, которые находятся под его управлением
+
+    @OneToOne(mappedBy = "depManager")
+    private Department managedDepartment;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sched_id")
@@ -109,7 +112,7 @@ public class Employee {
                 "empId=" + empId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", empGrade=" + empGrade +
+                ", position=" + position +
                 ", hireDate=" + hireDate +
                 ", termDate=" + termDate +
                 ", workPlaceLocation=" + workPlaceLocation +
@@ -117,6 +120,8 @@ public class Employee {
                 ", createdAt=" + createdAt +
                 ", vacPlan='" + vacPlan + '\'' +
                 ", department=" + department +
+                ", depManager=" + depManager +
+                ", managedDepartment=" + managedDepartment +
                 ", workSchedule=" + workSchedule +
                 ", persInfo=" + persInfo +
                 ", vacations=" + vacations +

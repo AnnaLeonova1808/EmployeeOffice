@@ -40,7 +40,7 @@ public class Department {
     private Employee depManager; //  (11) Связь с руководителем департамента, который кто то из сотрудников
 
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
-    private Set<Employee> employees; // Список сотрудников отдела (4) Связь с сотрудниками, которые находятся под управлением этого департамента//
+    private Set<Employee> employees; // Список сотрудников отдела (4) Связь с сотрудниками, которые находятся под управлением этого департамента//у одного департамента может быть много сотрудников, и каждый сотрудник может принадлежать только к одному департаменту.
 
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})

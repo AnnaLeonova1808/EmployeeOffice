@@ -1,6 +1,5 @@
 package com.example.employeeoffice.entity;
 
-import com.example.employeeoffice.entity.enums.EmploymentType;
 import com.example.employeeoffice.entity.enums.Position;
 import com.example.employeeoffice.entity.enums.VacancyStatus;
 import com.example.employeeoffice.entity.enums.WorkPlaceLocation;
@@ -30,8 +29,8 @@ public class Vacanсy {
     private UUID vacancyId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = " position_title")
-    private Position positionTitle;
+    @Column(name = " position")
+    private Position position;
 
     @Column(name = "vacancy_description")
     private String vacancyDescription;
@@ -53,10 +52,6 @@ public class Vacanсy {
     @Column(name = "vacancy_contact_info")
     private String vacancyContactInfo;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "employment_type")
-    private EmploymentType employmentType;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_id")
     private Department department; // (5) Одна вакансия (Vacancy) принадлежит только к одному отделу (Department). Связь с отделом, к которому относится вакансия
@@ -66,26 +61,25 @@ public class Vacanсy {
         if (this == o) return true;
         if (!(o instanceof Vacanсy)) return false;
         Vacanсy vacanсy = (Vacanсy) o;
-        return Objects.equals(vacancyId, vacanсy.vacancyId) && positionTitle == vacanсy.positionTitle;
+        return Objects.equals(vacancyId, vacanсy.vacancyId) && position == vacanсy.position;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vacancyId, positionTitle);
+        return Objects.hash(vacancyId, position);
     }
 
     @Override
     public String toString() {
         return "Vacanсy{" +
                 "vacancyId=" + vacancyId +
-                ", positionTitle=" + positionTitle +
+                ", positionTitle=" + position +
                 ", vacancyDescription='" + vacancyDescription + '\'' +
                 ", vacancyRequirements='" + vacancyRequirements + '\'' +
                 ", vacancySalary=" + vacancySalary +
                 ", workplaceLocation=" + workplaceLocation +
                 ", vacancyStatus=" + vacancyStatus +
                 ", vacancyContactInfo='" + vacancyContactInfo + '\'' +
-                ", employmentType=" + employmentType +
                 ", department=" + department +
                 '}';
     }

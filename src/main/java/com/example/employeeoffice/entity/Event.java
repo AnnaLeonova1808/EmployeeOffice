@@ -1,6 +1,5 @@
 package com.example.employeeoffice.entity;
 
-import com.example.employeeoffice.entity.enums.EventStatus;
 import com.example.employeeoffice.entity.enums.EventType;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import jakarta.persistence.*;
@@ -40,10 +39,6 @@ public class Event {
     @Column(name = "description")
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ev_status ")
-    private EventStatus evStatus;
-
     @ManyToMany(mappedBy = "events", fetch = FetchType.LAZY)
     private Set<Employee> employees;// (9)  Одно событие (Events) может быть связано с несколькими сотрудниками (Employee)
 
@@ -62,13 +57,12 @@ public class Event {
 
     @Override
     public String toString() {
-        return "Events{" +
+        return "Event{" +
                 "evId=" + evId +
                 ", evType=" + evType +
                 ", startDateTime=" + startDateTime +
                 ", location='" + location + '\'' +
                 ", description='" + description + '\'' +
-                ", evStatus=" + evStatus +
                 ", employees=" + employees +
                 '}';
     }
