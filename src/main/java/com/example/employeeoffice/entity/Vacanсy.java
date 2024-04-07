@@ -54,7 +54,7 @@ public class Vacanсy {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_id")
-    private Department department; // (5) Одна вакансия (Vacancy) принадлежит только к одному отделу (Department). Связь с отделом, к которому относится вакансия
+    private Department department; // (5)  в одном отделе может быть несколько вакансий. Связь с отделом, к которому относится вакансия
 
     @Override
     public boolean equals(Object o) {

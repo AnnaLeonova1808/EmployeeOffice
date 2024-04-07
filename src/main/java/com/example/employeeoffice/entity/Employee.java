@@ -62,14 +62,14 @@ public class Employee {
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn(name = "dep_id")
-    private Department department; // ! связь с департаментом, 1) для определения руководителя(11)
+    private Department department; //  связь описывает принадлежность сотрудника к определенному отделу (4), для определения руководителя(11)
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_manager_id")
-    private Employee depManager; // (4) связь между руководителем департамента и сотрудниками, которые находятся под его управлением
+    private Employee depManager; // (11) связь описывает принадлежность сотрудника к руководителю департамента.
 
     @OneToOne(mappedBy = "depManager")
-    private Department managedDepartment;
+    private Department managedDepartment; //связь описывает связь между департаментом и его руководителем.Каждый "Department" ассоциирован с одним экземпляром "Employee", который является руководителем данного департамента.Связь устанавливается через атрибут "depManager" в сущности "Department".
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sched_id")
