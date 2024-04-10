@@ -14,6 +14,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepositoty employeeRepositoty;
     @Override
     public Employee getEmployeeById(UUID id) {
+//       Employee employee = employeeRepositoty.getEmployeeByEmpId(id);
+//       if (employee == null){
+//
+//       }
 
         return employeeRepositoty.getEmployeeByEmpId(id);
     }
