@@ -2,6 +2,7 @@ package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.VacationCategory;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,10 +39,12 @@ public class Vacation {
     @Column(name = "vac_category")
     private VacationCategory vacCategory;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "substitution_emp_id")
     private Employee substitutionEmp; //(10) связь между сотрудником, который замещает другого во время отпуска и отпуском
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "emp_id") // (7) Связь с сущностью Employee
     private Employee employee;

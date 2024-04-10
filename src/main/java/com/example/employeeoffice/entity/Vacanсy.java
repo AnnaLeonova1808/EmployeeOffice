@@ -5,6 +5,7 @@ import com.example.employeeoffice.entity.enums.VacancyStatus;
 import com.example.employeeoffice.entity.enums.WorkPlaceLocation;
 
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -52,6 +53,7 @@ public class Vacanсy {
     @Column(name = "vacancy_contact_info")
     private String vacancyContactInfo;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_id")
     private Department department; // (5)  в одном отделе может быть несколько вакансий. Связь с отделом, к которому относится вакансия

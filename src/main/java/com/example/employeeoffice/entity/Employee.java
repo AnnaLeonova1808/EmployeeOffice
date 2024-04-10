@@ -4,6 +4,7 @@ import com.example.employeeoffice.entity.enums.Position;
 import com.example.employeeoffice.entity.enums.StatusEmployee;
 import com.example.employeeoffice.entity.enums.WorkPlaceLocation;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -59,37 +60,44 @@ public class Employee {
     @Column(name = "vac_plan")
     private String vacPlan;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn(name = "dep_id")
     private Department department; //  связь описывает принадлежность сотрудника к определенному отделу (4), для определения руководителя(11)
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dep_manager_id")
     private Employee depManager; // (11) связь описывает принадлежность сотрудника к руководителю департамента.
 
+    @JsonIgnore
     @OneToOne(mappedBy = "depManager")
     private Department managedDepartment; //связь описывает связь между департаментом и его руководителем.Каждый "Department" ассоциирован с одним экземпляром "Employee", который является руководителем данного департамента.Связь устанавливается через атрибут "depManager" в сущности "Department".
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sched_id")
     private WorkSchedule workSchedule; // (6) Связь с графиком работы: у сотрудника может быть один график работы,
     // а у одного графика работы может быть несколько сотрудников
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "pers_info_id")
     private PersonalInfo persInfo; //(2) у каждого сотрудника может быть только одна личная информация
 
+    @JsonIgnore
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<Vacation> vacations; // (7) один сотрудник может иметь несколько записей об отпусках.
 
+    @JsonIgnore
     @OneToMany(mappedBy = "substitutionEmp", fetch = FetchType.LAZY)
     private Set<Vacation> substitutedVacations; //(10) связь между сотрудником, который замещает другого во время отпуска и отпуском
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "events_employee",
             joinColumns = @JoinColumn(name = "emp_id"),
-            inverseJoinColumns = @JoinColumn(name = "event_id"))
+            inverseJoinColumns = @JoinColumn(name = "ev_id"))
     private Set<Event> events;  // (9)  На разные события (корпоратив, конференция) приглашают несколько сотрудников
 
 

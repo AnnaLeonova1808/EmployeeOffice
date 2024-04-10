@@ -43,7 +43,7 @@ public class Address {
     @Column(name = "address_type")
     private AddressType addressType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pers_info_id")
     private PersonalInfo personalInfo; // (8) ссылка на сущность PersonalInfo, к которому относится данный адрес.
 
