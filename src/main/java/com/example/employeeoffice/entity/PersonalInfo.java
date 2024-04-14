@@ -1,6 +1,8 @@
 package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,18 +42,22 @@ public class PersonalInfo {
     @Column(name = "salary")
     private double salary;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "persInfo",
-            cascade = CascadeType.ALL, fetch = FetchType.EAGER)    // (2) у каждого сотрудника может быть только одна личная информация.
+            cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    // (2) у каждого сотрудника может быть только одна личная информация.
     @JoinColumn(name = "emp_id")
     private Employee employee;
-
-    @OneToMany(mappedBy = "personalInfo", fetch = FetchType.LAZY) // 8)каждый экземпляр PersonalInfo имеет  не один адрес (рабочий и домашний).
+    @JsonIgnore
+    @OneToMany(mappedBy = "personalInfo", fetch = FetchType.LAZY)
+    // 8)каждый экземпляр PersonalInfo имеет  не один адрес (рабочий и домашний).
     private Set<Address> addresses;
-
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "pers_info_role",
             joinColumns = @JoinColumn(name = "pers_info_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))// (3) Один пользователь (сотрудник) может иметь несколько ролей
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+// (3) Один пользователь (сотрудник) может иметь несколько ролей
     private Set<Role> roles;
 
     @Override

@@ -81,7 +81,7 @@ public class Employee {
     private WorkSchedule workSchedule; // (6) Связь с графиком работы: у сотрудника может быть один график работы,
     // а у одного графика работы может быть несколько сотрудников
 
-    @JsonIgnore
+    //@JsonIgnore
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "pers_info_id")
     private PersonalInfo persInfo; //(2) у каждого сотрудника может быть только одна личная информация

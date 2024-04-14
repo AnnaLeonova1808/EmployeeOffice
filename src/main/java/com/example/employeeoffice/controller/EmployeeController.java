@@ -1,12 +1,9 @@
 package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.entity.Employee;
-import com.example.employeeoffice.service.EmployeeService;
+import com.example.employeeoffice.service.interf.EmployeeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -16,8 +13,25 @@ import java.util.UUID;
 public class EmployeeController {
     private final EmployeeService employeeService;
 
-    @GetMapping("/get/{id}")
-    public Employee getEmployeeById(@PathVariable("id") UUID id) {
-        return employeeService.getEmployeeById(id);
+    @GetMapping("/get/{empId}")
+    public Employee getEmployeeById(@PathVariable(name = "empId") UUID empId) {
+        return employeeService.getEmployeeById(empId);
     }
+
+//    @PutMapping("/create_employee/{name}")
+//    public String createEmployee(@PathVariable("name") String name) {
+//        return employeeService.createEmployee(name);
+//    }
+//
+//    @PutMapping("/update_employee/{newEmployee}")
+//    public Employee createEmployee(@PathVariable("employee") Employee employee, @PathVariable("newEmployee") Employee newEmployee) {
+//        return employeeService.updateEmployee(employee, newEmployee);
+//    }
+//
+//    @PutMapping("//{empId}")
+//    public Employee deleteEmployee(@PathVariable("empId") UUID id) {
+//        return employeeService.deleteEmployee(empId);
+//    }
+
+
 }
