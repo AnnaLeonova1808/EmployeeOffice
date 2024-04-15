@@ -8,6 +8,4 @@ import java.util.UUID;
 public interface EmployeeRepository extends JpaRepository<Employee, UUID> {
     Employee getEmployeeByEmpId(UUID empId);
 
-//    UUID findAllById(String name);
-//    //Employee createEmployee(Employee employee);
 }

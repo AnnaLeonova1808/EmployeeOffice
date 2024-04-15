@@ -18,20 +18,4 @@ public class EmployeeController {
         return employeeService.getEmployeeById(empId);
     }
 
-//    @PutMapping("/create_employee/{name}")
-//   public String createEmployee(@PathVariable("name") String name) {
-//        return employeeService.createEmployee(name);
-//    }
-//
-//    @PutMapping("/update_employee/{newEmployee}")
-//    public Employee createEmployee(@PathVariable("employee") Employee employee, @PathVariable("newEmployee") Employee newEmployee) {
-//        return employeeService.updateEmployee(employee, newEmployee);
-//    }
-//
-//    @PutMapping("//{empId}")
-//    public Employee deleteEmployee(@PathVariable("empId") UUID id) {
-//        return employeeService.deleteEmployee(empId);
-//    }
-
-
 }

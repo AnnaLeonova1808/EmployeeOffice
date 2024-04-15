@@ -14,35 +14,14 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
+
     @Override
     public Employee getEmployeeById(UUID empId) {
-       Employee employee = employeeRepository.getEmployeeByEmpId(empId);
-       if (employee == null){
-           throw new EmployeeNotExistException(ErrorMessage.EMPLOYEE_NOT_EXIST);
+        Employee employee = employeeRepository.getEmployeeByEmpId(empId);
+        if (employee == null) {
+            throw new EmployeeNotExistException(ErrorMessage.EMPLOYEE_NOT_EXIST);
 
-       }
-
+        }
         return employeeRepository.getEmployeeByEmpId(empId);
     }
-
-//    @Transactional
-//    public String createEmployee(String name) {
-//        Employee employee = new Employee();
-//        employee.setFirstName(name);
-//        employee.setDepartment(new Department());
-//
-//        employeeRepository.saveAndFlush(employee);
-//        UUID result = employeeRepository.findAllById(name);
-//        return String.valueOf(result);
-//    }
-//
-//    @Override
-//    public Employee updateEmployee(Employee employee, Employee newEmployee) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Employee deleteEmployee(UUID id) {
-//        return null;
-//    }
 }
