@@ -1,7 +1,7 @@
 package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.entity.Employee;
-import com.example.employeeoffice.service.interf.EmployeeService;
+import com.example.employeeoffice.service.interfaces.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +19,7 @@ public class EmployeeController {
     }
 
 //    @PutMapping("/create_employee/{name}")
-//    public String createEmployee(@PathVariable("name") String name) {
+//   public String createEmployee(@PathVariable("name") String name) {
 //        return employeeService.createEmployee(name);
 //    }
 //

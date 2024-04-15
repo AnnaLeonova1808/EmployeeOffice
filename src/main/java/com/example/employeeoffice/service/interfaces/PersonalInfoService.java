@@ -1,4 +1,4 @@
-package com.example.employeeoffice.service.interf;
+package com.example.employeeoffice.service.interfaces;
 
 import com.example.employeeoffice.entity.PersonalInfo;
 
@@ -6,4 +6,6 @@ import java.util.UUID;
 
 public interface PersonalInfoService {
     PersonalInfo getPersonalInfoById(UUID persInfoId);
+
+    void deletePersonalInfoById(UUID persInfoId);
 }

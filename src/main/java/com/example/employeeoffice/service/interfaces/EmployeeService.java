@@ -1,4 +1,4 @@
-package com.example.employeeoffice.service.interf;
+package com.example.employeeoffice.service.interfaces;
 
 import com.example.employeeoffice.entity.Employee;
 

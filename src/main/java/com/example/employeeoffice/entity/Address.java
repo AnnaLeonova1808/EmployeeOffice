@@ -2,6 +2,7 @@ package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.AddressType;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,7 +44,8 @@ public class Address {
     @Column(name = "address_type")
     private AddressType addressType;
 
-        @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pers_info_id")
     private PersonalInfo personalInfo; // (8) ссылка на сущность PersonalInfo, к которому относится данный адрес.
 

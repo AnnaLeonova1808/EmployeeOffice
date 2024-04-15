@@ -4,7 +4,7 @@ import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.exception.ErrorMessage;
 import com.example.employeeoffice.exception.PersonalInfoNotExistException;
 import com.example.employeeoffice.repositiry.PersonalInfoRepository;
-import com.example.employeeoffice.service.interf.PersonalInfoService;
+import com.example.employeeoffice.service.interfaces.PersonalInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +23,15 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
             throw new PersonalInfoNotExistException(ErrorMessage.PERSONAL_INFO_NOT_EXIST);
         }
         return personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
+    }
+
+    @Override
+    public void deletePersonalInfoById(UUID persInfoId) {
+        PersonalInfo personalInfo = personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
+        if (personalInfo == null) {
+            throw new PersonalInfoNotExistException(ErrorMessage.PERSONAL_INFO_NOT_EXIST);
+        }
+        personalInfoRepository.deleteById(persInfoId);
     }
 }
 

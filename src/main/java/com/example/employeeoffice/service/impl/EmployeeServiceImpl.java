@@ -4,7 +4,7 @@ import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.exception.EmployeeNotExistException;
 import com.example.employeeoffice.exception.ErrorMessage;
 import com.example.employeeoffice.repositiry.EmployeeRepository;
-import com.example.employeeoffice.service.interf.EmployeeService;
+import com.example.employeeoffice.service.interfaces.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +31,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 //        employee.setFirstName(name);
 //        employee.setDepartment(new Department());
 //
-//        employeeRepositoty.saveAndFlush(employee);
-//        UUID result = employeeRepositoty.findAllById(name);
+//        employeeRepository.saveAndFlush(employee);
+//        UUID result = employeeRepository.findAllById(name);
 //        return String.valueOf(result);
 //    }
 //

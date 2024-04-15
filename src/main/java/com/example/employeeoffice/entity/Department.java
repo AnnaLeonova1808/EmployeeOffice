@@ -2,6 +2,7 @@ package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.DepartmentName;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,10 +36,12 @@ public class Department {
     @Column(name = "dep_email")
     private String depEmail;
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn(name = "dep_manager_id")
     private Employee depManager; //  Связь с руководителем департамента, который кто то из сотрудников
 
+    @JsonIgnore
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
     private Set<Employee> employees; // Список сотрудников отдела (11) Связь с сотрудниками, которые находятся под управлением этого департамента//(4) у одного департамента может быть много сотрудников, и каждый сотрудник может принадлежать только к одному департаменту.
 
