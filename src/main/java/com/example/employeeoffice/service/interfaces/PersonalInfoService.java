@@ -7,5 +7,9 @@ import java.util.UUID;
 public interface PersonalInfoService {
     PersonalInfo getPersonalInfoById(UUID persInfoId);
 
-    void deletePersonalInfoById(UUID persInfoId);
+    PersonalInfo updatePersonalInfoById(UUID persInfoId, PersonalInfo personalInfo);
+
+
+
+    //void deletePersonalInfoById(UUID persInfoId);
 }

@@ -62,7 +62,7 @@ public class Employee {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY,
-            cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
+            cascade = CascadeType.ALL)
     @JoinColumn(name = "dep_id")
     private Department department; //  связь описывает принадлежность сотрудника к определенному отделу (4), для определения руководителя(11)
 
@@ -81,8 +81,7 @@ public class Employee {
     private WorkSchedule workSchedule; // (6) Связь с графиком работы: у сотрудника может быть один график работы,
     // а у одного графика работы может быть несколько сотрудников
 
-    //@JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     @JoinColumn(name = "pers_info_id")
     private PersonalInfo persInfo; //(2) у каждого сотрудника может быть только одна личная информация
 

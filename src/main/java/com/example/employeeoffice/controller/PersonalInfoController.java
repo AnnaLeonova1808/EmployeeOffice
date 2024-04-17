@@ -3,10 +3,7 @@ package com.example.employeeoffice.controller;
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -21,10 +18,15 @@ public class PersonalInfoController {
         return personalInfoService.getPersonalInfoById(persInfoId);
     }
 
-
-    @GetMapping("/delete_PersInfo/{persInfoId}")
-    public void deletePersonalInfoById(@PathVariable(name = "persInfoId") UUID persInfoId) {
-       personalInfoService.deletePersonalInfoById(persInfoId);
+    @PutMapping("/update_persInfo/{persInfoId}")
+    public PersonalInfo updatePersonalInfoById(@PathVariable UUID persInfoId, @RequestBody PersonalInfo personalInfo) {
+        return personalInfoService.updatePersonalInfoById(persInfoId, personalInfo);
     }
+
+
+//    @GetMapping("/delete_PersInfo/{persInfoId}")
+//    public void deletePersonalInfoById(@PathVariable(name = "persInfoId") UUID persInfoId) {
+//       personalInfoService.deletePersonalInfoById(persInfoId);
+//    }
 
 }

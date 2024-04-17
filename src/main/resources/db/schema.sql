@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS vacancies
     vacancy_status       ENUM ('ACTIVE', 'CLOSE'),
     vacancy_contact_info VARCHAR(255),
     dep_id               BINARY(16) NOT NULL,
-    FOREIGN KEY (dep_id) REFERENCES departments (dep_id)
+    FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS vacations
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS vacations
     substitution_emp_id BINARY(16) NOT NULL,
     emp_id              BINARY(16) NOT NULL,
     FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
-    FOREIGN KEY (emp_id) REFERENCES employees (emp_id)
+    FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
 );
 CREATE TABLE IF NOT EXISTS addresses
 (
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS addresses
 CREATE TABLE IF NOT EXISTS events
 (
     ev_id           BINARY(16) PRIMARY KEY,
-    ev_type         ENUM ('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY') NOT NULL,
+    ev_type         ENUM ('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
     start_date_time TIMESTAMP,
     location        VARCHAR(255),
     description     VARCHAR(255)

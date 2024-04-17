@@ -44,12 +44,12 @@ public class PersonalInfo {
 
     @JsonIgnore
     @OneToOne(mappedBy = "persInfo",
-            cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+            cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     // (2) у каждого сотрудника может быть только одна личная информация.
     @JoinColumn(name = "emp_id")
     private Employee employee;
     //@JsonIgnore
-    @OneToMany(mappedBy = "personalInfo", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "personalInfo", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     // 8)каждый экземпляр PersonalInfo имеет  не один адрес (рабочий и домашний).
     private Set<Address> addresses;
     @JsonIgnore
@@ -57,7 +57,7 @@ public class PersonalInfo {
     @JoinTable(name = "pers_info_role",
             joinColumns = @JoinColumn(name = "pers_info_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-// (3) Один пользователь (сотрудник) может иметь несколько ролей
+    // (3) Один пользователь (сотрудник) может иметь несколько ролей
     private Set<Role> roles;
 
     @Override

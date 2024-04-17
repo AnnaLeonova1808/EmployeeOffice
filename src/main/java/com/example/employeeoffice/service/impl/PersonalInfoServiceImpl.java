@@ -3,8 +3,9 @@ package com.example.employeeoffice.service.impl;
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.exception.ErrorMessage;
 import com.example.employeeoffice.exception.PersonalInfoNotExistException;
-import com.example.employeeoffice.repositiry.PersonalInfoRepository;
+import com.example.employeeoffice.repository.PersonalInfoRepository;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,17 +23,35 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         if (personalInfo == null) {
             throw new PersonalInfoNotExistException(ErrorMessage.PERSONAL_INFO_NOT_EXIST);
         }
-        return personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
+        return personalInfo;
     }
 
     @Override
-    public void deletePersonalInfoById(UUID persInfoId) {
-        PersonalInfo personalInfo = personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
-        if (personalInfo == null) {
+    @Transactional
+    public PersonalInfo updatePersonalInfoById(UUID persInfoId, PersonalInfo personalInfo) {
+        PersonalInfo updatePersonalInfo = personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
+        if (updatePersonalInfo == null) {
             throw new PersonalInfoNotExistException(ErrorMessage.PERSONAL_INFO_NOT_EXIST);
         }
-        personalInfoRepository.deleteById(persInfoId);
-    }
+
+        updatePersonalInfo.setBirthday(personalInfo.getBirthday());
+        updatePersonalInfo.setPhoneNumber(personalInfo.getPhoneNumber());
+        updatePersonalInfo.setEmail(personalInfo.getEmail());
+        updatePersonalInfo.setPassword(personalInfo.getPassword());
+        updatePersonalInfo.setSalary(personalInfo.getSalary());
+
+        return updatePersonalInfo;
+        }
+
+
+//    @Override
+//    public void deletePersonalInfoById(UUID persInfoId) {
+//        PersonalInfo personalInfo = personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
+//        if (personalInfo == null) {
+//            throw new PersonalInfoNotExistException(ErrorMessage.PERSONAL_INFO_NOT_EXIST);
+//        }
+//        personalInfoRepository.deleteById(persInfoId);
+//    }
 }
 
 

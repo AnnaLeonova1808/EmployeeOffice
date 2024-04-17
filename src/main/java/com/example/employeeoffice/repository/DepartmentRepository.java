@@ -1,4 +1,4 @@
-package com.example.employeeoffice.repositiry;
+package com.example.employeeoffice.repository;
 
 import com.example.employeeoffice.entity.Department;
 import com.example.employeeoffice.entity.enums.DepartmentName;

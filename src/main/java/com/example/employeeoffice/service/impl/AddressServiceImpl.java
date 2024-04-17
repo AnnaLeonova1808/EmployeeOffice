@@ -1,11 +1,9 @@
 package com.example.employeeoffice.service.impl;
 
 import com.example.employeeoffice.entity.Address;
-import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.exception.AddressNotExistException;
-import com.example.employeeoffice.exception.EmployeeNotExistException;
 import com.example.employeeoffice.exception.ErrorMessage;
-import com.example.employeeoffice.repositiry.AddressRepository;
+import com.example.employeeoffice.repository.AddressRepository;
 import com.example.employeeoffice.service.interfaces.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

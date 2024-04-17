@@ -6,4 +6,6 @@ import java.util.UUID;
 
 public interface EmployeeService {
     Employee getEmployeeById(UUID empId);
+
+    String deleteEmployeeById(UUID empId);
 }

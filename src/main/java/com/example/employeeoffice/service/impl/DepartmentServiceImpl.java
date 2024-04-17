@@ -4,7 +4,7 @@ import com.example.employeeoffice.entity.Department;
 import com.example.employeeoffice.entity.enums.DepartmentName;
 import com.example.employeeoffice.exception.DepartmentNotFoundException;
 import com.example.employeeoffice.exception.ErrorMessage;
-import com.example.employeeoffice.repositiry.DepartmentRepository;
+import com.example.employeeoffice.repository.DepartmentRepository;
 import com.example.employeeoffice.service.interfaces.DepartmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
