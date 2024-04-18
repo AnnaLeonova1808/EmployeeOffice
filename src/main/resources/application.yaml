@@ -11,11 +11,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
-
-  logging:
-    level:
-      root: DEBUG
-
   sql:
     init:
       schema-locations:
@@ -23,6 +18,11 @@ spring:
       data-locations:
         classpath:db/data.sql
       mode: always
+#logging:
+#  level:
+#    root: WARN
+
+
 
 #  liquibase:
 #    change-log: classpath:/db/changelog-master.xml

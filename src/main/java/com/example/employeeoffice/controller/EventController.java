@@ -1,5 +1,4 @@
 package com.example.employeeoffice.controller;
-
 import com.example.employeeoffice.entity.Event;
 import com.example.employeeoffice.service.interfaces.EventService;
 import lombok.RequiredArgsConstructor;
@@ -18,4 +17,6 @@ public class EventController {
     public Event createEvent(@RequestBody Event event){
         return eventService.createEvent(event);
     }
+
+
 }

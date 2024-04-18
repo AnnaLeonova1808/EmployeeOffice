@@ -77,7 +77,6 @@ VALUES
     (UUID_TO_BIN('53fb4d7f-1f5c-44ae-bf0b-1087275c04dc'), 'Germany', 'Cologne', 'Königsallee', '1010', 'Büro 401', 'WORK', UUID_TO_BIN('1f486486-97dc-4f50-8fb1-cd87d5dd37e1')),
     (UUID_TO_BIN('3c1ed47c-e835-4096-a7e0-73c765b44a64'), 'Germany', 'Frankfurt', 'Bahnhofstraße', '222', 'Wohnung 102', 'HOME', UUID_TO_BIN('b514d190-b72f-4dd5-948c-d871c3cc1d0b'));
 
-
 -- Вставка данных о событиях компании в таблицу "events"
 INSERT INTO events (ev_id, ev_type, start_date_time, location, description)
 VALUES

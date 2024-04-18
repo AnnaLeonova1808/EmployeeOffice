@@ -30,7 +30,7 @@ public class Vacanсy {
     private UUID vacancyId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = " position")
+    @Column(name = "position")
     private Position position;
 
     @Column(name = "vacancy_description")

@@ -23,10 +23,4 @@ public class PersonalInfoController {
         return personalInfoService.updatePersonalInfoById(persInfoId, personalInfo);
     }
 
-
-//    @GetMapping("/delete_PersInfo/{persInfoId}")
-//    public void deletePersonalInfoById(@PathVariable(name = "persInfoId") UUID persInfoId) {
-//       personalInfoService.deletePersonalInfoById(persInfoId);
-//    }
-
 }

@@ -8,5 +8,7 @@ public class ErrorMessage {
     public static final String DEPARTMENT_NOT_EXIST = "DEPARTMENT_NOT_EXIST";
     public static final String VACANCY_NOT_EXIST = "VACANCY_NOT_EXIST";
 
+    public static final String VACANCY_ALREADY_EXIST = "VACANCY_ALREADY_EXIST";
+
     public static final String EVENT_NOT_EXIST = "EVENT_NOT_EXIST";
 }
