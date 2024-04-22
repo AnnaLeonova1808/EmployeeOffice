@@ -8,7 +8,4 @@ import java.util.UUID;
 
 public interface EmployeeRepository extends JpaRepository<Employee, UUID> {
     Employee getEmployeeByEmpId(UUID empId);
-    //Optional<Employee> findById(UUID empId);
-    //void deleteById(UUID empId);
-
 }

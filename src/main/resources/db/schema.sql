@@ -28,11 +28,11 @@ CREATE TABLE IF NOT EXISTS authorities
 CREATE TABLE IF NOT EXISTS personal_info
 (
     pers_info_id BINARY(16) PRIMARY KEY,
-    emp_id       BINARY(16)     NOT NULL,
+    username     VARCHAR(50) NOT NULL,
     birthday     DATE,
-    phone_number VARCHAR(20)    UNIQUE,
-    email        VARCHAR(60)    UNIQUE,
-    password     VARCHAR(128)   NOT NULL,
+    phone_number VARCHAR(20) UNIQUE,
+    email        VARCHAR(60) UNIQUE,
+    password     VARCHAR(128) NOT NULL,
     salary       DECIMAL(10, 2) NOT NULL
 );
 

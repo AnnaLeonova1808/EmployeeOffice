@@ -4,11 +4,13 @@ import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.management.relation.Relation;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
@@ -18,6 +20,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "personal_info")
 public class PersonalInfo {
     @Id
@@ -26,6 +29,9 @@ public class PersonalInfo {
             type = UuidTimeSequenceGenerator.class)
     @Column(name = "pers_info_id")
     private UUID persInfoId;
+
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "birthday")
     private LocalDate birthday;
@@ -42,13 +48,6 @@ public class PersonalInfo {
     @Column(name = "salary")
     private double salary;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "persInfo",
-            cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
-    // (2) у каждого сотрудника может быть только одна личная информация.
-    @JoinColumn(name = "emp_id")
-    private Employee employee;
-    //@JsonIgnore
     @OneToMany(mappedBy = "personalInfo", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     // 8)каждый экземпляр PersonalInfo имеет  не один адрес (рабочий и домашний).
     private Set<Address> addresses;
@@ -77,12 +76,12 @@ public class PersonalInfo {
     public String toString() {
         return "PersonalInfo{" +
                 "persInfoId=" + persInfoId +
+                ", username='" + username + '\'' +
                 ", birthday=" + birthday +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", salary=" + salary +
-                ", employee=" + employee +
                 ", addresses=" + addresses +
                 ", roles=" + roles +
                 '}';

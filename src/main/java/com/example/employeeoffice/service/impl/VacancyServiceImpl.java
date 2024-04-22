@@ -28,20 +28,22 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     @Transactional
-    public void deleteVacancyById(UUID vacancyId) {
+    public String deleteVacancyById(UUID vacancyId) {
         Vacanсy vacancy = vacancyRepository.findById(vacancyId).orElse(null);
         if (vacancy == null) {
             throw new VacancyNotFoundExeption(ErrorMessage.VACANCY_NOT_EXIST);
         }
 
         vacancyRepository.deleteVacancyByVacancyId(vacancyId);
+        return "Vacancy with this ID was deleted SUCCESSFULLY";
     }
 
     @Override
     public VacancyAfterCreationDto createVacancy(VacancyCreateDto vacancyCreateDto) {
-        Vacanсy vacanсy = vacancyRepository.findByVacancyDescription(vacancyCreateDto.getVacancyDescription());
-        if (vacanсy == null){
+        Vacanсy vacancy = vacancyRepository.findByVacancyDescription(vacancyCreateDto.getVacancyDescription());
+        if (vacancy != null) {
             throw new VacancyAlreadyExistsException(ErrorMessage.VACANCY_ALREADY_EXIST);
+
         }
         String depName = vacancyCreateDto.getDepName();
         DepartmentName departmentName = DepartmentName.valueOf(depName.toUpperCase());

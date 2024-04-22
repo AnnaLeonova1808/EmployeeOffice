@@ -11,4 +11,5 @@ public class ErrorMessage {
     public static final String VACANCY_ALREADY_EXIST = "VACANCY_ALREADY_EXIST";
 
     public static final String EVENT_NOT_EXIST = "EVENT_NOT_EXIST";
+    public static final String PERSONAL_INFO_ALREADY_EXIST = "PERSONAL_INFO_ALREADY_EXIST";
 }

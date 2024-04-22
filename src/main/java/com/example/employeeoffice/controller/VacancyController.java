@@ -4,6 +4,7 @@ import com.example.employeeoffice.dto.VacancyAfterCreationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.service.interfaces.VacancyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -15,9 +16,10 @@ public class VacancyController {
     private final VacancyService vacancyService;
 
     @DeleteMapping("/delete_vacancy/{vacancyId}")
-    public void deleteVacancyById(@PathVariable UUID vacancyId) {
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteVacancyById(@PathVariable UUID vacancyId) {
 
-        vacancyService.deleteVacancyById(vacancyId);
+        return vacancyService.deleteVacancyById(vacancyId);
     }
     @PostMapping("/create_vacancy")
     public VacancyAfterCreationDto creteVacancy(@RequestBody VacancyCreateDto vacancyCreateDto){

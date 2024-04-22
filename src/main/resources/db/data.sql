@@ -17,13 +17,13 @@ VALUES
     (UUID_TO_BIN('a1a62aae-38fa-4900-b392-c2ce5afbb5da'), 'DELETE_DOCUMENT');
 
 -- Вставка персональных данных в таблицу "personal_info"
-INSERT INTO personal_info (pers_info_id, emp_id, birthday, phone_number, email, password, salary)
+INSERT INTO personal_info (pers_info_id, username, birthday, phone_number, email, password, salary)
 VALUES
-    (UUID_TO_BIN('caee169a-b588-4575-8cfd-4b9c2e711cbe'), UUID_TO_BIN('7270910c-cc71-4634-97a0-a242eb5b6064'), '1992-06-30', '111-222-333', 'michael@example.com', 'd2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b5', 55000.00),
-    (UUID_TO_BIN('7a3cc0fb-6d9e-453a-b329-29796e1b3045'), UUID_TO_BIN('dfb0689f-5f69-4825-a154-33c897fa1b38'), '1987-09-25', '444-555-666', 'emily@example.com', '8dce5f0012304c06d98cfb0cd11bc7eaaafaf32c4da26df424bcdd59ccfe0a5d', 65000.00),
-    (UUID_TO_BIN('2ba57f16-7ac3-4007-97d5-9d6d6f246e95'), UUID_TO_BIN('55035fe9-37e3-466f-ba4a-197f23fc5700'), '1980-12-10', '777-888-999', 'daniel@example.com', '15acd26889bccf5865c22aa472ec069cf0a31512f9a53dadc0bc8f2aea3f84cd', 75000.00),
-    (UUID_TO_BIN('1f486486-97dc-4f50-8fb1-cd87d5dd37e1'), UUID_TO_BIN('cd8edecd-0d27-4228-8fe6-911c1cf7fd7c'), '1995-04-05', '123-456-789', 'olivia@example.com', 'c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99', 45000.00),
-    (UUID_TO_BIN('b514d190-b72f-4dd5-948c-d871c3cc1d0b'), UUID_TO_BIN('7881bf3e-73a9-47da-8bae-e2e253a30ddd'), '1990-10-20', '987-654-321', 'william@example.com', '37c60d066e0fc140a4751f274112a25d5b263f4f0dec1e6c555ee2178387b1c8', 60000.00);
+    (UUID_TO_BIN('caee169a-b588-4575-8cfd-4b9c2e711cbe'), 'michael', '1992-06-30', '111-222-333', 'michael@example.com', 'd2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b5', 55000.00),
+    (UUID_TO_BIN('7a3cc0fb-6d9e-453a-b329-29796e1b3045'), 'emily', '1987-09-25', '444-555-666', 'emily@example.com', '8dce5f0012304c06d98cfb0cd11bc7eaaafaf32c4da26df424bcdd59ccfe0a5d', 65000.00),
+    (UUID_TO_BIN('2ba57f16-7ac3-4007-97d5-9d6d6f246e95'), 'daniel', '1980-12-10', '777-888-999', 'daniel@example.com', '15acd26889bccf5865c22aa472ec069cf0a31512f9a53dadc0bc8f2aea3f84cd', 75000.00),
+    (UUID_TO_BIN('1f486486-97dc-4f50-8fb1-cd87d5dd37e1'), 'olivia', '1995-04-05', '123-456-789', 'olivia@example.com', 'c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99', 45000.00),
+    (UUID_TO_BIN('b514d190-b72f-4dd5-948c-d871c3cc1d0b'), 'william', '1990-10-20', '987-654-321', 'william@example.com', '37c60d066e0fc140a4751f274112a25d5b263f4f0dec1e6c555ee2178387b1c8', 60000.00);
 
 -- Вставка данных о графиках работы в таблицу "workSchedules"
 INSERT INTO work_schedules (sched_id, sched_name, is_day_off, start_time, end_time)

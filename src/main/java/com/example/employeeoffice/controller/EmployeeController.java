@@ -1,8 +1,11 @@
 package com.example.employeeoffice.controller;
 
+//import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
+//import com.example.employeeoffice.dto.EmployeeDto;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.service.interfaces.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -19,6 +22,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{empId}")
+    @ResponseStatus(HttpStatus.OK)
     public String deleteEmployeeById(@PathVariable UUID empId) {
 
         return employeeService.deleteEmployeeById(empId);

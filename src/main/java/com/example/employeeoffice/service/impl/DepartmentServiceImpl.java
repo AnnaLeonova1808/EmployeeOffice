@@ -21,6 +21,5 @@ public class DepartmentServiceImpl implements DepartmentService {
             throw new DepartmentNotFoundException(ErrorMessage.DEPARTMENT_NOT_EXIST);
         }
         return department;
-
     }
 }

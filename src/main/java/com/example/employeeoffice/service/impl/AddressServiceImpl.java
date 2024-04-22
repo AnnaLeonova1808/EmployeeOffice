@@ -20,9 +20,7 @@ public class AddressServiceImpl implements AddressService {
         Address address = addressRepository.findByAddressId(addressId);
         if (address == null) {
             throw new AddressNotExistException(ErrorMessage.ADDRESS_NOT_EXIST);
-
         }
-
         return addressRepository.findByAddressId(addressId);
     }
 
