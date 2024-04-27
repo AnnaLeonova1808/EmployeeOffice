@@ -81,16 +81,16 @@ public class Employee {
     private WorkSchedule workSchedule; // (6) Связь с графиком работы: у сотрудника может быть один график работы,
     // а у одного графика работы может быть несколько сотрудников
 
-    @OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "pers_info_id")
     private PersonalInfo persInfo; //(2) у каждого сотрудника может быть только одна личная информация
 
     @JsonIgnore
-    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "employee", orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Vacation> vacations; // (7) один сотрудник может иметь несколько записей об отпусках.
 
     @JsonIgnore
-    @OneToMany(mappedBy = "substitutionEmp", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "substitutionEmp", orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Vacation> substitutedVacations; //(10) связь между сотрудником, который замещает другого во время отпуска и отпуском
 
     @ManyToMany(fetch = FetchType.LAZY)

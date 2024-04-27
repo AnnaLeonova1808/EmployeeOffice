@@ -4,16 +4,15 @@ VALUES
     (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), 'USER'),
     (UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d'), 'ADMIN'),
     (UUID_TO_BIN('2a4e17fe-75af-4e05-be97-0d08089f59b0'), 'MANAGER'),
-    (UUID_TO_BIN('10ffff51-6e14-4e87-8421-33f4e53f38ac'), 'GUEST'),
-    (UUID_TO_BIN('bebfab60-da56-46a3-a738-198bdf3e1757'), 'USER');
+    (UUID_TO_BIN('10ffff51-6e14-4e87-8421-33f4e53f38ac'), 'GUEST');
+
 
 -- Вставка прав в таблицу "authorities"
 INSERT INTO authorities (auth_id, authority)
 VALUES
     (UUID_TO_BIN('fcbf07ae-7d86-4a16-935a-36ee7ac89b02'), 'READ_DOCUMENT'),
     (UUID_TO_BIN('cfd9f19b-c9e2-4953-ac31-c61803c0baa3'), 'CREATE_DOCUMENT'),
-    (UUID_TO_BIN('16001a26-ce5f-423a-afde-4bea256cec90'), 'CREATE_DOCUMENT'),
-    (UUID_TO_BIN('99c4bfd5-ac6f-49e0-94fc-a340fe4f0254'), 'CREATE_DOCUMENT'),
+    (UUID_TO_BIN('16001a26-ce5f-423a-afde-4bea256cec90'), 'UPDATE_DOCUMENT'),
     (UUID_TO_BIN('a1a62aae-38fa-4900-b392-c2ce5afbb5da'), 'DELETE_DOCUMENT');
 
 -- Вставка персональных данных в таблицу "personal_info"
@@ -101,7 +100,7 @@ VALUES
     (UUID_TO_BIN('caee169a-b588-4575-8cfd-4b9c2e711cbe'), UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce')),
     (UUID_TO_BIN('7a3cc0fb-6d9e-453a-b329-29796e1b3045'), UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d')),
     (UUID_TO_BIN('2ba57f16-7ac3-4007-97d5-9d6d6f246e95'), UUID_TO_BIN('2a4e17fe-75af-4e05-be97-0d08089f59b0')),
-    (UUID_TO_BIN('1f486486-97dc-4f50-8fb1-cd87d5dd37e1'), UUID_TO_BIN('bebfab60-da56-46a3-a738-198bdf3e1757')),
+    (UUID_TO_BIN('1f486486-97dc-4f50-8fb1-cd87d5dd37e1'), UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce')),
     (UUID_TO_BIN('b514d190-b72f-4dd5-948c-d871c3cc1d0b'), UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'));
 
 -- Вставка данных в таблицу "role_authority". Связывание ролей и прав
@@ -110,8 +109,7 @@ VALUES
     (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), UUID_TO_BIN('fcbf07ae-7d86-4a16-935a-36ee7ac89b02')),
     (UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d'), UUID_TO_BIN('cfd9f19b-c9e2-4953-ac31-c61803c0baa3')),
     (UUID_TO_BIN('2a4e17fe-75af-4e05-be97-0d08089f59b0'), UUID_TO_BIN('16001a26-ce5f-423a-afde-4bea256cec90')),
-    (UUID_TO_BIN('10ffff51-6e14-4e87-8421-33f4e53f38ac'), UUID_TO_BIN('99c4bfd5-ac6f-49e0-94fc-a340fe4f0254')),
-    (UUID_TO_BIN('bebfab60-da56-46a3-a738-198bdf3e1757'), UUID_TO_BIN('a1a62aae-38fa-4900-b392-c2ce5afbb5da'));
-
+    (UUID_TO_BIN('10ffff51-6e14-4e87-8421-33f4e53f38ac'), UUID_TO_BIN('fcbf07ae-7d86-4a16-935a-36ee7ac89b02')),
+    (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), UUID_TO_BIN('a1a62aae-38fa-4900-b392-c2ce5afbb5da'));
 
 

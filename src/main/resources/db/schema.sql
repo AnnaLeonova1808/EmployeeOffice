@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS roles
 CREATE TABLE IF NOT EXISTS authorities
 (
     auth_id   BINARY(16) PRIMARY KEY,
-    authority ENUM ('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT')
+    authority ENUM ('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
 );
 
 CREATE TABLE IF NOT EXISTS personal_info
@@ -62,11 +62,11 @@ CREATE TABLE IF NOT EXISTS employees
     position           ENUM ('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
     hire_date          DATE,
     term_date          DATE,
-    workplace_location ENUM ('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE') NOT NULL,
+    workplace_location ENUM ('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
     status_emp         ENUM ('WORK', 'VACATION', 'SICK_LEAVE'),
     created_at         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     vac_plan           VARCHAR(255) DEFAULT NULL,
-    dep_id             BINARY(16) NOT NULL,
+    dep_id             BINARY(16) ,
     dep_manager_id     BINARY(16),
     sched_id           BINARY(16),
     pers_info_id       BINARY(16) NOT NULL,

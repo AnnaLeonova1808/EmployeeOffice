@@ -48,7 +48,7 @@ public class PersonalInfo {
     @Column(name = "salary")
     private double salary;
 
-    @OneToMany(mappedBy = "personalInfo", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    @OneToMany(mappedBy = "personalInfo", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     // 8)каждый экземпляр PersonalInfo имеет  не один адрес (рабочий и домашний).
     private Set<Address> addresses;
     @JsonIgnore

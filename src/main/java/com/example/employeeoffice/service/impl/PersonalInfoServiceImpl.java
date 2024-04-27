@@ -1,13 +1,12 @@
 package com.example.employeeoffice.service.impl;
 
-import com.example.employeeoffice.dto.PersonalInfoAfterCreationDto;
-import com.example.employeeoffice.dto.PersonalInfoCreateDto;
+
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.entity.Role;
 import com.example.employeeoffice.entity.enums.RolesName;
 import com.example.employeeoffice.exception.*;
 import com.example.employeeoffice.generator.PasswordGenerator;
-import com.example.employeeoffice.mapper.PersonalInfoMapper;
+
 import com.example.employeeoffice.repository.PersonalInfoRepository;
 import com.example.employeeoffice.repository.RoleRepository;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
@@ -23,8 +22,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PersonalInfoServiceImpl implements PersonalInfoService {
     private final PersonalInfoRepository personalInfoRepository;
-    private final PersonalInfoMapper personalInfoMapper;
-    private final RoleRepository roleRepository;
+    //private final PersonalInfoMapper personalInfoMapper;
+    //private final RoleRepository roleRepository;
 
     @Override
     public PersonalInfo getPersonalInfoById(UUID persInfoId) {
@@ -53,31 +52,31 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         return updatePersonalInfo;
         }
 
-    @Override
-    public PersonalInfoAfterCreationDto createPersonalInfo(PersonalInfoCreateDto personalInfoCreateDto) {
-        PersonalInfo personalInfo= personalInfoRepository.findPersonalInfoByEmail(personalInfoCreateDto.getEmail());
-        if(personalInfo!= null){
-            throw new PersonalInfoAlreadyExistsException(ErrorMessage.PERSONAL_INFO_ALREADY_EXIST);
-        }
-
-        PersonalInfo entity = personalInfoMapper.toEntity(personalInfoCreateDto);
-
-        if (entity.getPassword() == null || entity.getPassword().isEmpty()) {
-            entity.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());
-        } else {
-            String hashedPassword = PasswordHashing.hashPassword(entity.getPassword());
-            entity.setPassword(hashedPassword);
-        }
-
-        Role userRole = new Role();
-        userRole.setRoleName(RolesName.USER);
-        userRole = roleRepository.save(userRole);
-
-        entity.setRoles(Collections.singleton(userRole));
-
-        PersonalInfo personalInfoAfterCreation= personalInfoRepository.save(entity);
-        return personalInfoMapper.toDto(personalInfoAfterCreation);
-    }
+//    @Override
+//    public PersonalInfoAfterCreationDto createPersonalInfo(PersonalInfoCreateDto personalInfoCreateDto) {
+//        PersonalInfo personalInfo= personalInfoRepository.findPersonalInfoByEmail(personalInfoCreateDto.getEmail());
+//        if(personalInfo!= null){
+//            throw new PersonalInfoAlreadyExistsException(ErrorMessage.PERSONAL_INFO_ALREADY_EXIST);
+//        }
+//
+//        PersonalInfo entity = personalInfoMapper.toEntity(personalInfoCreateDto);
+//
+//        if (entity.getPassword() == null || entity.getPassword().isEmpty()) {
+//            entity.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());
+//        } else {
+//            String hashedPassword = PasswordHashing.hashPassword(entity.getPassword());
+//            entity.setPassword(hashedPassword);
+//        }
+//
+//        Role userRole = new Role();
+//        userRole.setRoleName(RolesName.USER);
+//        userRole = roleRepository.save(userRole);
+//
+//        entity.setRoles(Collections.singleton(userRole));
+//
+//        PersonalInfo personalInfoAfterCreation= personalInfoRepository.save(entity);
+//        return personalInfoMapper.toDto(personalInfoAfterCreation);
+//    }
 }
 
 

@@ -39,7 +39,7 @@ public class WorkSchedule {
     @Column(name = "end_time")
     private LocalTime endTime;
 
-    @OneToMany(mappedBy = "workSchedule", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "workSchedule", orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Employee> employees; // (6) Связь с сотрудниками: один график работы может быть связан с несколькими сотрудниками.
 
     @Override

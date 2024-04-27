@@ -1,7 +1,6 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.dto.PersonalInfoAfterCreationDto;
-import com.example.employeeoffice.dto.PersonalInfoCreateDto;
+
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +24,9 @@ public class PersonalInfoController {
         return personalInfoService.updatePersonalInfoById(persInfoId, personalInfo);
     }
 
-    @PostMapping("/create_personal_info")
-    public PersonalInfoAfterCreationDto createPersonalInfo(@RequestBody PersonalInfoCreateDto personalInfoCreateDto) {
-        return personalInfoService.createPersonalInfo(personalInfoCreateDto);
-    }
+//    @PostMapping("/create_personal_info")
+//    public PersonalInfoAfterCreationDto createPersonalInfo(@RequestBody PersonalInfoCreateDto personalInfoCreateDto) {
+//        return personalInfoService.createPersonalInfo(personalInfoCreateDto);
+//    }
 
 }

@@ -1,7 +1,7 @@
 package com.example.employeeoffice.controller;
 
-//import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
-//import com.example.employeeoffice.dto.EmployeeDto;
+import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
+import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.service.interfaces.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -26,5 +26,9 @@ public class EmployeeController {
     public String deleteEmployeeById(@PathVariable UUID empId) {
 
         return employeeService.deleteEmployeeById(empId);
+    }
+    @PostMapping(path = "/registration/create_employee")
+    public EmployeeAfterRegistrationDto creatEmployee(@RequestBody EmployeeRegistrationDto employeeRegistrationDto) {
+        return employeeService.createEmployee(employeeRegistrationDto);
     }
 }

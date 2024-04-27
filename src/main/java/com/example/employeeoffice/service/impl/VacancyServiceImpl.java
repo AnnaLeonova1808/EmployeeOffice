@@ -39,6 +39,7 @@ public class VacancyServiceImpl implements VacancyService {
     }
 
     @Override
+    @Transactional
     public VacancyAfterCreationDto createVacancy(VacancyCreateDto vacancyCreateDto) {
         Vacanсy vacancy = vacancyRepository.findByVacancyDescription(vacancyCreateDto.getVacancyDescription());
         if (vacancy != null) {

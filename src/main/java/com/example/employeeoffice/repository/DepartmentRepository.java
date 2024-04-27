@@ -8,5 +8,6 @@ import java.util.UUID;
 
 public interface DepartmentRepository extends JpaRepository  <Department, UUID> {
     Department findByDepName (DepartmentName depName);
+
     //Department getReferenceById (DepartmentName depName);
 }

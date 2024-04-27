@@ -45,7 +45,7 @@ public class Department {
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
     private Set<Employee> employees; // Список сотрудников отдела (11) Связь с сотрудниками, которые находятся под управлением этого департамента//(4) у одного департамента может быть много сотрудников, и каждый сотрудник может принадлежать только к одному департаменту.
 
-    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
+    @OneToMany(mappedBy = "department", orphanRemoval = true, fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     private Set<Vacanсy> vacancies; // (5)  в одном отделе может быть несколько вакансий. Связь с вакансиями в отделе
 
