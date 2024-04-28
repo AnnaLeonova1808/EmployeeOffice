@@ -9,9 +9,5 @@ public interface PersonalInfoService {
     PersonalInfo getPersonalInfoById(UUID persInfoId);
 
     PersonalInfo updatePersonalInfoById(UUID persInfoId, PersonalInfo personalInfo);
-
-    //PersonalInfoAfterCreationDto createPersonalInfo(PersonalInfoCreateDto personalInfoCreateDto);
-
-
-    //void deletePersonalInfoById(UUID persInfoId);
 }
+

@@ -9,8 +9,5 @@ import java.util.UUID;
 @Repository
 public interface PersonalInfoRepository extends JpaRepository <PersonalInfo, UUID> {
    PersonalInfo getPersonalInfoByPersInfoId (UUID persInfoId);
-
-    PersonalInfo findPersonalInfoByEmail(String email);
-
-    boolean existsByEmail(String email);
+   boolean existsByEmail(String email);
 }

@@ -63,12 +63,12 @@ public class Vacanсy {
         if (this == o) return true;
         if (!(o instanceof Vacanсy)) return false;
         Vacanсy vacanсy = (Vacanсy) o;
-        return Objects.equals(vacancyId, vacanсy.vacancyId) && position == vacanсy.position;
+        return Objects.equals(vacancyId, vacanсy.vacancyId) && position == vacanсy.position && Objects.equals(vacancyDescription, vacanсy.vacancyDescription);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(vacancyId, position);
+        return Objects.hash(vacancyId, position, vacancyDescription);
     }
 
     @Override

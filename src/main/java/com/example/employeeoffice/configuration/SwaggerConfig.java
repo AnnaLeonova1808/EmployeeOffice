@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.Tag;
@@ -34,6 +33,7 @@ public class SwaggerConfig {
         public static final String DEPARTMENT = "department service";
         public static final String EMPLOYEE = "employee service";
         public static final String EVENT = "event service";
+        public static final String PERSONAL_INFO = "personal info service";
         public static final String ROLE = "role service";
         public static final String VACANCY = "vacancy service";
 
@@ -48,6 +48,7 @@ public class SwaggerConfig {
                     .tags(new Tag(DEPARTMENT, "API for working with departments"))
                     .tags(new Tag(EMPLOYEE, "API for working with promo employees"))
                     .tags(new Tag(EVENT, "API for working with events"))
+                    .tags(new Tag(PERSONAL_INFO, "API for working with personal info"))
                     .tags(new Tag(ROLE, "API for working with roles"))
                     .tags(new Tag(VACANCY, "API for working with vacancies"));
         }

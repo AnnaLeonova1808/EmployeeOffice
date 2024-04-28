@@ -22,8 +22,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PersonalInfoServiceImpl implements PersonalInfoService {
     private final PersonalInfoRepository personalInfoRepository;
-    //private final PersonalInfoMapper personalInfoMapper;
-    //private final RoleRepository roleRepository;
 
     @Override
     public PersonalInfo getPersonalInfoById(UUID persInfoId) {
@@ -51,32 +49,6 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 
         return updatePersonalInfo;
         }
-
-//    @Override
-//    public PersonalInfoAfterCreationDto createPersonalInfo(PersonalInfoCreateDto personalInfoCreateDto) {
-//        PersonalInfo personalInfo= personalInfoRepository.findPersonalInfoByEmail(personalInfoCreateDto.getEmail());
-//        if(personalInfo!= null){
-//            throw new PersonalInfoAlreadyExistsException(ErrorMessage.PERSONAL_INFO_ALREADY_EXIST);
-//        }
-//
-//        PersonalInfo entity = personalInfoMapper.toEntity(personalInfoCreateDto);
-//
-//        if (entity.getPassword() == null || entity.getPassword().isEmpty()) {
-//            entity.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());
-//        } else {
-//            String hashedPassword = PasswordHashing.hashPassword(entity.getPassword());
-//            entity.setPassword(hashedPassword);
-//        }
-//
-//        Role userRole = new Role();
-//        userRole.setRoleName(RolesName.USER);
-//        userRole = roleRepository.save(userRole);
-//
-//        entity.setRoles(Collections.singleton(userRole));
-//
-//        PersonalInfo personalInfoAfterCreation= personalInfoRepository.save(entity);
-//        return personalInfoMapper.toDto(personalInfoAfterCreation);
-//    }
 }
 
 

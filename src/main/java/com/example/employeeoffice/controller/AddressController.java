@@ -1,6 +1,6 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.annotation.GetAddressByIDMappingAndDocumentation;
+import com.example.employeeoffice.annotation.GetAddress;
 import com.example.employeeoffice.entity.Address;
 import com.example.employeeoffice.service.interfaces.AddressService;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ import java.util.UUID;
 public class AddressController {
     private final AddressService addressService;
 
-    @GetAddressByIDMappingAndDocumentation(path = "/show_address/{addressId}")
+    @GetAddress(path = "/show_address/{addressId}")
     public Address showAddressById(@PathVariable(name = "addressId") UUID addressId) {
         return addressService.showAddressById(addressId);
     }

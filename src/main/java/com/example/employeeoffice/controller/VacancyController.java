@@ -1,5 +1,7 @@
 package com.example.employeeoffice.controller;
 
+import com.example.employeeoffice.annotation.DeleteVacancy;
+import com.example.employeeoffice.annotation.CreateVacancyDto;
 import com.example.employeeoffice.dto.VacancyAfterCreationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.service.interfaces.VacancyService;
@@ -15,13 +17,13 @@ import java.util.UUID;
 public class VacancyController {
     private final VacancyService vacancyService;
 
-    @DeleteMapping("/delete_vacancy/{vacancyId}")
+    @DeleteVacancy(path = "/delete_vacancy/{vacancyId}")
     @ResponseStatus(HttpStatus.OK)
     public String deleteVacancyById(@PathVariable UUID vacancyId) {
 
         return vacancyService.deleteVacancyById(vacancyId);
     }
-    @PostMapping("/create_vacancy")
+    @CreateVacancyDto(path = "/create_vacancy")
     public VacancyAfterCreationDto creteVacancy(@RequestBody VacancyCreateDto vacancyCreateDto){
         return vacancyService.createVacancy(vacancyCreateDto);
     }

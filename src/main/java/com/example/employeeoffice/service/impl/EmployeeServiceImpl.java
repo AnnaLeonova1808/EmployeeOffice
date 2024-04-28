@@ -85,10 +85,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         personalInfo.setSalary(employeeRegistrationDto.getSalary());
 
         personalInfo.setRoles(Collections.singleton(userRole));
-//        Role userRole = new Role();
-//        userRole.setRoleName(RolesName.USER);
-//        roleRepository.save(userRole);
-//        personalInfo.setRoles(Collections.singleton(userRole));
 
         personalInfo = personalInfoRepository.save(personalInfo);
 
