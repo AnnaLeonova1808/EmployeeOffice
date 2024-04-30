@@ -1,6 +1,6 @@
 package com.example.employeeoffice.annotation;
 
-import com.example.employeeoffice.controller.handler.ResponseExceptionHandler;
+import com.example.employeeoffice.handler.ResponseExceptionHandler;
 import com.example.employeeoffice.entity.Address;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

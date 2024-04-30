@@ -1,6 +1,6 @@
 package com.example.employeeoffice.annotation;
 
-import com.example.employeeoffice.controller.handler.ResponseExceptionHandler;
+import com.example.employeeoffice.handler.ResponseExceptionHandler;
 import com.example.employeeoffice.entity.Employee;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -76,7 +76,7 @@ import java.lang.annotation.Target;
                 @SecurityRequirement(name = "safety requirements")
         }
 )
-public @interface CreatEmployee {
+public @interface CreateEmployee {
     @AliasFor(annotation = RequestMapping.class, attribute = "path")
     String[] path() default {};
 }

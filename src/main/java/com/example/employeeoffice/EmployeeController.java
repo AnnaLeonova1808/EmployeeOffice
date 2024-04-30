@@ -1,6 +1,6 @@
-package com.example.employeeoffice.controller;
+package com.example.employeeoffice;
 
-import com.example.employeeoffice.annotation.CreatEmployee;
+import com.example.employeeoffice.annotation.CreateEmployee;
 import com.example.employeeoffice.annotation.DeleteEmployee;
 import com.example.employeeoffice.annotation.GetEmployeeById;
 import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
@@ -30,8 +30,9 @@ public class EmployeeController {
 
         return employeeService.deleteEmployeeById(empId);
     }
-    @CreatEmployee(path = "/registration/create_employee")
-    public EmployeeAfterRegistrationDto creatEmployee(@RequestBody EmployeeRegistrationDto employeeRegistrationDto) {
+    @CreateEmployee(path = "/registration/create_employee")
+    @ResponseStatus(HttpStatus.CREATED)
+    public EmployeeAfterRegistrationDto createEmployee(@RequestBody EmployeeRegistrationDto employeeRegistrationDto) {
         return employeeService.createEmployee(employeeRegistrationDto);
     }
 }

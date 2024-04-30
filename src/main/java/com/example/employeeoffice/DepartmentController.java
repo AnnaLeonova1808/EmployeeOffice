@@ -1,4 +1,4 @@
-package com.example.employeeoffice.controller;
+package com.example.employeeoffice;
 
 import com.example.employeeoffice.annotation.ShowDepartment;
 import com.example.employeeoffice.entity.Department;

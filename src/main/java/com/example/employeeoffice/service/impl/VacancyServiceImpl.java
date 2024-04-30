@@ -29,6 +29,7 @@ public class VacancyServiceImpl implements VacancyService {
     @Override
     @Transactional
     public String deleteVacancyById(UUID vacancyId) {
+
         Vacanсy vacancy = vacancyRepository.findById(vacancyId).orElse(null);
         if (vacancy == null) {
             throw new VacancyNotFoundExeption(ErrorMessage.VACANCY_NOT_EXIST);
@@ -41,6 +42,7 @@ public class VacancyServiceImpl implements VacancyService {
     @Override
     @Transactional
     public VacancyAfterCreationDto createVacancy(VacancyCreateDto vacancyCreateDto) {
+
         Vacanсy vacancy = vacancyRepository.findByVacancyDescription(vacancyCreateDto.getVacancyDescription());
         if (vacancy != null) {
             throw new VacancyAlreadyExistsException(ErrorMessage.VACANCY_ALREADY_EXIST);

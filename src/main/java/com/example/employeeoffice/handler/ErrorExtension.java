@@ -1,4 +1,4 @@
-package com.example.employeeoffice.controller.handler;
+package com.example.employeeoffice.handler;
 
 import lombok.Value;
 import org.springframework.http.HttpStatus;

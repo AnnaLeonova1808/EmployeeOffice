@@ -1,9 +1,4 @@
 package com.example.employeeoffice.service.impl;
-
-//import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
-//import com.example.employeeoffice.dto.EmployeeDto;
-//import com.example.employeeoffice.entity.Department;
-
 import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
 import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Department;
@@ -13,23 +8,18 @@ import com.example.employeeoffice.entity.Role;
 import com.example.employeeoffice.entity.enums.DepartmentName;
 import com.example.employeeoffice.entity.enums.RolesName;
 import com.example.employeeoffice.exception.*;
-import com.example.employeeoffice.generator.PasswordGenerator;
-//import com.example.employeeoffice.mapper.EmployeeMapper;
 import com.example.employeeoffice.mapper.EmployeeMapper;
 import com.example.employeeoffice.repository.DepartmentRepository;
 import com.example.employeeoffice.repository.EmployeeRepository;
 import com.example.employeeoffice.repository.PersonalInfoRepository;
 import com.example.employeeoffice.repository.RoleRepository;
 import com.example.employeeoffice.service.interfaces.EmployeeService;
-import com.example.employeeoffice.utils.PasswordHashing;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.Collections;
-import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -98,7 +88,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
 
         entity.setDepartment(department);
-       // entity.getPersInfo().getRoles().add(userRole);
 
         Employee savedEmployee = employeeRepository.save(entity);
 

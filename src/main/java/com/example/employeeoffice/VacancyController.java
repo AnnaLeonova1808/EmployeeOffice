@@ -1,4 +1,4 @@
-package com.example.employeeoffice.controller;
+package com.example.employeeoffice;
 
 import com.example.employeeoffice.annotation.DeleteVacancy;
 import com.example.employeeoffice.annotation.CreateVacancyDto;
@@ -24,7 +24,9 @@ public class VacancyController {
         return vacancyService.deleteVacancyById(vacancyId);
     }
     @CreateVacancyDto(path = "/create_vacancy")
+    @ResponseStatus(HttpStatus.CREATED)
     public VacancyAfterCreationDto creteVacancy(@RequestBody VacancyCreateDto vacancyCreateDto){
+
         return vacancyService.createVacancy(vacancyCreateDto);
     }
 
