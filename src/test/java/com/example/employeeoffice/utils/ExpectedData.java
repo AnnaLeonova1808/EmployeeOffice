@@ -3,12 +3,14 @@ package com.example.employeeoffice.utils;
 import com.example.employeeoffice.annotation.CreateEvent;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.entity.Address;
+import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.entity.Event;
 import com.example.employeeoffice.entity.enums.AddressType;
 import com.example.employeeoffice.entity.enums.DepartmentName;
 import com.example.employeeoffice.entity.enums.EventType;
 import com.example.employeeoffice.entity.enums.Position;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -23,6 +25,7 @@ public class ExpectedData {
         address.setHouseNumber("123");
         address.setApartNumber("Wohnung 101");
         address.setAddressType(AddressType.HOME);
+
         return address;
     }
     public static VacancyCreateDto returnVacancyCreateDto(){
@@ -32,6 +35,7 @@ public class ExpectedData {
         vacancyCreateDto.setVacancyRequirements("Requirements for STOREKEEPER Position");
         vacancyCreateDto.setVacancyContactInfo("contact@example.com");
         vacancyCreateDto.setDepName(String.valueOf(DepartmentName.WAREHOUSE));
+
         return vacancyCreateDto;
     }
     public static Event returnEventCreate() {
@@ -40,7 +44,18 @@ public class ExpectedData {
         event.setStartDateTime(LocalDateTime.parse("2024-05-20T10:00:00"));
         event.setLocation("Conference Hall A");
         event.setDescription("Annual company conference");
+
         return event;
+    }
+    public static Employee returnEmployeeById() {
+       Employee employee = new Employee();
+        employee.setEmpId(UUID.fromString("7270910c-cc71-4634-97a0-a242eb5b6064"));
+        employee.setFirstName("Michael");
+        employee.setLastName("Johnson");
+        employee.setPosition(Position.HR_MANAGER);
+        employee.setHireDate(LocalDate.parse("2021-03-20"));
+
+    return employee;
     }
 
 }

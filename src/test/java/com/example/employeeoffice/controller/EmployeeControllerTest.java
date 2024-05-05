@@ -1,6 +1,7 @@
 package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.entity.Address;
+import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.utils.ExpectedData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
@@ -15,16 +16,14 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @Sql("/db/drop_tables_test.sql")
 @Sql("/db/schemaTest.sql")
 @Sql("/db/dataTest.sql")
-class AddressControllerTest {
+class EmployeeControllerTest {
 
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
@@ -33,35 +32,35 @@ class AddressControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Test
-    void showAddressById() throws Exception{
-        Address expectedAddress = ExpectedData.returnAddress();
 
-        String addressJson = objectMapper.writeValueAsString(expectedAddress);
+    @Test
+    void getEmployeeById() throws Exception {
+        Employee expectedEmployee = ExpectedData.returnEmployeeById();
+
+        String employeeJson = objectMapper.writeValueAsString(expectedEmployee);
 
         MvcResult mvcResult =
                 mockMvc.perform(MockMvcRequestBuilders
-                        .get("/address/show_address/{addressId}", expectedAddress.getAddressId())
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(addressJson))
+                                .get("/employee/get/{empId}", expectedEmployee.getEmpId())
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(employeeJson))
                         .andExpect(status().isOk())
                         .andReturn();
 
-        String actualAddressJSON = mvcResult.getResponse().getContentAsString();
+        String actualEmployeeJSON = mvcResult.getResponse().getContentAsString();
 
-        Address actualAddress = objectMapper.readValue(actualAddressJSON, Address.class);
-        System.out.println("Expected address: " + expectedAddress);
-        System.out.println("Actual address: " + actualAddress);
-        Assertions.assertEquals(expectedAddress, actualAddress);
+        Employee actualEmployee = objectMapper.readValue(actualEmployeeJSON, Employee.class);
+        System.out.println("Expected employee: " + expectedEmployee);
+        System.out.println("Actual employee: " + actualEmployee);
+        Assertions.assertEquals(expectedEmployee, actualEmployee);
 
     }
+
     @Test
-    void showAddressByIdTestWithException() throws Exception {
+    void deleteEmployeeById() {
+    }
 
-        String expectedErrorMessage = "{\"message\":\"ADDRESS_NOT_EXIST\",\"errorCode\":\"NOT_FOUND\"}";
-
-        mockMvc.perform(get("/address/show_address/b23a92eb-398c-4ba9-9680-b4b3a72a911d"))
-                .andExpect(status().isNotFound())
-                .andExpect(content().json(expectedErrorMessage));
+    @Test
+    void createEmployee() {
     }
 }

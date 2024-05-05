@@ -27,14 +27,4 @@ public class EmployeeRegistrationDto {
     private Set<Role> roles;
 
 
-
-
-    //String firstName;
-    //    String secondName;
-    //    String country;
-    //
-    //    String phone;
-    //    String email;
-    //    String city;
-    //    Timestamp dateOfBirth;
 }
