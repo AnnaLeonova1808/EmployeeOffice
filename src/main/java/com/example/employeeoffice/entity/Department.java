@@ -4,6 +4,7 @@ import com.example.employeeoffice.entity.enums.DepartmentName;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "departments")
 public class Department {
     @Id

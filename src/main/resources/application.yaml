@@ -3,9 +3,9 @@ spring:
     banner-mode: off
 
   datasource:
-    url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
+    url: jdbc:mysql://localhost:3306/employee_office
+    username: root
+    password: Fredom1808
 
   jpa:
     show-sql: true
@@ -26,3 +26,6 @@ spring:
 
 #  liquibase:
 #    change-log: classpath:/db/changelog-master.xml
+#//${DATASOURCE_URL}
+#//${DATASOURCE_USERNAME}
+#//${DATASOURCE_PASSWORD}

@@ -1,18 +1,3 @@
-DROP TABLE IF EXISTS role_authority;
-DROP TABLE IF EXISTS pers_info_role;
-DROP TABLE IF EXISTS events_employee;
-DROP TABLE IF EXISTS events;
-DROP TABLE IF EXISTS addresses;
-DROP TABLE IF EXISTS vacations;
-DROP TABLE IF EXISTS vacancies;
-DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS departments;
-DROP TABLE IF EXISTS work_schedules;
-DROP TABLE IF EXISTS personal_info;
-DROP TABLE IF EXISTS authorities;
-DROP TABLE IF EXISTS roles;
-
-
 CREATE TABLE IF NOT EXISTS roles
 (
     role_id   BINARY(16) PRIMARY KEY,
@@ -114,7 +99,7 @@ CREATE TABLE IF NOT EXISTS addresses
     address_type ENUM ('HOME', 'WORK'),
     pers_info_id BINARY(16) NOT NULL,
     FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
-);
+    );
 CREATE TABLE IF NOT EXISTS events
 (
     ev_id           BINARY(16) PRIMARY KEY,

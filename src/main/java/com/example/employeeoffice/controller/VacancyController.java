@@ -1,4 +1,4 @@
-package com.example.employeeoffice;
+package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.annotation.DeleteVacancy;
 import com.example.employeeoffice.annotation.CreateVacancyDto;
@@ -6,11 +6,13 @@ import com.example.employeeoffice.dto.VacancyAfterCreationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.service.interfaces.VacancyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+@ComponentScan
 @RestController
 @RequestMapping("/vacancy")
 @RequiredArgsConstructor

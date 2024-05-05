@@ -51,8 +51,13 @@ public class VacancyServiceImpl implements VacancyService {
         String depName = vacancyCreateDto.getDepName();
         DepartmentName departmentName = DepartmentName.valueOf(depName.toUpperCase());
         Department department = departmentRepository.findByDepName(departmentName);
-        if (department == null){
-            throw new DepartmentNotFoundException(ErrorMessage.DEPARTMENT_NOT_EXIST);
+//        if (department != null){
+//            throw new DepartmentNotFoundException(ErrorMessage.DEPARTMENT_NOT_EXIST);
+//        }
+        if (department == null) {
+            department = new Department();
+            department.setDepName(departmentName);
+            department = departmentRepository.save(department);
         }
 
         Vacanсy entity = vacancyMapper.toEntity(vacancyCreateDto);

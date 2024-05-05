@@ -2,20 +2,14 @@ package com.example.employeeoffice.service.impl;
 
 
 import com.example.employeeoffice.entity.PersonalInfo;
-import com.example.employeeoffice.entity.Role;
-import com.example.employeeoffice.entity.enums.RolesName;
 import com.example.employeeoffice.exception.*;
-import com.example.employeeoffice.generator.PasswordGenerator;
 
 import com.example.employeeoffice.repository.PersonalInfoRepository;
-import com.example.employeeoffice.repository.RoleRepository;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
-import com.example.employeeoffice.utils.PasswordHashing;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.UUID;
 
 @Service

@@ -1,9 +1,10 @@
 package com.example.employeeoffice.dto;
 
 import com.example.employeeoffice.entity.enums.Position;
+import lombok.Data;
 import lombok.Value;
 
-@Value
+@Data
 public class VacancyCreateDto {
 
     Position position;

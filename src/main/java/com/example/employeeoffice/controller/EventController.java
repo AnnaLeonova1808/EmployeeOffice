@@ -1,4 +1,4 @@
-package com.example.employeeoffice;
+package com.example.employeeoffice.controller;
 import com.example.employeeoffice.annotation.CreateEvent;
 import com.example.employeeoffice.entity.Event;
 import com.example.employeeoffice.service.interfaces.EventService;

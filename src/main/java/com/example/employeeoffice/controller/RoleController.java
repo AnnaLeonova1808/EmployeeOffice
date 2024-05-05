@@ -1,4 +1,4 @@
-package com.example.employeeoffice;
+package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.entity.Role;
 import com.example.employeeoffice.service.interfaces.RoleService;
