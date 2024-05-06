@@ -22,27 +22,14 @@ public class RoleController {
     private final RoleService roleService;
 
     @GetMapping("/get/{role_id}")
-    public Role getRoleById(@PathVariable("role_id") UUID roleId){
+    public Role getRoleById(@PathVariable("role_id") UUID roleId) {
         return roleService.getRoleById(roleId);
     }
 
     @GetMapping("/roles/")
-    public List<Role> getRoles(){
+    public List<Role> getRoles() {
         return roleService.getAllRoles();
     }
 
-    @RestController
-    @RequestMapping("/department")
-    @RequiredArgsConstructor
 
-    public static class DepartmentController {
-        private final DepartmentService departmentService;
-
-        @ShowDepartment(path = "/show_department_by_name/{depName}")
-        public Department showDepartmentByName(@PathVariable(name = "depName") String depName) {
-            DepartmentName departmentName = DepartmentName.valueOf(depName.toUpperCase());
-            return departmentService.showDepartmentByName(departmentName);
-
-        }
-    }
 }
