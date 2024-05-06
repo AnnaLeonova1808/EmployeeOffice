@@ -13,6 +13,7 @@ import com.example.employeeoffice.mapper.util.DateFormatterUtil;
 import com.example.employeeoffice.mapper.util.UserDataGeneratorUtil;
 import jakarta.persistence.PrePersist;
 import org.mapstruct.*;
+import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -22,6 +23,7 @@ import java.util.UUID;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
         imports = {Timestamp.class, DateFormatterUtil.class, UserDataGeneratorUtil.class},
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Component
 public interface EmployeeMapper {
     @Mappings({
             @Mapping(target = "firstName", source = "firstName"),

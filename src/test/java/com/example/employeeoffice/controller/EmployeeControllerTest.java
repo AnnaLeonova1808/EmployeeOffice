@@ -1,6 +1,5 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.entity.Address;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.utils.ExpectedData;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -34,7 +33,7 @@ class EmployeeControllerTest {
 
 
     @Test
-    void getEmployeeById() throws Exception {
+    void getEmployeeByIdTest() throws Exception {
         Employee expectedEmployee = ExpectedData.returnEmployeeById();
 
         String employeeJson = objectMapper.writeValueAsString(expectedEmployee);
@@ -57,7 +56,20 @@ class EmployeeControllerTest {
     }
 
     @Test
-    void deleteEmployeeById() {
+    void deleteEmployeeByIdTestPositive() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/employee/delete/7881bf3e-73a9-47da-8bae-e2e253a30ddd"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN))
+                .andExpect(content().string("Employee with this ID was deleted SUCCESSFULLY"))
+                .andReturn();
+    }
+    @Test
+    void deleteEmployeeByIdTestWithException() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/employee/delete/8881bf3e-73a9-47da-8bae-e2e253a30ddd"))
+                .andExpect(status().isNotFound())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(content().json("{\"message\":\"EMPLOYEE_NOT_EXIST\",\"errorCode\":\"NOT_FOUND\"}"))
+                .andReturn();
     }
 
     @Test
