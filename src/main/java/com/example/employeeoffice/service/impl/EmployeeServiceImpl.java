@@ -57,7 +57,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public EmployeeAfterRegistrationDto createEmployee(EmployeeRegistrationDto employeeRegistrationDto) {
-        //PersonalInfo personalInfo = personalInfoRepository.findPersonalInfoByEmail(employeeRegistrationDto.getEmail());
         if (personalInfoRepository.existsByEmail(employeeRegistrationDto.getEmail())) {
             throw new EmployeeAlreadyExistException(ErrorMessage.EMPLOYEE_ALREADY_EXIST_EXCEPTION);
         }

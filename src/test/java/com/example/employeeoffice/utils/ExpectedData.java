@@ -1,14 +1,12 @@
 package com.example.employeeoffice.utils;
 
 import com.example.employeeoffice.annotation.CreateEvent;
+import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.entity.Address;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.entity.Event;
-import com.example.employeeoffice.entity.enums.AddressType;
-import com.example.employeeoffice.entity.enums.DepartmentName;
-import com.example.employeeoffice.entity.enums.EventType;
-import com.example.employeeoffice.entity.enums.Position;
+import com.example.employeeoffice.entity.enums.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -56,6 +54,22 @@ public class ExpectedData {
         employee.setHireDate(LocalDate.parse("2021-03-20"));
 
     return employee;
+    }
+    public static EmployeeRegistrationDto returnEmployeeRegistrationDto() {
+        EmployeeRegistrationDto employeeRegistrationDto = new EmployeeRegistrationDto();
+        employeeRegistrationDto.setFirstName("Mary");
+        employeeRegistrationDto.setLastName("Brown");
+        employeeRegistrationDto.setPosition(String.valueOf(Position.PROGRAMMER));
+        employeeRegistrationDto.setHireDate(LocalDate.parse("2021-03-20"));
+        employeeRegistrationDto.setBirthday("1988-07-07");
+        employeeRegistrationDto.setDepartment(String.valueOf(DepartmentName.IT));
+        employeeRegistrationDto.setEmail("mary@example.com");
+        employeeRegistrationDto.setPassword("d2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b6");
+        employeeRegistrationDto.setPhoneNumber("333-111-555");
+        employeeRegistrationDto.setUsername("null");
+        //employeeRegistrationDto.setRoles(RolesName.GUEST);
+
+        return employeeRegistrationDto;
     }
 
 }

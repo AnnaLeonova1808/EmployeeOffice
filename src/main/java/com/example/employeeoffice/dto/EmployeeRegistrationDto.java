@@ -1,15 +1,13 @@
 package com.example.employeeoffice.dto;
 
 import com.example.employeeoffice.entity.*;
-import com.example.employeeoffice.entity.enums.Position;
-import lombok.Value;
+import lombok.Data;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Set;
-import java.util.UUID;
 
-@Value
+@Data
 public class EmployeeRegistrationDto {
     String firstName;
     String lastName;

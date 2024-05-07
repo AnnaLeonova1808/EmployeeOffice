@@ -1,5 +1,7 @@
 package com.example.employeeoffice.controller;
 
+import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
+import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.utils.ExpectedData;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -73,6 +75,24 @@ class EmployeeControllerTest {
     }
 
     @Test
-    void createEmployee() {
+    void createEmployeeTest() throws Exception {
+        EmployeeRegistrationDto employeeRegistrationDto = ExpectedData.returnEmployeeRegistrationDto();
+
+        String employeeWrite = objectMapper.writeValueAsString(employeeRegistrationDto);
+
+        MvcResult createEmployeeResult = mockMvc
+                .perform(MockMvcRequestBuilders.post("/employee/registration/create_employee")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(employeeWrite))
+                .andReturn();
+
+        String jsonResult = createEmployeeResult.getResponse().getContentAsString();
+        EmployeeAfterRegistrationDto employeeAfterRegistrationDto = objectMapper.readValue(jsonResult, EmployeeAfterRegistrationDto.class);
+
+        Assertions.assertEquals(201, createEmployeeResult.getResponse().getStatus());
+        Assertions.assertNotNull(employeeAfterRegistrationDto.getEmpId());
+
+        System.out.println(jsonResult);
     }
+
 }
