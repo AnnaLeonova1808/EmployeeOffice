@@ -65,7 +65,7 @@ public class ExpectedData {
         employeeRegistrationDto.setPassword("d2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b6");
         employeeRegistrationDto.setPhoneNumber("333-111-555");
         employeeRegistrationDto.setUsername("null");
-        
+
         return employeeRegistrationDto;
     }
     public static Department returnDepartmentByName() {

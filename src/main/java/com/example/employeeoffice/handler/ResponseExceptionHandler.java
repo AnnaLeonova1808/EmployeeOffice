@@ -42,4 +42,10 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
                 e.getMessage(), HttpStatus.NOT_FOUND),
                 HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(VacancyNotFoundExeption.class)
+    public ResponseEntity<ErrorExtension> handleVacancyNotExistException(Exception e) {
+        return new ResponseEntity<>(new ErrorExtension(
+                e.getMessage(), HttpStatus.NOT_FOUND),
+                HttpStatus.NOT_FOUND);
+    }
 }
