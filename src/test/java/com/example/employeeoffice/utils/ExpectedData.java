@@ -66,7 +66,6 @@ public class ExpectedData {
         employeeRegistrationDto.setPhoneNumber("333-111-555");
         employeeRegistrationDto.setUsername("null");
         
-
         return employeeRegistrationDto;
     }
     public static Department returnDepartmentByName() {
