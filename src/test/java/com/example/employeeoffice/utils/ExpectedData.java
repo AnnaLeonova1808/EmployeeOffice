@@ -3,9 +3,7 @@ package com.example.employeeoffice.utils;
 import com.example.employeeoffice.annotation.CreateEvent;
 import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
-import com.example.employeeoffice.entity.Address;
-import com.example.employeeoffice.entity.Employee;
-import com.example.employeeoffice.entity.Event;
+import com.example.employeeoffice.entity.*;
 import com.example.employeeoffice.entity.enums.*;
 
 import java.time.LocalDate;
@@ -70,6 +68,27 @@ public class ExpectedData {
         //employeeRegistrationDto.setRoles(RolesName.GUEST);
 
         return employeeRegistrationDto;
+    }
+    public static Department returnDepartmentByName() {
+        Department department = new Department();
+        department.setDepId(UUID.fromString("88a71c7e-d011-40e3-b9b5-78315c983b21"));
+        department.setDepName(DepartmentName.IT);
+        department.setDepPhone("123-456-789");
+        department.setDepEmail("operations@example.com");
+
+        return department;
+    }
+    public static PersonalInfo returnPersonalInfo() {
+        PersonalInfo personalInfo = new PersonalInfo();
+        personalInfo.setPersInfoId(UUID.fromString("1f486486-97dc-4f50-8fb1-cd87d5dd37e1"));
+        personalInfo.setUsername("olivia");
+        personalInfo.setBirthday(LocalDate.parse("1995-04-05"));
+        personalInfo.setPhoneNumber("123-456-789");
+        personalInfo.setEmail("olivia@example.com");
+        personalInfo.setPassword("c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99");
+        personalInfo.setSalary(45000.00);
+
+        return personalInfo;
     }
 
 }

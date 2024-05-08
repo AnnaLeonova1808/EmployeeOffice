@@ -6,4 +6,9 @@ import org.springframework.http.HttpStatus;
 public class ErrorExtension {
     String message;
     HttpStatus errorCode;
+
+    public ErrorExtension(String message, HttpStatus errorCode) {
+        this.message = message;
+        this.errorCode = errorCode;
+    }
 }

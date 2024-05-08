@@ -1,6 +1,7 @@
 package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.entity.Address;
+import com.example.employeeoffice.entity.Department;
 import com.example.employeeoffice.utils.ExpectedData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
@@ -15,16 +16,17 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @Sql("/db/drop_tables_test.sql")
 @Sql("/db/schemaTest.sql")
 @Sql("/db/dataTest.sql")
-class AddressControllerTest {
+class DepartmentControllerTest {
+
 
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
@@ -33,35 +35,35 @@ class AddressControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Test
-    void showAddressByIdTest() throws Exception{
-        Address expectedAddress = ExpectedData.returnAddress();
 
-        String addressJson = objectMapper.writeValueAsString(expectedAddress);
+    @Test
+    void showDepartmentByName() throws Exception{
+        Department expectedDepartment = ExpectedData.returnDepartmentByName();
+
+        String departmentJson = objectMapper.writeValueAsString(expectedDepartment);
 
         MvcResult mvcResult =
                 mockMvc.perform(MockMvcRequestBuilders
-                        .get("/address/show_address/{addressId}", expectedAddress.getAddressId())
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(addressJson))
+                                .get("/department/show_department_by_name/{depName}", expectedDepartment.getDepName())
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(departmentJson))
                         .andExpect(status().isOk())
                         .andReturn();
 
-        String actualAddressJSON = mvcResult.getResponse().getContentAsString();
+        String actualDepartmentJSON = mvcResult.getResponse().getContentAsString();
 
-        Address actualAddress = objectMapper.readValue(actualAddressJSON, Address.class);
-        System.out.println("Expected address: " + expectedAddress);
-        System.out.println("Actual address: " + actualAddress);
-        Assertions.assertEquals(expectedAddress, actualAddress);
+        Department actualDepartment = objectMapper.readValue(actualDepartmentJSON, Department.class);
+        System.out.println("Expected department: " + expectedDepartment);
+        System.out.println("Actual department: " + actualDepartment);
+        Assertions.assertEquals(expectedDepartment, actualDepartment);
 
     }
     @Test
-    void showAddressByIdTestWithException() throws Exception {
-
-        String expectedErrorMessage = "{\"message\":\"ADDRESS_NOT_EXIST\",\"errorCode\":\"NOT_FOUND\"}";
-
-        mockMvc.perform(get("/address/show_address/b23a92eb-398c-4ba9-9680-b4b3a72a911d"))
+    void showDepartmentByNameTestWithException() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/department/show_department_by_name/INVALID_DEPARTMENT_NAME"))
                 .andExpect(status().isNotFound())
-                .andExpect(content().json(expectedErrorMessage));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().json("{\"message\":\"DEPARTMENT_NOT_EXIST\",\"errorCode\":\"NOT_FOUND\"}"));
+
     }
 }
