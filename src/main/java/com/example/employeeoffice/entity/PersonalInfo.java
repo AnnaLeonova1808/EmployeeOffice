@@ -1,6 +1,7 @@
 package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.example.employeeoffice.validation.annotation.EmailChecker;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -39,6 +40,7 @@ public class PersonalInfo {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @EmailChecker
     @Column(name = "email")
     private String email;
 

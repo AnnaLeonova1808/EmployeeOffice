@@ -32,7 +32,7 @@ import java.lang.annotation.Target;
                         description = "The unique identifier of the personal info",
                         required = true,
                         in = ParameterIn.PATH,
-                        schema = @Schema(format = "uuid"),
+                        schema = @Schema(format = "string"),
                         examples = {
                                 @ExampleObject(
                                         name = "Good Id",
@@ -69,7 +69,7 @@ import java.lang.annotation.Target;
                         )
                 ),
                 @ApiResponse(
-                        responseCode = "404",
+                        responseCode = "400",
                         description = "Personal info not found",
                         content = @Content(
                                 mediaType = "application/json",

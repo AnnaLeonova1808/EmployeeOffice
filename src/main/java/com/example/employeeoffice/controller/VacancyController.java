@@ -5,14 +5,15 @@ import com.example.employeeoffice.annotation.CreateVacancyDto;
 import com.example.employeeoffice.dto.VacancyAfterCreationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.service.interfaces.VacancyService;
+import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
-
-@ComponentScan
+@Validated
 @RestController
 @RequestMapping("/vacancy")
 @RequiredArgsConstructor
@@ -21,9 +22,9 @@ public class VacancyController {
 
     @DeleteVacancy(path = "/delete_vacancy/{vacancyId}")
     @ResponseStatus(HttpStatus.OK)
-    public String deleteVacancyById(@PathVariable UUID vacancyId) {
+    public String deleteVacancyById(@PathVariable(name = "vacancyId") @UuidFormatChecker String vacancyId) {
 
-        return vacancyService.deleteVacancyById(vacancyId);
+        return vacancyService.deleteVacancyById(UUID.fromString(vacancyId));
     }
     @CreateVacancyDto(path = "/create_vacancy")
     @ResponseStatus(HttpStatus.CREATED)

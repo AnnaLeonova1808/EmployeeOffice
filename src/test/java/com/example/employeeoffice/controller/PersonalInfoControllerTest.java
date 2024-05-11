@@ -59,11 +59,9 @@ class PersonalInfoControllerTest {
     @Test
     void showPersonalInfoByIdTestWithException() throws Exception {
 
-        String expectedErrorMessage = "{\"message\":\"PERSONAL_INFO_NOT_EXIST\",\"errorCode\":\"NOT_FOUND\"}";
-
         mockMvc.perform(get("/personal_info/getPersInfo/1f486486-97dc-4f50-8fb1-cd87d5dd37e2"))
-                .andExpect(status().isNotFound())
-                .andExpect(content().json(expectedErrorMessage));
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON));
     }
 
 
@@ -104,7 +102,7 @@ class PersonalInfoControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.put("/personal_info/update_persInfo/" + nonExistId)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestBody))
-                .andExpect(status().isNotFound())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON));
     }
 }

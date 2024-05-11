@@ -16,4 +16,8 @@ public class ErrorMessage {
     public static final String PERSONAL_INFO_ALREADY_EXIST = "PERSONAL_INFO_ALREADY_EXIST";
     public static final String ROLE_NOT_FOUND_EXCEPTION = "ROLE_NOT_FOUND_EXCEPTION";
     public static final String ROLE_ALREADY_EXIST_EXCEPTION = "ROLE_ALREADY_EXIST_EXCEPTION";
+
+    public static final String INVALID_ID = "IT_IS_NOT_UUID_FORMAT";
+
+    public static final String INVALID_EMAIL = "IT_IS_NOT_EMAI_FORMAT";
 }

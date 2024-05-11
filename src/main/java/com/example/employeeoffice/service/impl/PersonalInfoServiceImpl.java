@@ -41,6 +41,8 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         updatePersonalInfo.setPassword(personalInfo.getPassword());
         updatePersonalInfo.setSalary(personalInfo.getSalary());
 
+        updatePersonalInfo = personalInfoRepository.save(updatePersonalInfo);
+
         return updatePersonalInfo;
         }
 }
