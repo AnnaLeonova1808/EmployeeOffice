@@ -2,6 +2,7 @@ package com.example.employeeoffice.dto;
 
 import com.example.employeeoffice.entity.*;
 import com.example.employeeoffice.validation.annotation.EmailChecker;
+import com.example.employeeoffice.validation.annotation.PhoneNumberChecker;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -19,6 +20,7 @@ public class EmployeeRegistrationDto {
 
     String birthday;
     String username;
+    @PhoneNumberChecker
     String phoneNumber;
     @EmailChecker
     String email;
