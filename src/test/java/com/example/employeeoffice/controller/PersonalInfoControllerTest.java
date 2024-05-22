@@ -1,8 +1,8 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.entity.Address;
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.utils.ExpectedData;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -32,7 +33,6 @@ class PersonalInfoControllerTest {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private ObjectMapper objectMapper;
-
     @Test
     void getPersonalInfoByIdTest() throws Exception{
         PersonalInfo expectedPersonalInfo = ExpectedData.returnPersonalInfo();
@@ -104,5 +104,25 @@ class PersonalInfoControllerTest {
                         .content(requestBody))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_PROBLEM_JSON));
+    }
+    @Test
+    void showAllPersonalInfoByRoleName() throws Exception{
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/personal_info/roles/ROLE_USER")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andReturn();
+
+        String jsonResponse = result.getResponse().getContentAsString();
+        List<PersonalInfo> personalInfoList = objectMapper.readValue(jsonResponse, new TypeReference<List<PersonalInfo>>() {});
+
+        Assertions.assertEquals(200, result.getResponse().getStatus());
+        Assertions.assertFalse(personalInfoList.isEmpty());
+    }
+    @Test
+    void showAllPersonalInfoByRoleNameNegative() throws Exception {
+        mockMvc.perform(get("/personal_info/roles/INVALID_ROLE")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().json("{\"message\":\"Invalid role name: INVALID_ROLE\"," +
+                        "\"errorCode\":\"BAD_REQUEST\"}"));
     }
 }

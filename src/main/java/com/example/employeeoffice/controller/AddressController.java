@@ -1,5 +1,6 @@
 package com.example.employeeoffice.controller;
 
+import com.example.employeeoffice.annotation.GetAddress;
 import com.example.employeeoffice.entity.Address;
 import com.example.employeeoffice.service.interfaces.AddressService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
@@ -19,7 +20,7 @@ import java.util.UUID;
 public class AddressController {
     private final AddressService addressService;
 
-    @GetMapping(path = "/show_address/{addressId}")
+    @GetAddress(path = "/show_address/{addressId}")
     public Address showAddressById(@PathVariable(name = "addressId") @UuidFormatChecker String addressId) {
         return addressService.showAddressById(UUID.fromString(addressId));
     }

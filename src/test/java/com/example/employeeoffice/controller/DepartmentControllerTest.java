@@ -2,6 +2,7 @@ package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.entity.Address;
 import com.example.employeeoffice.entity.Department;
+import com.example.employeeoffice.service.interfaces.DepartmentService;
 import com.example.employeeoffice.utils.ExpectedData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
@@ -36,6 +37,7 @@ class DepartmentControllerTest {
     private ObjectMapper objectMapper;
 
 
+
     @Test
     void showDepartmentByName() throws Exception{
         Department expectedDepartment = ExpectedData.returnDepartmentByName();
@@ -65,5 +67,6 @@ class DepartmentControllerTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().json("{\"message\":\"DEPARTMENT_NOT_EXIST\",\"errorCode\":\"NOT_FOUND\"}"));
 
+
     }
-}
+    }

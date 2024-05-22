@@ -1,6 +1,5 @@
 package com.example.employeeoffice.validation.constraint;
 
-import com.example.employeeoffice.validation.annotation.EmailChecker;
 import com.example.employeeoffice.validation.annotation.PhoneNumberChecker;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
@@ -18,10 +17,16 @@ public class PhoneNumberConstraint implements ConstraintValidator<PhoneNumberChe
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return Optional.ofNullable(s)
+        boolean valid = Optional.ofNullable(s)
                 .filter(el -> !el.isBlank())
                 .map(el -> el.matches(PHONE_NUMBER))
                 .orElse(false);
+
+        if (!valid) {
+            System.out.println("Invalid phone number: " + s);
+        }
+
+        return valid;
     }
 
 }

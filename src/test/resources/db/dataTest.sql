@@ -1,10 +1,10 @@
 -- Вставка ролей в таблицу "roles"
 INSERT INTO roles (role_id, role_name)
 VALUES
-    (X'64d1e26770344c72989b0e3214f264ce', 'USER'),
-    (X'541eac0e460947b78faebc55c44ec18d', 'ADMIN'),
-    (X'2a4e17fe75af4e05be970d08089f59b0', 'MANAGER'),
-    (X'10ffff516e144e87842133f4e53f38ac', 'GUEST');
+    (X'64d1e26770344c72989b0e3214f264ce', 'ROLE_USER'),
+    (X'541eac0e460947b78faebc55c44ec18d', 'ROLE_ADMIN'),
+    (X'2a4e17fe75af4e05be970d08089f59b0', 'ROLE_MANAGER'),
+    (X'10ffff516e144e87842133f4e53f38ac', 'ROLE_GUEST');
 
 
 -- Вставка прав в таблицу "authorities"
@@ -18,11 +18,11 @@ VALUES
 -- Вставка персональных данных в таблицу "personal_info"
 INSERT INTO personal_info (pers_info_id, username, birthday, phone_number, email, password, salary)
 VALUES
-    (X'caee169ab58845758cfd4b9c2e711cbe', 'michael', '1992-06-30', '111-222-333', 'michael@example.com', 'd2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b5', 55000.00),
-    (X'7a3cc0fb6d9e453ab32929796e1b3045', 'emily', '1987-09-25', '444-555-666', 'emily@example.com', '8dce5f0012304c06d98cfb0cd11bc7eaaafaf32c4da26df424bcdd59ccfe0a5d', 65000.00),
-    (X'2ba57f167ac3400797d59d6d6f246e95', 'daniel', '1980-12-10', '777-888-999', 'daniel@example.com', '15acd26889bccf5865c22aa472ec069cf0a31512f9a53dadc0bc8f2aea3f84cd', 75000.00),
-    (X'1f48648697dc4f508fb1cd87d5dd37e1', 'olivia', '1995-04-05', '123-456-789', 'olivia@example.com', 'c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99', 45000.00),
-    (X'b514d190b72f4dd5948cd871c3cc1d0b', 'william', '1990-10-20', '987-654-321', 'william@example.com', '37c60d066e0fc140a4751f274112a25d5b263f4f0dec1e6c555ee2178387b1c8', 60000.00);
+    (X'caee169ab58845758cfd4b9c2e711cbe', 'michael', '1992-06-30', '+12-345-678-90-12', 'michael@example.com', 'd2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b5', 55000.00),
+    (X'7a3cc0fb6d9e453ab32929796e1b3045', 'emily', '1987-09-25', '+12-345-678-90-13', 'emily@example.com', '8dce5f0012304c06d98cfb0cd11bc7eaaafaf32c4da26df424bcdd59ccfe0a5d', 65000.00),
+    (X'2ba57f167ac3400797d59d6d6f246e95', 'daniel', '1980-12-10', '+12-345-678-90-14', 'daniel@example.com', '15acd26889bccf5865c22aa472ec069cf0a31512f9a53dadc0bc8f2aea3f84cd', 75000.00),
+    (X'1f48648697dc4f508fb1cd87d5dd37e1', 'olivia', '1995-04-05', '+12-345-678-90-15', 'olivia@example.com', 'c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99', 45000.00),
+    (X'b514d190b72f4dd5948cd871c3cc1d0b', 'william', '1990-10-20', '+12-345-678-90-16', 'william@example.com', '37c60d066e0fc140a4751f274112a25d5b263f4f0dec1e6c555ee2178387b1c8', 60000.00);
 
 -- Вставка данных о графиках работы в таблицу "workSchedules"
 INSERT INTO work_schedules (sched_id, sched_name, is_day_off, start_time, end_time)
@@ -34,11 +34,11 @@ VALUES
 -- Вставка данных департаментов в таблицу "departments"
 INSERT INTO departments (dep_id, dep_name, dep_phone, dep_email, dep_manager_id)
 VALUES
-    (X'ef6869b7240248c7bff4141563be2d8c', 'HR', '555-111-222', 'hr@example.com', X'7270910ccc71463497a0a242eb5b6064'),
-    (X'3c004a2b3ff344138ce3e72ec557b6fc', 'WAREHOUSE', '333-444-555', 'warehouse@example.com', X'dfb0689f5f694825a15433c897fa1b38'),
-    (X'f80a04a4801541b784588ca40416b4a3', 'FINANCE', '777-888-999', 'finance@example.com', X'7881bf3e73a947da8baee2e253a30ddd'),
-    (X'88a71c7ed01140e3b9b578315c983b21', 'IT', '123-456-789', 'operations@example.com', X'cd8edecd0d2742288fe6911c1cf7fd7c'),
-    (X'2e88a78db4a74a00b5904d0f7abe6c04', 'SALES', '987-654-321', 'sales@example.com', X'55035fe937e3466fba4a197f23fc5700');
+    (X'ef6869b7240248c7bff4141563be2d8c', 'HR', '+12-345-678-90-24', 'hr@example.com', X'7270910ccc71463497a0a242eb5b6064'),
+    (X'3c004a2b3ff344138ce3e72ec557b6fc', 'WAREHOUSE', '+12-345-678-90-25', 'warehouse@example.com', X'dfb0689f5f694825a15433c897fa1b38'),
+    (X'f80a04a4801541b784588ca40416b4a3', 'FINANCE', '+12-345-678-90-26', 'finance@example.com', X'7881bf3e73a947da8baee2e253a30ddd'),
+    (X'88a71c7ed01140e3b9b578315c983b21', 'IT', '+12-345-678-90-22', 'operations@example.com', X'cd8edecd0d2742288fe6911c1cf7fd7c'),
+    (X'2e88a78db4a74a00b5904d0f7abe6c04', 'SALES', '+12-345-678-90-23', 'sales@example.com', X'55035fe937e3466fba4a197f23fc5700');
 
 -- Вставка сотрудников в таблицу "employees"
 INSERT INTO employees (emp_id, first_name, last_name, position, hire_date, term_date, workplace_location, status_emp, created_at, vac_plan, dep_id, dep_manager_id, sched_id, pers_info_id)

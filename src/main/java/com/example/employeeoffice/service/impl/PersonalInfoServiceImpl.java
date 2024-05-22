@@ -2,6 +2,7 @@ package com.example.employeeoffice.service.impl;
 
 
 import com.example.employeeoffice.entity.PersonalInfo;
+import com.example.employeeoffice.entity.enums.RolesName;
 import com.example.employeeoffice.exception.*;
 
 import com.example.employeeoffice.repository.PersonalInfoRepository;
@@ -10,6 +11,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -45,6 +47,20 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 
         return updatePersonalInfo;
         }
+
+    @Override
+    public List<PersonalInfo> showAllPersonalInfoByRoleName(String roleName) {
+        try {
+            RolesName enumRoleName = RolesName.valueOf(roleName);
+            List<PersonalInfo> personalInfoList = personalInfoRepository.findPersonalInfoByRoles_RoleName(enumRoleName);
+            if (personalInfoList.isEmpty()) {
+                throw new ListOfPersonalInfoIsEmptyException("No personal information found for role: " + roleName);
+            }
+            return personalInfoList;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Invalid role name: " + roleName);
+        }
+    }
 }
 
 

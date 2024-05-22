@@ -77,7 +77,7 @@ class EmployeeControllerTest {
     @Test
     void createEmployeeTest() throws Exception {
         EmployeeRegistrationDto employeeRegistrationDto = ExpectedData.returnEmployeeRegistrationDto();
-
+        //employeeRegistrationDto.setPhoneNumber("+12-345-678-90-12");
         String employeeWrite = objectMapper.writeValueAsString(employeeRegistrationDto);
 
         MvcResult createEmployeeResult = mockMvc

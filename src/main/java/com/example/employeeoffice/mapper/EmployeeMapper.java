@@ -55,7 +55,8 @@ public interface EmployeeMapper {
 
         personalInfo.setBirthday(LocalDate.parse(employeeRegistrationDto.getBirthday()));
         personalInfo.setUsername((employeeRegistrationDto.getUsername()));
-        personalInfo.setPhoneNumber(UserDataGeneratorUtil.genPhone());
+        //personalInfo.setPhoneNumber(UserDataGeneratorUtil.genPhone());
+        personalInfo.setPhoneNumber(employeeRegistrationDto.getPhoneNumber());
         personalInfo.setEmail(employeeRegistrationDto.getEmail());
         personalInfo.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());
         personalInfo.setSalary(employeeRegistrationDto.getSalary());
@@ -74,9 +75,5 @@ public interface EmployeeMapper {
 
     })
     EmployeeAfterRegistrationDto toDto(Employee employee);
-
-//    static String generateEmployeeName(String name) {
-//        return name + "_" + UUID.randomUUID().toString().charAt(1);
-//    }
 
 }

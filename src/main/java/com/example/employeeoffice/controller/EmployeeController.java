@@ -8,6 +8,7 @@ import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.service.interfaces.EmployeeService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -34,7 +35,8 @@ public class EmployeeController {
     }
     @CreateEmployee(path = "/registration/create_employee")
     @ResponseStatus(HttpStatus.CREATED)
-    public EmployeeAfterRegistrationDto createEmployee(@RequestBody EmployeeRegistrationDto employeeRegistrationDto) {
+    public EmployeeAfterRegistrationDto createEmployee(@Validated @RequestBody EmployeeRegistrationDto employeeRegistrationDto) {
+
         return employeeService.createEmployee(employeeRegistrationDto);
     }
 }

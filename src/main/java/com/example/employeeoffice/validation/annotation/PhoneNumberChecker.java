@@ -16,8 +16,7 @@ import static java.lang.annotation.ElementType.*;
 @Constraint(validatedBy = {PhoneNumberConstraint.class})
 
 public @interface PhoneNumberChecker {
-
-    String message() default ErrorMessage.PHONE_NUMBER;
+    String message() default ErrorMessage.INVALID_PHONE_NUMBER;
 
     Class<?>[] groups() default {};
 

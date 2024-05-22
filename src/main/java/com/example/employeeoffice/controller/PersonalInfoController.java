@@ -2,6 +2,7 @@ package com.example.employeeoffice.controller;
 
 
 import com.example.employeeoffice.annotation.GetPersonalInfo;
+import com.example.employeeoffice.annotation.GetPersonalInfoByRoleName;
 import com.example.employeeoffice.annotation.UpdatePersonalInfo;
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
@@ -11,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 @Validated
 @RestController
@@ -29,5 +31,12 @@ public class PersonalInfoController {
                                                @RequestBody @Valid PersonalInfo personalInfo) {
         return personalInfoService.updatePersonalInfoById(UUID.fromString(persInfoId), personalInfo);
     }
+
+    @GetPersonalInfoByRoleName(path = "/roles/{roleName}")
+    public List<PersonalInfo> showAllPersonalInfoByRoleName(@PathVariable(name = "roleName") String roleName){
+        return personalInfoService.showAllPersonalInfoByRoleName(roleName);
+    }
+
+
 
 }

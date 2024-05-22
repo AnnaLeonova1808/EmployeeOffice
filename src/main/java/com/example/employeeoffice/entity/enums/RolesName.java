@@ -5,8 +5,8 @@ import com.example.employeeoffice.entity.Role;
 import java.util.Set;
 
 public enum RolesName  {
-    ADMIN,
-    MANAGER,
-    USER,
-    GUEST;
+    ROLE_ADMIN,
+    ROLE_MANAGER,
+    ROLE_USER,
+    ROLE_GUEST;
 }

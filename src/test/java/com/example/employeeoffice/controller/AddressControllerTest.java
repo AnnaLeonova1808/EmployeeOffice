@@ -35,6 +35,7 @@ class AddressControllerTest {
 
     @Test
     void showAddressByIdTest() throws Exception{
+
         Address expectedAddress = ExpectedData.returnAddress();
 
         String addressJson = objectMapper.writeValueAsString(expectedAddress);

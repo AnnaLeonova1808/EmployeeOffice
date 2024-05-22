@@ -2,7 +2,9 @@ package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.RolesName;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +18,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "roles")
 public class Role {
     @Id
@@ -28,7 +31,7 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @Column(name = "role_name")
     private RolesName roleName;
-
+    @JsonIgnore
     @ManyToMany(mappedBy = "roles")
     private Set<PersonalInfo> personalInfo; //(3) каждая роль может быть назначена нескольким пользователям
 
@@ -41,9 +44,9 @@ public class Role {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Role)) return false;
-        Role roles = (Role) o;
-        return Objects.equals(roleId, roles.roleId) && roleName == roles.roleName;
+        if (o == null || getClass() != o.getClass()) return false;
+        Role role = (Role) o;
+        return Objects.equals(roleId, role.roleId) && Objects.equals(roleName, role.roleName);
     }
 
     @Override
@@ -53,7 +56,7 @@ public class Role {
 
     @Override
     public String toString() {
-        return "Roles{" +
+        return "Role{" +
                 "roleId=" + roleId +
                 ", roleName=" + roleName +
                 ", personalInfo=" + personalInfo +

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -60,10 +61,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (personalInfoRepository.existsByEmail(employeeRegistrationDto.getEmail())) {
             throw new EmployeeAlreadyExistException(ErrorMessage.EMPLOYEE_ALREADY_EXIST_EXCEPTION);
         }
-        Role userRole = roleRepository.findByRoleName(RolesName.USER);
-        if (userRole == null) {
+        Optional<Role> userRoleOptional = roleRepository.findByRoleName(RolesName.ROLE_USER);
+        if (userRoleOptional.isEmpty()) {
             throw new RoleNotFoundException("ROLE_NOT_FOUND_EXCEPTION");
         }
+        Role userRole = userRoleOptional.orElseThrow(() -> new RoleNotFoundException("ROLE_NOT_FOUND_EXCEPTION"));
 
         PersonalInfo personalInfo = new PersonalInfo();
         personalInfo.setBirthday(LocalDate.parse(employeeRegistrationDto.getBirthday()));

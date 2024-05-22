@@ -2,6 +2,7 @@ package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import com.example.employeeoffice.validation.annotation.EmailChecker;
+import com.example.employeeoffice.validation.annotation.PhoneNumberChecker;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -30,26 +31,21 @@ public class PersonalInfo {
             type = UuidTimeSequenceGenerator.class)
     @Column(name = "pers_info_id")
     private UUID persInfoId;
-
     @Column(name = "username")
     private String username;
 
     @Column(name = "birthday")
     private LocalDate birthday;
-
+    @PhoneNumberChecker
     @Column(name = "phone_number")
     private String phoneNumber;
-
     @EmailChecker
     @Column(name = "email")
     private String email;
-
     @Column(name = "password")
     private String password;
-
     @Column(name = "salary")
     private double salary;
-
     @OneToMany(mappedBy = "personalInfo", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     // 8)каждый экземпляр PersonalInfo имеет  не один адрес (рабочий и домашний).
     private Set<Address> addresses;

@@ -1,10 +1,10 @@
 -- Вставка ролей в таблицу "roles"
 INSERT INTO roles (role_id, role_name)
 VALUES
-    (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), 'USER'),
-    (UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d'), 'ADMIN'),
-    (UUID_TO_BIN('2a4e17fe-75af-4e05-be97-0d08089f59b0'), 'MANAGER'),
-    (UUID_TO_BIN('10ffff51-6e14-4e87-8421-33f4e53f38ac'), 'GUEST');
+    (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), 'ROLE_USER'),
+    (UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d'), 'ROLE_ADMIN'),
+    (UUID_TO_BIN('2a4e17fe-75af-4e05-be97-0d08089f59b0'), 'ROLE_MANAGER'),
+    (UUID_TO_BIN('10ffff51-6e14-4e87-8421-33f4e53f38ac'), 'ROLE_GUEST');
 
 
 -- Вставка прав в таблицу "authorities"
@@ -18,11 +18,11 @@ VALUES
 -- Вставка персональных данных в таблицу "personal_info"
 INSERT INTO personal_info (pers_info_id, username, birthday, phone_number, email, password, salary)
 VALUES
-    (UUID_TO_BIN('caee169a-b588-4575-8cfd-4b9c2e711cbe'), 'michael', '1992-06-30', '111-222-333', 'michael@example.com', 'd2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b5', 55000.00),
-    (UUID_TO_BIN('7a3cc0fb-6d9e-453a-b329-29796e1b3045'), 'emily', '1987-09-25', '444-555-666', 'emily@example.com', '8dce5f0012304c06d98cfb0cd11bc7eaaafaf32c4da26df424bcdd59ccfe0a5d', 65000.00),
-    (UUID_TO_BIN('2ba57f16-7ac3-4007-97d5-9d6d6f246e95'), 'daniel', '1980-12-10', '777-888-999', 'daniel@example.com', '15acd26889bccf5865c22aa472ec069cf0a31512f9a53dadc0bc8f2aea3f84cd', 75000.00),
-    (UUID_TO_BIN('1f486486-97dc-4f50-8fb1-cd87d5dd37e1'), 'olivia', '1995-04-05', '123-456-789', 'olivia@example.com', 'c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99', 45000.00),
-    (UUID_TO_BIN('b514d190-b72f-4dd5-948c-d871c3cc1d0b'), 'william', '1990-10-20', '987-654-321', 'william@example.com', '37c60d066e0fc140a4751f274112a25d5b263f4f0dec1e6c555ee2178387b1c8', 60000.00);
+    (UUID_TO_BIN('caee169a-b588-4575-8cfd-4b9c2e711cbe'), 'michael', '1992-06-30', '+12-345-678-90-12', 'michael@example.com', 'd2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b5', 55000.00),
+    (UUID_TO_BIN('7a3cc0fb-6d9e-453a-b329-29796e1b3045'), 'emily', '1987-09-25', '+12-345-678-90-13', 'emily@example.com', '8dce5f0012304c06d98cfb0cd11bc7eaaafaf32c4da26df424bcdd59ccfe0a5d', 65000.00),
+    (UUID_TO_BIN('2ba57f16-7ac3-4007-97d5-9d6d6f246e95'), 'daniel', '1980-12-10', '+12-345-678-90-14', 'daniel@example.com', '15acd26889bccf5865c22aa472ec069cf0a31512f9a53dadc0bc8f2aea3f84cd', 75000.00),
+    (UUID_TO_BIN('1f486486-97dc-4f50-8fb1-cd87d5dd37e1'), 'olivia', '1995-04-05', '+12-345-678-90-15', 'olivia@example.com', 'c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99', 45000.00),
+    (UUID_TO_BIN('b514d190-b72f-4dd5-948c-d871c3cc1d0b'), 'william', '1990-10-20', '+12-345-678-90-16', 'william@example.com', '37c60d066e0fc140a4751f274112a25d5b263f4f0dec1e6c555ee2178387b1c8', 60000.00);
 
 -- Вставка данных о графиках работы в таблицу "workSchedules"
 INSERT INTO work_schedules (sched_id, sched_name, is_day_off, start_time, end_time)
@@ -34,11 +34,11 @@ VALUES
 -- Вставка данных департаментов в таблицу "departments"
 INSERT INTO departments (dep_id, dep_name, dep_phone, dep_email, dep_manager_id)
 VALUES
-    (UUID_TO_BIN('ef6869b7-2402-48c7-bff4-141563be2d8c'), 'HR', '555-111-222', 'hr@example.com', UUID_TO_BIN('7270910c-cc71-4634-97a0-a242eb5b6064')),
-    (UUID_TO_BIN('3c004a2b-3ff3-4413-8ce3-e72ec557b6fc'), 'WAREHOUSE', '333-444-555', 'warehouse@example.com', UUID_TO_BIN('dfb0689f-5f69-4825-a154-33c897fa1b38')),
-    (UUID_TO_BIN('f80a04a4-8015-41b7-8458-8ca40416b4a3'), 'FINANCE', '777-888-999', 'finance@example.com', UUID_TO_BIN('7881bf3e-73a9-47da-8bae-e2e253a30ddd')),
-    (UUID_TO_BIN('88a71c7e-d011-40e3-b9b5-78315c983b21'), 'IT', '123-456-789', 'operations@example.com', UUID_TO_BIN('cd8edecd-0d27-4228-8fe6-911c1cf7fd7c')),
-    (UUID_TO_BIN('2e88a78d-b4a7-4a00-b590-4d0f7abe6c04'), 'SALES', '987-654-321', 'sales@example.com', UUID_TO_BIN('55035fe9-37e3-466f-ba4a-197f23fc5700'));
+    (UUID_TO_BIN('ef6869b7-2402-48c7-bff4-141563be2d8c'), 'HR', '+12-345-678-90-24', 'hr@example.com', UUID_TO_BIN('7270910c-cc71-4634-97a0-a242eb5b6064')),
+    (UUID_TO_BIN('3c004a2b-3ff3-4413-8ce3-e72ec557b6fc'), 'WAREHOUSE', '+12-345-678-90-25', 'warehouse@example.com', UUID_TO_BIN('dfb0689f-5f69-4825-a154-33c897fa1b38')),
+    (UUID_TO_BIN('f80a04a4-8015-41b7-8458-8ca40416b4a3'), 'FINANCE', '+12-345-678-90-26', 'finance@example.com', UUID_TO_BIN('7881bf3e-73a9-47da-8bae-e2e253a30ddd')),
+    (UUID_TO_BIN('88a71c7e-d011-40e3-b9b5-78315c983b21'), 'IT', '+12-345-678-90-22', 'operations@example.com', UUID_TO_BIN('cd8edecd-0d27-4228-8fe6-911c1cf7fd7c')),
+    (UUID_TO_BIN('2e88a78d-b4a7-4a00-b590-4d0f7abe6c04'), 'SALES', '+12-345-678-90-23', 'sales@example.com', UUID_TO_BIN('55035fe9-37e3-466f-ba4a-197f23fc5700'));
 
 -- Вставка сотрудников в таблицу "employees"
 INSERT INTO employees (emp_id, first_name, last_name, position, hire_date, term_date, workplace_location, status_emp, created_at, vac_plan, dep_id, dep_manager_id, sched_id, pers_info_id)
