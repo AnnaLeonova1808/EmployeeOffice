@@ -123,17 +123,17 @@
         </dependency>
 
         <!--        -->
-<!--        <dependency>-->
-<!--            <groupId>org.liquibase</groupId>-->
-<!--            <artifactId>liquibase-core</artifactId>-->
-<!--            <version>4.18.0</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.yaml</groupId>-->
-<!--                    <artifactId>snakeyaml</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>4.26.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-context &ndash;&gt;-->
         <!--        <dependency>-->
         <!--            <groupId>org.springframework</groupId>-->
@@ -219,7 +219,18 @@
                 </executions>
 
             </plugin>
-
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.8.0</version>
+                <configuration>
+                    <changeLogFile>src/main/resources/db/changelog/db.changelog-master.xml</changeLogFile>
+                    <url>jdbc:mysql://localhost:3306/employee_office</url>
+                    <username>root</username>
+                    <password>Fredom1808</password>
+                    <driver>com.mysql.cj.jdbc.Driver</driver>
+                </configuration>
+            </plugin>
 
         </plugins>
         <finalName>

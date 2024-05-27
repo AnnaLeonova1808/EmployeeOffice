@@ -1,4 +1,4 @@
--- Удаляем таблицы, если они существуют
+
 DROP TABLE IF EXISTS role_authority;
 DROP TABLE IF EXISTS pers_info_role;
 DROP TABLE IF EXISTS events_employee;
@@ -13,7 +13,6 @@ DROP TABLE IF EXISTS personal_info;
 DROP TABLE IF EXISTS authorities;
 DROP TABLE IF EXISTS roles;
 
--- Создаем таблицы
 CREATE TABLE IF NOT EXISTS roles (
                                      role_id BINARY(16) PRIMARY KEY,
                                      role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
