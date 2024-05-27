@@ -1,4 +1,4 @@
--- Вставка ролей в таблицу "roles"
+-- Inserting roles into the "roles" table
 INSERT INTO roles (role_id, role_name)
 VALUES
     (X'64d1e26770344c72989b0e3214f264ce', 'ROLE_USER'),
@@ -7,7 +7,7 @@ VALUES
     (X'10ffff516e144e87842133f4e53f38ac', 'ROLE_GUEST');
 
 
--- Вставка прав в таблицу "authorities"
+-- Inserting rights into the "authorities" table
 INSERT INTO authorities (auth_id, authority)
 VALUES
     (X'fcbf07ae7d864a16935a36ee7ac89b02', 'READ_DOCUMENT'),
@@ -15,7 +15,7 @@ VALUES
     (X'16001a26ce5f423aafde4bea256cec90', 'UPDATE_DOCUMENT'),
     (X'a1a62aae38fa4900b392c2ce5afbb5da', 'DELETE_DOCUMENT');
 
--- Вставка персональных данных в таблицу "personal_info"
+-- Inserting personal data into the "personal_info" table
 INSERT INTO personal_info (pers_info_id, username, birthday, phone_number, email, password, salary)
 VALUES
     (X'caee169ab58845758cfd4b9c2e711cbe', 'michael', '1992-06-30', '+12-345-678-90-12', 'michael@example.com', 'd2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b5', 55000.00),
@@ -24,14 +24,14 @@ VALUES
     (X'1f48648697dc4f508fb1cd87d5dd37e1', 'olivia', '1995-04-05', '+12-345-678-90-15', 'olivia@example.com', 'c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99', 45000.00),
     (X'b514d190b72f4dd5948cd871c3cc1d0b', 'william', '1990-10-20', '+12-345-678-90-16', 'william@example.com', '37c60d066e0fc140a4751f274112a25d5b263f4f0dec1e6c555ee2178387b1c8', 60000.00);
 
--- Вставка данных о графиках работы в таблицу "workSchedules"
+-- Inserting work schedule data into the "workSchedules" table
 INSERT INTO work_schedules (sched_id, sched_name, is_day_off, start_time, end_time)
 VALUES
     (X'f4d730e81bef47efba9024d28dfc57e6', 'FIVE_DAY_SHIFT_08_17', FALSE, '08:00:00', '17:00:00'),
     (X'94752fc887e84cf6ab17f91d1720c20d', 'FIVE_DAY_SHIFT_09_18', FALSE, '09:00:00', '18:00:00'),
     (X'b6892135bc87427bb23ebe0ccafecb7e', 'SHIFT_WORK', TRUE, '06:00:00', '18:00:00');
 
--- Вставка данных департаментов в таблицу "departments"
+-- Inserting department data into the "departments" table
 INSERT INTO departments (dep_id, dep_name, dep_phone, dep_email, dep_manager_id)
 VALUES
     (X'ef6869b7240248c7bff4141563be2d8c', 'HR', '+12-345-678-90-24', 'hr@example.com', X'7270910ccc71463497a0a242eb5b6064'),
@@ -40,7 +40,7 @@ VALUES
     (X'88a71c7ed01140e3b9b578315c983b21', 'IT', '+12-345-678-90-22', 'operations@example.com', X'cd8edecd0d2742288fe6911c1cf7fd7c'),
     (X'2e88a78db4a74a00b5904d0f7abe6c04', 'SALES', '+12-345-678-90-23', 'sales@example.com', X'55035fe937e3466fba4a197f23fc5700');
 
--- Вставка сотрудников в таблицу "employees"
+-- Inserting employees into the "employees" table
 INSERT INTO employees (emp_id, first_name, last_name, position, hire_date, term_date, workplace_location, status_emp, created_at, vac_plan, dep_id, dep_manager_id, sched_id, pers_info_id)
 VALUES
     (X'7270910ccc71463497a0a242eb5b6064', 'Michael', 'Johnson', 'HR_MANAGER', '2021-03-20', NULL, 'OFFICE', 'WORK', CURRENT_TIMESTAMP, 'Flexible Plan', X'ef6869b7240248c7bff4141563be2d8c', X'7270910ccc71463497a0a242eb5b6064', X'94752fc887e84cf6ab17f91d1720c20d', X'caee169ab58845758cfd4b9c2e711cbe'),
@@ -49,7 +49,7 @@ VALUES
     (X'cd8edecd0d2742288fe6911c1cf7fd7c', 'Olivia', 'Martinez', 'PROGRAMMER', '2022-01-15', NULL, 'OFFICE', 'SICK_LEAVE', CURRENT_TIMESTAMP, 'Basic Plan', X'88a71c7ed01140e3b9b578315c983b21', X'cd8edecd0d2742288fe6911c1cf7fd7c', X'94752fc887e84cf6ab17f91d1720c20d', X'1f48648697dc4f508fb1cd87d5dd37e1'),
     (X'7881bf3e73a947da8baee2e253a30ddd', 'William', 'Wilson', 'ECONOMIST', '2020-11-30', NULL, 'OFFICE', 'WORK', CURRENT_TIMESTAMP, 'Standard Plan', X'f80a04a4801541b784588ca40416b4a3', X'7881bf3e73a947da8baee2e253a30ddd', X'94752fc887e84cf6ab17f91d1720c20d', X'b514d190b72f4dd5948cd871c3cc1d0b');
 
--- Вставка данных о вакансиях в таблицу "vacancies"
+-- Inserting vacancy data into the "vacancies" table
 INSERT INTO vacancies (vacancy_id, position, vacancy_description, vacancy_requirements, vacancy_salary, workplace_location, vacancy_status, vacancy_contact_info, dep_id)
 VALUES
     (X'efff9467a80e447d8763ee7acfa5c29c', 'HR_MANAGER', 'Programmer Position Description', 'Requirements for Programmer Position', 90000.00, 'OFFICE', 'ACTIVE', 'contact@example.com', X'ef6869b7240248c7bff4141563be2d8c'),
@@ -58,7 +58,7 @@ VALUES
     (X'51b02a7ee57c4321ba3473d59bfbddec', 'PROGRAMMER', 'Receptionist Position Description', 'Requirements for Receptionist Position', 48000.00, 'OFFICE', 'ACTIVE', 'contact@example.com', X'88a71c7ed01140e3b9b578315c983b21'),
     (X'6f8fdfd4419c46a79ba233a32723cd6c', 'SALES_MANAGER', 'Analyst Position Description', 'Requirements for Analyst Position', 75000.00, 'SALES_AGENT_ROUTE', 'ACTIVE', 'contact@example.com', X'2e88a78db4a74a00b5904d0f7abe6c04');
 
--- Вставка данных об отпусках сотрудников в таблицу "vacations"
+-- Inserting employee vacation data into the "vacations" table
 INSERT INTO vacations (vac_id, vac_start_date, vac_end_date, vac_type, vac_category, substitution_emp_id, emp_id)
 VALUES
     (X'99b464245a6045a0b378cbe9f8a49c73', '2024-04-01', '2024-04-10', TRUE, 'ANNUAL', X'7881bf3e73a947da8baee2e253a30ddd', X'7270910ccc71463497a0a242eb5b6064'),
@@ -67,14 +67,15 @@ VALUES
     (X'7df490a208a94c448fa0476c904cd4d5', '2024-07-01', '2024-07-10', FALSE, 'UNPAID', X'7881bf3e73a947da8baee2e253a30ddd', X'cd8edecd0d2742288fe6911c1cf7fd7c'),
     (X'0628ad729f214dd498eaee08bcfbd36e', '2024-08-15', '2024-08-25', TRUE, 'OTHER', X'cd8edecd0d2742288fe6911c1cf7fd7c', X'7881bf3e73a947da8baee2e253a30ddd');
 
--- Вставка адресов в таблицу  "addresses"
+-- Inserting addresses into the "addresses" table
 INSERT INTO addresses (address_id, country, city, street, house_number, apart_number, address_type, pers_info_id)
 VALUES (X'b23a92eb398c4ba99680b4b3a72a910d', 'Germany', 'Berlin', 'Hauptstrasse', '123', 'Wohnung 101', 'HOME', X'caee169ab58845758cfd4b9c2e711cbe'),
        (X'15ef8acb09804074a8be0dbb1589ef02', 'Germany', 'Munich', 'Schlossstrasse', '456', 'Büro 201', 'WORK', X'7a3cc0fb6d9e453ab32929796e1b3045'),
        (X'0b751135128c46c9b5548c6e05bcd2d8', 'Germany', 'Hamburg', 'Am Markt', '789', 'Büro 301', 'WORK', X'2ba57f167ac3400797d59d6d6f246e95'),
        (X'53fb4d7f1f5c44aebf0b1087275c04dc', 'Germany', 'Cologne', 'Königsallee', '1010', 'Büro 401', 'WORK', X'1f48648697dc4f508fb1cd87d5dd37e1'),
        (X'3c1ed47ce8354096a7e073c765b44a64', 'Germany', 'Frankfurt', 'Bahnhofstrasse', '222', 'Wohnung 102', 'HOME', X'b514d190b72f4dd5948cd871c3cc1d0b');
--- Вставка данных о событиях компании в таблицу "events"
+
+-- Inserting data about company events into the "events" table
 INSERT INTO events (ev_id, ev_type, start_date_time, location, description)
 VALUES
     (X'92683b96579e4fee9329b442639582e7', 'CONFERENCE', '2024-04-20 09:00:00', 'Conference Hall A', 'Annual company conference'),
@@ -83,7 +84,7 @@ VALUES
     (X'f6f19f3815974422a35b1ba8008996da', 'TRAINING', '2024-07-15 10:00:00', 'Training Center', 'New employee orientation'),
     (X'e4931cb92dea4a75bdf2262d7361f343', 'EMPLOYEE_BIRTHDAY', '2024-08-10 00:00:00', 'Office', 'Employee birthday celebration');
 
--- Вставка данных в таблицу "events_employee". Связывание событий и сотрудников
+-- Inserting data into the "events_employee" table. Linking events and employees
 INSERT INTO events_employee (ev_id, emp_id)
 VALUES
     (X'92683b96579e4fee9329b442639582e7', X'7270910ccc71463497a0a242eb5b6064'),
@@ -92,7 +93,7 @@ VALUES
     (X'e4931cb92dea4a75bdf2262d7361f343', X'cd8edecd0d2742288fe6911c1cf7fd7c'),
     (X'92683b96579e4fee9329b442639582e7', X'7881bf3e73a947da8baee2e253a30ddd');
 
--- Вставка данных в таблицу "pers_info_role". Связывание пользователей и ролей
+-- Inserting data into the "pers_info_role" table. Linking Users and Roles
 INSERT INTO pers_info_role (pers_info_id, role_id)
 VALUES
     (X'caee169ab58845758cfd4b9c2e711cbe', X'64d1e26770344c72989b0e3214f264ce'),
@@ -101,7 +102,7 @@ VALUES
     (X'1f48648697dc4f508fb1cd87d5dd37e1', X'64d1e26770344c72989b0e3214f264ce'),
     (X'b514d190b72f4dd5948cd871c3cc1d0b', X'64d1e26770344c72989b0e3214f264ce');
 
--- Вставка данных в таблицу "role_authority". Связывание ролей и прав
+-- Inserting data into the "role_authority" table. Linking roles and rights
 INSERT INTO role_authority (role_id, auth_id)
 VALUES
     (X'64d1e26770344c72989b0e3214f264ce', X'fcbf07ae7d864a16935a36ee7ac89b02'),

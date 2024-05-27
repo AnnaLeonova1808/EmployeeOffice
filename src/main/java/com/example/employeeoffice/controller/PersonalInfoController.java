@@ -1,6 +1,5 @@
 package com.example.employeeoffice.controller;
 
-
 import com.example.employeeoffice.annotation.GetPersonalInfo;
 import com.example.employeeoffice.annotation.GetPersonalInfoByRoleName;
 import com.example.employeeoffice.annotation.UpdatePersonalInfo;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
+
 @Validated
 @RestController
 @RequestMapping("/personal_info")
@@ -33,10 +33,7 @@ public class PersonalInfoController {
     }
 
     @GetPersonalInfoByRoleName(path = "/roles/{roleName}")
-    public List<PersonalInfo> showAllPersonalInfoByRoleName(@PathVariable(name = "roleName") String roleName){
+    public List<PersonalInfo> showAllPersonalInfoByRoleName(@PathVariable(name = "roleName") String roleName) {
         return personalInfoService.showAllPersonalInfoByRoleName(roleName);
     }
-
-
-
 }

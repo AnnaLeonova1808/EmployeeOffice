@@ -13,57 +13,62 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(AddressNotExistException.class)
-    public ResponseEntity<ErrorExtension> handleAddressNotExistException(Exception e) {
+    public ResponseEntity<ErrorExtension> handleAddressNotExistException(AddressNotExistException e) {
         return new ResponseEntity<>(new ErrorExtension(
                 e.getMessage(), HttpStatus.NOT_FOUND),
                 HttpStatus.NOT_FOUND);
     }
     @ExceptionHandler(DepartmentNotFoundException.class)
-    public ResponseEntity<ErrorExtension> handleDepartmentNotFoundException(Exception e) {
+    public ResponseEntity<ErrorExtension> handleDepartmentNotFoundException(DepartmentNotFoundException e) {
         return new ResponseEntity<>(new ErrorExtension(
                 e.getMessage(), HttpStatus.NOT_FOUND),
                 HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(EmployeeNotExistException.class)
-    public ResponseEntity<ErrorExtension> handleEmployeeNotExistException(Exception e) {
+    public ResponseEntity<ErrorExtension> handleEmployeeNotExistException(EmployeeNotExistException e) {
         return new ResponseEntity<>(new ErrorExtension(
                 e.getMessage(), HttpStatus.NOT_FOUND),
                 HttpStatus.NOT_FOUND);
     }
     @ExceptionHandler(EmployeeAlreadyExistException.class)
-    public ResponseEntity<ErrorExtension> handleEmployeeAlreadyExistException(Exception e) {
+    public ResponseEntity<ErrorExtension> handleEmployeeAlreadyExistException(EmployeeAlreadyExistException e) {
         return new ResponseEntity<>(new ErrorExtension(
                 e.getMessage(), HttpStatus.BAD_REQUEST),
                 HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(PersonalInfoNotExistException.class)
-    public ResponseEntity<ErrorExtension> handlePersonalInfoNotExistException(Exception e) {
+    public ResponseEntity<ErrorExtension> handlePersonalInfoNotExistException(PersonalInfoNotExistException e) {
         return new ResponseEntity<>(new ErrorExtension(
                 e.getMessage(), HttpStatus.BAD_REQUEST),
                 HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler(VacancyNotFoundExeption.class)
-    public ResponseEntity<ErrorExtension> handleVacancyNotExistException(Exception e) {
-        return new ResponseEntity<>(new ErrorExtension(
-                e.getMessage(), HttpStatus.NOT_FOUND),
-                HttpStatus.NOT_FOUND);
+    @ExceptionHandler(VacancyNotFoundException.class)
+    public ResponseEntity<ErrorExtension> handleVacancyNotExistException(VacancyNotFoundException e) {
+        return new ResponseEntity<>(new ErrorExtension(e.getMessage(), HttpStatus.NOT_FOUND), HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(VacancyAlreadyExistsException.class)
+    public ResponseEntity<ErrorExtension> handleVacancyAlreadyExistsException(VacancyAlreadyExistsException e) {
+        return new ResponseEntity<>(new ErrorExtension(
+                e.getMessage(), HttpStatus.CONFLICT),
+                HttpStatus.CONFLICT);
+    }
+
     @ExceptionHandler(RoleIdNotFoundException.class)
-    public ResponseEntity<ErrorExtension> handleRoleIdNotFoundException(Exception e) {
+    public ResponseEntity<ErrorExtension> handleRoleIdNotFoundException(RoleIdNotFoundException e) {
         return new ResponseEntity<>(new ErrorExtension(
                 e.getMessage(), HttpStatus.NOT_FOUND),
                 HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(RoleNotFoundException.class)
-    public ResponseEntity<ErrorExtension> handleRoleNotFoundException(Exception e) {
-        return new ResponseEntity<>(new ErrorExtension(
-                e.getMessage(), HttpStatus.NOT_FOUND),
-                HttpStatus.NOT_FOUND);
-    }
+//    @ExceptionHandler(RoleNotFoundException.class)
+//    public ResponseEntity<ErrorExtension> handleRoleNotFoundException(Exception e) {
+//        return new ResponseEntity<>(new ErrorExtension(
+//                e.getMessage(), HttpStatus.NOT_FOUND),
+//                HttpStatus.NOT_FOUND);
+//    }
     @ExceptionHandler(ListOfPersonalInfoIsEmptyException.class)
-    public ResponseEntity<ErrorExtension> handleListOfPersonalInfoIsEmptyException(Exception e) {
+    public ResponseEntity<ErrorExtension> handleListOfPersonalInfoIsEmptyException(ListOfPersonalInfoIsEmptyException e) {
         return new ResponseEntity<>(new ErrorExtension(
                 e.getMessage(), HttpStatus.NOT_FOUND),
                 HttpStatus.NOT_FOUND);

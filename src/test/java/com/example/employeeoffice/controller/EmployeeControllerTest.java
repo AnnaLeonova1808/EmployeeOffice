@@ -67,17 +67,20 @@ class EmployeeControllerTest {
     }
     @Test
     void deleteEmployeeByIdTestWithException() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.delete("/employee/delete/8881bf3e-73a9-47da-8bae-e2e253a30ddd"))
+        String expectedErrorMessage = "{\"message\":\"EMPLOYEE_NOT_EXIST\",\"errorCode\":\"404 NOT_FOUND\"}";
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .delete("/employee/delete/8881bf3e-73a9-47da-8bae-e2e253a30ddd")
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"message\":\"EMPLOYEE_NOT_EXIST\",\"errorCode\":\"NOT_FOUND\"}"))
+                .andExpect(content().json(expectedErrorMessage))
                 .andReturn();
     }
 
     @Test
     void createEmployeeTest() throws Exception {
         EmployeeRegistrationDto employeeRegistrationDto = ExpectedData.returnEmployeeRegistrationDto();
-        //employeeRegistrationDto.setPhoneNumber("+12-345-678-90-12");
         String employeeWrite = objectMapper.writeValueAsString(employeeRegistrationDto);
 
         MvcResult createEmployeeResult = mockMvc

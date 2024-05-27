@@ -2,6 +2,7 @@ package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.AuthorityName;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "authorities")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "authId")
 public class Authority {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -29,6 +31,7 @@ public class Authority {
     @Column(name = "authority")
     private AuthorityName authority;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "authorities", fetch = FetchType.LAZY)
     private Set<Role> roles; //(1) Права могут быть назначены нескольким ролям
 

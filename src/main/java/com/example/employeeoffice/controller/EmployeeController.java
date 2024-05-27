@@ -15,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
+
 @Validated
 @RestController
 @RequestMapping("/employee")
@@ -33,6 +34,7 @@ public class EmployeeController {
 
         return employeeService.deleteEmployeeById(UUID.fromString(empId));
     }
+
     @CreateEmployee(path = "/registration/create_employee")
     @ResponseStatus(HttpStatus.CREATED)
     public EmployeeAfterRegistrationDto createEmployee(@Validated @RequestBody EmployeeRegistrationDto employeeRegistrationDto) {

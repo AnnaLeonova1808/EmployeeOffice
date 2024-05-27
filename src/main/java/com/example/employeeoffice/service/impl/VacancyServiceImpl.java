@@ -3,12 +3,11 @@ package com.example.employeeoffice.service.impl;
 import com.example.employeeoffice.dto.VacancyAfterCreationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.entity.Department;
-import com.example.employeeoffice.entity.Vacanсy;
+import com.example.employeeoffice.entity.Vacancy;
 import com.example.employeeoffice.entity.enums.DepartmentName;
-import com.example.employeeoffice.exception.DepartmentNotFoundException;
 import com.example.employeeoffice.exception.ErrorMessage;
 import com.example.employeeoffice.exception.VacancyAlreadyExistsException;
-import com.example.employeeoffice.exception.VacancyNotFoundExeption;
+import com.example.employeeoffice.exception.VacancyNotFoundException;
 import com.example.employeeoffice.mapper.VacancyMapper;
 import com.example.employeeoffice.repository.DepartmentRepository;
 import com.example.employeeoffice.repository.VacancyRepository;
@@ -30,9 +29,9 @@ public class VacancyServiceImpl implements VacancyService {
     @Transactional
     public String deleteVacancyById(UUID vacancyId) {
 
-        Vacanсy vacancy = vacancyRepository.findById(vacancyId).orElse(null);
+        Vacancy vacancy = vacancyRepository.findById(vacancyId).orElse(null);
         if (vacancy == null) {
-            throw new VacancyNotFoundExeption(ErrorMessage.VACANCY_NOT_EXIST);
+            throw new VacancyNotFoundException(ErrorMessage.VACANCY_NOT_EXIST);
         }
 
         vacancyRepository.deleteVacancyByVacancyId(vacancyId);
@@ -43,11 +42,11 @@ public class VacancyServiceImpl implements VacancyService {
     @Transactional
     public VacancyAfterCreationDto createVacancy(VacancyCreateDto vacancyCreateDto) {
 
-        Vacanсy vacancy = vacancyRepository.findByVacancyDescription(vacancyCreateDto.getVacancyDescription());
+        Vacancy vacancy = vacancyRepository.findByVacancyDescription(vacancyCreateDto.getVacancyDescription());
         if (vacancy != null) {
             throw new VacancyAlreadyExistsException(ErrorMessage.VACANCY_ALREADY_EXIST);
-
         }
+
         String depName = vacancyCreateDto.getDepName();
         DepartmentName departmentName = DepartmentName.valueOf(depName.toUpperCase());
         Department department = departmentRepository.findByDepName(departmentName);
@@ -58,9 +57,9 @@ public class VacancyServiceImpl implements VacancyService {
             department = departmentRepository.save(department);
         }
 
-        Vacanсy entity = vacancyMapper.toEntity(vacancyCreateDto);
+        Vacancy entity = vacancyMapper.toEntity(vacancyCreateDto);
         entity.setDepartment(department);
-        Vacanсy vacancyAfterCreation = vacancyRepository.save(entity);
+        Vacancy vacancyAfterCreation = vacancyRepository.save(entity);
         return vacancyMapper.toDto(vacancyAfterCreation);
     }
 }

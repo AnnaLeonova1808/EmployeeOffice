@@ -1,9 +1,5 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.entity.Role;
-import com.example.employeeoffice.entity.enums.RolesName;
-import com.example.employeeoffice.exception.RoleIdNotFoundException;
-import com.example.employeeoffice.exception.RoleNotFoundException;
 import com.example.employeeoffice.repository.RoleRepository;
 import com.example.employeeoffice.service.interfaces.RoleService;
 import com.example.employeeoffice.utils.ExpectedData;
@@ -20,15 +16,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
-import java.util.*;
+import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
-import static com.example.employeeoffice.utils.ExpectedData.returnAllRoles;
-import static java.util.Arrays.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -69,12 +61,14 @@ class RoleControllerTest {
     @Test
     void getRoleByIdNegativeTest() throws Exception {
         String nonExistentID = "44d1e267-7034-4c72-989b-0e3214f264ce";
+        String expectedErrorMessage = "{\"message\":\"ROLE_ID_NOT_FOUND_EXCEPTION\",\"errorCode\":\"404 NOT_FOUND\"}";
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/role/get/{role_id}", nonExistentID))
+                        .get("/role/get/{role_id}", nonExistentID)
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"message\":\"ROLE_ID_NOT_FOUND_EXCEPTION\",\"errorCode\":\"NOT_FOUND\"}"));
+                .andExpect(content().json(expectedErrorMessage));
     }
 
     @Test

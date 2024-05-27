@@ -29,13 +29,26 @@ public class ExpectedData {
 
     public static VacancyCreateDto returnVacancyCreateDto() {
         VacancyCreateDto vacancyCreateDto = new VacancyCreateDto();
-        vacancyCreateDto.setPosition(Position.STOREKEEPER);
-        vacancyCreateDto.setVacancyDescription("STOREKEEPER required");
-        vacancyCreateDto.setVacancyRequirements("Requirements for STOREKEEPER Position");
+        vacancyCreateDto.setPosition(Position.PROGRAMMER);
+        vacancyCreateDto.setVacancyDescription("Programmer P D");
+        vacancyCreateDto.setVacancyRequirements("Requirements for Programmer Position");
         vacancyCreateDto.setVacancyContactInfo("contact@example.com");
-        vacancyCreateDto.setDepName(String.valueOf(DepartmentName.WAREHOUSE));
+        vacancyCreateDto.setDepName(String.valueOf(DepartmentName.IT));
+
 
         return vacancyCreateDto;
+    }
+
+    public static VacancyCreateDto returnVacancyCreateAlreadyExistsException() {
+        VacancyCreateDto vacancyCreateAlreadyExistsException = new VacancyCreateDto();
+        vacancyCreateAlreadyExistsException.setPosition(Position.HR_MANAGER);
+        vacancyCreateAlreadyExistsException.setVacancyDescription("HR Position Description");
+        vacancyCreateAlreadyExistsException.setVacancyRequirements("Requirements for HR manager Position");
+        vacancyCreateAlreadyExistsException.setVacancyContactInfo("contact@example.com");
+        vacancyCreateAlreadyExistsException.setDepName(String.valueOf(DepartmentName.HR));
+
+
+        return vacancyCreateAlreadyExistsException;
     }
 
     public static Event returnEventCreate() {

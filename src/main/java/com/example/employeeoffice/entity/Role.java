@@ -2,7 +2,7 @@ package com.example.employeeoffice.entity;
 
 import com.example.employeeoffice.entity.enums.RolesName;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,6 +20,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "roles")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "roleId")
 public class Role {
     @Id
     @GeneratedValue(generator = "UUID")

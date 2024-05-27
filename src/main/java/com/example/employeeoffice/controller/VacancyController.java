@@ -1,14 +1,16 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.annotation.DeleteVacancy;
 import com.example.employeeoffice.annotation.CreateVacancyDto;
+import com.example.employeeoffice.annotation.DeleteVacancy;
 import com.example.employeeoffice.dto.VacancyAfterCreationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.service.interfaces.VacancyService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,11 +28,12 @@ public class VacancyController {
 
         return vacancyService.deleteVacancyById(UUID.fromString(vacancyId));
     }
+
     @CreateVacancyDto(path = "/create_vacancy")
     @ResponseStatus(HttpStatus.CREATED)
-    public VacancyAfterCreationDto creteVacancy(@RequestBody VacancyCreateDto vacancyCreateDto){
+    @ResponseBody
+    public VacancyAfterCreationDto creteVacancy(@RequestBody VacancyCreateDto vacancyCreateDto) {
 
         return vacancyService.createVacancy(vacancyCreateDto);
     }
-
 }

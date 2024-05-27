@@ -41,12 +41,8 @@ class EventControllerTest {
                 .andReturn();
 
         String jsonResult = createEventResult.getResponse().getContentAsString();
-
         Assertions.assertEquals(201, createEventResult.getResponse().getStatus());
-
         System.out.println(jsonResult);
-
-
     }
 
 }

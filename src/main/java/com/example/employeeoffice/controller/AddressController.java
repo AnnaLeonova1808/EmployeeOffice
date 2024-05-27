@@ -19,7 +19,6 @@ import java.util.UUID;
 
 public class AddressController {
     private final AddressService addressService;
-
     @GetAddress(path = "/show_address/{addressId}")
     public Address showAddressById(@PathVariable(name = "addressId") @UuidFormatChecker String addressId) {
         return addressService.showAddressById(UUID.fromString(addressId));

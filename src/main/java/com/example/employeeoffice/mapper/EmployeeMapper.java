@@ -55,7 +55,6 @@ public interface EmployeeMapper {
 
         personalInfo.setBirthday(LocalDate.parse(employeeRegistrationDto.getBirthday()));
         personalInfo.setUsername((employeeRegistrationDto.getUsername()));
-        //personalInfo.setPhoneNumber(UserDataGeneratorUtil.genPhone());
         personalInfo.setPhoneNumber(employeeRegistrationDto.getPhoneNumber());
         personalInfo.setEmail(employeeRegistrationDto.getEmail());
         personalInfo.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());

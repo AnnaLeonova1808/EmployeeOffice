@@ -21,7 +21,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Table(name = "vacancies")
-public class Vacanсy {
+public class Vacancy {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
@@ -61,8 +61,8 @@ public class Vacanсy {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Vacanсy)) return false;
-        Vacanсy vacanсy = (Vacanсy) o;
+        if (!(o instanceof Vacancy)) return false;
+        Vacancy vacanсy = (Vacancy) o;
         return Objects.equals(vacancyId, vacanсy.vacancyId) && position == vacanсy.position && Objects.equals(vacancyDescription, vacanсy.vacancyDescription);
     }
 

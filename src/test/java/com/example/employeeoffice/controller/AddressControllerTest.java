@@ -59,10 +59,13 @@ class AddressControllerTest {
     @Test
     void showAddressByIdTestWithException() throws Exception {
 
-        String expectedErrorMessage = "{\"message\":\"ADDRESS_NOT_EXIST\",\"errorCode\":\"NOT_FOUND\"}";
+        String expectedErrorMessage = "{\"message\":\"ADDRESS_NOT_EXIST\",\"errorCode\":\"404 NOT_FOUND\"}";
 
-        mockMvc.perform(get("/address/show_address/b23a92eb-398c-4ba9-9680-b4b3a72a911d"))
+        mockMvc.perform(MockMvcRequestBuilders
+                        .get("/address/show_address/b23a92eb-398c-4ba9-9680-b4b3a72a911d")
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().json(expectedErrorMessage));
     }
 }

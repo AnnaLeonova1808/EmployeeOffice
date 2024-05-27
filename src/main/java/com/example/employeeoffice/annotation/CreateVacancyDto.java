@@ -1,6 +1,6 @@
 package com.example.employeeoffice.annotation;
 
-import com.example.employeeoffice.entity.Vacanсy;
+import com.example.employeeoffice.entity.Vacancy;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
@@ -27,7 +27,7 @@ import java.lang.annotation.Target;
                 required = true,
                 content = @Content(
                         mediaType = "application/json",
-                        schema = @Schema(implementation = Vacanсy.class),
+                        schema = @Schema(implementation = Vacancy.class),
                         examples = {
                                 @ExampleObject(name = "Good request",
                                         value = """
@@ -67,7 +67,7 @@ import java.lang.annotation.Target;
                         description = "The vacancy created",
                         content = @Content(
                                 mediaType = "application/json",
-                                schema = @Schema(implementation = Vacanсy.class)
+                                schema = @Schema(implementation = Vacancy.class)
                         )
                 ),
                 @ApiResponse(
@@ -77,7 +77,7 @@ import java.lang.annotation.Target;
                                 "<br> - Please fill in all fields",
                         content = @Content(
                                 mediaType = "application/json",
-                                schema = @Schema(implementation = Vacanсy.class)
+                                schema = @Schema(implementation = Vacancy.class)
                         )
                 )
         }

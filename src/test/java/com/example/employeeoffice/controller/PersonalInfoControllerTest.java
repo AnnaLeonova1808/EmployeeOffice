@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.List;
 
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -67,6 +68,32 @@ class PersonalInfoControllerTest {
 
     @Test
     void updatePersonalInfoByIdTest() throws Exception{
+//        MvcResult mvcResultBeforeUpdate = mockMvc
+//                .perform(MockMvcRequestBuilders.get("/personal_info/getPersInfo/1f486486-97dc-4f50-8fb1-cd87d5dd37e1")
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andReturn();
+//        String personalInfoJSONBeforeUpdate = mvcResultBeforeUpdate.getResponse().getContentAsString();
+//        PersonalInfo personalInfoBeforeUpdate = objectMapper.readValue(personalInfoJSONBeforeUpdate, PersonalInfo.class);
+//        System.out.println("Personal Info Before Update: " + personalInfoBeforeUpdate);
+//
+//        PersonalInfo personalInfo = ExpectedData.returnPersonalInfo();
+//        personalInfo.setSalary(55000);
+//
+//        String updatedPersonalInfoJSON = objectMapper.writeValueAsString(personalInfo);
+//
+//        MvcResult updateResult = mockMvc
+//                .perform(MockMvcRequestBuilders.put("/personal_info/update_persInfo/1f486486-97dc-4f50-8fb1-cd87d5dd37e1")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(updatedPersonalInfoJSON))
+//                .andExpect(status().isOk())
+//                .andReturn();
+//
+//        String updatedPersonalInfoFromDB = updateResult.getResponse().getContentAsString();
+//        PersonalInfo personalInfoAfterUpdate = objectMapper.readValue(updatedPersonalInfoFromDB, PersonalInfo.class);
+//        System.out.println("Personal Info After Update: " + personalInfoAfterUpdate);
+//
+//        Assertions.assertEquals(personalInfo,personalInfoAfterUpdate);
+
         MvcResult mvcResultBeforeUpdate = mockMvc
                 .perform(MockMvcRequestBuilders.get("/personal_info/getPersInfo/1f486486-97dc-4f50-8fb1-cd87d5dd37e1")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -90,6 +117,9 @@ class PersonalInfoControllerTest {
         String updatedPersonalInfoFromDB = updateResult.getResponse().getContentAsString();
         PersonalInfo personalInfoAfterUpdate = objectMapper.readValue(updatedPersonalInfoFromDB, PersonalInfo.class);
         System.out.println("Personal Info After Update: " + personalInfoAfterUpdate);
+
+        // Проверяем, что пароль не пустой
+        assertNotNull(personalInfoAfterUpdate.getPassword());
 
         Assertions.assertEquals(personalInfo,personalInfoAfterUpdate);
 
@@ -119,10 +149,13 @@ class PersonalInfoControllerTest {
     }
     @Test
     void showAllPersonalInfoByRoleNameNegative() throws Exception {
-        mockMvc.perform(get("/personal_info/roles/INVALID_ROLE")
+        String expectedErrorMessage = "{\"message\":\"Invalid role name: INVALID_ROLE\",\"errorCode\":\"400 BAD_REQUEST\"}";
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .get("/personal_info/roles/INVALID_ROLE")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
-                .andExpect(content().json("{\"message\":\"Invalid role name: INVALID_ROLE\"," +
-                        "\"errorCode\":\"BAD_REQUEST\"}"));
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().json(expectedErrorMessage));
     }
 }

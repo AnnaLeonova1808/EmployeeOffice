@@ -1,7 +1,9 @@
+server:
+  port: 8080
 spring:
   main:
     banner-mode: off
-    open-in-view: false
+
 
 
   datasource:
@@ -13,22 +15,20 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+
+
+
   sql:
     init:
-      schema-locations:
-        classpath:db/schema.sql
-      data-locations:
-        classpath:db/data.sql
+      schema-locations: classpath:db/changelog/v0.0.1-SNAPSHOT/init-db.sql
+      data-locations: classpath:db/changelog/v0.0.1-SNAPSHOT/data.sql
       mode: always
-#logging:
-#  level:
-#    root: WARN
 
 
 
 
-#  liquibase:
-#    change-log: classpath:/db/changelog-master.xml
 #//${DATASOURCE_URL}
 #//${DATASOURCE_USERNAME}
 #//${DATASOURCE_PASSWORD}
+
+#// open-in-view: false
