@@ -29,8 +29,8 @@ public class RoleController {
         return roleService.getRoleById(UUID.fromString(roleId));
     }
 
-    @GetMapping(path = "/rolesNames")
-    @GetAllRolesNames
+    //@GetMapping(path = "/rolesNames")
+    @GetAllRolesNames(path = "/rolesNames")
     public Set<String> getAllRolesNames() {
         return roleService.getAllRoleNames();
     }

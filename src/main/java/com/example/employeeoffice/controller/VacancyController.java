@@ -31,7 +31,7 @@ public class VacancyController {
 
     @CreateVacancyDto(path = "/create_vacancy")
     @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
+    //@ResponseBody
     public VacancyAfterCreationDto creteVacancy(@RequestBody VacancyCreateDto vacancyCreateDto) {
 
         return vacancyService.createVacancy(vacancyCreateDto);

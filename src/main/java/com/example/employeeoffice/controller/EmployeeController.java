@@ -8,7 +8,7 @@ import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.service.interfaces.EmployeeService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
-import jakarta.validation.Valid;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -20,11 +20,13 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/employee")
 @RequiredArgsConstructor
+@Tag(name = "employee service", description = "API for working with employees")
 public class EmployeeController {
     private final EmployeeService employeeService;
 
     @GetEmployeeById(path = "/get/{empId}")
     public Employee getEmployeeById(@PathVariable(name = "empId") @UuidFormatChecker String empId) {
+
         return employeeService.getEmployeeById(UUID.fromString(empId));
     }
 

@@ -56,6 +56,18 @@ class EmployeeControllerTest {
         Assertions.assertEquals(expectedEmployee, actualEmployee);
 
     }
+    @Test
+    void getEmployeeByIdTestWithException() throws Exception {
+
+        String expectedErrorMessage = "{\"message\":\"EMPLOYEE_NOT_EXIST\",\"errorCode\":\"404 NOT_FOUND\"}";
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .get("/employee/get/7270910c-cc71-4634-97a0-a242eb5b6066")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().json(expectedErrorMessage));
+    }
 
     @Test
     void deleteEmployeeByIdTestPositive() throws Exception {
