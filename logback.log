@@ -107,3 +107,6 @@
 31.05.2024 01:22:25.067 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 31.05.2024 01:22:27.407 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
 31.05.2024 01:22:27.432 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 16.36 seconds (process running for 18.219)
+31.05.2024 02:11:02.934 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+31.05.2024 02:11:03.050 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+31.05.2024 02:11:03.276 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
