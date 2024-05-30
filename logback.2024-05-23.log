@@ -1,0 +1,70 @@
+23.05.2024 15:05:19.339 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+23.05.2024 15:05:22.783 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_DEPARTMENT_NAME]. DEPARTMENT_NOT_EXIST
+23.05.2024 15:05:26.111 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+23.05.2024 15:05:28.741 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+23.05.2024 15:05:30.059 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+23.05.2024 15:05:31.232 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+23.05.2024 15:05:33.119 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+23.05.2024 15:31:37.241 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+23.05.2024 15:31:39.156 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_DEPARTMENT_NAME]. DEPARTMENT_NOT_EXIST
+23.05.2024 15:31:41.947 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+23.05.2024 15:31:43.438 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+23.05.2024 15:31:44.725 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+23.05.2024 15:31:45.498 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+23.05.2024 15:31:46.738 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+23.05.2024 15:34:05.550 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+23.05.2024 15:36:19.876 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+23.05.2024 15:36:25.020 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+23.05.2024 15:36:36.045 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+23.05.2024 15:36:38.506 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+23.05.2024 15:36:39.792 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+23.05.2024 15:36:41.469 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+23.05.2024 15:36:41.971 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_DEPARTMENT_NAME]. DEPARTMENT_NOT_EXIST
+24.05.2024 22:17:13.984 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+24.05.2024 22:17:15.333 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+24.05.2024 22:17:21.767 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+24.05.2024 22:17:22.787 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+24.05.2024 22:17:23.332 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+24.05.2024 22:17:24.056 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+24.05.2024 22:17:24.694 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_DEPARTMENT_NAME]. DEPARTMENT_NOT_EXIST
+24.05.2024 22:28:52.422 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+24.05.2024 22:28:54.592 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+24.05.2024 22:29:01.446 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+24.05.2024 22:29:02.488 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+24.05.2024 22:29:03.111 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+24.05.2024 22:29:03.676 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+24.05.2024 22:29:03.915 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_DEPARTMENT_NAME]. DEPARTMENT_NOT_EXIST
+24.05.2024 22:30:49.919 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+24.05.2024 22:30:51.025 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+24.05.2024 22:30:55.112 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+24.05.2024 22:30:55.554 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+24.05.2024 22:30:55.991 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+24.05.2024 22:30:56.449 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+24.05.2024 22:30:56.739 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_DEPARTMENT_NAME]. DEPARTMENT_NOT_EXIST
+24.05.2024 22:32:49.718 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+24.05.2024 22:32:50.725 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_DEPARTMENT_NAME]. DEPARTMENT_NOT_EXIST
+24.05.2024 22:32:52.328 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+24.05.2024 22:32:52.941 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+24.05.2024 22:32:54.327 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+24.05.2024 22:32:55.109 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+24.05.2024 22:32:55.561 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+24.05.2024 22:44:08.527 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+24.05.2024 22:44:09.572 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+24.05.2024 22:44:09.878 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+24.05.2024 22:44:10.246 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+24.05.2024 22:44:10.489 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+24.05.2024 22:44:11.053 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+24.05.2024 22:44:11.260 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_DEPARTMENT_NAME]. DEPARTMENT_NOT_EXIST

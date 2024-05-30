@@ -1,0 +1,1836 @@
+27.05.2024 18:34:00.583 [http-nio-8081-exec-1] ERROR o.h.e.j.s.SqlExceptionHelper - Duplicate entry '+37-150-111-22-33' for key 'personal_info.phone_number'
+27.05.2024 18:34:00.718 [http-nio-8081-exec-1] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [EmployeeRegistrationDto(firstName=Mary, lastName=Doe, position=SALES_MANAGER, hireDate=2024-04-23, createdAt=2024-04-23 13:00:00.0, department=SALES, birthday=1990-01-01, username=marydoe, phoneNumber=+37-150-111-22-33, email=marydoe@example.com, password=securepassword, salary=50000.0, roles=null)]. could not execute statement [Duplicate entry '+37-150-111-22-33' for key 'personal_info.phone_number'] [insert into personal_info (birthday,email,password,phone_number,salary,username,pers_info_id) values (?,?,?,?,?,?,?)]; SQL [insert into personal_info (birthday,email,password,phone_number,salary,username,pers_info_id) values (?,?,?,?,?,?,?)]; constraint [personal_info.phone_number]
+27.05.2024 18:34:00.738 [http-nio-8081-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry '+37-150-111-22-33' for key 'personal_info.phone_number'] [insert into personal_info (birthday,email,password,phone_number,salary,username,pers_info_id) values (?,?,?,?,?,?,?)]; SQL [insert into personal_info (birthday,email,password,phone_number,salary,username,pers_info_id) values (?,?,?,?,?,?,?)]; constraint [personal_info.phone_number]] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '+37-150-111-22-33' for key 'personal_info.phone_number'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:108)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:40)
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:52)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2873)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:104)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:363)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1403)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:484)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2319)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1976)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:561)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:794)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:669)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:419)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.example.employeeoffice.service.impl.EmployeeServiceImpl$$SpringCGLIB$$0.createEmployee(<generated>)
+	at com.example.employeeoffice.controller.EmployeeController.createEmployee(EmployeeController.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:174)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.aspectj.AspectJAfterThrowingAdvice.invoke(AspectJAfterThrowingAdvice.java:64)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:57)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.example.employeeoffice.controller.EmployeeController$$SpringCGLIB$$0.createEmployee(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+27.05.2024 18:36:44.890 [http-nio-8080-exec-9] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=PROGRAMMER, vacancyDescription=Receptionist Position Description, vacancyRequirements=Requirements for Programmer Position, vacancyContactInfo=contact@example.com, depName=IT)]. VACANCY_ALREADY_EXIST
+27.05.2024 18:36:49.929 [http-nio-8080-exec-7] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=PROGRAMMER, vacancyDescription=Receptionist Position Description, vacancyRequirements=Requirements for Programmer Position, vacancyContactInfo=contact@example.com, depName=IT)]. VACANCY_ALREADY_EXIST
+27.05.2024 18:38:16.089 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+27.05.2024 18:38:17.316 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+27.05.2024 18:38:20.828 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+27.05.2024 18:38:21.274 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+27.05.2024 18:38:24.418 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
+27.05.2024 18:38:24.643 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+27.05.2024 18:38:25.059 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+27.05.2024 18:38:27.930 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
+27.05.2024 18:39:43.251 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+27.05.2024 18:39:56.419 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
+27.05.2024 18:39:59.210 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+27.05.2024 18:40:00.997 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+27.05.2024 18:40:03.010 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+27.05.2024 18:40:03.508 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+27.05.2024 18:40:10.096 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
+27.05.2024 18:40:10.460 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+27.05.2024 21:16:13.411 [main] ERROR o.s.b.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.example.employeeoffice.EmployeeOfficeApplication.main(EmployeeOfficeApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	... 18 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.command.CommandScope.execute(CommandScope.java:253)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1419)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:343)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:294)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:287)
+	... 20 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: ERROR: The file 'classpath:/db/changelog/db.changelog-master.xml' was not found.
+The file property cannot be configured with a fully qualified path, but must be a relative path on the property,
+and any local or remote base of the path set on the search path.
+	at liquibase.parser.core.xml.XMLChangeLogSAXParser.parseToNode(XMLChangeLogSAXParser.java:114)
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:15)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:171)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87)
+	at liquibase.command.CommandScope.execute(CommandScope.java:217)
+	... 36 common frames omitted
+27.05.2024 21:29:02.763 [main] ERROR o.s.b.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.example.employeeoffice.EmployeeOfficeApplication.main(EmployeeOfficeApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	... 18 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.command.CommandScope.execute(CommandScope.java:253)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1419)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:343)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:294)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:287)
+	... 20 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:25)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:171)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87)
+	at liquibase.command.CommandScope.execute(CommandScope.java:217)
+	... 36 common frames omitted
+Caused by: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:465)
+	at liquibase.changelog.DatabaseChangeLog.load(DatabaseChangeLog.java:390)
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:23)
+	... 42 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:947)
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:455)
+	... 44 common frames omitted
+27.05.2024 21:42:13.436 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 7896 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+27.05.2024 21:42:13.470 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+27.05.2024 21:42:16.310 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+27.05.2024 21:42:16.628 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 298 ms. Found 7 JPA repository interfaces.
+27.05.2024 21:42:18.320 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+27.05.2024 21:42:18.345 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+27.05.2024 21:42:18.346 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+27.05.2024 21:42:18.600 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+27.05.2024 21:42:18.601 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4956 ms
+27.05.2024 21:42:18.945 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+27.05.2024 21:42:19.598 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2342f1ff
+27.05.2024 21:42:19.601 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+27.05.2024 21:42:20.610 [main] INFO  liquibase.command - Logging exception.
+27.05.2024 21:42:20.611 [main] INFO  liquibase.ui - ERROR: Exception Details
+27.05.2024 21:42:20.611 [main] INFO  liquibase.ui - ERROR: Exception Primary Class:  ChangeLogParseException
+27.05.2024 21:42:20.611 [main] INFO  liquibase.ui - ERROR: Exception Primary Reason: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+27.05.2024 21:42:20.611 [main] INFO  liquibase.ui - ERROR: Exception Primary Source: 4.26.0
+27.05.2024 21:42:20.612 [main] INFO  liquibase.command - Command execution complete
+27.05.2024 21:42:20.616 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+27.05.2024 21:42:20.617 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+27.05.2024 21:42:20.634 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+27.05.2024 21:42:20.638 [main] INFO  o.a.c.c.StandardService - Stopping service [Tomcat]
+27.05.2024 21:42:20.658 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+27.05.2024 21:42:20.683 [main] ERROR o.s.b.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.example.employeeoffice.EmployeeOfficeApplication.main(EmployeeOfficeApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	... 18 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.command.CommandScope.execute(CommandScope.java:253)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1419)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:343)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:294)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:287)
+	... 20 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:25)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:171)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87)
+	at liquibase.command.CommandScope.execute(CommandScope.java:217)
+	... 36 common frames omitted
+Caused by: liquibase.exception.SetupException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:465)
+	at liquibase.changelog.DatabaseChangeLog.load(DatabaseChangeLog.java:390)
+	at liquibase.parser.core.xml.AbstractChangeLogParser.parse(AbstractChangeLogParser.java:23)
+	... 42 common frames omitted
+Caused by: liquibase.exception.ChangeLogParseException: The file db/changelog/v1.0.0-SNAPSHOT/changelog.xml was not found in the configured search path:
+    - Spring classpath
+More locations can be added with the 'searchPath' parameter.
+	at liquibase.changelog.DatabaseChangeLog.include(DatabaseChangeLog.java:947)
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:455)
+	... 44 common frames omitted
+27.05.2024 21:56:56.820 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 14852 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+27.05.2024 21:56:56.825 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+27.05.2024 21:56:58.822 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+27.05.2024 21:56:59.032 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 194 ms. Found 7 JPA repository interfaces.
+27.05.2024 21:57:00.014 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+27.05.2024 21:57:00.034 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+27.05.2024 21:57:00.035 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+27.05.2024 21:57:00.139 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+27.05.2024 21:57:00.140 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3137 ms
+27.05.2024 21:57:00.350 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+27.05.2024 21:57:00.926 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1999149e
+27.05.2024 21:57:00.931 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+27.05.2024 21:57:02.230 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+27.05.2024 21:57:02.343 [main] INFO  l.lockservice - Successfully acquired change log lock
+27.05.2024 21:57:02.344 [main] INFO  liquibase.command - Using deploymentId: 6836222344
+27.05.2024 21:57:02.349 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+27.05.2024 21:57:02.382 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+27.05.2024 21:57:02.447 [main] ERROR liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll encountered an exception.
+liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3 [Failed SQL: (1064) -- Удаляем таблицы, если они существуют
+DROP TABLE IF EXISTS role_authority;
+DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS vacations;
+DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS work_schedules;
+DROP TABLE IF EXISTS personal_info;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS roles;
+
+-- Создаем таблицы
+CREATE TABLE IF NOT EXISTS roles (
+                                     role_id BINARY(16) PRIMARY KEY,
+                                     role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS authorities (
+                                           auth_id BINARY(16) PRIMARY KEY,
+                                           authority ENUM('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS personal_info (
+                                             pers_info_id BINARY(16) PRIMARY KEY,
+                                             username VARCHAR(50) NOT NULL,
+                                             birthday DATE,
+                                             phone_number VARCHAR(20) UNIQUE,
+                                             email VARCHAR(60) UNIQUE,
+                                             password VARCHAR(128) NOT NULL,
+                                             salary DECIMAL(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS work_schedules (
+                                              sched_id BINARY(16) PRIMARY KEY,
+                                              sched_name ENUM('FIVE_DAY_SHIFT_08_17', 'FIVE_DAY_SHIFT_09_18', 'SHIFT_WORK'),
+                                              is_day_off BOOLEAN,
+                                              start_time TIME DEFAULT NULL,
+                                              end_time TIME DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS departments (
+                                           dep_id BINARY(16) PRIMARY KEY,
+                                           dep_name ENUM('IT', 'WAREHOUSE', 'SALES', 'FINANCE', 'HR'),
+                                           dep_phone VARCHAR(20),
+                                           dep_email VARCHAR(60),
+                                           dep_manager_id BINARY(16) UNIQUE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS employees (
+                                         emp_id BINARY(16) PRIMARY KEY,
+                                         first_name VARCHAR(50) NOT NULL,
+                                         last_name VARCHAR(50) NOT NULL,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         hire_date DATE,
+                                         term_date DATE,
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         status_emp ENUM('WORK', 'VACATION', 'SICK_LEAVE'),
+                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                         vac_plan VARCHAR(255) DEFAULT NULL,
+                                         dep_id BINARY(16),
+                                         dep_manager_id BINARY(16),
+                                         sched_id BINARY(16),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+                                         FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacancies (
+                                         vacancy_id BINARY(16) PRIMARY KEY,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         vacancy_description VARCHAR(255),
+                                         vacancy_requirements VARCHAR(255),
+                                         vacancy_salary DECIMAL(10, 2),
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         vacancy_status ENUM('ACTIVE', 'CLOSE'),
+                                         vacancy_contact_info VARCHAR(255),
+                                         dep_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacations (
+                                         vac_id BINARY(16) PRIMARY KEY,
+                                         vac_start_date DATE,
+                                         vac_end_date DATE,
+                                         vac_type BOOLEAN,
+                                         vac_category ENUM('ANNUAL', 'MATERNITY', 'PARENTAL', 'UNPAID', 'OTHER'),
+                                         substitution_emp_id BINARY(16) NOT NULL,
+                                         emp_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS addresses (
+                                         address_id BINARY(16) PRIMARY KEY,
+                                         country VARCHAR(100),
+                                         city VARCHAR(100),
+                                         street VARCHAR(255),
+                                         house_number VARCHAR(20),
+                                         apart_number VARCHAR(20),
+                                         address_type ENUM('HOME', 'WORK'),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events (
+                                      ev_id BINARY(16) PRIMARY KEY,
+                                      ev_type ENUM('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
+                                      start_date_time TIMESTAMP,
+                                      location VARCHAR(255),
+                                      description VARCHAR(255)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events_employee (
+                                               ev_id BINARY(16) NOT NULL,
+                                               emp_id BINARY(16) NOT NULL,
+                                               PRIMARY KEY (emp_id, ev_id),
+                                               FOREIGN KEY (emp_id) REFERENCES employees (emp_id),
+                                               FOREIGN KEY (ev_id) REFERENCES events (ev_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pers_info_role (
+                                              pers_info_id BINARY(16) NOT NULL,
+                                              role_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (pers_info_id, role_id),
+                                              FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS role_authority (
+                                              role_id BINARY(16) NOT NULL,
+                                              auth_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (role_id, auth_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id),
+                                              FOREIGN KEY (auth_id) REFERENCES authorities (auth_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:470)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:179)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1285)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:755)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:108)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at liquibase.command.CommandScope.execute(CommandScope.java:217)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1419)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:343)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:294)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:287)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.example.employeeoffice.EmployeeOfficeApplication.main(EmployeeOfficeApplication.java:10)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:770)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:464)
+	... 64 common frames omitted
+27.05.2024 21:57:02.462 [main] INFO  liquibase.util - UPDATE SUMMARY
+27.05.2024 21:57:02.463 [main] INFO  liquibase.util - Run:                          2
+27.05.2024 21:57:02.463 [main] INFO  liquibase.util - Previously run:               0
+27.05.2024 21:57:02.463 [main] INFO  liquibase.util - Filtered out:                 0
+27.05.2024 21:57:02.463 [main] INFO  liquibase.util - -------------------------------
+27.05.2024 21:57:02.463 [main] INFO  liquibase.util - Total change sets:            2
+27.05.2024 21:57:02.466 [main] INFO  liquibase.util - Update summary generated
+27.05.2024 21:57:02.469 [main] INFO  liquibase.command - Update command encountered an exception.
+27.05.2024 21:57:02.478 [main] INFO  l.lockservice - Successfully released change log lock
+27.05.2024 21:57:02.482 [main] INFO  liquibase.command - Logging exception.
+27.05.2024 21:57:02.482 [main] INFO  liquibase.ui - ERROR: Exception Details
+27.05.2024 21:57:02.482 [main] INFO  liquibase.ui - ERROR: Exception Primary Class:  SQLSyntaxErrorException
+27.05.2024 21:57:02.482 [main] INFO  liquibase.ui - ERROR: Exception Primary Reason: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3
+27.05.2024 21:57:02.482 [main] INFO  liquibase.ui - ERROR: Exception Primary Source: MySQL 8.0.28
+27.05.2024 21:57:02.483 [main] INFO  liquibase.command - Command execution complete
+27.05.2024 21:57:02.486 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3 [Failed SQL: (1064) -- Удаляем таблицы, если они существуют
+DROP TABLE IF EXISTS role_authority;
+DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS vacations;
+DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS work_schedules;
+DROP TABLE IF EXISTS personal_info;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS roles;
+
+-- Создаем таблицы
+CREATE TABLE IF NOT EXISTS roles (
+                                     role_id BINARY(16) PRIMARY KEY,
+                                     role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS authorities (
+                                           auth_id BINARY(16) PRIMARY KEY,
+                                           authority ENUM('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS personal_info (
+                                             pers_info_id BINARY(16) PRIMARY KEY,
+                                             username VARCHAR(50) NOT NULL,
+                                             birthday DATE,
+                                             phone_number VARCHAR(20) UNIQUE,
+                                             email VARCHAR(60) UNIQUE,
+                                             password VARCHAR(128) NOT NULL,
+                                             salary DECIMAL(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS work_schedules (
+                                              sched_id BINARY(16) PRIMARY KEY,
+                                              sched_name ENUM('FIVE_DAY_SHIFT_08_17', 'FIVE_DAY_SHIFT_09_18', 'SHIFT_WORK'),
+                                              is_day_off BOOLEAN,
+                                              start_time TIME DEFAULT NULL,
+                                              end_time TIME DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS departments (
+                                           dep_id BINARY(16) PRIMARY KEY,
+                                           dep_name ENUM('IT', 'WAREHOUSE', 'SALES', 'FINANCE', 'HR'),
+                                           dep_phone VARCHAR(20),
+                                           dep_email VARCHAR(60),
+                                           dep_manager_id BINARY(16) UNIQUE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS employees (
+                                         emp_id BINARY(16) PRIMARY KEY,
+                                         first_name VARCHAR(50) NOT NULL,
+                                         last_name VARCHAR(50) NOT NULL,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         hire_date DATE,
+                                         term_date DATE,
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         status_emp ENUM('WORK', 'VACATION', 'SICK_LEAVE'),
+                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                         vac_plan VARCHAR(255) DEFAULT NULL,
+                                         dep_id BINARY(16),
+                                         dep_manager_id BINARY(16),
+                                         sched_id BINARY(16),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+                                         FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacancies (
+                                         vacancy_id BINARY(16) PRIMARY KEY,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         vacancy_description VARCHAR(255),
+                                         vacancy_requirements VARCHAR(255),
+                                         vacancy_salary DECIMAL(10, 2),
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         vacancy_status ENUM('ACTIVE', 'CLOSE'),
+                                         vacancy_contact_info VARCHAR(255),
+                                         dep_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacations (
+                                         vac_id BINARY(16) PRIMARY KEY,
+                                         vac_start_date DATE,
+                                         vac_end_date DATE,
+                                         vac_type BOOLEAN,
+                                         vac_category ENUM('ANNUAL', 'MATERNITY', 'PARENTAL', 'UNPAID', 'OTHER'),
+                                         substitution_emp_id BINARY(16) NOT NULL,
+                                         emp_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS addresses (
+                                         address_id BINARY(16) PRIMARY KEY,
+                                         country VARCHAR(100),
+                                         city VARCHAR(100),
+                                         street VARCHAR(255),
+                                         house_number VARCHAR(20),
+                                         apart_number VARCHAR(20),
+                                         address_type ENUM('HOME', 'WORK'),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events (
+                                      ev_id BINARY(16) PRIMARY KEY,
+                                      ev_type ENUM('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
+                                      start_date_time TIMESTAMP,
+                                      location VARCHAR(255),
+                                      description VARCHAR(255)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events_employee (
+                                               ev_id BINARY(16) NOT NULL,
+                                               emp_id BINARY(16) NOT NULL,
+                                               PRIMARY KEY (emp_id, ev_id),
+                                               FOREIGN KEY (emp_id) REFERENCES employees (emp_id),
+                                               FOREIGN KEY (ev_id) REFERENCES events (ev_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pers_info_role (
+                                              pers_info_id BINARY(16) NOT NULL,
+                                              role_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (pers_info_id, role_id),
+                                              FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS role_authority (
+                                              role_id BINARY(16) NOT NULL,
+                                              auth_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (role_id, auth_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id),
+                                              FOREIGN KEY (auth_id) REFERENCES authorities (auth_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;]
+27.05.2024 21:57:02.487 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+27.05.2024 21:57:02.502 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+27.05.2024 21:57:02.505 [main] INFO  o.a.c.c.StandardService - Stopping service [Tomcat]
+27.05.2024 21:57:02.521 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+27.05.2024 21:57:02.543 [main] ERROR o.s.b.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3 [Failed SQL: (1064) -- Удаляем таблицы, если они существуют
+DROP TABLE IF EXISTS role_authority;
+DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS vacations;
+DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS work_schedules;
+DROP TABLE IF EXISTS personal_info;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS roles;
+
+-- Создаем таблицы
+CREATE TABLE IF NOT EXISTS roles (
+                                     role_id BINARY(16) PRIMARY KEY,
+                                     role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS authorities (
+                                           auth_id BINARY(16) PRIMARY KEY,
+                                           authority ENUM('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS personal_info (
+                                             pers_info_id BINARY(16) PRIMARY KEY,
+                                             username VARCHAR(50) NOT NULL,
+                                             birthday DATE,
+                                             phone_number VARCHAR(20) UNIQUE,
+                                             email VARCHAR(60) UNIQUE,
+                                             password VARCHAR(128) NOT NULL,
+                                             salary DECIMAL(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS work_schedules (
+                                              sched_id BINARY(16) PRIMARY KEY,
+                                              sched_name ENUM('FIVE_DAY_SHIFT_08_17', 'FIVE_DAY_SHIFT_09_18', 'SHIFT_WORK'),
+                                              is_day_off BOOLEAN,
+                                              start_time TIME DEFAULT NULL,
+                                              end_time TIME DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS departments (
+                                           dep_id BINARY(16) PRIMARY KEY,
+                                           dep_name ENUM('IT', 'WAREHOUSE', 'SALES', 'FINANCE', 'HR'),
+                                           dep_phone VARCHAR(20),
+                                           dep_email VARCHAR(60),
+                                           dep_manager_id BINARY(16) UNIQUE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS employees (
+                                         emp_id BINARY(16) PRIMARY KEY,
+                                         first_name VARCHAR(50) NOT NULL,
+                                         last_name VARCHAR(50) NOT NULL,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         hire_date DATE,
+                                         term_date DATE,
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         status_emp ENUM('WORK', 'VACATION', 'SICK_LEAVE'),
+                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                         vac_plan VARCHAR(255) DEFAULT NULL,
+                                         dep_id BINARY(16),
+                                         dep_manager_id BINARY(16),
+                                         sched_id BINARY(16),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+                                         FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacancies (
+                                         vacancy_id BINARY(16) PRIMARY KEY,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         vacancy_description VARCHAR(255),
+                                         vacancy_requirements VARCHAR(255),
+                                         vacancy_salary DECIMAL(10, 2),
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         vacancy_status ENUM('ACTIVE', 'CLOSE'),
+                                         vacancy_contact_info VARCHAR(255),
+                                         dep_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacations (
+                                         vac_id BINARY(16) PRIMARY KEY,
+                                         vac_start_date DATE,
+                                         vac_end_date DATE,
+                                         vac_type BOOLEAN,
+                                         vac_category ENUM('ANNUAL', 'MATERNITY', 'PARENTAL', 'UNPAID', 'OTHER'),
+                                         substitution_emp_id BINARY(16) NOT NULL,
+                                         emp_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS addresses (
+                                         address_id BINARY(16) PRIMARY KEY,
+                                         country VARCHAR(100),
+                                         city VARCHAR(100),
+                                         street VARCHAR(255),
+                                         house_number VARCHAR(20),
+                                         apart_number VARCHAR(20),
+                                         address_type ENUM('HOME', 'WORK'),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events (
+                                      ev_id BINARY(16) PRIMARY KEY,
+                                      ev_type ENUM('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
+                                      start_date_time TIMESTAMP,
+                                      location VARCHAR(255),
+                                      description VARCHAR(255)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events_employee (
+                                               ev_id BINARY(16) NOT NULL,
+                                               emp_id BINARY(16) NOT NULL,
+                                               PRIMARY KEY (emp_id, ev_id),
+                                               FOREIGN KEY (emp_id) REFERENCES employees (emp_id),
+                                               FOREIGN KEY (ev_id) REFERENCES events (ev_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pers_info_role (
+                                              pers_info_id BINARY(16) NOT NULL,
+                                              role_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (pers_info_id, role_id),
+                                              FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS role_authority (
+                                              role_id BINARY(16) NOT NULL,
+                                              auth_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (role_id, auth_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id),
+                                              FOREIGN KEY (auth_id) REFERENCES authorities (auth_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:312)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1231)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:949)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.example.employeeoffice.EmployeeOfficeApplication.main(EmployeeOfficeApplication.java:10)
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3 [Failed SQL: (1064) -- Удаляем таблицы, если они существуют
+DROP TABLE IF EXISTS role_authority;
+DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS vacations;
+DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS work_schedules;
+DROP TABLE IF EXISTS personal_info;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS roles;
+
+-- Создаем таблицы
+CREATE TABLE IF NOT EXISTS roles (
+                                     role_id BINARY(16) PRIMARY KEY,
+                                     role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS authorities (
+                                           auth_id BINARY(16) PRIMARY KEY,
+                                           authority ENUM('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS personal_info (
+                                             pers_info_id BINARY(16) PRIMARY KEY,
+                                             username VARCHAR(50) NOT NULL,
+                                             birthday DATE,
+                                             phone_number VARCHAR(20) UNIQUE,
+                                             email VARCHAR(60) UNIQUE,
+                                             password VARCHAR(128) NOT NULL,
+                                             salary DECIMAL(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS work_schedules (
+                                              sched_id BINARY(16) PRIMARY KEY,
+                                              sched_name ENUM('FIVE_DAY_SHIFT_08_17', 'FIVE_DAY_SHIFT_09_18', 'SHIFT_WORK'),
+                                              is_day_off BOOLEAN,
+                                              start_time TIME DEFAULT NULL,
+                                              end_time TIME DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS departments (
+                                           dep_id BINARY(16) PRIMARY KEY,
+                                           dep_name ENUM('IT', 'WAREHOUSE', 'SALES', 'FINANCE', 'HR'),
+                                           dep_phone VARCHAR(20),
+                                           dep_email VARCHAR(60),
+                                           dep_manager_id BINARY(16) UNIQUE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS employees (
+                                         emp_id BINARY(16) PRIMARY KEY,
+                                         first_name VARCHAR(50) NOT NULL,
+                                         last_name VARCHAR(50) NOT NULL,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         hire_date DATE,
+                                         term_date DATE,
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         status_emp ENUM('WORK', 'VACATION', 'SICK_LEAVE'),
+                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                         vac_plan VARCHAR(255) DEFAULT NULL,
+                                         dep_id BINARY(16),
+                                         dep_manager_id BINARY(16),
+                                         sched_id BINARY(16),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+                                         FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacancies (
+                                         vacancy_id BINARY(16) PRIMARY KEY,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         vacancy_description VARCHAR(255),
+                                         vacancy_requirements VARCHAR(255),
+                                         vacancy_salary DECIMAL(10, 2),
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         vacancy_status ENUM('ACTIVE', 'CLOSE'),
+                                         vacancy_contact_info VARCHAR(255),
+                                         dep_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacations (
+                                         vac_id BINARY(16) PRIMARY KEY,
+                                         vac_start_date DATE,
+                                         vac_end_date DATE,
+                                         vac_type BOOLEAN,
+                                         vac_category ENUM('ANNUAL', 'MATERNITY', 'PARENTAL', 'UNPAID', 'OTHER'),
+                                         substitution_emp_id BINARY(16) NOT NULL,
+                                         emp_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS addresses (
+                                         address_id BINARY(16) PRIMARY KEY,
+                                         country VARCHAR(100),
+                                         city VARCHAR(100),
+                                         street VARCHAR(255),
+                                         house_number VARCHAR(20),
+                                         apart_number VARCHAR(20),
+                                         address_type ENUM('HOME', 'WORK'),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events (
+                                      ev_id BINARY(16) PRIMARY KEY,
+                                      ev_type ENUM('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
+                                      start_date_time TIMESTAMP,
+                                      location VARCHAR(255),
+                                      description VARCHAR(255)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events_employee (
+                                               ev_id BINARY(16) NOT NULL,
+                                               emp_id BINARY(16) NOT NULL,
+                                               PRIMARY KEY (emp_id, ev_id),
+                                               FOREIGN KEY (emp_id) REFERENCES employees (emp_id),
+                                               FOREIGN KEY (ev_id) REFERENCES events (ev_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pers_info_role (
+                                              pers_info_id BINARY(16) NOT NULL,
+                                              role_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (pers_info_id, role_id),
+                                              FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS role_authority (
+                                              role_id BINARY(16) NOT NULL,
+                                              auth_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (role_id, auth_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id),
+                                              FOREIGN KEY (auth_id) REFERENCES authorities (auth_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	... 18 common frames omitted
+Caused by: liquibase.exception.CommandExecutionException: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3 [Failed SQL: (1064) -- Удаляем таблицы, если они существуют
+DROP TABLE IF EXISTS role_authority;
+DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS vacations;
+DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS work_schedules;
+DROP TABLE IF EXISTS personal_info;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS roles;
+
+-- Создаем таблицы
+CREATE TABLE IF NOT EXISTS roles (
+                                     role_id BINARY(16) PRIMARY KEY,
+                                     role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS authorities (
+                                           auth_id BINARY(16) PRIMARY KEY,
+                                           authority ENUM('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS personal_info (
+                                             pers_info_id BINARY(16) PRIMARY KEY,
+                                             username VARCHAR(50) NOT NULL,
+                                             birthday DATE,
+                                             phone_number VARCHAR(20) UNIQUE,
+                                             email VARCHAR(60) UNIQUE,
+                                             password VARCHAR(128) NOT NULL,
+                                             salary DECIMAL(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS work_schedules (
+                                              sched_id BINARY(16) PRIMARY KEY,
+                                              sched_name ENUM('FIVE_DAY_SHIFT_08_17', 'FIVE_DAY_SHIFT_09_18', 'SHIFT_WORK'),
+                                              is_day_off BOOLEAN,
+                                              start_time TIME DEFAULT NULL,
+                                              end_time TIME DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS departments (
+                                           dep_id BINARY(16) PRIMARY KEY,
+                                           dep_name ENUM('IT', 'WAREHOUSE', 'SALES', 'FINANCE', 'HR'),
+                                           dep_phone VARCHAR(20),
+                                           dep_email VARCHAR(60),
+                                           dep_manager_id BINARY(16) UNIQUE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS employees (
+                                         emp_id BINARY(16) PRIMARY KEY,
+                                         first_name VARCHAR(50) NOT NULL,
+                                         last_name VARCHAR(50) NOT NULL,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         hire_date DATE,
+                                         term_date DATE,
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         status_emp ENUM('WORK', 'VACATION', 'SICK_LEAVE'),
+                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                         vac_plan VARCHAR(255) DEFAULT NULL,
+                                         dep_id BINARY(16),
+                                         dep_manager_id BINARY(16),
+                                         sched_id BINARY(16),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+                                         FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacancies (
+                                         vacancy_id BINARY(16) PRIMARY KEY,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         vacancy_description VARCHAR(255),
+                                         vacancy_requirements VARCHAR(255),
+                                         vacancy_salary DECIMAL(10, 2),
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         vacancy_status ENUM('ACTIVE', 'CLOSE'),
+                                         vacancy_contact_info VARCHAR(255),
+                                         dep_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacations (
+                                         vac_id BINARY(16) PRIMARY KEY,
+                                         vac_start_date DATE,
+                                         vac_end_date DATE,
+                                         vac_type BOOLEAN,
+                                         vac_category ENUM('ANNUAL', 'MATERNITY', 'PARENTAL', 'UNPAID', 'OTHER'),
+                                         substitution_emp_id BINARY(16) NOT NULL,
+                                         emp_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS addresses (
+                                         address_id BINARY(16) PRIMARY KEY,
+                                         country VARCHAR(100),
+                                         city VARCHAR(100),
+                                         street VARCHAR(255),
+                                         house_number VARCHAR(20),
+                                         apart_number VARCHAR(20),
+                                         address_type ENUM('HOME', 'WORK'),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events (
+                                      ev_id BINARY(16) PRIMARY KEY,
+                                      ev_type ENUM('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
+                                      start_date_time TIMESTAMP,
+                                      location VARCHAR(255),
+                                      description VARCHAR(255)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events_employee (
+                                               ev_id BINARY(16) NOT NULL,
+                                               emp_id BINARY(16) NOT NULL,
+                                               PRIMARY KEY (emp_id, ev_id),
+                                               FOREIGN KEY (emp_id) REFERENCES employees (emp_id),
+                                               FOREIGN KEY (ev_id) REFERENCES events (ev_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pers_info_role (
+                                              pers_info_id BINARY(16) NOT NULL,
+                                              role_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (pers_info_id, role_id),
+                                              FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS role_authority (
+                                              role_id BINARY(16) NOT NULL,
+                                              auth_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (role_id, auth_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id),
+                                              FOREIGN KEY (auth_id) REFERENCES authorities (auth_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;]
+	at liquibase.command.CommandScope.execute(CommandScope.java:253)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:245)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1419)
+	at liquibase.Liquibase.update(Liquibase.java:234)
+	at liquibase.Liquibase.update(Liquibase.java:212)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:343)
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:294)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:287)
+	... 20 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3 [Failed SQL: (1064) -- Удаляем таблицы, если они существуют
+DROP TABLE IF EXISTS role_authority;
+DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS vacations;
+DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS work_schedules;
+DROP TABLE IF EXISTS personal_info;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS roles;
+
+-- Создаем таблицы
+CREATE TABLE IF NOT EXISTS roles (
+                                     role_id BINARY(16) PRIMARY KEY,
+                                     role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS authorities (
+                                           auth_id BINARY(16) PRIMARY KEY,
+                                           authority ENUM('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS personal_info (
+                                             pers_info_id BINARY(16) PRIMARY KEY,
+                                             username VARCHAR(50) NOT NULL,
+                                             birthday DATE,
+                                             phone_number VARCHAR(20) UNIQUE,
+                                             email VARCHAR(60) UNIQUE,
+                                             password VARCHAR(128) NOT NULL,
+                                             salary DECIMAL(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS work_schedules (
+                                              sched_id BINARY(16) PRIMARY KEY,
+                                              sched_name ENUM('FIVE_DAY_SHIFT_08_17', 'FIVE_DAY_SHIFT_09_18', 'SHIFT_WORK'),
+                                              is_day_off BOOLEAN,
+                                              start_time TIME DEFAULT NULL,
+                                              end_time TIME DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS departments (
+                                           dep_id BINARY(16) PRIMARY KEY,
+                                           dep_name ENUM('IT', 'WAREHOUSE', 'SALES', 'FINANCE', 'HR'),
+                                           dep_phone VARCHAR(20),
+                                           dep_email VARCHAR(60),
+                                           dep_manager_id BINARY(16) UNIQUE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS employees (
+                                         emp_id BINARY(16) PRIMARY KEY,
+                                         first_name VARCHAR(50) NOT NULL,
+                                         last_name VARCHAR(50) NOT NULL,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         hire_date DATE,
+                                         term_date DATE,
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         status_emp ENUM('WORK', 'VACATION', 'SICK_LEAVE'),
+                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                         vac_plan VARCHAR(255) DEFAULT NULL,
+                                         dep_id BINARY(16),
+                                         dep_manager_id BINARY(16),
+                                         sched_id BINARY(16),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+                                         FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacancies (
+                                         vacancy_id BINARY(16) PRIMARY KEY,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         vacancy_description VARCHAR(255),
+                                         vacancy_requirements VARCHAR(255),
+                                         vacancy_salary DECIMAL(10, 2),
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         vacancy_status ENUM('ACTIVE', 'CLOSE'),
+                                         vacancy_contact_info VARCHAR(255),
+                                         dep_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacations (
+                                         vac_id BINARY(16) PRIMARY KEY,
+                                         vac_start_date DATE,
+                                         vac_end_date DATE,
+                                         vac_type BOOLEAN,
+                                         vac_category ENUM('ANNUAL', 'MATERNITY', 'PARENTAL', 'UNPAID', 'OTHER'),
+                                         substitution_emp_id BINARY(16) NOT NULL,
+                                         emp_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS addresses (
+                                         address_id BINARY(16) PRIMARY KEY,
+                                         country VARCHAR(100),
+                                         city VARCHAR(100),
+                                         street VARCHAR(255),
+                                         house_number VARCHAR(20),
+                                         apart_number VARCHAR(20),
+                                         address_type ENUM('HOME', 'WORK'),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events (
+                                      ev_id BINARY(16) PRIMARY KEY,
+                                      ev_type ENUM('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
+                                      start_date_time TIMESTAMP,
+                                      location VARCHAR(255),
+                                      description VARCHAR(255)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events_employee (
+                                               ev_id BINARY(16) NOT NULL,
+                                               emp_id BINARY(16) NOT NULL,
+                                               PRIMARY KEY (emp_id, ev_id),
+                                               FOREIGN KEY (emp_id) REFERENCES employees (emp_id),
+                                               FOREIGN KEY (ev_id) REFERENCES events (ev_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pers_info_role (
+                                              pers_info_id BINARY(16) NOT NULL,
+                                              role_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (pers_info_id, role_id),
+                                              FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS role_authority (
+                                              role_id BINARY(16) NOT NULL,
+                                              auth_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (role_id, auth_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id),
+                                              FOREIGN KEY (auth_id) REFERENCES authorities (auth_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:151)
+	at liquibase.command.core.AbstractUpdateCommandStep.lambda$run$0(AbstractUpdateCommandStep.java:110)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.command.core.AbstractUpdateCommandStep.run(AbstractUpdateCommandStep.java:108)
+	at liquibase.command.core.UpdateCommandStep.run(UpdateCommandStep.java:105)
+	at liquibase.command.CommandScope.execute(CommandScope.java:217)
+	... 36 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for changeset db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll:
+     Reason: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3 [Failed SQL: (1064) -- Удаляем таблицы, если они существуют
+DROP TABLE IF EXISTS role_authority;
+DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS vacations;
+DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS work_schedules;
+DROP TABLE IF EXISTS personal_info;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS roles;
+
+-- Создаем таблицы
+CREATE TABLE IF NOT EXISTS roles (
+                                     role_id BINARY(16) PRIMARY KEY,
+                                     role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS authorities (
+                                           auth_id BINARY(16) PRIMARY KEY,
+                                           authority ENUM('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS personal_info (
+                                             pers_info_id BINARY(16) PRIMARY KEY,
+                                             username VARCHAR(50) NOT NULL,
+                                             birthday DATE,
+                                             phone_number VARCHAR(20) UNIQUE,
+                                             email VARCHAR(60) UNIQUE,
+                                             password VARCHAR(128) NOT NULL,
+                                             salary DECIMAL(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS work_schedules (
+                                              sched_id BINARY(16) PRIMARY KEY,
+                                              sched_name ENUM('FIVE_DAY_SHIFT_08_17', 'FIVE_DAY_SHIFT_09_18', 'SHIFT_WORK'),
+                                              is_day_off BOOLEAN,
+                                              start_time TIME DEFAULT NULL,
+                                              end_time TIME DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS departments (
+                                           dep_id BINARY(16) PRIMARY KEY,
+                                           dep_name ENUM('IT', 'WAREHOUSE', 'SALES', 'FINANCE', 'HR'),
+                                           dep_phone VARCHAR(20),
+                                           dep_email VARCHAR(60),
+                                           dep_manager_id BINARY(16) UNIQUE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS employees (
+                                         emp_id BINARY(16) PRIMARY KEY,
+                                         first_name VARCHAR(50) NOT NULL,
+                                         last_name VARCHAR(50) NOT NULL,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         hire_date DATE,
+                                         term_date DATE,
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         status_emp ENUM('WORK', 'VACATION', 'SICK_LEAVE'),
+                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                         vac_plan VARCHAR(255) DEFAULT NULL,
+                                         dep_id BINARY(16),
+                                         dep_manager_id BINARY(16),
+                                         sched_id BINARY(16),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+                                         FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacancies (
+                                         vacancy_id BINARY(16) PRIMARY KEY,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         vacancy_description VARCHAR(255),
+                                         vacancy_requirements VARCHAR(255),
+                                         vacancy_salary DECIMAL(10, 2),
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         vacancy_status ENUM('ACTIVE', 'CLOSE'),
+                                         vacancy_contact_info VARCHAR(255),
+                                         dep_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacations (
+                                         vac_id BINARY(16) PRIMARY KEY,
+                                         vac_start_date DATE,
+                                         vac_end_date DATE,
+                                         vac_type BOOLEAN,
+                                         vac_category ENUM('ANNUAL', 'MATERNITY', 'PARENTAL', 'UNPAID', 'OTHER'),
+                                         substitution_emp_id BINARY(16) NOT NULL,
+                                         emp_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS addresses (
+                                         address_id BINARY(16) PRIMARY KEY,
+                                         country VARCHAR(100),
+                                         city VARCHAR(100),
+                                         street VARCHAR(255),
+                                         house_number VARCHAR(20),
+                                         apart_number VARCHAR(20),
+                                         address_type ENUM('HOME', 'WORK'),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events (
+                                      ev_id BINARY(16) PRIMARY KEY,
+                                      ev_type ENUM('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
+                                      start_date_time TIMESTAMP,
+                                      location VARCHAR(255),
+                                      description VARCHAR(255)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events_employee (
+                                               ev_id BINARY(16) NOT NULL,
+                                               emp_id BINARY(16) NOT NULL,
+                                               PRIMARY KEY (emp_id, ev_id),
+                                               FOREIGN KEY (emp_id) REFERENCES employees (emp_id),
+                                               FOREIGN KEY (ev_id) REFERENCES events (ev_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pers_info_role (
+                                              pers_info_id BINARY(16) NOT NULL,
+                                              role_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (pers_info_id, role_id),
+                                              FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS role_authority (
+                                              role_id BINARY(16) NOT NULL,
+                                              auth_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (role_id, auth_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id),
+                                              FOREIGN KEY (auth_id) REFERENCES authorities (auth_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:797)
+	at liquibase.changelog.visitor.UpdateVisitor.executeAcceptedChange(UpdateVisitor.java:119)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:68)
+	at liquibase.changelog.ChangeLogIterator$2.lambda$run$0(ChangeLogIterator.java:133)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.changelog.ChangeLogIterator$2.run(ChangeLogIterator.java:122)
+	at liquibase.Scope.lambda$child$0(Scope.java:186)
+	at liquibase.Scope.child(Scope.java:195)
+	at liquibase.Scope.child(Scope.java:185)
+	at liquibase.Scope.child(Scope.java:164)
+	at liquibase.Scope.child(Scope.java:252)
+	at liquibase.Scope.child(Scope.java:256)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:89)
+	... 44 common frames omitted
+Caused by: liquibase.exception.DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3 [Failed SQL: (1064) -- Удаляем таблицы, если они существуют
+DROP TABLE IF EXISTS role_authority;
+DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS addresses;
+DROP TABLE IF EXISTS vacations;
+DROP TABLE IF EXISTS vacancies;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS work_schedules;
+DROP TABLE IF EXISTS personal_info;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS roles;
+
+-- Создаем таблицы
+CREATE TABLE IF NOT EXISTS roles (
+                                     role_id BINARY(16) PRIMARY KEY,
+                                     role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS authorities (
+                                           auth_id BINARY(16) PRIMARY KEY,
+                                           authority ENUM('READ_DOCUMENT', 'CREATE_DOCUMENT', 'DELETE_DOCUMENT', 'UPDATE_DOCUMENT')
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS personal_info (
+                                             pers_info_id BINARY(16) PRIMARY KEY,
+                                             username VARCHAR(50) NOT NULL,
+                                             birthday DATE,
+                                             phone_number VARCHAR(20) UNIQUE,
+                                             email VARCHAR(60) UNIQUE,
+                                             password VARCHAR(128) NOT NULL,
+                                             salary DECIMAL(10, 2) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS work_schedules (
+                                              sched_id BINARY(16) PRIMARY KEY,
+                                              sched_name ENUM('FIVE_DAY_SHIFT_08_17', 'FIVE_DAY_SHIFT_09_18', 'SHIFT_WORK'),
+                                              is_day_off BOOLEAN,
+                                              start_time TIME DEFAULT NULL,
+                                              end_time TIME DEFAULT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS departments (
+                                           dep_id BINARY(16) PRIMARY KEY,
+                                           dep_name ENUM('IT', 'WAREHOUSE', 'SALES', 'FINANCE', 'HR'),
+                                           dep_phone VARCHAR(20),
+                                           dep_email VARCHAR(60),
+                                           dep_manager_id BINARY(16) UNIQUE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS employees (
+                                         emp_id BINARY(16) PRIMARY KEY,
+                                         first_name VARCHAR(50) NOT NULL,
+                                         last_name VARCHAR(50) NOT NULL,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         hire_date DATE,
+                                         term_date DATE,
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         status_emp ENUM('WORK', 'VACATION', 'SICK_LEAVE'),
+                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                         vac_plan VARCHAR(255) DEFAULT NULL,
+                                         dep_id BINARY(16),
+                                         dep_manager_id BINARY(16),
+                                         sched_id BINARY(16),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id),
+                                         FOREIGN KEY (dep_manager_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (sched_id) REFERENCES work_schedules (sched_id),
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacancies (
+                                         vacancy_id BINARY(16) PRIMARY KEY,
+                                         position ENUM('MANAGER', 'ECONOMIST', 'SALES_MANAGER', 'PROGRAMMER', 'HR_MANAGER', 'STOREKEEPER', 'DRIVER') NOT NULL,
+                                         vacancy_description VARCHAR(255),
+                                         vacancy_requirements VARCHAR(255),
+                                         vacancy_salary DECIMAL(10, 2),
+                                         workplace_location ENUM('OFFICE', 'WAREHOUSE', 'SALES_AGENT_ROUTE'),
+                                         vacancy_status ENUM('ACTIVE', 'CLOSE'),
+                                         vacancy_contact_info VARCHAR(255),
+                                         dep_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (dep_id) REFERENCES departments (dep_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS vacations (
+                                         vac_id BINARY(16) PRIMARY KEY,
+                                         vac_start_date DATE,
+                                         vac_end_date DATE,
+                                         vac_type BOOLEAN,
+                                         vac_category ENUM('ANNUAL', 'MATERNITY', 'PARENTAL', 'UNPAID', 'OTHER'),
+                                         substitution_emp_id BINARY(16) NOT NULL,
+                                         emp_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (substitution_emp_id) REFERENCES employees (emp_id),
+                                         FOREIGN KEY (emp_id) REFERENCES employees (emp_id) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS addresses (
+                                         address_id BINARY(16) PRIMARY KEY,
+                                         country VARCHAR(100),
+                                         city VARCHAR(100),
+                                         street VARCHAR(255),
+                                         house_number VARCHAR(20),
+                                         apart_number VARCHAR(20),
+                                         address_type ENUM('HOME', 'WORK'),
+                                         pers_info_id BINARY(16) NOT NULL,
+                                         FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events (
+                                      ev_id BINARY(16) PRIMARY KEY,
+                                      ev_type ENUM('CONFERENCE', 'SEMINAR', 'HOLIDAY', 'UNPAID', 'EMPLOYEE_BIRTHDAY', 'TRAINING', 'SURVEY'),
+                                      start_date_time TIMESTAMP,
+                                      location VARCHAR(255),
+                                      description VARCHAR(255)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS events_employee (
+                                               ev_id BINARY(16) NOT NULL,
+                                               emp_id BINARY(16) NOT NULL,
+                                               PRIMARY KEY (emp_id, ev_id),
+                                               FOREIGN KEY (emp_id) REFERENCES employees (emp_id),
+                                               FOREIGN KEY (ev_id) REFERENCES events (ev_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pers_info_role (
+                                              pers_info_id BINARY(16) NOT NULL,
+                                              role_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (pers_info_id, role_id),
+                                              FOREIGN KEY (pers_info_id) REFERENCES personal_info (pers_info_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS role_authority (
+                                              role_id BINARY(16) NOT NULL,
+                                              auth_id BINARY(16) NOT NULL,
+                                              PRIMARY KEY (role_id, auth_id),
+                                              FOREIGN KEY (role_id) REFERENCES roles (role_id),
+                                              FOREIGN KEY (auth_id) REFERENCES authorities (auth_id)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:470)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:77)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:179)
+	at liquibase.executor.AbstractExecutor.execute(AbstractExecutor.java:141)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1285)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:755)
+	... 59 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS pers_info_role;
+DROP TABLE IF EXISTS events_employee;
+DROP ' at line 3
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:770)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:464)
+	... 64 common frames omitted
+27.05.2024 22:10:53.043 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 5964 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+27.05.2024 22:10:53.083 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+27.05.2024 22:10:57.752 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+27.05.2024 22:10:58.005 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 231 ms. Found 7 JPA repository interfaces.
+27.05.2024 22:11:00.069 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+27.05.2024 22:11:00.101 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+27.05.2024 22:11:00.101 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+27.05.2024 22:11:00.285 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+27.05.2024 22:11:00.287 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6732 ms
+27.05.2024 22:11:01.260 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+27.05.2024 22:11:02.393 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21090c88
+27.05.2024 22:11:02.402 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+27.05.2024 22:11:05.058 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+27.05.2024 22:11:05.205 [main] INFO  l.lockservice - Successfully acquired change log lock
+27.05.2024 22:11:05.209 [main] INFO  liquibase.command - Using deploymentId: 6837065207
+27.05.2024 22:11:05.218 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+27.05.2024 22:11:05.251 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+27.05.2024 22:11:07.973 [main] INFO  liquibase.changelog - Custom SQL executed
+27.05.2024 22:11:07.975 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 2723ms
+27.05.2024 22:11:08.000 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::raw::includeAll
+27.05.2024 22:11:08.078 [main] INFO  liquibase.changelog - Custom SQL executed
+27.05.2024 22:11:08.086 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::raw::includeAll ran successfully in 85ms
+27.05.2024 22:11:08.113 [main] INFO  liquibase.util - UPDATE SUMMARY
+27.05.2024 22:11:08.114 [main] INFO  liquibase.util - Run:                          2
+27.05.2024 22:11:08.114 [main] INFO  liquibase.util - Previously run:               0
+27.05.2024 22:11:08.114 [main] INFO  liquibase.util - Filtered out:                 0
+27.05.2024 22:11:08.114 [main] INFO  liquibase.util - -------------------------------
+27.05.2024 22:11:08.114 [main] INFO  liquibase.util - Total change sets:            2
+27.05.2024 22:11:08.116 [main] INFO  liquibase.util - Update summary generated
+27.05.2024 22:11:08.121 [main] INFO  liquibase.command - Update command completed successfully.
+27.05.2024 22:11:08.122 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 63
+27.05.2024 22:11:08.134 [main] INFO  l.lockservice - Successfully released change log lock
+27.05.2024 22:11:08.135 [main] INFO  liquibase.command - Command execution complete
+27.05.2024 22:11:08.592 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+27.05.2024 22:11:09.091 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+27.05.2024 22:11:09.219 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+27.05.2024 22:11:10.283 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+27.05.2024 22:11:14.291 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+27.05.2024 22:11:14.306 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+27.05.2024 22:11:21.629 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+27.05.2024 22:11:21.991 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public java.util.Set com.example.employeeoffice.controller.RoleController.getAllRolesNames(), but only the first will be used: [@org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={"/rolesNames"}, produces={}, value={"/rolesNames"}), @com.example.employeeoffice.annotation.GetAllRolesNames(path={})]
+27.05.2024 22:11:24.253 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+27.05.2024 22:11:24.303 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 33.28 seconds (process running for 36.87)
+27.05.2024 22:15:39.987 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+27.05.2024 22:16:10.584 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
+27.05.2024 22:16:21.052 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+27.05.2024 22:16:23.725 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+27.05.2024 22:16:26.802 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+27.05.2024 22:16:28.153 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+27.05.2024 22:16:50.656 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
+27.05.2024 22:16:52.361 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+27.05.2024 22:18:41.206 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 2288 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+27.05.2024 22:18:41.210 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+27.05.2024 22:18:45.035 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+27.05.2024 22:18:45.376 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 319 ms. Found 7 JPA repository interfaces.
+27.05.2024 22:18:47.827 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+27.05.2024 22:18:47.848 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+27.05.2024 22:18:47.852 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+27.05.2024 22:18:47.994 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+27.05.2024 22:18:47.994 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6649 ms
+27.05.2024 22:18:48.410 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+27.05.2024 22:18:49.322 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e239337
+27.05.2024 22:18:49.325 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+27.05.2024 22:18:51.307 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+27.05.2024 22:18:51.534 [main] INFO  l.lockservice - Successfully acquired change log lock
+27.05.2024 22:18:51.536 [main] INFO  liquibase.command - Using deploymentId: 6837531536
+27.05.2024 22:18:51.545 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+27.05.2024 22:18:51.643 [main] INFO  liquibase.util - UPDATE SUMMARY
+27.05.2024 22:18:51.644 [main] INFO  liquibase.util - Run:                          0
+27.05.2024 22:18:51.645 [main] INFO  liquibase.util - Previously run:               2
+27.05.2024 22:18:51.650 [main] INFO  liquibase.util - Filtered out:                 0
+27.05.2024 22:18:51.651 [main] INFO  liquibase.util - -------------------------------
+27.05.2024 22:18:51.653 [main] INFO  liquibase.util - Total change sets:            2
+27.05.2024 22:18:51.656 [main] INFO  liquibase.util - Update summary generated
+27.05.2024 22:18:51.660 [main] INFO  liquibase.command - Update command completed successfully.
+27.05.2024 22:18:51.660 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 0
+27.05.2024 22:18:51.674 [main] INFO  l.lockservice - Successfully released change log lock
+27.05.2024 22:18:51.675 [main] INFO  liquibase.command - Command execution complete
+27.05.2024 22:18:52.202 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+27.05.2024 22:18:52.390 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+27.05.2024 22:18:52.585 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+27.05.2024 22:18:53.325 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+27.05.2024 22:18:55.938 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+27.05.2024 22:18:55.945 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+27.05.2024 22:19:02.092 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+27.05.2024 22:19:02.412 [main] WARN  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Multiple @RequestMapping annotations found on public java.util.Set com.example.employeeoffice.controller.RoleController.getAllRolesNames(), but only the first will be used: [@org.springframework.web.bind.annotation.GetMapping(consumes={}, headers={}, name="", params={}, path={"/rolesNames"}, produces={}, value={"/rolesNames"}), @com.example.employeeoffice.annotation.GetAllRolesNames(path={})]
+27.05.2024 22:19:04.771 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+27.05.2024 22:19:04.802 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 25.612 seconds (process running for 29.901)
+27.05.2024 22:20:43.579 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+27.05.2024 22:20:43.590 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+27.05.2024 22:20:43.700 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 107 ms
+27.05.2024 22:20:44.274 [http-nio-8080-exec-1] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
+IP : 127.0.0.1
+URL : http://localhost:8080/vacancy/create_vacancy
+HTTP_METHOD : POST
+CONTROLLER_METHOD : com.example.employeeoffice.controller.VacancyController.creteVacancy
+27.05.2024 22:20:45.702 [http-nio-8080-exec-1] INFO  c.e.e.a.LoggingAspect - 
+Return value: VacancyAfterCreationDto(vacancyId=0000018f-bb7f-7c7e-f111-563c27a940ef, vacancyStatus=VACANCY CREATED)
+END OF REQUEST
+27.05.2024 23:22:59.436 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+27.05.2024 23:22:59.513 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+27.05.2024 23:22:59.597 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
