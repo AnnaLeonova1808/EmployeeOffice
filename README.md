@@ -9,9 +9,11 @@ events and contact information.
 
 ### Class Diagram EmployeeOffice
 
-![PhotoDependencyClasses](https://github.com/AnnaLeonova1808/EmployeeOffice/commit/76cb6aeb08b793c931aa87cb9eded57b9aa1f787)
+![PhotoDependencyClasses](https://github.com/AnnaLeonova1808/EmployeeOffice/blob/master/Diagram.jpg)
 
 ### Database Structure
+
+![PhotoDependencyClasses](https://github.com/AnnaLeonova1808/EmployeeOffice/blob/master/Database_Diagram.png)
 
 ### Table Employees (Company employees table)
 

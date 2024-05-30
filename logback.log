@@ -51,3 +51,59 @@
 31.05.2024 00:48:38.782 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 31.05.2024 00:48:40.585 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
 31.05.2024 00:48:40.602 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 14.505 seconds (process running for 16.674)
+31.05.2024 01:16:13.463 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+31.05.2024 01:16:13.517 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+31.05.2024 01:16:13.619 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+31.05.2024 01:22:12.492 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 6844 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+31.05.2024 01:22:12.495 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+31.05.2024 01:22:14.347 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+31.05.2024 01:22:14.489 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 129 ms. Found 7 JPA repository interfaces.
+31.05.2024 01:22:15.925 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+31.05.2024 01:22:15.939 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+31.05.2024 01:22:15.939 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+31.05.2024 01:22:16.013 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+31.05.2024 01:22:16.014 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3391 ms
+31.05.2024 01:22:16.309 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+31.05.2024 01:22:17.638 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1124910c
+31.05.2024 01:22:17.643 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+31.05.2024 01:22:18.375 [main] INFO  l.lockservice - Successfully acquired change log lock
+31.05.2024 01:22:18.389 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
+31.05.2024 01:22:18.399 [main] INFO  liquibase.snapshot - Creating snapshot
+31.05.2024 01:22:19.805 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
+31.05.2024 01:22:19.819 [main] WARN  l.lockservice - Failed to release change log lock
+31.05.2024 01:22:19.822 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
+31.05.2024 01:22:19.822 [main] INFO  liquibase.command - Command execution complete
+31.05.2024 01:22:20.012 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
+31.05.2024 01:22:20.075 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+31.05.2024 01:22:20.163 [main] INFO  l.lockservice - Successfully acquired change log lock
+31.05.2024 01:22:20.164 [main] INFO  liquibase.command - Using deploymentId: 7107740164
+31.05.2024 01:22:20.167 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+31.05.2024 01:22:20.186 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
+31.05.2024 01:22:20.204 [main] INFO  liquibase.changelog - Custom SQL executed
+31.05.2024 01:22:20.205 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 18ms
+31.05.2024 01:22:20.216 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+31.05.2024 01:22:21.062 [main] INFO  liquibase.changelog - Custom SQL executed
+31.05.2024 01:22:21.063 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 845ms
+31.05.2024 01:22:21.070 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::raw::includeAll
+31.05.2024 01:22:21.134 [main] INFO  liquibase.changelog - Custom SQL executed
+31.05.2024 01:22:21.139 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::raw::includeAll ran successfully in 69ms
+31.05.2024 01:22:21.152 [main] INFO  liquibase.util - UPDATE SUMMARY
+31.05.2024 01:22:21.152 [main] INFO  liquibase.util - Run:                          3
+31.05.2024 01:22:21.152 [main] INFO  liquibase.util - Previously run:               0
+31.05.2024 01:22:21.152 [main] INFO  liquibase.util - Filtered out:                 0
+31.05.2024 01:22:21.152 [main] INFO  liquibase.util - -------------------------------
+31.05.2024 01:22:21.152 [main] INFO  liquibase.util - Total change sets:            3
+31.05.2024 01:22:21.153 [main] INFO  liquibase.util - Update summary generated
+31.05.2024 01:22:21.156 [main] INFO  liquibase.command - Update command completed successfully.
+31.05.2024 01:22:21.157 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
+31.05.2024 01:22:21.163 [main] INFO  l.lockservice - Successfully released change log lock
+31.05.2024 01:22:21.164 [main] INFO  liquibase.command - Command execution complete
+31.05.2024 01:22:21.266 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+31.05.2024 01:22:21.408 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+31.05.2024 01:22:21.454 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+31.05.2024 01:22:21.737 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+31.05.2024 01:22:23.103 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+31.05.2024 01:22:23.108 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+31.05.2024 01:22:25.067 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+31.05.2024 01:22:27.407 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+31.05.2024 01:22:27.432 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 16.36 seconds (process running for 18.219)
