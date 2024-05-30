@@ -24,8 +24,8 @@ class EmailConstraintTest {
                 Arguments.of("olidsjwdfhjiwefhujowefhuowefhiowefn.olivia@example", false),
                 Arguments.of("olivia_Martinez1234@example.", false),
                 Arguments.of("olivia_martinez1234example.com", false),
-                Arguments.of("", false)
+                Arguments.of("", false),
+                Arguments.of(null, false)
         );
     }
-
 }

@@ -7,17 +7,11 @@ spring:
     url: jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
     username: root
     password: Fredom1808
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
       ddl-auto: none
-    open-in-view: false
-
-#  sql:
-#    init:
-#      schema-locations: classpath:db/changelog/v0.0.1-SNAPSHOT/init-db.sql
-#      data-locations: classpath:db/changelog/v0.0.1-SNAPSHOT/data.sql
-#      mode: always
 
   liquibase:
     change-log: classpath:/db/changelog/v0.0.1-SNAPSHOT/changelog.xml
@@ -37,16 +31,3 @@ springdoc:
 
 
 
-#  springdoc:
-#    api-docs:
-#      path: /api-docs
-#    swagger-ui:
-#      path: /swagger-ui.html
-
-
-
-#//${DATASOURCE_URL}
-#//${DATASOURCE_USERNAME}
-#//${DATASOURCE_PASSWORD}
-
-#// open-in-view: false

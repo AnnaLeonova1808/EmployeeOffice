@@ -25,7 +25,8 @@ class PhoneNumberConstraintTest {
                 Arguments.of("+1-22-3333-55-1", false),
                 Arguments.of("++22-619872", false),
                 Arguments.of("-357-951-85-25", false),
-                Arguments.of("", false)
+                Arguments.of("", false),
+                Arguments.of(null, false)
         );
     }
 

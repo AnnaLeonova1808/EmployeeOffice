@@ -24,11 +24,11 @@ import java.lang.annotation.Target;
 @RequestMapping(method = RequestMethod.GET)
 @Operation(
         summary = "Show role by ID",
-        description = "Retrieve an role by its unique identifier",
+        description = "Retrieve a role by its unique identifier",
         tags = {"ROLE"},
         parameters = {
                 @Parameter(
-                        name = "id",
+                        name = "role_id",
                         description = "The unique identifier of the role",
                         required = true,
                         in = ParameterIn.PATH,
@@ -65,20 +65,20 @@ import java.lang.annotation.Target;
                                 mediaType = "application/json",
                                 schema = @Schema(implementation = ResponseExceptionHandler.class)
                         )
-                ), @ApiResponse(
-                responseCode = "404",
-                description = "Role not found",
-                content = @Content(
-                        mediaType = "application/json",
-                        schema = @Schema( implementation = ResponseExceptionHandler.class)
+                ),
+                @ApiResponse(
+                        responseCode = "404",
+                        description = "Role not found",
+                        content = @Content(
+                                mediaType = "application/json",
+                                schema = @Schema(implementation = ResponseExceptionHandler.class)
+                        )
                 )
-        )
         },
         security = {
                 @SecurityRequirement(name = "safety requirements")
         }
 )
-
 public @interface GetRole {
     @AliasFor(annotation = RequestMapping.class, attribute = "path")
     String[] path() default {};

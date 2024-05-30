@@ -14,7 +14,6 @@ import java.util.UUID;
 public interface PersonalInfoRepository extends JpaRepository <PersonalInfo, UUID> {
    PersonalInfo getPersonalInfoByPersInfoId (UUID persInfoId);
    boolean existsByEmail(String email);
-
    List<PersonalInfo> findPersonalInfoByRoles_RoleName(RolesName roleName);
 
 }

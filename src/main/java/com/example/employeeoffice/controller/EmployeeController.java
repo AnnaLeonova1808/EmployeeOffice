@@ -15,32 +15,57 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
-
+/**
+ * Controller for managing employees.
+ */
 @Validated
 @RestController
 @RequestMapping("/employee")
 @RequiredArgsConstructor
-@Tag(name = "employee service", description = "API for working with employees")
 public class EmployeeController {
     private final EmployeeService employeeService;
+
+    /**
+     * Retrieves an employee by their ID.
+     *
+     * @param empId the ID of the employee to retrieve
+     * @return the employee with the specified ID
+     */
 
     @GetEmployeeById(path = "/get/{empId}")
     public Employee getEmployeeById(@PathVariable(name = "empId") @UuidFormatChecker String empId) {
 
         return employeeService.getEmployeeById(UUID.fromString(empId));
+
     }
+
+    /**
+     * Deletes an employee by their ID.
+     *
+     * @param empId the ID of the employee to delete
+     * @return a message indicating the result of the deletion
+     */
 
     @DeleteEmployee(path = "/delete/{empId}")
     @ResponseStatus(HttpStatus.OK)
     public String deleteEmployeeById(@PathVariable @UuidFormatChecker String empId) {
 
         return employeeService.deleteEmployeeById(UUID.fromString(empId));
+
     }
+
+    /**
+     * Creates a new employee.
+     *
+     * @param employeeRegistrationDto the details of the employee to create
+     * @return the created employee details
+     */
 
     @CreateEmployee(path = "/registration/create_employee")
     @ResponseStatus(HttpStatus.CREATED)
     public EmployeeAfterRegistrationDto createEmployee(@Validated @RequestBody EmployeeRegistrationDto employeeRegistrationDto) {
 
         return employeeService.createEmployee(employeeRegistrationDto);
+
     }
 }

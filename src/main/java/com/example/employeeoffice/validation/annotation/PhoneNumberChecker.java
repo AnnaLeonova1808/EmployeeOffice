@@ -14,11 +14,8 @@ import static java.lang.annotation.ElementType.*;
 @Target({FIELD, PARAMETER, TYPE_USE})
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {PhoneNumberConstraint.class})
-
 public @interface PhoneNumberChecker {
     String message() default ErrorMessage.INVALID_PHONE_NUMBER;
-
     Class<?>[] groups() default {};
-
     Class<? extends Payload>[] payload() default {};
 }

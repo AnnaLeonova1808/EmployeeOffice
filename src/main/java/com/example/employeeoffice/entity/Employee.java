@@ -20,6 +20,7 @@ import java.util.UUID;
 
 /**
  * This class represents an employee in the employee office system.
+ * It contains information about a specific employee and related data.
  */
 @Entity
 @Getter

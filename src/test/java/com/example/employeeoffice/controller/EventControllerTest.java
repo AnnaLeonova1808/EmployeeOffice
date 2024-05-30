@@ -1,6 +1,5 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.annotation.CreateEvent;
 import com.example.employeeoffice.entity.Event;
 import com.example.employeeoffice.utils.ExpectedData;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,6 +30,7 @@ class EventControllerTest {
 
     @Test
     public void creteEventTest() throws Exception {
+
         Event event = ExpectedData.returnEventCreate();
         String eventWrite = objectMapper.writeValueAsString(event);
 
@@ -44,5 +44,4 @@ class EventControllerTest {
         Assertions.assertEquals(201, createEventResult.getResponse().getStatus());
         System.out.println(jsonResult);
     }
-
 }

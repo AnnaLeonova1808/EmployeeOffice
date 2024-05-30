@@ -17,6 +17,7 @@ public class AddressServiceImpl implements AddressService {
 
 @Override
     public Address showAddressById(UUID addressId) {
+
         Address address = addressRepository.findByAddressId(addressId);
         if (address == null) {
             throw new AddressNotExistException(ErrorMessage.ADDRESS_NOT_EXIST);

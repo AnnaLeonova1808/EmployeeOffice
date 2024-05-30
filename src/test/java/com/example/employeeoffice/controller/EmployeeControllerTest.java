@@ -33,7 +33,6 @@ class EmployeeControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-
     @Test
     void getEmployeeByIdTest() throws Exception {
         Employee expectedEmployee = ExpectedData.returnEmployeeById();

@@ -4,6 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
+    <include file="drop_tables.sql" relativeToChangelogFile="true"/>
     <include file="init-db.sql" relativeToChangelogFile="true"/>
     <include file="data.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>

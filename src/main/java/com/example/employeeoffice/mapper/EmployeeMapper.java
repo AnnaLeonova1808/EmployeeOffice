@@ -4,27 +4,28 @@ import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
 import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.entity.PersonalInfo;
-import com.example.employeeoffice.entity.Role;
-import com.example.employeeoffice.entity.enums.RolesName;
-import com.example.employeeoffice.exception.ErrorMessage;
-import com.example.employeeoffice.exception.RoleNotFoundException;
 import com.example.employeeoffice.generator.PasswordGenerator;
-import com.example.employeeoffice.mapper.util.DateFormatterUtil;
-import com.example.employeeoffice.mapper.util.UserDataGeneratorUtil;
-import jakarta.persistence.PrePersist;
 import org.mapstruct.*;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.UUID;
 
+/**
+ * Mapper interface for converting between EmployeeRegistrationDto and Employee entities.
+ */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        imports = {Timestamp.class, DateFormatterUtil.class, UserDataGeneratorUtil.class},
+        imports = {Timestamp.class},
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 @Component
 public interface EmployeeMapper {
+
+    /**
+     * Converts EmployeeRegistrationDto to Employee entity.
+     *
+     * @param employeeRegistrationDto the DTO containing employee registration data
+     * @return the Employee entity
+     */
     @Mappings({
             @Mapping(target = "firstName", source = "firstName"),
             @Mapping(target = "lastName", source = "lastName"),
@@ -49,6 +50,12 @@ public interface EmployeeMapper {
     })
     Employee toEntity(EmployeeRegistrationDto employeeRegistrationDto);
 
+    /**
+     * Generates and sets PersonalInfo for the given Employee based on EmployeeRegistrationDto.
+     *
+     * @param employee the Employee entity to set PersonalInfo for
+     * @param employeeRegistrationDto the DTO containing employee registration data
+     */
     @AfterMapping
        default void generatePersonalInfo(@MappingTarget Employee employee, EmployeeRegistrationDto employeeRegistrationDto) {
         PersonalInfo personalInfo = new PersonalInfo();
@@ -63,6 +70,12 @@ public interface EmployeeMapper {
         employee.setPersInfo(personalInfo);
     }
 
+    /**
+     * Converts Employee entity to EmployeeAfterRegistrationDto.
+     *
+     * @param employee the Employee entity
+     * @return the DTO containing employee details after registration
+     */
     @Mappings({
 
             @Mapping(target = "empId", source = "empId"),

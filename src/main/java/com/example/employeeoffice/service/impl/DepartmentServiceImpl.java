@@ -16,6 +16,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public Department showDepartmentByName(DepartmentName depName) {
+
         Department department = departmentRepository.findByDepName(depName);
         if (department == null) {
             throw new DepartmentNotFoundException(ErrorMessage.DEPARTMENT_NOT_EXIST);

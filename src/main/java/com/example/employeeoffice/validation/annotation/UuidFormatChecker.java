@@ -17,8 +17,6 @@ import static java.lang.annotation.ElementType.*;
 public @interface UuidFormatChecker {
 
     String message() default ErrorMessage.INVALID_ID;
-
     Class<?>[] groups() default {};
-
     Class<? extends Payload>[] payload() default {};
 }

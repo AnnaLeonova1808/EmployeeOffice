@@ -3,6 +3,7 @@ package com.example.employeeoffice.entity;
 import com.example.employeeoffice.entity.enums.RolesName;
 import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import com.fasterxml.jackson.annotation.*;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,34 +14,55 @@ import org.hibernate.annotations.GenericGenerator;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
-
+/**
+ * Entity class for Role.
+ */
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "roles")
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "roleId")
+@Schema(description = "Role assigned to users, containing a set of authorities")
 public class Role {
+    /**
+     * Unique identifier for the role.
+     */
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID",
             type = UuidTimeSequenceGenerator.class)
     @Column(name = "role_id")
+    @Schema(description = "Unique identifier of the role")
     private UUID roleId;
 
+    /**
+     * Name of the role.
+     */
     @Enumerated(EnumType.STRING)
     @Column(name = "role_name")
+    @Schema(description = "Name of the role")
     private RolesName roleName;
+
+    /**
+     * Personal information of users assigned to this role.
+     * Each role can be assigned to multiple users.
+     */
     @JsonIgnore
     @ManyToMany(mappedBy = "roles")
-    private Set<PersonalInfo> personalInfo; //(3) каждая роль может быть назначена нескольким пользователям
+    @Schema(description = "Users assigned to this role")
+    private Set<PersonalInfo> personalInfo;
 
+    /**
+     * Authorities associated with this role.
+     * Each role can have multiple authorities.
+     */
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "role_authority",
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "auth_id"))
-    private Set<Authority> authorities; //(1) каждая роль может иметь несколько прав
+    @Schema(description = "Authorities assigned to this role")
+    private Set<Authority> authorities;
 
     @Override
     public boolean equals(Object o) {

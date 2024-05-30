@@ -9,7 +9,9 @@ public class ErrorExtension {
     String errorCode;
 
     public ErrorExtension(String message, HttpStatus errorCode) {
+
         this.message = message;
         this.errorCode = errorCode.toString();
+
     }
 }

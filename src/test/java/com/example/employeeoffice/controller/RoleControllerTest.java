@@ -45,6 +45,7 @@ class RoleControllerTest {
 
     @Test
     void getRoleByIdPositiveTest() throws Exception {
+
         UUID roleId = UUID.fromString("64d1e267-7034-4c72-989b-0e3214f264ce");
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/role/get/{roleId}", roleId.toString())
@@ -60,6 +61,7 @@ class RoleControllerTest {
 
     @Test
     void getRoleByIdNegativeTest() throws Exception {
+
         String nonExistentID = "44d1e267-7034-4c72-989b-0e3214f264ce";
         String expectedErrorMessage = "{\"message\":\"ROLE_ID_NOT_FOUND_EXCEPTION\",\"errorCode\":\"404 NOT_FOUND\"}";
 
@@ -73,6 +75,7 @@ class RoleControllerTest {
 
     @Test
     void testGetAllRolesNamesPositive() throws Exception {
+
         Set<String> expectedRoles = ExpectedData.returnAllRoles().stream()
                 .map(role -> role.getRoleName().name())
                 .collect(Collectors.toSet());
@@ -91,9 +94,9 @@ class RoleControllerTest {
 
     @Test
     void testGetAllRolesNamesNegative() throws Exception {
+
         mockMvc.perform(MockMvcRequestBuilders.get("/role/rolesNames"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[\"ROLE_USER\",\"ROLE_GUEST\",\"ROLE_MANAGER\",\"ROLE_ADMIN\"]"));
     }
-
 }

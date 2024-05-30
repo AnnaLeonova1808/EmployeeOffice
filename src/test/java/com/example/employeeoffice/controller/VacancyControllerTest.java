@@ -63,60 +63,36 @@ public class VacancyControllerTest {
     @MockBean
     private VacancyMapper vacancyMapper;
 
-//    @Test
-//    public void creteVacancyTest() throws Exception {
-//        VacancyCreateDto vacancyCreateDto = ExpectedData.returnVacancyCreateDto();
-//
-//        VacancyAfterCreationDto vacancyAfterCreationDto = new VacancyAfterCreationDto();
-//        vacancyAfterCreationDto.setVacancyId(String.valueOf(UUID.randomUUID()));
-//
-//        when(vacancyService.createVacancy(any(VacancyCreateDto.class))).thenReturn(vacancyAfterCreationDto);
-//
-//        String vacancyWrite = new ObjectMapper().writeValueAsString(vacancyCreateDto);
-//
-////        MvcResult createVacancyResult = mockMvc.perform(post("/vacancy/create_vacancy")
-////                        .contentType(MediaType.APPLICATION_JSON)
-////                        .content(vacancyWrite))
-////                .andReturn();
-////
-////        assertEquals(201, createVacancyResult.getResponse().getStatus());
-//        MvcResult createVacancyResult = mockMvc.perform(MockMvcRequestBuilders.post("/vacancy/create_vacancy")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(vacancyWrite))
-//                .andExpect(status().isCreated())
-//                .andReturn();
-//
-//        String jsonResponse = createVacancyResult.getResponse().getContentAsString();
-//        VacancyAfterCreationDto actualDto = new ObjectMapper().readValue(jsonResponse, VacancyAfterCreationDto.class);
-//        assertNotNull(actualDto.getVacancyId());
-//        System.out.println(jsonResponse);
-////        VacancyCreateDto vacancyCreateDto = ExpectedData.returnVacancyCreateDto();
-////        String vacancyWrite = objectMapper.writeValueAsString(vacancyCreateDto);
-////
-////        MvcResult createVacancyResult = mockMvc
-////                .perform(MockMvcRequestBuilders.post("/vacancy/create_vacancy")
-////                        .contentType(MediaType.APPLICATION_JSON)
-////                        .content(vacancyWrite))
-////                .andReturn();
-////
-////        String jsonResult = createVacancyResult.getResponse().getContentAsString();
-////        Assertions.assertEquals(201, createVacancyResult.getResponse().getStatus());
-////        System.out.println(jsonResult);
-//    }
+    @Test
+    public void creteVacancyTestPositive() throws Exception {
+
+        VacancyCreateDto vacancyCreateDto = ExpectedData.returnVacancyCreateDto();
+
+        VacancyAfterCreationDto vacancyAfterCreationDto = new VacancyAfterCreationDto();
+        vacancyAfterCreationDto.setVacancyId(String.valueOf(UUID.randomUUID()));
+
+        when(vacancyService.createVacancy(any(VacancyCreateDto.class))).thenReturn(vacancyAfterCreationDto);
+
+        String vacancyWrite = new ObjectMapper().writeValueAsString(vacancyCreateDto);
+
+        MvcResult createVacancyResult = mockMvc.perform(MockMvcRequestBuilders.post("/vacancy/create_vacancy")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(vacancyWrite))
+                .andExpect(status().isCreated())
+                .andReturn();
+
+        String jsonResponse = createVacancyResult.getResponse().getContentAsString();
+        VacancyAfterCreationDto actualDto = new ObjectMapper().readValue(jsonResponse, VacancyAfterCreationDto.class);
+        assertNotNull(actualDto.getVacancyId());
+        System.out.println(jsonResponse);
+    }
+
 
     @Test
-    public void createVacancy_VacancyAlreadyExists_ExceptionThrown() throws Exception {
+    public void createVacancy_VacancyAlreadyExists_Negative() throws Exception {
+
         VacancyCreateDto vacancyCreateAlreadyExistsException = ExpectedData.returnVacancyCreateAlreadyExistsException();
 
-//        when(vacancyRepository.findByVacancyDescription(anyString())).thenReturn(null);
-//
-//        MockHttpServletResponse response = mockMvc.perform(post("/vacancy/create_vacancy")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(objectMapper.writeValueAsString(vacancyCreateAlreadyExistsException)))
-//                .andReturn().getResponse();
-//
-//        // Assert
-//        assertEquals(HttpStatus.CREATED.value(), response.getStatus());
         when(vacancyService.createVacancy(any(VacancyCreateDto.class)))
                 .thenThrow(new VacancyAlreadyExistsException(ErrorMessage.VACANCY_ALREADY_EXIST));
 
@@ -129,7 +105,6 @@ public class VacancyControllerTest {
                 .andReturn().getResponse();
         assertEquals(HttpStatus.CONFLICT.value(), response.getStatus());
     }
-
 
     @Test
     void deleteVacancyTestWithException() throws Exception {
@@ -147,42 +122,9 @@ public class VacancyControllerTest {
                 .andReturn();
     }
 
-    //    @Test
-//    public void testDeleteVacancyById_Success() throws Exception {
-//        // Готовим данные для теста
-//        UUID vacancyId = UUID.randomUUID();
-//        Vacanсy vacancy = new Vacanсy();
-//        vacancy.setVacancyId(vacancyId);
-//
-//        // Настройка моков для vacancyRepository
-//        when(vacancyRepository.findById(vacancyId)).thenReturn(Optional.of(vacancy));
-//
-//        // Вызываем метод, который мы тестируем
-//        String result = vacancyService.deleteVacancyById(vacancyId);
-//
-//        // Проверяем, что метод возвратил ожидаемый результат
-//        assertEquals("Vacancy with this ID was deleted SUCCESSFULLY", result);
-//
-//        // Проверяем, что метод vacancyRepository.deleteVacancyByVacancyId был вызван с правильным аргументом
-//        verify(vacancyRepository).deleteVacancyByVacancyId(vacancyId);
-//    }
-//
-//
-//    @Test
-//    public void testDeleteVacancyById_NotFound() throws Exception{
-//        // Готовим данные для теста
-//        UUID vacancyId = UUID.randomUUID();
-//
-//        // Настройка моков для vacancyRepository
-//        when(vacancyRepository.findById(vacancyId)).thenReturn(Optional.empty());
-//
-//        // Вызываем метод, который мы тестируем
-//        vacancyService.deleteVacancyById(vacancyId);
-//    }
-//
-//    // Добавьте аналогичные тесты для метода createVacancy
     @Test
     public void createVacancy_DepartmentNotFound_Created() throws Exception {
+
         VacancyCreateDto vacancyCreateDto = ExpectedData.returnVacancyCreateDto();
         Vacancy vacancy = new Vacancy();
         vacancy.setDepartment(new Department());
@@ -205,7 +147,6 @@ public class VacancyControllerTest {
         assertEquals(HttpStatus.CREATED.value(), response.getStatus());
     }
 
-
     @Test
     void deleteVacancyTestPositive() throws Exception {
 
@@ -222,26 +163,4 @@ public class VacancyControllerTest {
                 .andReturn().getResponse().getStatus();
     }
 
-    @Test
-    public void creteVacancyTest() throws Exception {
-        VacancyCreateDto vacancyCreateDto = ExpectedData.returnVacancyCreateDto();
-
-        VacancyAfterCreationDto vacancyAfterCreationDto = new VacancyAfterCreationDto();
-        vacancyAfterCreationDto.setVacancyId(String.valueOf(UUID.randomUUID()));
-
-        when(vacancyService.createVacancy(any(VacancyCreateDto.class))).thenReturn(vacancyAfterCreationDto);
-
-        String vacancyWrite = new ObjectMapper().writeValueAsString(vacancyCreateDto);
-
-        MvcResult createVacancyResult = mockMvc.perform(MockMvcRequestBuilders.post("/vacancy/create_vacancy")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(vacancyWrite))
-                .andExpect(status().isCreated())
-                .andReturn();
-
-        String jsonResponse = createVacancyResult.getResponse().getContentAsString();
-        VacancyAfterCreationDto actualDto = new ObjectMapper().readValue(jsonResponse, VacancyAfterCreationDto.class);
-        assertNotNull(actualDto.getVacancyId());
-        System.out.println(jsonResponse);
-    }
 }

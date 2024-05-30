@@ -33,23 +33,31 @@ import java.lang.annotation.Target;
                         examples = {
                                 @ExampleObject(name = "Good request",
                                         value = """
-                                        {
-                                            "firstName" : "Mary",
-                                            "lastName" : "Doe",
-                                            "position" : "SALES_MANAGER",
-                                            "hireDate" : "2024-04-23",
-                                            "createdAt" : "2024-04-23T10:00:00Z",
-                                            "department" : "SALES",
-                                        }"""),
+                                                {
+                                                  "firstName": "Mary",
+                                                  "lastName": "Doe",
+                                                  "position": "SALES_MANAGER",
+                                                  "hireDate": "2024-04-23",
+                                                  "createdAt": "2024-04-23T10:00:00Z",
+                                                  "department": "SALES",
+                                                  "birthday": "1990-01-01",
+                                                  "username": "marydoe",
+                                                  "phoneNumber": "+37-150-111-22-33",
+                                                  "email": "marydoe@example.com",
+                                                  "password": "securepassword",
+                                                  "salary": 50000.0,
+                                                  "employeeStatus": "EMPLOYEE CREATED"
+                                                }
+                                                """),
                                 @ExampleObject(name = "Request with existing name",
                                         value = """
                                                 {
-                                                    "firstName" : "Olivia",
-                                                    "lastName" : "Martinez",
-                                                    "position" : "PROGRAMMER",
-                                                    "hireDate" : "2022-01-15",
-                                                    "createdAt" : "2024-03-23T10:00:00Z",
-                                                    "department" : "IT",
+                                                "firstName" : "Olivia",
+                                                "lastName" : "Martinez",
+                                                "position" : "PROGRAMMER",
+                                                "hireDate" : "2022-01-15",
+                                                "createdAt" : "2024-03-23T10:00:00Z",
+                                                "department" : "IT",
                                                 }"""),
                         }
                 )

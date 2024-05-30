@@ -17,6 +17,7 @@ public class PhoneNumberConstraint implements ConstraintValidator<PhoneNumberChe
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+
         boolean valid = Optional.ofNullable(s)
                 .filter(el -> !el.isBlank())
                 .map(el -> el.matches(PHONE_NUMBER))

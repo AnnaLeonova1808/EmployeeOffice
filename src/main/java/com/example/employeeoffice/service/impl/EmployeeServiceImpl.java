@@ -1,4 +1,5 @@
 package com.example.employeeoffice.service.impl;
+
 import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
 import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Department;
@@ -29,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final PersonalInfoRepository personalInfoRepository;
     private final EmployeeMapper employeeMapper;
-    private final DepartmentRepository departmentRepository;
+
     private final RoleRepository roleRepository;
 
     @Override
@@ -38,7 +39,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = employeeRepository.getEmployeeByEmpId(empId);
         if (employee == null) {
             throw new EmployeeNotExistException(ErrorMessage.EMPLOYEE_NOT_EXIST);
-
         }
         return employee;
     }
@@ -46,7 +46,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public String deleteEmployeeById(UUID empId) {
+
         Employee employee = employeeRepository.getEmployeeByEmpId(empId);
+
         if (employee != null) {
             employeeRepository.deleteById(empId);
             return "Employee with this ID was deleted SUCCESSFULLY";
@@ -58,13 +60,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public EmployeeAfterRegistrationDto createEmployee(EmployeeRegistrationDto employeeRegistrationDto) {
+
         if (personalInfoRepository.existsByEmail(employeeRegistrationDto.getEmail())) {
             throw new EmployeeAlreadyExistException(ErrorMessage.EMPLOYEE_ALREADY_EXIST_EXCEPTION);
         }
+
         Optional<Role> userRoleOptional = roleRepository.findByRoleName(RolesName.ROLE_USER);
+
         if (userRoleOptional.isEmpty()) {
             throw new RoleNotFoundException("ROLE_NOT_FOUND_EXCEPTION");
         }
+
         Role userRole = userRoleOptional.orElseThrow(() -> new RoleNotFoundException("ROLE_NOT_FOUND_EXCEPTION"));
 
         PersonalInfo personalInfo = new PersonalInfo();
@@ -83,12 +89,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         entity.setPersInfo(personalInfo);
 
-        Department department = departmentRepository.findByDepName(DepartmentName.valueOf(employeeRegistrationDto.getDepartment()));
-        if (department == null) {
-            throw new DepartmentNotFoundException(ErrorMessage.DEPARTMENT_NOT_EXIST);
-        }
-
-        entity.setDepartment(department);
 
         Employee savedEmployee = employeeRepository.save(entity);
 

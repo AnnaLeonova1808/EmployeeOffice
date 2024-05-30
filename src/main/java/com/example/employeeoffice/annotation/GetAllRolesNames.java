@@ -24,22 +24,22 @@ import java.lang.annotation.Target;
 @RequestMapping(method = RequestMethod.GET)
 @Operation(
         summary = "Show roles",
-        description = "Retrieve an role by its unique identifier",
+        description = "Retrieve all role names",
         tags = {"ROLE"},
-        parameters = {
-                @Parameter(
-                        name = "roles",
-                        description = "The unique identifier of the role",
-                        required = true,
-                        in = ParameterIn.PATH,
-                        schema = @Schema(type = "string", format = "string"),
-                        examples = {
-                                @ExampleObject(
-                                        name = "Example request with correct"
-                                )
-                        }
-                )
-        },
+//        parameters = {
+//                @Parameter(
+//                        name = "roles",
+//                        description = "The unique identifier of the role",
+//                        required = true,
+//                        in = ParameterIn.PATH,
+//                        schema = @Schema(type = "string", format = "string"),
+//                        examples = {
+//                                @ExampleObject(
+//                                        name = "Example request with correct"
+//                                )
+//                        }
+//                )
+//        },
         responses = {
                 @ApiResponse(
                         responseCode = "200",
@@ -55,16 +55,14 @@ import java.lang.annotation.Target;
                         content = @Content(
                                 mediaType = "application/json",
                                 schema = @Schema(implementation = ResponseExceptionHandler.class)
+                        )
                 )
-        )
         },
         security = {
                 @SecurityRequirement(name = "safety requirements")
         }
 )
-
 public @interface GetAllRolesNames {
     @AliasFor(annotation = RequestMapping.class, attribute = "path")
     String[] path() default {};
-
 }

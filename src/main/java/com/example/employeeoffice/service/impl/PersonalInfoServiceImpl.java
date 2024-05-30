@@ -23,6 +23,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     public PersonalInfo getPersonalInfoById(UUID persInfoId) {
 
         PersonalInfo personalInfo = personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
+
         if (personalInfo == null) {
             throw new PersonalInfoNotExistException(ErrorMessage.PERSONAL_INFO_NOT_EXIST);
         }
@@ -32,6 +33,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     @Override
     @Transactional
     public PersonalInfo updatePersonalInfoById(UUID persInfoId, PersonalInfo personalInfo) {
+
         PersonalInfo updatePersonalInfo = personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
         if (updatePersonalInfo == null) {
             throw new PersonalInfoNotExistException(ErrorMessage.PERSONAL_INFO_NOT_EXIST);
@@ -46,7 +48,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         updatePersonalInfo = personalInfoRepository.save(updatePersonalInfo);
 
         return updatePersonalInfo;
-        }
+    }
 
     @Override
     public List<PersonalInfo> showAllPersonalInfoByRoleName(String roleName) {

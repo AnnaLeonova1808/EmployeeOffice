@@ -1,18 +1,4 @@
 
-DROP TABLE IF EXISTS role_authority;
-DROP TABLE IF EXISTS pers_info_role;
-DROP TABLE IF EXISTS events_employee;
-DROP TABLE IF EXISTS events;
-DROP TABLE IF EXISTS addresses;
-DROP TABLE IF EXISTS vacations;
-DROP TABLE IF EXISTS vacancies;
-DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS departments;
-DROP TABLE IF EXISTS work_schedules;
-DROP TABLE IF EXISTS personal_info;
-DROP TABLE IF EXISTS authorities;
-DROP TABLE IF EXISTS roles;
-
 CREATE TABLE IF NOT EXISTS roles (
                                      role_id BINARY(16) PRIMARY KEY,
                                      role_name ENUM('ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER', 'ROLE_GUEST') DEFAULT 'ROLE_USER'
@@ -62,6 +48,7 @@ CREATE TABLE IF NOT EXISTS employees (
                                          vac_plan VARCHAR(255) DEFAULT NULL,
                                          dep_id BINARY(16),
                                          dep_manager_id BINARY(16),
+                                         managedDepartment VARCHAR(60),
                                          sched_id BINARY(16),
                                          pers_info_id BINARY(16) NOT NULL,
                                          FOREIGN KEY (dep_id) REFERENCES departments (dep_id),

@@ -3,6 +3,7 @@ package com.example.employeeoffice.dto;
 import com.example.employeeoffice.entity.*;
 import com.example.employeeoffice.validation.annotation.EmailChecker;
 import com.example.employeeoffice.validation.annotation.PhoneNumberChecker;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -13,8 +14,12 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Set;
 
+/**
+ * Data Transfer Object for employee registration.
+ */
 @Data
 @Validated
+@Schema(description = "Details required for registering a new employee")
 public class EmployeeRegistrationDto {
     /**
      * Employee.class
@@ -36,7 +41,7 @@ public class EmployeeRegistrationDto {
 
     String birthday;
     String username;
-    //@PhoneNumberChecker
+    @PhoneNumberChecker
     String phoneNumber;
     @EmailChecker
     String email;

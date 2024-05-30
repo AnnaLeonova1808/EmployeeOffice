@@ -7,7 +7,6 @@ import java.util.UUID;
 
 public interface RoleService {
     Role getRoleById(UUID roleId);
-
     Set<String> getAllRoleNames();
 
 }
