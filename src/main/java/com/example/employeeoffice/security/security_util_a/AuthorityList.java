@@ -7,25 +7,29 @@ public class AuthorityList {
     public static final String GUEST = "GUEST";
 
     public static final String[] USER_LIST = {
-            "swagger-ui/**",
+            "/swagger-ui/",
+            "/swagger-ui/**",
             "/address/show_address/**"
 
     };
 
     public static final String[] ADMIN_LIST = {
-            "swagger-ui/**",
+            "/swagger-ui/",
+            "/swagger-ui/**",
             "/address/show_address/**"
 
     };
 
     public static final String[] MANAGER_LIST = {
-            "swagger-ui/**",
+            "/swagger-ui/",
+            "/swagger-ui/**",
             "/address/show_address/**"
 
     };
 
     public static final String[] GUEST_LIST = {
-            "swagger-ui/**",
+            "/swagger-ui/",
+            "/swagger-ui/**",
             "/address/show_address/**"
 
     };

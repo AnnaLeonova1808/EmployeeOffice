@@ -32,5 +32,10 @@ springdoc:
     operationsSorter: alpha
     tagsSorter: alpha
 
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem
+
+
 
 
