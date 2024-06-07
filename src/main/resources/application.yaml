@@ -16,6 +16,9 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/v0.0.1-SNAPSHOT/changelog.xml
 
+  mvc:
+    static-path-pattern: /static/**
+
 
 logging:
   level:

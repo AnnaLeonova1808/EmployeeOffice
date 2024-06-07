@@ -1,14 +1,14 @@
 package com.example.employeeoffice.service.impl;
-
-
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.entity.enums.RolesName;
 import com.example.employeeoffice.exception.*;
 
 import com.example.employeeoffice.repository.PersonalInfoRepository;
+import com.example.employeeoffice.repository.RoleRepository;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +18,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PersonalInfoServiceImpl implements PersonalInfoService {
     private final PersonalInfoRepository personalInfoRepository;
+    private final RoleRepository roleRepository;
 
     @Override
     public PersonalInfo getPersonalInfoById(UUID persInfoId) {
@@ -62,6 +63,20 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Invalid role name: " + roleName);
         }
+    }
+    @Transactional
+    public PersonalInfo findByUsername(String username) {
+
+        PersonalInfo personalInfo = personalInfoRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
+
+        personalInfo.getRoles().forEach(role -> {
+            roleRepository.findByRoleName(role.getRoleName()).ifPresent(fetchedRole -> {
+                role.setAuthorities(fetchedRole.getAuthorities());
+            });
+        });
+
+        return personalInfo;
     }
 }
 
