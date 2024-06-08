@@ -1,5 +1,6 @@
 package com.example.employeeoffice.configuration;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
@@ -7,27 +8,35 @@ import org.springframework.stereotype.Component;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
-@Component
-@ConfigurationProperties(prefix = "rsa")
-public class RsaKeyProperties {
-    private RSAPublicKey publicKey;
-    private RSAPrivateKey privateKey;
-
-    public RSAPublicKey getPublicKey() {
-        return publicKey;
-    }
-
-    public void setPublicKey(RSAPublicKey publicKey) {
-        this.publicKey = publicKey;
-    }
-
-    public RSAPrivateKey getPrivateKey() {
-        return privateKey;
-    }
-
-    public void setPrivateKey(RSAPrivateKey privateKey) {
-        this.privateKey = privateKey;
-    }
+//@Component
+//@ConfigurationProperties(prefix = "rsa")
+//public class RsaKeyProperties {
+//    private RSAPublicKey publicKey;
+//    private RSAPrivateKey privateKey;
+//
+//    public RSAPublicKey getPublicKey() {
+//        return publicKey;
+//    }
+//
+//    public void setPublicKey(RSAPublicKey publicKey) {
+//        this.publicKey = publicKey;
+//    }
+//
+//    public RSAPrivateKey getPrivateKey() {
+//        return privateKey;
+//    }
+//
+//    public void setPrivateKey(RSAPrivateKey privateKey) {
+//        this.privateKey = privateKey;
+//    }
+//    @PostConstruct
+//    public void init() {
+//        if (publicKey == null || privateKey == null) {
+//            throw new IllegalArgumentException("Public and private keys must not be null");
+//        }
+//        System.out.println("Public Key: " + publicKey);
+//        System.out.println("Private Key: " + privateKey);
+//    }
     /**
      * RSAPublicKey publicKey: Поле для хранения открытого ключа RSA.
      * Открытый ключ используется для шифрования данных или верификации подписей,
@@ -46,4 +55,4 @@ public class RsaKeyProperties {
      * Это особенно полезно, когда приложение нуждается в обработке шифрования или
      * подписи данных, например, при работе с JWT для аутентификации и авторизации пользователей.
      */
-}
+//}

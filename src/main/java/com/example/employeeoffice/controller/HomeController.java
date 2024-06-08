@@ -9,14 +9,14 @@ import java.security.Principal;
 @RestController
 public class HomeController {
 
-    @GetMapping("/")
-    public String home(Principal principal) {
-        return "Hello, " + principal.getName();
-    }
-
-    @PreAuthorize("hasAuthority('SCOPE_read')")
-    @GetMapping("/secure")
-    public String secure() {
-        return "This is secured!";
-    }
+//    @GetMapping("/")
+//    public String home(Principal principal) {
+//        return "Hello, " + principal.getName();
+//    }
+//
+//    @PreAuthorize("hasAuthority('SCOPE_read')")
+//    @GetMapping("/secure")
+//    public String secure() {
+//        return "This is secured!";
+//    }
 }

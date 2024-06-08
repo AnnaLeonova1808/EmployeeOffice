@@ -27,4 +27,6 @@ public class ErrorMessage {
     public static final String INVALID_ID = "IT_IS_NOT_UUID_FORMAT";
     public static final String INVALID_EMAIL = "IT_IS_NOT_EMAIL_FORMAT";
     public static final String INVALID_PHONE_NUMBER = "PLEASE_USE_PATTERN_FOR_PHONE_NUMBER_FORMAT_+XX-XXX-XXX-XX-XX";
+
+    public static final String ID_NOT_FOUND = "THIS ID WAS NOT FOUND";
 }

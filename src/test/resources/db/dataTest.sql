@@ -18,11 +18,11 @@ VALUES
 -- Inserting personal data into the "personal_info" table
 INSERT INTO personal_info (pers_info_id, username, birthday, phone_number, email, password, salary)
 VALUES
-    (X'caee169ab58845758cfd4b9c2e711cbe', 'michael', '1992-06-30', '+12-345-678-90-12', 'michael@example.com', 'd2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b5', 55000.00),
-    (X'7a3cc0fb6d9e453ab32929796e1b3045', 'emily', '1987-09-25', '+12-345-678-90-13', 'emily@example.com', '8dce5f0012304c06d98cfb0cd11bc7eaaafaf32c4da26df424bcdd59ccfe0a5d', 65000.00),
-    (X'2ba57f167ac3400797d59d6d6f246e95', 'daniel', '1980-12-10', '+12-345-678-90-14', 'daniel@example.com', '15acd26889bccf5865c22aa472ec069cf0a31512f9a53dadc0bc8f2aea3f84cd', 75000.00),
-    (X'1f48648697dc4f508fb1cd87d5dd37e1', 'olivia', '1995-04-05', '+12-345-678-90-15', 'olivia@example.com', 'c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99', 45000.00),
-    (X'b514d190b72f4dd5948cd871c3cc1d0b', 'william', '1990-10-20', '+12-345-678-90-16', 'william@example.com', '37c60d066e0fc140a4751f274112a25d5b263f4f0dec1e6c555ee2178387b1c8', 60000.00);
+    (X'caee169ab58845758cfd4b9c2e711cbe', 'michael', '1992-06-30', '+12-345-678-90-12', 'michael@example.com', '$2y$10$.gJe4xE2FoTm3oYiBmOMm.P3SxUoc6gs8m0RzMGSdeGeYWuv35SJO', 55000.00),
+    (X'7a3cc0fb6d9e453ab32929796e1b3045', 'emily', '1987-09-25', '+12-345-678-90-13', 'emily@example.com', '$2y$10$4Srvl0sN273rzqGFTN2uleYi9.BfWKssSPxJ03vwAPYYXXRIY96Ai', 65000.00),
+    (X'2ba57f167ac3400797d59d6d6f246e95', 'daniel', '1980-12-10', '+12-345-678-90-14', 'daniel@example.com', '$2y$10$4Srvl0sN273rzqGFTN2uleYi9.BfWKssSPxJ03vwAPYYXXRIY96Ai', 75000.00),
+    (X'1f48648697dc4f508fb1cd87d5dd37e1', 'olivia', '1995-04-05', '+12-345-678-90-15', 'olivia@example.com', '$2y$10$x4S2cfdehzD62UMhIPequ.IJhSQYPKxU4s7.ZYJKSaJHY71IGrFLC', 45000.00),
+    (X'b514d190b72f4dd5948cd871c3cc1d0b', 'william', '1990-10-20', '+12-345-678-90-16', 'william@example.com', '$2y$10$Bbuw142l6Xm/8BllifvEnuJrOnIZgDcoF5qestIpTRWS6PLNztZvi', 60000.00);
 
 -- Inserting work schedule data into the "workSchedules" table
 INSERT INTO work_schedules (sched_id, sched_name, is_day_off, start_time, end_time)
