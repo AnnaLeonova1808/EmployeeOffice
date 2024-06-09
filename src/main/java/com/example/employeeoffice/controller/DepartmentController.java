@@ -7,6 +7,7 @@ import com.example.employeeoffice.exception.DepartmentNotFoundException;
 import com.example.employeeoffice.exception.ErrorMessage;
 import com.example.employeeoffice.service.interfaces.DepartmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DepartmentController {
     private final DepartmentService departmentService;
 
+    //@PreAuthorize("hasAnyRole('USER', 'ADMIN', 'MANAGER', 'GUEST')")
     @ShowDepartment(path = "/show_department_by_name/{depName}")
     public Department showDepartmentByName(@PathVariable(name = "depName") String depName) {
 

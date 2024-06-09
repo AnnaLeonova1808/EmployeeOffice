@@ -35,7 +35,7 @@ public class AddressController {
      * @param addressId The unique identifier of the address.
      * @return The address with the specified ID.
      */
-    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasRole('USER')")
     @GetAddress(path = "/show_address/{addressId}")
     public Address showAddressById(@PathVariable(name = "addressId") @UuidFormatChecker String addressId) {
 

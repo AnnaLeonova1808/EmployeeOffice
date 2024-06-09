@@ -9,6 +9,7 @@ import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +32,7 @@ public class RoleController {
      * @param roleId the ID of the role to retrieve
      * @return the role with the specified ID
      */
-
+    //@PreAuthorize("hasRole('ADMIN')")
     @GetRole(path = "/get/{role_id}")
     public Role getRoleById(@PathVariable(name = "role_id") @UuidFormatChecker String roleId){
 
@@ -43,7 +44,7 @@ public class RoleController {
      *
      * @return a set of all role names
      */
-
+    //@PreAuthorize("hasRole('ADMIN')")
     @GetAllRolesNames(path = "/rolesNames")
     public Set<String> getAllRolesNames() {
 

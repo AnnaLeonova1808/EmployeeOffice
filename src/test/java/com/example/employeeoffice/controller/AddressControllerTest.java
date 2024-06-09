@@ -24,6 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 @Sql("/db/drop_tables_test.sql")
 @Sql("/db/schemaTest.sql")
 @Sql("/db/dataTest.sql")
+@WithMockUser(username = "emily", password = "222", roles = "USER")
 class AddressControllerTest {
 
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
@@ -34,8 +35,7 @@ class AddressControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    @WithMockUser(username = "michael", password = "111", roles = "USER")
-    void showAddressByIdTest() throws Exception{
+    void showAddressByIdTest() throws Exception {
 
         Address expectedAddress = ExpectedData.returnAddress();
 
@@ -43,9 +43,9 @@ class AddressControllerTest {
 
         MvcResult mvcResult =
                 mockMvc.perform(MockMvcRequestBuilders
-                        .get("/address/show_address/{addressId}", expectedAddress.getAddressId())
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(addressJson))
+                                .get("/address/show_address/{addressId}", expectedAddress.getAddressId())
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(addressJson))
                         .andExpect(status().isOk())
                         .andReturn();
 
@@ -57,6 +57,7 @@ class AddressControllerTest {
         Assertions.assertEquals(expectedAddress, actualAddress);
 
     }
+
     @Test
     void showAddressByIdTestWithException() throws Exception {
 

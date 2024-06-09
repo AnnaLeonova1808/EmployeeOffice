@@ -2,6 +2,7 @@ package com.example.employeeoffice.security.security_util_a;
 
 public class AuthorityRoleList {
     public static final String USER = "USER";
+
     public static final String ADMIN = "ADMIN";
     public static final String MANAGER = "MANAGER";
     public static final String GUEST = "GUEST";
@@ -12,12 +13,10 @@ public class AuthorityRoleList {
             "/swagger-resources/**",
             "/swagger-ui/",
             "/webjars/**",
-            "/configuration/**",
-            "/public",
             "/favicon.ico",
             "/swagger-ui/**",
-            "/h2-console/**",
-            "/address/show_address"
+            "/address/**"
+
 
     };
 
@@ -31,11 +30,12 @@ public class AuthorityRoleList {
             "/public",
             "/favicon.ico",
             "/swagger-ui/**",
-            "/h2-console/**",
-            "/department/show_department_by_name/**",
-            "/event/create_event",
-            "/vacancy/create_vacancy",
-            "/vacancy/delete_vacancy"
+            "/department/**",
+            "/employee/**",
+            "/event/**",
+            "/personal_info/**",
+            "/role/**",
+            "/vacancy/**"
 
     };
 
@@ -46,26 +46,26 @@ public class AuthorityRoleList {
             "/swagger-ui/",
             "/webjars/**",
             "/configuration/**",
-            "/public",
+//            "/public",
             "/favicon.ico",
             "/swagger-ui/**",
-            "/h2-console/**",
-            "/address/show_address/**"
+//            "/h2-console/**",
+//            "/department/show_department_by_name/*"
 
     };
 
     public static final String[] GUEST_LIST = {
-            "/v2/api-docs",
-            "/v3/api-docs/**",
-            "/swagger-resources/**",
-            "/swagger-ui/",
-            "/webjars/**",
-            "/configuration/**",
-            "/public",
-            "/favicon.ico",
-            "/swagger-ui/**",
-            "/h2-console/**",
-            "/address/show_address/**"
+//            "/v2/api-docs",
+//            "/v3/api-docs/**",
+//            "/swagger-resources/**",
+//            "/swagger-ui/",
+//            "/webjars/**",
+//            "/configuration/**",
+//            "/public",
+//            "/favicon.ico",
+//            "/swagger-ui/**",
+//            "/h2-console/**",
+//            "/department/show_department_by_name/*"
 
     };
 }

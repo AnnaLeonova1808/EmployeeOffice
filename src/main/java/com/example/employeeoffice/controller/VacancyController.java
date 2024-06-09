@@ -34,7 +34,7 @@ public class VacancyController {
      * @param vacancyId the ID of the vacancy to delete
      * @return a message indicating the result of the deletion
      */
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteVacancy(path = "/delete_vacancy/{vacancyId}")
     @ResponseStatus(HttpStatus.OK)
     public String deleteVacancyById(@PathVariable(name = "vacancyId") @UuidFormatChecker String vacancyId) {
@@ -49,7 +49,7 @@ public class VacancyController {
      * @param vacancyCreateDto the details of the vacancy to create
      * @return the created vacancy details
      */
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @CreateVacancyDto(path = "/create_vacancy")
     @ResponseStatus(HttpStatus.CREATED)
     public VacancyAfterCreationDto creteVacancy(@RequestBody VacancyCreateDto vacancyCreateDto) {

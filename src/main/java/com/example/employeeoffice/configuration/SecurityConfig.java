@@ -4,6 +4,7 @@ package com.example.employeeoffice.configuration;
 import com.example.employeeoffice.security.UserDetailsServiceImpl;
 import com.example.employeeoffice.security.security_util_a.AuthorityRoleList;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -13,9 +14,12 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import static com.example.employeeoffice.security.security_util_a.AuthorityRoleList.*;
 
@@ -23,7 +27,7 @@ import static com.example.employeeoffice.security.security_util_a.AuthorityRoleL
 @EnableWebSecurity
 @EnableMethodSecurity
 @RequiredArgsConstructor
-public class SecurityConfig {
+public class SecurityConfig implements WebMvcConfigurer {
     private final UserDetailsServiceImpl userDetailsService;
 
 
@@ -43,23 +47,40 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors(AbstractHttpConfigurer::disable)
+                //.cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                        .requestMatchers(AuthorityRoleList.USER_LIST).hasRole(AuthorityRoleList.USER)
-                        .requestMatchers(AuthorityRoleList.ADMIN_LIST).hasRole(AuthorityRoleList.ADMIN)
-                        .requestMatchers(AuthorityRoleList.MANAGER_LIST).hasRole(AuthorityRoleList.MANAGER)
-                        .requestMatchers(AuthorityRoleList.GUEST_LIST).hasRole(AuthorityRoleList.GUEST)
-                        .anyRequest().authenticated()
 
-                )
+                        .requestMatchers(USER_LIST).hasRole(USER)
+                        .requestMatchers(ADMIN_LIST).hasRole(ADMIN)
+                        .requestMatchers(MANAGER_LIST).hasRole(MANAGER)
+                        .requestMatchers(GUEST_LIST).hasRole(GUEST)
+                        .anyRequest().authenticated())
+//                .sessionManagement(sessionManagement ->
+//                        sessionManagement
+//                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                //.formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults());
         return http.build();
 
     }
+//    @Bean
+//    public FilterRegistrationBean<ClearCookiesFilter> clearCookiesFilter(){
+//        FilterRegistrationBean<ClearCookiesFilter> registrationBean = new FilterRegistrationBean<>();
+//        registrationBean.setFilter(new ClearCookiesFilter());
+//        registrationBean.addUrlPatterns("/swagger-ui.html");
+//        return registrationBean;
+//    }
+//
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/swagger-ui.html")
+//                .addResourceLocations("classpath:/static/");
+//    }
 }
+
 //        http
 //                .cors(withDefaults())
 //                .csrf(AbstractHttpConfigurer::disable)

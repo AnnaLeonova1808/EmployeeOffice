@@ -1,12 +1,12 @@
 -- liquibase formatted sql
 
--- changeset liquibase:13 pass michael -> 111  emily -> 222
+-- changeset liquibase:13 pass michael -> 111  emily -> 222  daniel -> 333  olivia -> 444  william -> 555
 
 -- Inserting roles into the "roles" table
 INSERT INTO roles (role_id, role_name)
 VALUES
-    (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), 'ROLE_USER'), -- michael  olivia  william
-    (UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d'), 'ROLE_ADMIN'), -- emily
+    (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), 'ROLE_USER'), -- emily  olivia  william
+    (UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d'), 'ROLE_ADMIN'), -- michael
     (UUID_TO_BIN('2a4e17fe-75af-4e05-be97-0d08089f59b0'), 'ROLE_MANAGER'), -- daniel
     (UUID_TO_BIN('10ffff51-6e14-4e87-8421-33f4e53f38ac'), 'ROLE_GUEST');
 
@@ -101,8 +101,8 @@ VALUES
 -- Inserting data into the "pers_info_role" table. Linking Users and Roles
 INSERT INTO pers_info_role (pers_info_id, role_id)
 VALUES
-    (UUID_TO_BIN('caee169a-b588-4575-8cfd-4b9c2e711cbe'), UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce')),
-    (UUID_TO_BIN('7a3cc0fb-6d9e-453a-b329-29796e1b3045'), UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d')),
+    (UUID_TO_BIN('caee169a-b588-4575-8cfd-4b9c2e711cbe'), UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d')),
+    (UUID_TO_BIN('7a3cc0fb-6d9e-453a-b329-29796e1b3045'), UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce')),
     (UUID_TO_BIN('2ba57f16-7ac3-4007-97d5-9d6d6f246e95'), UUID_TO_BIN('2a4e17fe-75af-4e05-be97-0d08089f59b0')),
     (UUID_TO_BIN('1f486486-97dc-4f50-8fb1-cd87d5dd37e1'), UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce')),
     (UUID_TO_BIN('b514d190-b72f-4dd5-948c-d871c3cc1d0b'), UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'));
@@ -110,8 +110,8 @@ VALUES
 -- Inserting data into the "role_authority" table. Linking roles and rights
 INSERT INTO role_authority (role_id, auth_id)
 VALUES
-    (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), UUID_TO_BIN('fcbf07ae-7d86-4a16-935a-36ee7ac89b02')),
-    (UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d'), UUID_TO_BIN('cfd9f19b-c9e2-4953-ac31-c61803c0baa3')),
+    (UUID_TO_BIN('541eac0e-4609-47b7-8fae-bc55c44ec18d'), UUID_TO_BIN('fcbf07ae-7d86-4a16-935a-36ee7ac89b02')),
+    (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), UUID_TO_BIN('cfd9f19b-c9e2-4953-ac31-c61803c0baa3')),
     (UUID_TO_BIN('2a4e17fe-75af-4e05-be97-0d08089f59b0'), UUID_TO_BIN('16001a26-ce5f-423a-afde-4bea256cec90')),
     (UUID_TO_BIN('10ffff51-6e14-4e87-8421-33f4e53f38ac'), UUID_TO_BIN('fcbf07ae-7d86-4a16-935a-36ee7ac89b02')),
     (UUID_TO_BIN('64d1e267-7034-4c72-989b-0e3214f264ce'), UUID_TO_BIN('a1a62aae-38fa-4900-b392-c2ce5afbb5da'));

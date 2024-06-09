@@ -24,7 +24,7 @@ public class EventController {
      * @param event the event to create
      * @return the created event
      */
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @CreateEvent(path = "/create_event")
     @ResponseStatus(HttpStatus.CREATED)
     public Event createEvent(@RequestBody Event event) {
