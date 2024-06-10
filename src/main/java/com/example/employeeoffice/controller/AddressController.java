@@ -4,21 +4,14 @@ import com.example.employeeoffice.annotation.GetAddress;
 import com.example.employeeoffice.entity.Address;
 import com.example.employeeoffice.service.interfaces.AddressService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
+
 /**
  * REST controller for managing addresses.
  */
@@ -35,18 +28,11 @@ public class AddressController {
      * @param addressId The unique identifier of the address.
      * @return The address with the specified ID.
      */
-    //@PreAuthorize("hasRole('USER')")
+    //http://localhost:8080/address/show_address/b23a92eb-398c-4ba9-9680-b4b3a72a910d
     @GetAddress(path = "/show_address/{addressId}")
     public Address showAddressById(@PathVariable(name = "addressId") @UuidFormatChecker String addressId) {
 
         return addressService.showAddressById(UUID.fromString(addressId));
     }
-    private void handleRequest(HttpServletRequest request) {
-        Cookie[] cookies = request.getCookies();
-        if (cookies!= null){
-            for (Cookie cookie: cookies){
-                System.out.println("JSESSIONID: " + cookie.getValue());
-            }
-        }
-    }
 }
+

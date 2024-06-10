@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DepartmentController {
     private final DepartmentService departmentService;
 
-    //@PreAuthorize("hasAnyRole('USER', 'ADMIN', 'MANAGER', 'GUEST')")
+//GET http://localhost:8080/department/show_department_by_name/IT
     @ShowDepartment(path = "/show_department_by_name/{depName}")
     public Department showDepartmentByName(@PathVariable(name = "depName") String depName) {
 

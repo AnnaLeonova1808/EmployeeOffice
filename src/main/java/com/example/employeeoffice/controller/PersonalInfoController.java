@@ -6,12 +6,13 @@ import com.example.employeeoffice.annotation.UpdatePersonalInfo;
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.UUID;
@@ -33,7 +34,6 @@ public class PersonalInfoController {
      * @return the personal information with the specified ID
      */
 
-    //@PreAuthorize("hasRole('ADMIN')")
     @GetPersonalInfo(path = "/getPersInfo/{persInfoId}")
     public PersonalInfo getPersonalInfoById(@PathVariable(name = "persInfoId") @UuidFormatChecker String persInfoId) {
 
@@ -49,7 +49,6 @@ public class PersonalInfoController {
      * @return the updated personal information
      */
 
-    //@PreAuthorize("hasRole('ADMIN')")
     @UpdatePersonalInfo(path = "/update_persInfo/{persInfoId}")
     public PersonalInfo updatePersonalInfoById(@PathVariable(name = "persInfoId") @UuidFormatChecker String persInfoId,
                                                @RequestBody @Valid PersonalInfo personalInfo) {
