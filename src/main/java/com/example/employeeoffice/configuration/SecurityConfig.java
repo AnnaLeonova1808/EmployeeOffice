@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import static com.example.employeeoffice.security.security_util_a.AuthorityRoleList.*;
+import static com.example.employeeoffice.security.security_util.AuthorityRoleList.*;
 
 @Configuration
 @EnableWebSecurity
@@ -43,6 +43,9 @@ public class SecurityConfig implements WebMvcConfigurer {
         http
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
+                .logout(logout -> logout
+                        .deleteCookies("JSESSIONID")
+                        .logoutUrl("/logout"))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
 
@@ -51,10 +54,8 @@ public class SecurityConfig implements WebMvcConfigurer {
                         .requestMatchers(MANAGER_LIST).hasRole(MANAGER)
                         .requestMatchers(GUEST_LIST).hasRole(GUEST)
                         .anyRequest().authenticated())
-
+                .headers(headers -> headers.cacheControl(Customizer.withDefaults()).disable())
                 .httpBasic(Customizer.withDefaults())
-                .logout(logout -> logout
-                        .deleteCookies("JSESSIONID"))
                 .formLogin(Customizer.withDefaults());
 
         return http.build();

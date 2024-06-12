@@ -1,4 +1,4 @@
-package com.example.employeeoffice.security.security_util_a;
+package com.example.employeeoffice.security.security_util;
 
 public class AuthorityRoleList {
 

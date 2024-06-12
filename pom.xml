@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.3</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>com.example</groupId>
     <artifactId>employeeOffice</artifactId>
@@ -103,6 +103,7 @@
             <artifactId>spring-boot-starter-validation</artifactId>
             <version>3.1.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
@@ -114,34 +115,41 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.6.4</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
             <version>3.2.4</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-resource-server</artifactId>
             <version>6.2.3</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-jose</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
@@ -165,25 +173,11 @@
                     </excludes>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.12</version>
-                <configuration>
-                    <excludes>
-                        <exclude>com/example/employeeoffice/aspect/*</exclude>
-                        <exclude>com/example/employeeoffice/annotation/*</exclude>
-                        <exclude>com/example/employeeoffice/configuration/*</exclude>
-                        <exclude>com/example/employeeoffice/entity/*</exclude>
-                        <exclude>com/example/employeeoffice/entity/enums/*</exclude>
-                        <exclude>com/example/employeeoffice/controller/handler/*</exclude>
-                        <exclude>com/example/employeeoffice/dto/*</exclude>
-                        <exclude>com/example/employeeoffice/exception/*</exclude>
-                        <exclude>com/example/employeeoffice/mapper/*</exclude>
-                        <exclude>com/example/employeeoffice/mapper/util/*</exclude>
-                        <exclude>com/example/employeeoffice/EmployeeOfficeApplication.class</exclude>
-                    </excludes>
-                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -192,14 +186,35 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>jcc-report</id>
-                        <phase>test</phase>
+                        <id>report</id>
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/jacoco-report</outputDirectory>
+                        </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>com/example/employeeoffice/annotation/*</exclude>
+                        <exclude>com/example/employeeoffice/aspect/*</exclude>
+                        <exclude>com/example/employeeoffice/configuration/*</exclude>
+                        <exclude>com/example/employeeoffice/entity/*</exclude>
+                        <exclude>com/example/employeeoffice/entity/enums/*</exclude>
+                        <exclude>com/example/employeeoffice/controller/handler/*</exclude>
+                        <exclude>com/example/employeeoffice/dto/*</exclude>
+                        <exclude>com/example/employeeoffice/exception/*</exclude>
+                        <exclude>com/example/employeeoffice/mapper/*</exclude>
+                        <exclude>com/example/employeeoffice/security/*</exclude>
+                        <exclude>com/example/employeeoffice/security/security_util/*</exclude>
+                        <exclude>com/example/employeeoffice/utils/*</exclude>
+                        <exclude>com/example/employeeoffice/EmployeeOfficeApplication.class</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
@@ -212,6 +227,7 @@
                     <driver>com.mysql.cj.jdbc.Driver</driver>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -223,23 +239,23 @@
                             <goal>javadoc</goal>
                         </goals>
                         <configuration>
+                            <outputDirectory>${project.build.directory}/javadoc</outputDirectory>
                             <additionalJOptions>-J-Xmx2048m</additionalJOptions>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <argLine>-Xmx2048m</argLine>
+                    <argLine>-Xmx2048m ${argLine}</argLine>
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>
-            empOf
-        </finalName>
+        <finalName>empOf</finalName>
     </build>
 
 </project>

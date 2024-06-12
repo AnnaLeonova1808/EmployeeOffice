@@ -6,6 +6,7 @@ import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.generator.PasswordGenerator;
 import org.mapstruct.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
@@ -19,6 +20,8 @@ import java.time.LocalDate;
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
 @Component
 public interface EmployeeMapper {
+
+    BCryptPasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
 
     /**
      * Converts EmployeeRegistrationDto to Employee entity.
@@ -64,7 +67,8 @@ public interface EmployeeMapper {
         personalInfo.setUsername((employeeRegistrationDto.getUsername()));
         personalInfo.setPhoneNumber(employeeRegistrationDto.getPhoneNumber());
         personalInfo.setEmail(employeeRegistrationDto.getEmail());
-        personalInfo.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());
+        //personalInfo.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());
+        personalInfo.setPassword(passwordEncoder.encode(employeeRegistrationDto.getPassword()));
         personalInfo.setSalary(employeeRegistrationDto.getSalary());
 
         employee.setPersInfo(personalInfo);
