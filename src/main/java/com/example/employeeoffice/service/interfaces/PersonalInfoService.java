@@ -3,6 +3,7 @@ package com.example.employeeoffice.service.interfaces;
 
 import com.example.employeeoffice.entity.PersonalInfo;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface PersonalInfoService {
@@ -10,8 +11,6 @@ public interface PersonalInfoService {
 
     PersonalInfo updatePersonalInfoById(UUID persInfoId, PersonalInfo personalInfo);
 
-    //PersonalInfoAfterCreationDto createPersonalInfo(PersonalInfoCreateDto personalInfoCreateDto);
-
-
-    //void deletePersonalInfoById(UUID persInfoId);
+    List<PersonalInfo> showAllPersonalInfoByRoleName(String roleName);
 }
+

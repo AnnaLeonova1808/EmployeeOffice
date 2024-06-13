@@ -1,28 +1,38 @@
+server:
+  port: 8080
 spring:
   main:
     banner-mode: off
-
   datasource:
-    url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:employee_office}?allowMultiQueries=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:Fredom1808}
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
-    show-sql: true
     hibernate:
       ddl-auto: none
-  sql:
-    init:
-      schema-locations:
-        classpath:db/schema.sql
-      data-locations:
-        classpath:db/data.sql
-      mode: always
-#logging:
-#  level:
-#    root: WARN
+
+  liquibase:
+    change-log: classpath:/db/changelog/v0.0.1-SNAPSHOT/changelog.xml
+
+  mvc:
+    static-path-pattern: /static/**
+
+
+logging:
+  level:
+    root: info
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: alpha
+    tagsSorter: alpha
 
 
 
-#  liquibase:
-#    change-log: classpath:/db/changelog-master.xml
+
+

@@ -4,25 +4,31 @@ import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
 import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.entity.PersonalInfo;
-import com.example.employeeoffice.entity.Role;
-import com.example.employeeoffice.entity.enums.RolesName;
-import com.example.employeeoffice.exception.ErrorMessage;
-import com.example.employeeoffice.exception.RoleNotFoundException;
 import com.example.employeeoffice.generator.PasswordGenerator;
-import com.example.employeeoffice.mapper.util.DateFormatterUtil;
-import com.example.employeeoffice.mapper.util.UserDataGeneratorUtil;
-import jakarta.persistence.PrePersist;
 import org.mapstruct.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.UUID;
 
+/**
+ * Mapper interface for converting between EmployeeRegistrationDto and Employee entities.
+ */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
-        imports = {Timestamp.class, DateFormatterUtil.class, UserDataGeneratorUtil.class},
+        imports = {Timestamp.class},
         unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Component
 public interface EmployeeMapper {
+
+    BCryptPasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
+
+    /**
+     * Converts EmployeeRegistrationDto to Employee entity.
+     *
+     * @param employeeRegistrationDto the DTO containing employee registration data
+     * @return the Employee entity
+     */
     @Mappings({
             @Mapping(target = "firstName", source = "firstName"),
             @Mapping(target = "lastName", source = "lastName"),
@@ -30,8 +36,8 @@ public interface EmployeeMapper {
             @Mapping(target = "hireDate", source = "hireDate"),
             @Mapping(target = "createdAt", expression = "java(new Timestamp(System.currentTimeMillis()))"),
             @Mapping(target = "persInfo", source = "employeeRegistrationDto"),
-            @Mapping(target = "persInfo.password", ignore = true),
-            @Mapping(target = "persInfo.username", ignore = true),
+            @Mapping(target = "persInfo.password", source = "password"),
+            @Mapping(target = "persInfo.username", source = "username"),
             @Mapping(target = "empId", ignore = true),
             @Mapping(target = "termDate", ignore = true),
             @Mapping(target = "workPlaceLocation", ignore = true),
@@ -47,20 +53,32 @@ public interface EmployeeMapper {
     })
     Employee toEntity(EmployeeRegistrationDto employeeRegistrationDto);
 
+    /**
+     * Generates and sets PersonalInfo for the given Employee based on EmployeeRegistrationDto.
+     *
+     * @param employee the Employee entity to set PersonalInfo for
+     * @param employeeRegistrationDto the DTO containing employee registration data
+     */
     @AfterMapping
        default void generatePersonalInfo(@MappingTarget Employee employee, EmployeeRegistrationDto employeeRegistrationDto) {
         PersonalInfo personalInfo = new PersonalInfo();
 
         personalInfo.setBirthday(LocalDate.parse(employeeRegistrationDto.getBirthday()));
         personalInfo.setUsername((employeeRegistrationDto.getUsername()));
-        personalInfo.setPhoneNumber(UserDataGeneratorUtil.genPhone());
+        personalInfo.setPhoneNumber(employeeRegistrationDto.getPhoneNumber());
         personalInfo.setEmail(employeeRegistrationDto.getEmail());
-        personalInfo.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());
+        personalInfo.setPassword(passwordEncoder.encode(employeeRegistrationDto.getPassword()));
         personalInfo.setSalary(employeeRegistrationDto.getSalary());
 
         employee.setPersInfo(personalInfo);
     }
 
+    /**
+     * Converts Employee entity to EmployeeAfterRegistrationDto.
+     *
+     * @param employee the Employee entity
+     * @return the DTO containing employee details after registration
+     */
     @Mappings({
 
             @Mapping(target = "empId", source = "empId"),
@@ -73,9 +91,4 @@ public interface EmployeeMapper {
     })
     EmployeeAfterRegistrationDto toDto(Employee employee);
 
-//    static String generateEmployeeName(String name) {
-//        return name + "_" + UUID.randomUUID().toString().charAt(1);
-//    }
-
 }
-//"username": "marydoe",

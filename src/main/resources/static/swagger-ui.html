@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.52.5/swagger-ui.css">
+    <link rel="icon" type="image/png" href="https://swagger.io/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://swagger.io/favicon-16x16.png" sizes="16x16">
+    <style>
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        body {
+            margin: 0;
+            background: #fafafa;
+        }
+        #swagger-ui .topbar-wrapper .topbar .topbar-wrapper img {
+            content: url('https://swagger.io/img/logo.png');
+        }
+    </style>
+</head>
+<body>
+<div id="swagger-ui"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.52.5/swagger-ui-bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.52.5/swagger-ui-standalone-preset.js"></script>
+<script>
+    window.onload = function() {
+        const ui = SwaggerUIBundle({
+            url: "/v3/api-docs",
+            dom_id: '#swagger-ui',
+            deepLinking: true,
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset
+            ],
+            layout: "StandaloneLayout"
+        });
+
+        // Функция для очистки всех куков
+        const clearCookies = () => {
+            const cookies = document.cookie.split("; ");
+            for (let cookie of cookies) {
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            }
+        };
+
+        // Создание кнопки "Clear Cookies"
+        const button = document.createElement('button');
+        button.innerText = 'Clear Cookies';
+        button.style.position = 'fixed';
+        button.style.top = '10px';
+        button.style.right = '10px';
+        button.onclick = () => {
+            clearCookies();
+            alert('Cookies cleared. Please reload Swagger UI.');
+        };
+        document.body.appendChild(button);
+    }
+</script>
+</body>
+</html>

@@ -1,40 +1,55 @@
 package com.example.employeeoffice.dto;
 
 import com.example.employeeoffice.entity.*;
-import com.example.employeeoffice.entity.enums.Position;
-import lombok.Value;
+import com.example.employeeoffice.validation.annotation.EmailChecker;
+import com.example.employeeoffice.validation.annotation.PhoneNumberChecker;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+import org.springframework.validation.annotation.Validated;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Set;
-import java.util.UUID;
 
-@Value
+/**
+ * Data Transfer Object for employee registration.
+ */
+@Data
+@Validated
+@Schema(description = "Details required for registering a new employee")
 public class EmployeeRegistrationDto {
+    /**
+     * Employee.class
+     */
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     String firstName;
+    @NotEmpty(message = "Lastname should not be empty")
+    @Size(min = 2, max = 30, message = "Lastname should be between 2 and 30 characters")
     String lastName;
     String position;
     LocalDate hireDate;
     Timestamp createdAt;
     String department;
 
+    /**
+     * PersonalInfo.class
+     */
+
     String birthday;
     String username;
+    @PhoneNumberChecker
     String phoneNumber;
+    @EmailChecker
     String email;
     String password;
+
+    @Min(value = 0, message = "Salary should be greater than 0")
     double salary;
     private Set<Role> roles;
 
 
-
-
-    //String firstName;
-    //    String secondName;
-    //    String country;
-    //
-    //    String phone;
-    //    String email;
-    //    String city;
-    //    Timestamp dateOfBirth;
 }
