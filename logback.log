@@ -657,3 +657,6 @@ END OF REQUEST
 13.06.2024 17:36:17.388 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
 13.06.2024 17:36:17.763 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
 13.06.2024 17:36:21.374 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
+13.06.2024 18:17:52.104 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 18:17:52.237 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13.06.2024 18:17:52.316 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
