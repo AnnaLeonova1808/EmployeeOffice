@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
@@ -34,6 +35,8 @@ class EmployeeControllerTest {
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private ObjectMapper objectMapper;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Test
     void getEmployeeByIdTest() throws Exception {
@@ -107,6 +110,29 @@ class EmployeeControllerTest {
 
         Assertions.assertEquals(201, createEmployeeResult.getResponse().getStatus());
         Assertions.assertNotNull(employeeAfterRegistrationDto.getEmpId());
+
+        System.out.println(jsonResult);
+    }
+    @Test
+    void createEmployeePasswordEncryptionCheckTest() throws Exception {
+        EmployeeRegistrationDto employeeRegistrationDto = ExpectedData.returnEmployeeRegistrationDto();
+        String employeeWrite = objectMapper.writeValueAsString(employeeRegistrationDto);
+
+        MvcResult createEmployeeResult = mockMvc
+                .perform(MockMvcRequestBuilders.post("/employee/registration/create_employee")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(employeeWrite))
+                .andReturn();
+
+        String jsonResult = createEmployeeResult.getResponse().getContentAsString();
+        EmployeeAfterRegistrationDto employeeAfterRegistrationDto = objectMapper.readValue(jsonResult, EmployeeAfterRegistrationDto.class);
+
+        Assertions.assertEquals(201, createEmployeeResult.getResponse().getStatus());
+        Assertions.assertNotNull(employeeAfterRegistrationDto.getEmpId());
+
+        String originalPassword = employeeRegistrationDto.getPassword();
+        String encodedPassword = employeeAfterRegistrationDto.getPassword();
+        Assertions.assertTrue(passwordEncoder.matches(originalPassword, encodedPassword), "Password should be encrypted");
 
         System.out.println(jsonResult);
     }

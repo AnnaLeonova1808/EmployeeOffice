@@ -81,7 +81,7 @@ public class ExpectedData {
         employeeRegistrationDto.setBirthday("1988-07-07");
         employeeRegistrationDto.setDepartment(String.valueOf(DepartmentName.IT));
         employeeRegistrationDto.setEmail("mary@example.com");
-        employeeRegistrationDto.setPassword("d2ecce31ab3f5a11d0f6d389f68686c75c80ead1857c7f38d21fecd4da1209b6");
+        employeeRegistrationDto.setPassword("$2a$10$MByyu5H7ri30E21X4E.LT.WifbW999olodp3w6x/rjLz1cgLSEtdW");
         employeeRegistrationDto.setPhoneNumber("+12-345-678-90-18");
         employeeRegistrationDto.setUsername("null");
 
@@ -105,7 +105,7 @@ public class ExpectedData {
         personalInfo.setBirthday(LocalDate.parse("1995-04-05"));
         personalInfo.setPhoneNumber("+12-345-678-90-15");
         personalInfo.setEmail("olivia@example.com");
-        personalInfo.setPassword("c7b702284ddd187ddb240fa0ee6d77019e280eedbec7290c886a7dd193fb0e99");
+        personalInfo.setPassword("$2y$10$x4S2cfdehzD62UMhIPequ.IJhSQYPKxU4s7.ZYJKSaJHY71IGrFLC");
         personalInfo.setSalary(45000.00);
 
         return personalInfo;

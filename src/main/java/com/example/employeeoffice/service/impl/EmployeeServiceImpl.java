@@ -78,7 +78,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         personalInfo.setUsername(employeeRegistrationDto.getUsername());
         personalInfo.setPhoneNumber(employeeRegistrationDto.getPhoneNumber());
         personalInfo.setEmail(employeeRegistrationDto.getEmail());
-        personalInfo.setPassword(employeeRegistrationDto.getPassword());
+        personalInfo.setPassword(employeeMapper.passwordEncoder.encode(employeeRegistrationDto.getPassword()));
         personalInfo.setSalary(employeeRegistrationDto.getSalary());
 
         personalInfo.setRoles(Collections.singleton(userRole));

@@ -133,3 +133,527 @@
 13.06.2024 00:50:54.145 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 13.06.2024 00:50:54.239 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
 13.06.2024 00:50:54.480 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+13.06.2024 16:24:03.886 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 5672 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+13.06.2024 16:24:03.895 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+13.06.2024 16:24:08.845 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13.06.2024 16:24:09.136 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 269 ms. Found 7 JPA repository interfaces.
+13.06.2024 16:24:12.336 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+13.06.2024 16:24:12.380 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+13.06.2024 16:24:12.382 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+13.06.2024 16:24:12.956 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+13.06.2024 16:24:12.957 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8571 ms
+13.06.2024 16:24:13.661 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+13.06.2024 16:24:14.902 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@284d4885
+13.06.2024 16:24:14.911 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+13.06.2024 16:24:16.605 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 16:24:16.624 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
+13.06.2024 16:24:16.634 [main] INFO  liquibase.snapshot - Creating snapshot
+13.06.2024 16:24:19.960 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
+13.06.2024 16:24:19.992 [main] WARN  l.lockservice - Failed to release change log lock
+13.06.2024 16:24:19.996 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
+13.06.2024 16:24:19.996 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 16:24:20.627 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
+13.06.2024 16:24:20.727 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 16:24:20.891 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 16:24:20.892 [main] INFO  liquibase.command - Using deploymentId: 8285060892
+13.06.2024 16:24:20.896 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 16:24:20.967 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
+13.06.2024 16:24:21.005 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 16:24:21.017 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 47ms
+13.06.2024 16:24:21.033 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+13.06.2024 16:24:22.565 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 16:24:22.567 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1532ms
+13.06.2024 16:24:22.582 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
+13.06.2024 16:24:22.701 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 16:24:22.716 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 131ms
+13.06.2024 16:24:22.748 [main] INFO  liquibase.util - UPDATE SUMMARY
+13.06.2024 16:24:22.750 [main] INFO  liquibase.util - Run:                          3
+13.06.2024 16:24:22.751 [main] INFO  liquibase.util - Previously run:               0
+13.06.2024 16:24:22.752 [main] INFO  liquibase.util - Filtered out:                 0
+13.06.2024 16:24:22.752 [main] INFO  liquibase.util - -------------------------------
+13.06.2024 16:24:22.752 [main] INFO  liquibase.util - Total change sets:            3
+13.06.2024 16:24:22.754 [main] INFO  liquibase.util - Update summary generated
+13.06.2024 16:24:22.762 [main] INFO  liquibase.command - Update command completed successfully.
+13.06.2024 16:24:22.763 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
+13.06.2024 16:24:22.791 [main] INFO  l.lockservice - Successfully released change log lock
+13.06.2024 16:24:22.793 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 16:24:24.624 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13.06.2024 16:24:24.765 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+13.06.2024 16:24:24.891 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+13.06.2024 16:24:25.484 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+13.06.2024 16:24:29.878 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13.06.2024 16:24:29.896 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 16:24:35.735 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13.06.2024 16:24:39.934 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72d4d9ac, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76b06e50, org.springframework.security.web.context.SecurityContextHolderFilter@32dab011, org.springframework.security.web.authentication.logout.LogoutFilter@3e216fc9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1215982f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@40aa9bae, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1d0ac379, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2fd79ac6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@747fb4b1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6924ff83, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66d8a602, org.springframework.security.web.access.ExceptionTranslationFilter@32fa7ff0, org.springframework.security.web.access.intercept.AuthorizationFilter@7f15639c]
+13.06.2024 16:24:41.946 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+13.06.2024 16:24:41.986 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 39.9 seconds (process running for 54.356)
+13.06.2024 16:28:15.966 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13.06.2024 16:28:16.162 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13.06.2024 16:28:16.493 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 325 ms
+13.06.2024 16:28:39.699 [http-nio-8080-exec-2] INFO  o.s.a.AbstractOpenApiResource - Init duration for springdoc-openapi is: 20061 ms
+13.06.2024 16:28:54.670 [http-nio-8080-exec-3] WARN  o.a.c.u.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [784] milliseconds.
+13.06.2024 16:28:54.758 [http-nio-8080-exec-4] WARN  o.s.w.s.PageNotFound - No mapping for GET /
+13.06.2024 16:29:48.497 [http-nio-8080-exec-6] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/employee/registration/create_employee
+HTTP_METHOD : POST
+CONTROLLER_METHOD : com.example.employeeoffice.controller.EmployeeController.createEmployee
+13.06.2024 16:29:51.248 [http-nio-8080-exec-6] INFO  c.e.e.a.LoggingAspect - 
+Return value: EmployeeAfterRegistrationDto(empId=00000190-11ca-514f-edec-de31b14d4b7c, createdAt=2024-06-13 16:29:49.346, persInfoId=00000190-11ca-4dc0-8bd7-317f74ef4401, username=marydoe, password=securepassword, roleName=USER, employeeStatus=EMPLOYEE CREATED)
+END OF REQUEST
+13.06.2024 16:43:56.354 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 11752 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+13.06.2024 16:43:56.369 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+13.06.2024 16:44:03.003 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13.06.2024 16:44:04.182 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1106 ms. Found 7 JPA repository interfaces.
+13.06.2024 16:44:09.764 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+13.06.2024 16:44:09.798 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+13.06.2024 16:44:09.799 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+13.06.2024 16:44:10.145 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+13.06.2024 16:44:10.147 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13272 ms
+13.06.2024 16:44:12.274 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+13.06.2024 16:44:15.214 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d6778d5
+13.06.2024 16:44:15.232 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+13.06.2024 16:44:22.368 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 16:44:22.411 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
+13.06.2024 16:44:22.446 [main] INFO  liquibase.snapshot - Creating snapshot
+13.06.2024 16:44:26.761 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
+13.06.2024 16:44:26.803 [main] WARN  l.lockservice - Failed to release change log lock
+13.06.2024 16:44:26.822 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
+13.06.2024 16:44:26.823 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 16:44:27.441 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
+13.06.2024 16:44:27.557 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 16:44:27.746 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 16:44:27.748 [main] INFO  liquibase.command - Using deploymentId: 8286267747
+13.06.2024 16:44:27.763 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 16:44:27.806 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
+13.06.2024 16:44:27.879 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 16:44:27.884 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 75ms
+13.06.2024 16:44:27.906 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+13.06.2024 16:44:29.421 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 16:44:29.425 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1519ms
+13.06.2024 16:44:29.439 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
+13.06.2024 16:44:29.551 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 16:44:29.561 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 121ms
+13.06.2024 16:44:29.588 [main] INFO  liquibase.util - UPDATE SUMMARY
+13.06.2024 16:44:29.589 [main] INFO  liquibase.util - Run:                          3
+13.06.2024 16:44:29.589 [main] INFO  liquibase.util - Previously run:               0
+13.06.2024 16:44:29.589 [main] INFO  liquibase.util - Filtered out:                 0
+13.06.2024 16:44:29.589 [main] INFO  liquibase.util - -------------------------------
+13.06.2024 16:44:29.590 [main] INFO  liquibase.util - Total change sets:            3
+13.06.2024 16:44:29.593 [main] INFO  liquibase.util - Update summary generated
+13.06.2024 16:44:29.601 [main] INFO  liquibase.command - Update command completed successfully.
+13.06.2024 16:44:29.601 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
+13.06.2024 16:44:29.612 [main] INFO  l.lockservice - Successfully released change log lock
+13.06.2024 16:44:29.613 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 16:44:30.241 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13.06.2024 16:44:30.558 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+13.06.2024 16:44:30.700 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+13.06.2024 16:44:31.711 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+13.06.2024 16:44:35.955 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13.06.2024 16:44:35.975 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 16:44:40.033 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13.06.2024 16:44:44.440 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@44929971, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@344d6bb3, org.springframework.security.web.context.SecurityContextHolderFilter@5a131edc, org.springframework.security.web.authentication.logout.LogoutFilter@18a693de, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@13448d2d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7b2f18cd, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2564410b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e13e2fc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d1ef2fc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4095ebff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a3ced3d, org.springframework.security.web.access.ExceptionTranslationFilter@7ec9d826, org.springframework.security.web.access.intercept.AuthorizationFilter@304f4888]
+13.06.2024 16:44:48.505 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+13.06.2024 16:44:48.532 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 58.484 seconds (process running for 62.931)
+13.06.2024 16:45:28.457 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13.06.2024 16:45:28.478 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13.06.2024 16:45:28.663 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 183 ms
+13.06.2024 16:45:44.055 [http-nio-8080-exec-4] INFO  o.s.a.AbstractOpenApiResource - Init duration for springdoc-openapi is: 12522 ms
+13.06.2024 16:46:15.349 [http-nio-8080-exec-1] WARN  o.a.c.u.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [323] milliseconds.
+13.06.2024 16:46:15.490 [http-nio-8080-exec-3] WARN  o.s.w.s.PageNotFound - No mapping for GET /
+13.06.2024 16:46:41.702 [http-nio-8080-exec-7] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/employee/registration/create_employee
+HTTP_METHOD : POST
+CONTROLLER_METHOD : com.example.employeeoffice.controller.EmployeeController.createEmployee
+13.06.2024 16:46:43.208 [http-nio-8080-exec-7] INFO  c.e.e.a.LoggingAspect - 
+Return value: EmployeeAfterRegistrationDto(empId=00000190-11d9-c46f-5f05-e38de1804677, createdAt=2024-06-13 16:46:42.388, persInfoId=00000190-11d9-c312-5500-39502e964abd, username=marydoe, password=securepassword, roleName=USER, employeeStatus=EMPLOYEE CREATED)
+END OF REQUEST
+13.06.2024 17:05:29.264 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 9576 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+13.06.2024 17:05:29.266 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+13.06.2024 17:05:31.237 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13.06.2024 17:05:31.414 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 163 ms. Found 7 JPA repository interfaces.
+13.06.2024 17:05:32.485 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+13.06.2024 17:05:32.497 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+13.06.2024 17:05:32.498 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+13.06.2024 17:05:32.584 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+13.06.2024 17:05:32.584 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3247 ms
+13.06.2024 17:05:32.897 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+13.06.2024 17:05:33.393 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7540160e
+13.06.2024 17:05:33.397 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+13.06.2024 17:05:35.146 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 17:05:35.156 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
+13.06.2024 17:05:35.164 [main] INFO  liquibase.snapshot - Creating snapshot
+13.06.2024 17:05:36.512 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
+13.06.2024 17:05:36.526 [main] WARN  l.lockservice - Failed to release change log lock
+13.06.2024 17:05:36.530 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
+13.06.2024 17:05:36.530 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 17:05:36.720 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
+13.06.2024 17:05:36.789 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 17:05:36.865 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 17:05:36.867 [main] INFO  liquibase.command - Using deploymentId: 8287536866
+13.06.2024 17:05:36.870 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 17:05:36.896 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
+13.06.2024 17:05:36.914 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 17:05:36.916 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 18ms
+13.06.2024 17:05:36.926 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+13.06.2024 17:05:37.682 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 17:05:37.683 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 757ms
+13.06.2024 17:05:37.694 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
+13.06.2024 17:05:37.772 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 17:05:37.787 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 92ms
+13.06.2024 17:05:37.802 [main] INFO  liquibase.util - UPDATE SUMMARY
+13.06.2024 17:05:37.802 [main] INFO  liquibase.util - Run:                          3
+13.06.2024 17:05:37.802 [main] INFO  liquibase.util - Previously run:               0
+13.06.2024 17:05:37.802 [main] INFO  liquibase.util - Filtered out:                 0
+13.06.2024 17:05:37.802 [main] INFO  liquibase.util - -------------------------------
+13.06.2024 17:05:37.802 [main] INFO  liquibase.util - Total change sets:            3
+13.06.2024 17:05:37.804 [main] INFO  liquibase.util - Update summary generated
+13.06.2024 17:05:37.808 [main] INFO  liquibase.command - Update command completed successfully.
+13.06.2024 17:05:37.808 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
+13.06.2024 17:05:37.815 [main] INFO  l.lockservice - Successfully released change log lock
+13.06.2024 17:05:37.816 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 17:05:37.972 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13.06.2024 17:05:38.056 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+13.06.2024 17:05:38.103 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+13.06.2024 17:05:38.346 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+13.06.2024 17:05:39.713 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13.06.2024 17:05:39.718 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 17:05:41.465 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13.06.2024 17:05:43.258 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43e6bcfd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@361d56a3, org.springframework.security.web.context.SecurityContextHolderFilter@4101d2c7, org.springframework.security.web.authentication.logout.LogoutFilter@60f6c148, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@27bde886, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7d6f31ef, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@289a70a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3ce17e4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12300573, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58fcb07b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2461b519, org.springframework.security.web.access.ExceptionTranslationFilter@5e9c6d8a, org.springframework.security.web.access.intercept.AuthorizationFilter@7e753fd6]
+13.06.2024 17:05:44.060 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+13.06.2024 17:05:44.072 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 15.761 seconds (process running for 18.903)
+13.06.2024 17:06:10.327 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13.06.2024 17:06:10.338 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13.06.2024 17:06:10.427 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 88 ms
+13.06.2024 17:06:13.065 [http-nio-8080-exec-2] INFO  o.s.a.AbstractOpenApiResource - Init duration for springdoc-openapi is: 2070 ms
+13.06.2024 17:06:28.830 [http-nio-8080-exec-1] WARN  o.a.c.u.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [119] milliseconds.
+13.06.2024 17:06:28.852 [http-nio-8080-exec-3] WARN  o.s.w.s.PageNotFound - No mapping for GET /
+13.06.2024 17:06:44.440 [http-nio-8080-exec-6] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/employee/registration/create_employee
+HTTP_METHOD : POST
+CONTROLLER_METHOD : com.example.employeeoffice.controller.EmployeeController.createEmployee
+13.06.2024 17:06:44.841 [http-nio-8080-exec-6] INFO  c.e.e.a.LoggingAspect - 
+Return value: EmployeeAfterRegistrationDto(empId=00000190-11ec-1c13-122a-f193a009425f, createdAt=2024-06-13 17:06:44.654, persInfoId=00000190-11ec-1b9e-65d9-801f03b24412, username=marydoe, password=$2a$10$OFYFU6bJuQorON3s.OMql.YE/CHahLvVrWvupPtBw3KurA1.a54.S, roleName=USER, employeeStatus=EMPLOYEE CREATED)
+END OF REQUEST
+13.06.2024 17:10:36.814 [main] ERROR o.h.e.j.s.SqlExceptionHelper - База данных уже закрыта
+The database has been closed [90098-224]
+13.06.2024 17:10:36.822 [main] ERROR o.s.o.j.EntityManagerFactoryUtils - Failed to release JPA EntityManager
+org.hibernate.exception.JDBCConnectionException: Unable to release JDBC Connection [База данных уже закрыта
+The database has been closed [90098-224]] [n/a]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:51)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.releaseConnection(LogicalConnectionManagedImpl.java:228)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.close(LogicalConnectionManagedImpl.java:258)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.close(JdbcCoordinatorImpl.java:161)
+	at org.hibernate.internal.AbstractSharedSessionContract.close(AbstractSharedSessionContract.java:442)
+	at org.hibernate.internal.SessionImpl.closeWithoutOpenChecks(SessionImpl.java:409)
+	at org.hibernate.internal.SessionImpl.close(SessionImpl.java:391)
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.closeEntityManager(EntityManagerFactoryUtils.java:424)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCleanupAfterCompletion(JpaTransactionManager.java:653)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.cleanupAfterCompletion(AbstractPlatformTransactionManager.java:1061)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processRollback(AbstractPlatformTransactionManager.java:942)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.rollback(AbstractPlatformTransactionManager.java:865)
+	at org.springframework.transaction.support.TransactionTemplate.rollbackOnException(TransactionTemplate.java:168)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:144)
+	at org.springframework.transaction.support.TransactionOperations.executeWithoutResult(TransactionOperations.java:67)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.executeSqlScripts(SqlScriptsTestExecutionListener.java:362)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.lambda$executeSqlScripts$4(SqlScriptsTestExecutionListener.java:275)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.executeSqlScripts(SqlScriptsTestExecutionListener.java:275)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.executeSqlScripts(SqlScriptsTestExecutionListener.java:222)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.beforeTestMethod(SqlScriptsTestExecutionListener.java:165)
+	at org.springframework.test.context.TestContextManager.beforeTestMethod(TestContextManager.java:320)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeEach(SpringExtension.java:240)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeEachCallbacks$2(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeMethodsOrCallbacksUntilExceptionOccurs$6(TestMethodTestDescriptor.java:203)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeBeforeMethodsOrCallbacksUntilExceptionOccurs(TestMethodTestDescriptor.java:203)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeBeforeEachCallbacks(TestMethodTestDescriptor.java:166)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:133)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:71)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: База данных уже закрыта
+The database has been closed [90098-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.engine.SessionLocal.getTransaction(SessionLocal.java:1610)
+	at org.h2.engine.SessionLocal.getStatementSavepoint(SessionLocal.java:1620)
+	at org.h2.engine.SessionLocal.setSavepoint(SessionLocal.java:858)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcConnection.rollbackInternal(JdbcConnection.java:1441)
+	at org.h2.jdbc.JdbcConnection.rollback(JdbcConnection.java:516)
+	at com.zaxxer.hikari.pool.ProxyConnection.close(ProxyConnection.java:249)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.closeConnection(DatasourceConnectionProviderImpl.java:127)
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.releaseConnection(NonContextualJdbcConnectionAccess.java:64)
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.releaseConnection(LogicalConnectionManagedImpl.java:224)
+	... 75 common frames omitted
+Caused by: org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.FileStore.storeBuffer(FileStore.java:1529)
+	at org.h2.mvstore.FileStore.lambda$serializeAndStore$3(FileStore.java:1432)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.AssertionError: 929792 != 921600
+	at org.h2.mvstore.RandomAccessStore.shrinkStoreIfPossible(RandomAccessStore.java:679)
+	at org.h2.mvstore.RandomAccessStore.writeChunk(RandomAccessStore.java:377)
+	at org.h2.mvstore.RandomAccessStore.writeChunk(RandomAccessStore.java:28)
+	at org.h2.mvstore.FileStore.storeBuffer(FileStore.java:1524)
+	... 6 common frames omitted
+13.06.2024 17:10:36.830 [main] ERROR o.s.t.s.TransactionTemplate - Application exception overridden by rollback exception
+org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of class path resource [db/drop_tables_test.sql]: drop table if exists role_authority cascade
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:282)
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254)
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:54)
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.execute(ResourceDatabasePopulator.java:269)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.lambda$executeSqlScripts$9(SqlScriptsTestExecutionListener.java:362)
+	at org.springframework.transaction.support.TransactionOperations.lambda$executeWithoutResult$0(TransactionOperations.java:68)
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
+	at org.springframework.transaction.support.TransactionOperations.executeWithoutResult(TransactionOperations.java:67)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.executeSqlScripts(SqlScriptsTestExecutionListener.java:362)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.lambda$executeSqlScripts$4(SqlScriptsTestExecutionListener.java:275)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.executeSqlScripts(SqlScriptsTestExecutionListener.java:275)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.executeSqlScripts(SqlScriptsTestExecutionListener.java:222)
+	at org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener.beforeTestMethod(SqlScriptsTestExecutionListener.java:165)
+	at org.springframework.test.context.TestContextManager.beforeTestMethod(TestContextManager.java:320)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeEach(SpringExtension.java:240)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeEachCallbacks$2(TestMethodTestDescriptor.java:167)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeMethodsOrCallbacksUntilExceptionOccurs$6(TestMethodTestDescriptor.java:203)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeBeforeMethodsOrCallbacksUntilExceptionOccurs(TestMethodTestDescriptor.java:203)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeBeforeEachCallbacks(TestMethodTestDescriptor.java:166)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:133)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:71)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "Внутренняя ошибка: ""org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]""\000aGeneral error: ""org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]"" [50000-224]"
+General error: "Внутренняя ошибка: ""org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]""\000aGeneral error: ""org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]"" [50000-224]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.engine.Database.throwLastBackgroundException(Database.java:1817)
+	at org.h2.engine.SessionLocal.beforeCommitOrRollback(SessionLocal.java:764)
+	at org.h2.engine.SessionLocal.commit(SessionLocal.java:679)
+	at org.h2.command.Command.commitIfNonTransactional(Command.java:315)
+	at org.h2.command.Command.executeUpdate(Command.java:247)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:261)
+	... 69 common frames omitted
+Caused by: org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]"
+General error: "org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.FileStore.storeBuffer(FileStore.java:1529)
+	at org.h2.mvstore.FileStore.lambda$serializeAndStore$3(FileStore.java:1432)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]"
+General error: "org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 12 common frames omitted
+Caused by: org.h2.mvstore.MVStoreException: java.lang.AssertionError: 929792 != 921600 [2.2.224/3]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	... 7 common frames omitted
+Caused by: java.lang.AssertionError: 929792 != 921600
+	at org.h2.mvstore.RandomAccessStore.shrinkStoreIfPossible(RandomAccessStore.java:679)
+	at org.h2.mvstore.RandomAccessStore.writeChunk(RandomAccessStore.java:377)
+	at org.h2.mvstore.RandomAccessStore.writeChunk(RandomAccessStore.java:28)
+	at org.h2.mvstore.FileStore.storeBuffer(FileStore.java:1524)
+	... 6 common frames omitted
+13.06.2024 17:18:20.992 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 17:18:21.154 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13.06.2024 17:18:22.009 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+13.06.2024 17:18:53.406 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 9544 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+13.06.2024 17:18:53.411 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+13.06.2024 17:18:56.030 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13.06.2024 17:18:56.210 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 164 ms. Found 7 JPA repository interfaces.
+13.06.2024 17:18:57.431 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+13.06.2024 17:18:57.445 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+13.06.2024 17:18:57.446 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+13.06.2024 17:18:57.526 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+13.06.2024 17:18:57.527 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4022 ms
+13.06.2024 17:18:57.771 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+13.06.2024 17:18:59.299 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44aed6a4
+13.06.2024 17:18:59.305 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+13.06.2024 17:19:00.068 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 17:19:00.111 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
+13.06.2024 17:19:00.127 [main] INFO  liquibase.snapshot - Creating snapshot
+13.06.2024 17:19:02.245 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
+13.06.2024 17:19:02.263 [main] WARN  l.lockservice - Failed to release change log lock
+13.06.2024 17:19:02.267 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
+13.06.2024 17:19:02.268 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 17:19:03.055 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
+13.06.2024 17:19:03.616 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 17:19:04.309 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 17:19:04.310 [main] INFO  liquibase.command - Using deploymentId: 8288344310
+13.06.2024 17:19:04.313 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 17:19:04.347 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
+13.06.2024 17:19:04.367 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 17:19:04.369 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 19ms
+13.06.2024 17:19:04.386 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+13.06.2024 17:19:06.320 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 17:19:06.323 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1936ms
+13.06.2024 17:19:06.332 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
+13.06.2024 17:19:06.406 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 17:19:06.412 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 79ms
+13.06.2024 17:19:06.424 [main] INFO  liquibase.util - UPDATE SUMMARY
+13.06.2024 17:19:06.424 [main] INFO  liquibase.util - Run:                          3
+13.06.2024 17:19:06.424 [main] INFO  liquibase.util - Previously run:               0
+13.06.2024 17:19:06.424 [main] INFO  liquibase.util - Filtered out:                 0
+13.06.2024 17:19:06.424 [main] INFO  liquibase.util - -------------------------------
+13.06.2024 17:19:06.424 [main] INFO  liquibase.util - Total change sets:            3
+13.06.2024 17:19:06.426 [main] INFO  liquibase.util - Update summary generated
+13.06.2024 17:19:06.429 [main] INFO  liquibase.command - Update command completed successfully.
+13.06.2024 17:19:06.429 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
+13.06.2024 17:19:06.439 [main] INFO  l.lockservice - Successfully released change log lock
+13.06.2024 17:19:06.440 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 17:19:06.602 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13.06.2024 17:19:06.693 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+13.06.2024 17:19:06.739 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+13.06.2024 17:19:07.024 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+13.06.2024 17:19:08.522 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13.06.2024 17:19:08.527 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 17:19:10.707 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13.06.2024 17:19:12.296 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2461b519, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5216e43c, org.springframework.security.web.context.SecurityContextHolderFilter@58fcb07b, org.springframework.security.web.authentication.logout.LogoutFilter@6e089bcb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@156c1c4e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@72d4d9ac, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@e620893, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@66ee4640, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d5e1b83, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2fd79ac6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@411c5fa2, org.springframework.security.web.access.ExceptionTranslationFilter@42d8b670, org.springframework.security.web.access.intercept.AuthorizationFilter@2350e46]
+13.06.2024 17:19:13.108 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+13.06.2024 17:19:13.121 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 21.52 seconds (process running for 23.835)
+13.06.2024 17:19:27.534 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13.06.2024 17:19:27.535 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13.06.2024 17:19:27.538 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 3 ms
+13.06.2024 17:19:28.776 [http-nio-8080-exec-3] INFO  o.s.a.AbstractOpenApiResource - Init duration for springdoc-openapi is: 790 ms
+13.06.2024 17:19:43.560 [http-nio-8080-exec-2] WARN  o.s.w.s.PageNotFound - No mapping for GET /
+13.06.2024 17:19:59.583 [http-nio-8080-exec-6] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
+IP : 0:0:0:0:0:0:0:1
+URL : http://localhost:8080/employee/registration/create_employee
+HTTP_METHOD : POST
+CONTROLLER_METHOD : com.example.employeeoffice.controller.EmployeeController.createEmployee
+13.06.2024 17:19:59.909 [http-nio-8080-exec-6] INFO  c.e.e.a.LoggingAspect - 
+Return value: EmployeeAfterRegistrationDto(empId=00000190-11f8-3dce-068d-7c73ad444e64, createdAt=2024-06-13 17:19:59.73, persInfoId=00000190-11f8-3d68-2525-86d04ffd4441, username=marydoe, password=$2a$10$MByyu5H7ri30E21X4E.LT.WifbW999olodp3w6x/rjLz1cgLSEtdW, roleName=USER, employeeStatus=EMPLOYEE CREATED)
+END OF REQUEST
+13.06.2024 17:32:33.476 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+13.06.2024 17:32:58.079 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
+13.06.2024 17:33:00.939 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
+13.06.2024 17:33:04.281 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+13.06.2024 17:33:05.875 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+13.06.2024 17:33:06.664 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+13.06.2024 17:33:07.097 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+13.06.2024 17:33:31.466 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
+13.06.2024 17:33:31.624 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+13.06.2024 17:35:51.428 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+13.06.2024 17:35:53.580 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
+13.06.2024 17:35:57.588 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+13.06.2024 17:36:12.257 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+13.06.2024 17:36:12.875 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+13.06.2024 17:36:17.228 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
+13.06.2024 17:36:17.388 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+13.06.2024 17:36:17.763 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+13.06.2024 17:36:21.374 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST

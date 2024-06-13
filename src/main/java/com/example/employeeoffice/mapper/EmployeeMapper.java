@@ -36,8 +36,8 @@ public interface EmployeeMapper {
             @Mapping(target = "hireDate", source = "hireDate"),
             @Mapping(target = "createdAt", expression = "java(new Timestamp(System.currentTimeMillis()))"),
             @Mapping(target = "persInfo", source = "employeeRegistrationDto"),
-            @Mapping(target = "persInfo.password", ignore = true),
-            @Mapping(target = "persInfo.username", ignore = true),
+            @Mapping(target = "persInfo.password", source = "password"),
+            @Mapping(target = "persInfo.username", source = "username"),
             @Mapping(target = "empId", ignore = true),
             @Mapping(target = "termDate", ignore = true),
             @Mapping(target = "workPlaceLocation", ignore = true),
@@ -67,7 +67,6 @@ public interface EmployeeMapper {
         personalInfo.setUsername((employeeRegistrationDto.getUsername()));
         personalInfo.setPhoneNumber(employeeRegistrationDto.getPhoneNumber());
         personalInfo.setEmail(employeeRegistrationDto.getEmail());
-        //personalInfo.setPassword(PasswordGenerator.generatePasswordBasedOnUUID());
         personalInfo.setPassword(passwordEncoder.encode(employeeRegistrationDto.getPassword()));
         personalInfo.setSalary(employeeRegistrationDto.getSalary());
 
