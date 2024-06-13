@@ -1,1058 +1,135 @@
-12.06.2024 00:08:28.897 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 00:08:29.171 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 00:08:29.528 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 00:18:36.132 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:18:58.170 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:18:58.906 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:19:00.491 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:19:01.320 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:19:02.325 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:19:02.720 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:19:14.784 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:19:15.057 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:24:50.842 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 4712 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 00:24:50.845 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 00:24:52.640 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 00:24:52.751 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 102 ms. Found 7 JPA repository interfaces.
-12.06.2024 00:24:53.984 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 00:24:53.997 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 00:24:53.998 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 00:24:54.077 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 00:24:54.078 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3069 ms
-12.06.2024 00:24:54.315 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 00:24:54.778 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31d4b3e8
-12.06.2024 00:24:54.780 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 00:24:55.448 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 00:24:55.456 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 00:24:55.462 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 00:24:56.667 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 00:24:56.681 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 00:24:56.685 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 00:24:56.685 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 00:24:56.894 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 00:24:56.949 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 00:24:57.025 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 00:24:57.026 [main] INFO  liquibase.command - Using deploymentId: 8141097026
-12.06.2024 00:24:57.030 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 00:24:57.054 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 00:24:57.080 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:24:57.081 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 25ms
-12.06.2024 00:24:57.094 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 00:24:58.325 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:24:58.326 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1232ms
-12.06.2024 00:24:58.334 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 00:24:58.414 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:24:58.418 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 83ms
-12.06.2024 00:24:58.432 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 00:24:58.432 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 00:24:58.432 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 00:24:58.432 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 00:24:58.432 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 00:24:58.432 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 00:24:58.433 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 00:24:58.436 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 00:24:58.437 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 00:24:58.444 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 00:24:58.444 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 00:24:58.561 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 00:24:58.653 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 00:24:58.698 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 00:24:58.935 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 00:25:00.272 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 00:25:00.276 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 00:25:02.208 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 00:25:03.692 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6ab4215d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57dee2b9, org.springframework.security.web.context.SecurityContextHolderFilter@57ae3c0e, org.springframework.security.web.authentication.logout.LogoutFilter@1acfb04c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@644e9953, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@13967a64, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5ed52389, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5a41183b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@361d56a3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@289a70a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59960ae9, org.springframework.security.web.access.ExceptionTranslationFilter@3ce17e4, org.springframework.security.web.access.intercept.AuthorizationFilter@1a26eecb]
-12.06.2024 00:25:04.474 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 00:25:04.487 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 14.738 seconds (process running for 16.21)
-12.06.2024 00:26:10.334 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:26:19.886 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:26:20.497 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:26:21.584 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:26:22.191 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:26:22.835 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:26:23.047 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:26:28.540 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:26:28.641 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:29:22.029 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:29:22.869 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:29:24.128 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:29:30.243 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:29:31.321 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:29:36.851 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:29:36.971 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:29:37.937 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:29:43.315 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:39:36.304 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:39:52.213 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:39:53.419 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:39:54.626 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:39:55.274 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:39:55.827 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:39:56.030 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:40:02.666 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:40:02.803 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:41:24.309 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:41:24.879 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:41:25.606 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:41:31.964 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:41:32.665 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:41:37.704 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:41:37.820 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:41:38.663 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:41:48.777 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:45:25.769 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:45:36.253 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:45:37.084 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:45:38.013 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:45:38.646 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:45:39.284 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:45:39.480 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:45:46.693 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:45:46.795 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:47:52.045 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:47:52.554 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:47:53.361 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:47:58.981 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:47:59.354 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:48:07.416 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:48:07.514 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:48:07.798 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:48:12.192 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:48:33.245 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 12036 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 00:48:33.248 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 00:48:35.200 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 00:48:35.348 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 134 ms. Found 7 JPA repository interfaces.
-12.06.2024 00:48:36.411 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 00:48:36.423 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 00:48:36.424 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 00:48:36.499 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 00:48:36.499 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3157 ms
-12.06.2024 00:48:36.758 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 00:48:37.215 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a6dc5ea
-12.06.2024 00:48:37.218 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 00:48:37.946 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 00:48:37.957 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 00:48:37.968 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 00:48:39.162 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 00:48:39.176 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 00:48:39.180 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 00:48:39.181 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 00:48:39.417 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 00:48:39.487 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 00:48:39.598 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 00:48:39.599 [main] INFO  liquibase.command - Using deploymentId: 8142519599
-12.06.2024 00:48:39.604 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 00:48:39.629 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 00:48:39.658 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:48:39.659 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 29ms
-12.06.2024 00:48:39.680 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 00:48:40.980 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:48:40.981 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1301ms
-12.06.2024 00:48:40.990 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 00:48:41.051 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:48:41.057 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 67ms
-12.06.2024 00:48:41.069 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 00:48:41.070 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 00:48:41.070 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 00:48:41.070 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 00:48:41.070 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 00:48:41.070 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 00:48:41.071 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 00:48:41.074 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 00:48:41.075 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 00:48:41.082 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 00:48:41.083 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 00:48:41.219 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 00:48:41.336 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 00:48:41.390 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 00:48:41.643 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 00:48:43.318 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 00:48:43.347 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 00:48:45.389 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 00:48:47.068 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f15639c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@24cdc97f, org.springframework.security.web.context.SecurityContextHolderFilter@3bd69bf6, org.springframework.security.web.authentication.logout.LogoutFilter@6eb506d0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@fcd300e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@32fccfc2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4101d2c7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3e216fc9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1377b7bf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bfc7533, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@466d87a1, org.springframework.security.web.access.ExceptionTranslationFilter@7574d30b, org.springframework.security.web.access.intercept.AuthorizationFilter@3f3b0b19]
-12.06.2024 00:48:47.836 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 00:48:47.854 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 15.725 seconds (process running for 17.229)
-12.06.2024 00:51:49.159 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:51:49.594 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:51:50.158 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:51:57.352 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:51:58.114 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:52:04.195 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:52:04.297 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:52:04.861 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:52:10.143 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:55:45.404 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:55:56.686 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 00:55:57.314 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:55:58.576 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:55:59.291 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:56:00.282 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:56:00.482 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:56:08.317 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:56:08.458 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:56:49.299 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 8616 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 00:56:49.302 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 00:56:51.131 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 00:56:51.241 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101 ms. Found 7 JPA repository interfaces.
-12.06.2024 00:56:52.495 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 00:56:52.508 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 00:56:52.508 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 00:56:52.591 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 00:56:52.591 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3195 ms
-12.06.2024 00:56:52.848 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 00:56:53.306 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a69f9d
-12.06.2024 00:56:53.310 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 00:56:54.588 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 00:56:54.599 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 00:56:54.609 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 00:56:55.962 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 00:56:55.977 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 00:56:55.980 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 00:56:55.980 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 00:56:56.199 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 00:56:56.274 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 00:56:56.380 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 00:56:56.381 [main] INFO  liquibase.command - Using deploymentId: 8143016381
-12.06.2024 00:56:56.388 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 00:56:56.412 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 00:56:56.442 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:56:56.444 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 30ms
-12.06.2024 00:56:56.459 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 00:56:57.878 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:56:57.879 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1419ms
-12.06.2024 00:56:57.889 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 00:56:57.975 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 00:56:57.982 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 93ms
-12.06.2024 00:56:57.996 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 00:56:57.997 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 00:56:57.997 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 00:56:57.997 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 00:56:57.997 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 00:56:57.997 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 00:56:57.998 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 00:56:58.001 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 00:56:58.002 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 00:56:58.010 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 00:56:58.010 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 00:56:58.128 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 00:56:58.211 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 00:56:58.265 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 00:56:58.522 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 00:57:00.191 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 00:57:00.195 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 00:57:02.578 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 00:57:04.245 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6c1a9613, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1dd17c0c, org.springframework.security.web.context.SecurityContextHolderFilter@3fb8e8cf, org.springframework.security.web.authentication.logout.LogoutFilter@71a9e31b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@45b63133, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@51653509, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@441e789e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@32089590, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6466e599, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@721384e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74a680d3, org.springframework.security.web.access.ExceptionTranslationFilter@e620893, org.springframework.security.web.access.intercept.AuthorizationFilter@6b5ad1bb]
-12.06.2024 00:57:05.257 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 00:57:05.274 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 17.136 seconds (process running for 18.518)
-12.06.2024 00:57:46.784 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 00:57:47.402 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:57:47.981 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 00:57:54.419 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 00:57:54.907 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 00:57:59.780 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 00:57:59.889 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 00:58:00.239 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 00:58:04.226 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 01:06:36.320 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 01:06:36.455 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 01:06:36.765 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 12:32:50.503 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 12:33:01.442 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 12:33:01.842 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:33:02.646 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:33:03.179 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 12:33:03.686 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 12:33:03.850 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 12:33:10.506 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 12:33:10.600 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 12:34:16.181 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 12376 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 12:34:16.184 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 12:34:19.573 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 12:34:19.969 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 345 ms. Found 7 JPA repository interfaces.
-12.06.2024 12:34:21.988 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 12:34:22.031 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 12:34:22.032 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 12:34:22.325 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 12:34:22.326 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5998 ms
-12.06.2024 12:34:22.908 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 12:34:23.537 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a84338a
-12.06.2024 12:34:23.541 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 12:34:24.272 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 12:34:24.280 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 12:34:24.289 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 12:34:25.443 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 12:34:25.457 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 12:34:25.461 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 12:34:25.461 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 12:34:25.734 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 12:34:25.785 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 12:34:25.864 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 12:34:25.865 [main] INFO  liquibase.command - Using deploymentId: 8184865864
-12.06.2024 12:34:25.867 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 12:34:25.891 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 12:34:25.913 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:34:25.916 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 23ms
-12.06.2024 12:34:25.928 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 12:34:26.585 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:34:26.586 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 658ms
-12.06.2024 12:34:26.596 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 12:34:26.653 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:34:26.658 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 62ms
-12.06.2024 12:34:26.671 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 12:34:26.672 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 12:34:26.672 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 12:34:26.672 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 12:34:26.672 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 12:34:26.672 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 12:34:26.673 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 12:34:26.676 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 12:34:26.677 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 12:34:26.683 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 12:34:26.684 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 12:34:26.789 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 12:34:26.893 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 12:34:26.957 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 12:34:27.236 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 12:34:28.890 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 12:34:28.895 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 12:34:30.865 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 12:34:32.339 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4101d2c7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@466d87a1, org.springframework.security.web.context.SecurityContextHolderFilter@1377b7bf, org.springframework.security.web.authentication.logout.LogoutFilter@3cc148d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5e9c6d8a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@576d4810, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@12300573, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@77971bbf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@74fa4891, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28245839, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58fcb07b, org.springframework.security.web.access.ExceptionTranslationFilter@411bed55, org.springframework.security.web.access.intercept.AuthorizationFilter@6e847a7]
-12.06.2024 12:34:33.198 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 12:34:33.214 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 18.208 seconds (process running for 20.671)
-12.06.2024 12:35:27.494 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 12:35:28.247 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:35:29.207 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:35:35.296 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 12:35:35.949 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 12:35:41.189 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 12:35:41.355 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 12:35:41.895 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 12:35:47.235 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 12:39:33.916 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 12:39:34.003 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 12:39:34.190 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 12:39:43.666 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 9836 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 12:39:43.668 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 12:39:45.601 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 12:39:45.717 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 106 ms. Found 7 JPA repository interfaces.
-12.06.2024 12:39:47.046 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 12:39:47.059 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 12:39:47.059 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 12:39:47.157 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 12:39:47.157 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3422 ms
-12.06.2024 12:39:47.405 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 12:39:47.883 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7d6c4079
-12.06.2024 12:39:47.887 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 12:39:49.309 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 12:39:49.316 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 12:39:49.322 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 12:39:50.604 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 12:39:50.620 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 12:39:50.624 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 12:39:50.624 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 12:39:50.817 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 12:39:50.873 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 12:39:50.952 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 12:39:50.952 [main] INFO  liquibase.command - Using deploymentId: 8185190952
-12.06.2024 12:39:50.957 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 12:39:50.979 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 12:39:51.001 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:39:51.003 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 23ms
-12.06.2024 12:39:51.014 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 12:39:51.714 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:39:51.715 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 700ms
-12.06.2024 12:39:51.723 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 12:39:51.784 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:39:51.788 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 65ms
-12.06.2024 12:39:51.801 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 12:39:51.802 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 12:39:51.802 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 12:39:51.802 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 12:39:51.802 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 12:39:51.802 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 12:39:51.803 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 12:39:51.806 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 12:39:51.806 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 12:39:51.814 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 12:39:51.815 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 12:39:51.951 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 12:39:52.053 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 12:39:52.103 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 12:39:52.368 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 12:39:53.839 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 12:39:53.845 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 12:39:55.767 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 12:39:57.508 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4483e237, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6466e599, org.springframework.security.web.context.SecurityContextHolderFilter@70916715, org.springframework.security.web.authentication.logout.LogoutFilter@3152a0a3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@411c5fa2, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@639f5460, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@721384e0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@e620893, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76b06e50, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d0ac379, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a15e4fd, org.springframework.security.web.access.ExceptionTranslationFilter@2fd79ac6, org.springframework.security.web.access.intercept.AuthorizationFilter@156c1c4e]
-12.06.2024 12:39:58.346 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 12:39:58.358 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 15.842 seconds (process running for 18.068)
-12.06.2024 12:41:56.769 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 12:42:14.853 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 12:42:15.749 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:42:16.818 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:42:17.517 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 12:42:18.134 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 12:42:18.809 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 12:42:49.967 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 12:42:50.110 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 12:44:15.046 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 12:44:15.855 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:44:16.646 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:44:21.800 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 12:44:22.232 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 12:44:26.779 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 12:44:26.877 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 12:44:27.256 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 12:44:30.968 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 12:51:07.564 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 12:51:07.717 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 12:51:07.979 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 12:51:20.554 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 6884 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 12:51:20.557 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 12:51:22.436 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 12:51:22.613 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 164 ms. Found 7 JPA repository interfaces.
-12.06.2024 12:51:23.844 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 12:51:23.857 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 12:51:23.857 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 12:51:23.940 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 12:51:23.940 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3302 ms
-12.06.2024 12:51:24.176 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 12:51:24.647 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61957d9c
-12.06.2024 12:51:24.651 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 12:51:25.556 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 12:51:25.563 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 12:51:25.579 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 12:51:26.679 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 12:51:26.691 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 12:51:26.694 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 12:51:26.694 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 12:51:26.898 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 12:51:26.949 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 12:51:27.044 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 12:51:27.045 [main] INFO  liquibase.command - Using deploymentId: 8185887045
-12.06.2024 12:51:27.051 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 12:51:27.078 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 12:51:27.106 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:51:27.108 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 28ms
-12.06.2024 12:51:27.134 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 12:51:28.032 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:51:28.032 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 897ms
-12.06.2024 12:51:28.040 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 12:51:28.102 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 12:51:28.107 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 66ms
-12.06.2024 12:51:28.120 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 12:51:28.120 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 12:51:28.120 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 12:51:28.120 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 12:51:28.121 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 12:51:28.121 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 12:51:28.122 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 12:51:28.125 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 12:51:28.125 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 12:51:28.134 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 12:51:28.135 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 12:51:28.258 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 12:51:28.358 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 12:51:28.404 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 12:51:28.638 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 12:51:29.976 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 12:51:29.980 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 12:51:31.680 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 12:51:33.158 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25c6f0fc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@531455c1, org.springframework.security.web.context.SecurityContextHolderFilter@68fce3e5, org.springframework.security.web.authentication.logout.LogoutFilter@6382bc3f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ed52389, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@245504d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@27dfd939, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@57dee2b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13967a64, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30d4d6fb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ec9d826, org.springframework.security.web.access.ExceptionTranslationFilter@361d56a3, org.springframework.security.web.access.intercept.AuthorizationFilter@5a41183b]
-12.06.2024 12:51:33.969 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 12:51:33.981 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 14.44 seconds (process running for 16.153)
-12.06.2024 12:56:35.565 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 12:56:44.921 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 12:56:45.601 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:56:46.467 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 12:56:47.014 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 12:56:47.482 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 12:56:47.724 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 12:56:53.457 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 12:56:53.563 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 13:00:01.175 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 13:00:01.633 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:00:02.232 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:00:08.939 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 13:00:09.704 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 13:00:14.049 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 13:00:14.142 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 13:00:14.419 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 13:00:18.014 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 13:11:10.396 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 7648 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 13:11:10.400 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 13:11:12.133 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 13:11:12.285 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 140 ms. Found 7 JPA repository interfaces.
-12.06.2024 13:11:13.282 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 13:11:13.294 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 13:11:13.295 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 13:11:13.375 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 13:11:13.375 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2909 ms
-12.06.2024 13:11:13.602 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 13:11:14.030 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31d4b3e8
-12.06.2024 13:11:14.032 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 13:11:14.658 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 13:11:14.666 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 13:11:14.672 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 13:11:15.835 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 13:11:15.849 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 13:11:15.853 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 13:11:15.853 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 13:11:16.089 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 13:11:16.136 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 13:11:16.206 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 13:11:16.207 [main] INFO  liquibase.command - Using deploymentId: 8187076207
-12.06.2024 13:11:16.212 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 13:11:16.232 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 13:11:16.252 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 13:11:16.254 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 20ms
-12.06.2024 13:11:16.266 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 13:11:17.002 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 13:11:17.002 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 736ms
-12.06.2024 13:11:17.011 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 13:11:17.074 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 13:11:17.080 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 69ms
-12.06.2024 13:11:17.094 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 13:11:17.094 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 13:11:17.094 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 13:11:17.094 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 13:11:17.094 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 13:11:17.094 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 13:11:17.095 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 13:11:17.098 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 13:11:17.099 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 13:11:17.107 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 13:11:17.107 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 13:11:17.225 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 13:11:17.309 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 13:11:17.369 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 13:11:17.608 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 13:11:18.926 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 13:11:18.930 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 13:11:20.677 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 13:11:22.123 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b760eb7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ddd0e97, org.springframework.security.web.context.SecurityContextHolderFilter@a4aecc3, org.springframework.security.web.authentication.logout.LogoutFilter@5608233b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ce09850, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1e0d70db, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@42d8b670, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@38f12596, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2539ab41, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bd69bf6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f15639c, org.springframework.security.web.access.ExceptionTranslationFilter@3514ea20, org.springframework.security.web.access.intercept.AuthorizationFilter@51ea9f02]
-12.06.2024 13:11:22.905 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 13:11:22.916 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 13.568 seconds (process running for 14.955)
-12.06.2024 13:13:25.712 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 13:13:55.584 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 13:13:56.354 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:13:57.541 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:13:58.200 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 13:13:58.890 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 13:13:59.140 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 13:14:07.543 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 13:14:07.689 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 13:16:27.856 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 13:16:28.555 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:16:29.189 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:16:34.243 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 13:16:34.817 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 13:16:40.344 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 13:16:40.415 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 13:16:40.618 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 13:16:44.061 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 13:44:14.682 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 13:44:14.829 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 13:44:14.979 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 13:44:35.159 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 12480 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 13:44:35.161 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 13:44:37.284 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 13:44:37.430 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 131 ms. Found 7 JPA repository interfaces.
-12.06.2024 13:44:38.494 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 13:44:38.511 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 13:44:38.511 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 13:44:38.606 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 13:44:38.606 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3371 ms
-12.06.2024 13:44:38.939 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 13:44:39.464 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1bfa3893
-12.06.2024 13:44:39.468 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 13:44:40.364 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 13:44:40.373 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 13:44:40.382 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 13:44:41.562 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 13:44:41.578 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 13:44:41.582 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 13:44:41.583 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 13:44:41.848 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 13:44:41.904 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 13:44:41.988 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 13:44:41.989 [main] INFO  liquibase.command - Using deploymentId: 8189081989
-12.06.2024 13:44:41.992 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 13:44:42.013 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 13:44:42.037 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 13:44:42.038 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 24ms
-12.06.2024 13:44:42.049 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 13:44:42.778 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 13:44:42.779 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 730ms
-12.06.2024 13:44:42.800 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 13:44:42.927 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 13:44:42.936 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 136ms
-12.06.2024 13:44:42.951 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 13:44:42.951 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 13:44:42.951 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 13:44:42.951 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 13:44:42.951 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 13:44:42.951 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 13:44:42.952 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 13:44:42.956 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 13:44:42.956 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 13:44:42.965 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 13:44:42.967 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 13:44:43.122 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 13:44:43.207 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 13:44:43.263 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 13:44:43.569 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 13:44:45.262 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 13:44:45.269 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 13:44:47.304 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 13:44:48.818 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4115b8a7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@39889671, org.springframework.security.web.context.SecurityContextHolderFilter@27bde886, org.springframework.security.web.authentication.logout.LogoutFilter@798ac54d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7bcd497, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5216e43c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6b5ad1bb, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2a4137a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66ee4640, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@156c1c4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7b4e5982, org.springframework.security.web.access.ExceptionTranslationFilter@2350e46, org.springframework.security.web.access.intercept.AuthorizationFilter@6fb9dab6]
-12.06.2024 13:44:49.553 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 13:44:49.566 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 15.422 seconds (process running for 17.093)
-12.06.2024 13:50:11.186 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 13:50:24.597 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 13:50:25.365 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:50:26.570 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:50:27.315 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 13:50:28.059 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 13:50:28.379 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 13:50:35.599 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 13:50:35.758 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 13:51:57.150 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 13:51:57.729 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:51:58.558 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:52:04.758 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 13:52:05.195 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 13:52:10.864 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 13:52:11.030 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 13:52:11.441 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 13:52:16.602 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 13:54:08.469 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 13:54:09.153 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:54:09.997 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 13:54:16.358 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 13:54:17.820 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 13:54:25.512 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 13:54:25.808 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 13:54:26.433 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 13:54:32.560 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 14:09:31.818 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 776 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 14:09:31.821 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 14:09:34.494 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 14:09:34.774 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 258 ms. Found 7 JPA repository interfaces.
-12.06.2024 14:09:37.085 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 14:09:37.121 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 14:09:37.122 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 14:09:37.470 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 14:09:37.472 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5547 ms
-12.06.2024 14:09:39.453 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 14:09:41.679 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7019d619
-12.06.2024 14:09:41.684 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 14:09:42.730 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:09:42.742 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 14:09:42.755 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 14:09:44.265 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 14:09:44.280 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 14:09:44.284 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 14:09:44.284 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:09:44.564 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 14:09:44.638 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:09:44.758 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:09:44.760 [main] INFO  liquibase.command - Using deploymentId: 8190584759
-12.06.2024 14:09:44.765 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:09:44.796 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 14:09:44.818 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:09:44.820 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 22ms
-12.06.2024 14:09:44.834 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 14:09:45.956 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:09:45.957 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1123ms
-12.06.2024 14:09:45.967 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 14:09:46.050 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:09:46.056 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 88ms
-12.06.2024 14:09:46.069 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 14:09:46.070 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 14:09:46.070 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 14:09:46.070 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 14:09:46.070 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 14:09:46.070 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 14:09:46.071 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 14:09:46.075 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 14:09:46.075 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 14:09:46.081 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 14:09:46.082 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:09:46.288 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 14:09:46.392 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 14:09:46.437 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 14:09:46.685 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 14:09:48.160 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 14:09:48.167 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:09:50.304 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 14:09:52.422 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1193d400, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6dbc3756, org.springframework.security.web.context.SecurityContextHolderFilter@2a4137a2, org.springframework.security.web.authentication.logout.LogoutFilter@441e789e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@648100de, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7b4e5982, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@26a2106e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@61defefb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71a9e31b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18e7b33e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c75b0c8, org.springframework.security.web.access.ExceptionTranslationFilter@3ab87cac, org.springframework.security.web.access.intercept.AuthorizationFilter@2b2f8cf]
-12.06.2024 14:09:53.291 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 14:09:53.314 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 22.668 seconds (process running for 28.446)
-12.06.2024 14:11:02.813 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-12.06.2024 14:11:02.828 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-12.06.2024 14:11:02.931 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 94 ms
-12.06.2024 14:11:03.380 [http-nio-8080-exec-2] WARN  o.a.c.u.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [191] milliseconds.
-12.06.2024 14:12:11.674 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:12:11.750 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 14:12:11.939 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 14:12:21.662 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 12648 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 14:12:21.664 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 14:12:23.325 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 14:12:23.454 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 120 ms. Found 7 JPA repository interfaces.
-12.06.2024 14:12:24.478 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 14:12:24.490 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 14:12:24.490 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 14:12:24.576 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 14:12:24.576 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2815 ms
-12.06.2024 14:12:24.823 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 14:12:25.271 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1bfa3893
-12.06.2024 14:12:25.274 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 14:12:26.013 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:12:26.021 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 14:12:26.028 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 14:12:27.412 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 14:12:27.425 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 14:12:27.429 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 14:12:27.429 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:12:27.663 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 14:12:27.734 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:12:27.846 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:12:27.847 [main] INFO  liquibase.command - Using deploymentId: 8190747847
-12.06.2024 14:12:27.853 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:12:27.879 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 14:12:27.908 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:12:27.910 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 29ms
-12.06.2024 14:12:27.926 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 14:12:29.092 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:12:29.093 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1167ms
-12.06.2024 14:12:29.104 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 14:12:29.198 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:12:29.202 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 98ms
-12.06.2024 14:12:29.219 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 14:12:29.219 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 14:12:29.219 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 14:12:29.220 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 14:12:29.220 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 14:12:29.220 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 14:12:29.222 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 14:12:29.227 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 14:12:29.227 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 14:12:29.331 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 14:12:29.333 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:12:29.512 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 14:12:29.601 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 14:12:29.644 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 14:12:29.879 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 14:12:31.231 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 14:12:31.236 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:12:34.992 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 14:12:36.790 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@55691a59, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3152a0a3, org.springframework.security.web.context.SecurityContextHolderFilter@7ce09850, org.springframework.security.web.authentication.logout.LogoutFilter@1d0ac379, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@318ff889, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@24cdc97f, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3405025a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@38a2fbc3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e216fc9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fcd300e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e686da2, org.springframework.security.web.access.ExceptionTranslationFilter@3f3b0b19, org.springframework.security.web.access.intercept.AuthorizationFilter@639f5460]
-12.06.2024 14:12:38.971 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 14:12:38.996 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 18.363 seconds (process running for 19.757)
-12.06.2024 14:12:44.555 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-12.06.2024 14:12:44.556 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-12.06.2024 14:12:44.559 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 3 ms
-12.06.2024 14:12:44.785 [http-nio-8080-exec-2] WARN  o.a.c.u.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [139] milliseconds.
-12.06.2024 14:14:18.871 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:14:18.968 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 14:14:19.112 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 14:14:26.276 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 2804 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 14:14:26.280 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 14:14:28.034 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 14:14:28.153 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 108 ms. Found 7 JPA repository interfaces.
-12.06.2024 14:14:29.270 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 14:14:29.294 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 14:14:29.295 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 14:14:29.395 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 14:14:29.396 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3048 ms
-12.06.2024 14:14:29.631 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 14:14:30.745 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5f3f3d00
-12.06.2024 14:14:30.752 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 14:14:31.494 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:14:31.502 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 14:14:31.508 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 14:14:32.798 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 14:14:32.813 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 14:14:32.817 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 14:14:32.817 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:14:33.104 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 14:14:33.165 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:14:33.262 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:14:33.263 [main] INFO  liquibase.command - Using deploymentId: 8190873263
-12.06.2024 14:14:33.266 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:14:33.285 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 14:14:33.302 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:14:33.304 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 17ms
-12.06.2024 14:14:33.313 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 14:14:34.237 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:14:34.238 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 925ms
-12.06.2024 14:14:34.257 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 14:14:34.322 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:14:34.329 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 71ms
-12.06.2024 14:14:34.343 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 14:14:34.344 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 14:14:34.344 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 14:14:34.344 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 14:14:34.344 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 14:14:34.344 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 14:14:34.346 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 14:14:34.349 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 14:14:34.350 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 14:14:34.358 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 14:14:34.359 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:14:34.521 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 14:14:34.606 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 14:14:34.649 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 14:14:34.883 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 14:14:36.190 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 14:14:36.195 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:14:38.112 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 14:14:39.765 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5bd11ad6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ffaac1f, org.springframework.security.web.context.SecurityContextHolderFilter@35b5056e, org.springframework.security.web.authentication.logout.LogoutFilter@5b52ce28, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3794621d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2c95cb24, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4f55da9b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@74fbee59, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f05cd7e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11e8e183, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bad0efd, org.springframework.security.web.access.ExceptionTranslationFilter@5dcbdcb9, org.springframework.security.web.access.intercept.AuthorizationFilter@37d43b9b]
-12.06.2024 14:14:40.586 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 14:14:40.599 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 15.425 seconds (process running for 16.879)
-12.06.2024 14:14:55.757 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-12.06.2024 14:14:55.758 [http-nio-8080-exec-3] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-12.06.2024 14:14:55.767 [http-nio-8080-exec-3] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 9 ms
-12.06.2024 14:14:55.982 [http-nio-8080-exec-3] WARN  o.a.c.u.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [147] milliseconds.
-12.06.2024 14:15:32.942 [http-nio-8080-exec-10] WARN  o.s.w.s.PageNotFound - Request method 'GET' is not supported
-12.06.2024 14:15:55.283 [http-nio-8080-exec-6] INFO  o.s.a.AbstractOpenApiResource - Init duration for springdoc-openapi is: 2928 ms
-12.06.2024 14:16:51.546 [http-nio-8080-exec-3] WARN  o.s.w.s.PageNotFound - Request method 'GET' is not supported
-12.06.2024 14:17:23.326 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:17:23.387 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 14:17:23.464 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 14:17:32.877 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 2124 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 14:17:32.880 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 14:17:34.774 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 14:17:34.892 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 107 ms. Found 7 JPA repository interfaces.
-12.06.2024 14:17:35.970 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 14:17:35.985 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 14:17:35.985 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 14:17:36.084 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 14:17:36.085 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3072 ms
-12.06.2024 14:17:36.368 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 14:17:36.808 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1fc1c7e
-12.06.2024 14:17:36.811 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 14:17:37.565 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:17:37.575 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 14:17:37.597 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 14:17:39.044 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 14:17:39.059 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 14:17:39.062 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 14:17:39.063 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:17:39.367 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 14:17:39.451 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:17:39.563 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:17:39.565 [main] INFO  liquibase.command - Using deploymentId: 8191059564
-12.06.2024 14:17:39.569 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:17:39.594 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 14:17:39.619 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:17:39.620 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 24ms
-12.06.2024 14:17:39.634 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 14:17:40.878 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:17:40.879 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1243ms
-12.06.2024 14:17:40.888 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 14:17:40.957 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:17:40.964 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 75ms
-12.06.2024 14:17:40.986 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 14:17:40.986 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 14:17:40.986 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 14:17:40.986 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 14:17:40.987 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 14:17:40.987 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 14:17:40.988 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 14:17:40.992 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 14:17:40.992 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 14:17:40.999 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 14:17:41.000 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:17:41.145 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 14:17:41.252 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 14:17:41.305 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 14:17:41.732 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 14:17:44.076 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 14:17:44.082 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:17:46.371 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 14:17:48.216 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45b63133, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c1eba2e, org.springframework.security.web.context.SecurityContextHolderFilter@e620893, org.springframework.security.web.authentication.logout.LogoutFilter@50aa5826, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6ab4215d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@a15e4fd, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@25c6f0fc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@17f216cc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68fce3e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d2eddc2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@531455c1, org.springframework.security.web.access.ExceptionTranslationFilter@57ae3c0e, org.springframework.security.web.access.intercept.AuthorizationFilter@18e7b33e]
-12.06.2024 14:17:49.528 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 14:17:49.575 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 18.1 seconds (process running for 19.673)
-12.06.2024 14:17:57.697 [http-nio-8080-exec-4] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-12.06.2024 14:17:57.699 [http-nio-8080-exec-4] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-12.06.2024 14:17:57.703 [http-nio-8080-exec-4] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 4 ms
-12.06.2024 14:17:58.011 [http-nio-8080-exec-4] WARN  o.a.c.u.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [155] milliseconds.
-12.06.2024 14:18:13.255 [http-nio-8080-exec-9] WARN  o.s.w.s.PageNotFound - Request method 'GET' is not supported
-12.06.2024 14:18:22.407 [http-nio-8080-exec-1] INFO  o.s.a.AbstractOpenApiResource - Init duration for springdoc-openapi is: 2448 ms
-12.06.2024 14:18:45.103 [http-nio-8080-exec-10] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
-IP : 0:0:0:0:0:0:0:1
-URL : http://localhost:8080/employee/registration/create_employee
-HTTP_METHOD : POST
-CONTROLLER_METHOD : com.example.employeeoffice.controller.EmployeeController.createEmployee
-12.06.2024 14:18:45.416 [http-nio-8080-exec-10] INFO  c.e.e.a.LoggingAspect - 
-Return value: EmployeeAfterRegistrationDto(empId=00000190-0c2b-f333-8c8d-278a592548eb, createdAt=2024-06-12 14:18:45.191, persInfoId=00000190-0c2b-f2b1-c954-27ecd4384444, username=marydoe, password=666, roleName=USER, employeeStatus=EMPLOYEE CREATED)
-END OF REQUEST
-12.06.2024 14:24:07.320 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:24:07.470 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 14:24:07.663 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 14:24:27.548 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 12884 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 14:24:27.550 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 14:24:29.641 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 14:24:29.811 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 157 ms. Found 7 JPA repository interfaces.
-12.06.2024 14:24:33.538 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 14:24:33.552 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 14:24:33.553 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 14:24:33.636 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 14:24:33.637 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6014 ms
-12.06.2024 14:24:33.882 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 14:24:34.349 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6d3163a6
-12.06.2024 14:24:34.352 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 14:24:35.030 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:24:35.041 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 14:24:35.049 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 14:24:36.540 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 14:24:36.554 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 14:24:36.557 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 14:24:36.558 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:24:36.779 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 14:24:36.843 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:24:36.950 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 14:24:36.951 [main] INFO  liquibase.command - Using deploymentId: 8191476951
-12.06.2024 14:24:36.956 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 14:24:36.978 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 14:24:37.003 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:24:37.004 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 25ms
-12.06.2024 14:24:37.018 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 14:24:37.992 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:24:37.993 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 975ms
-12.06.2024 14:24:38.000 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 14:24:38.078 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 14:24:38.083 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 82ms
-12.06.2024 14:24:38.100 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 14:24:38.100 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 14:24:38.100 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 14:24:38.100 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 14:24:38.100 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 14:24:38.100 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 14:24:38.102 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 14:24:38.106 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 14:24:38.106 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 14:24:38.115 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 14:24:38.116 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 14:24:38.252 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 14:24:38.345 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 14:24:38.391 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 14:24:38.636 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 14:24:40.217 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 14:24:40.223 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 14:24:42.235 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 14:24:44.083 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3fb8e8cf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4483e237, org.springframework.security.web.context.SecurityContextHolderFilter@43051a8d, org.springframework.security.web.authentication.logout.LogoutFilter@55691a59, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@e620893, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@35eac1dd, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6466e599, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5216e43c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72d4d9ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76b06e50, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@721384e0, org.springframework.security.web.access.ExceptionTranslationFilter@3d5e1b83, org.springframework.security.web.access.intercept.AuthorizationFilter@66ee4640]
-12.06.2024 14:24:45.231 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 14:24:45.262 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 18.952 seconds (process running for 21.662)
-12.06.2024 14:24:57.681 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-12.06.2024 14:24:57.682 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-12.06.2024 14:24:57.684 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 2 ms
-12.06.2024 14:24:57.931 [http-nio-8080-exec-1] WARN  o.a.c.u.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [183] milliseconds.
-12.06.2024 14:25:16.519 [http-nio-8080-exec-7] WARN  o.s.w.s.PageNotFound - Request method 'GET' is not supported
-12.06.2024 14:25:21.965 [http-nio-8080-exec-8] INFO  o.s.a.AbstractOpenApiResource - Init duration for springdoc-openapi is: 1306 ms
-12.06.2024 14:25:44.688 [http-nio-8080-exec-2] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
-IP : 0:0:0:0:0:0:0:1
-URL : http://localhost:8080/employee/registration/create_employee
-HTTP_METHOD : POST
-CONTROLLER_METHOD : com.example.employeeoffice.controller.EmployeeController.createEmployee
-12.06.2024 14:25:44.949 [http-nio-8080-exec-2] INFO  c.e.e.a.LoggingAspect - 
-Return value: EmployeeAfterRegistrationDto(empId=00000190-0c32-5a0a-9992-89f427d74000, createdAt=2024-06-12 14:25:44.742, persInfoId=00000190-0c32-599a-18b0-1e7dc8374db5, username=marydoe, password=666, roleName=USER, employeeStatus=EMPLOYEE CREATED)
-END OF REQUEST
-12.06.2024 14:25:47.833 [http-nio-8080-exec-1] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
-IP : 0:0:0:0:0:0:0:1
-URL : http://localhost:8080/employee/registration/create_employee
-HTTP_METHOD : POST
-CONTROLLER_METHOD : com.example.employeeoffice.controller.EmployeeController.createEmployee
-12.06.2024 14:25:47.867 [http-nio-8080-exec-1] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [EmployeeRegistrationDto(firstName=Mary, lastName=Doe, position=SALES_MANAGER, hireDate=2024-04-23, createdAt=2024-04-23 13:00:00.0, department=SALES, birthday=1990-01-01, username=marydoe, phoneNumber=+37-150-111-22-33, email=marydoe@example.com, password=666, salary=50000.0, roles=null)]. EMPLOYEE_ALREADY_EXIST_EXCEPTION
-12.06.2024 14:28:32.804 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 14:28:33.513 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 14:28:34.666 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 14:28:41.173 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 14:28:41.538 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 14:28:45.836 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 14:28:45.922 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 14:28:46.198 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 14:28:54.320 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 14:29:48.678 [http-nio-8080-exec-7] WARN  o.s.w.s.PageNotFound - Request method 'GET' is not supported
-12.06.2024 14:30:21.254 [http-nio-8080-exec-1] INFO  c.e.e.a.LoggingAspect - NEW REQUEST:
-IP : 0:0:0:0:0:0:0:1
-URL : http://localhost:8080/employee/registration/create_employee
-HTTP_METHOD : POST
-CONTROLLER_METHOD : com.example.employeeoffice.controller.EmployeeController.createEmployee
-12.06.2024 14:30:21.302 [http-nio-8080-exec-1] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [EmployeeRegistrationDto(firstName=Mary, lastName=Doe, position=SALES_MANAGER, hireDate=2024-04-23, createdAt=2024-04-23 13:00:00.0, department=SALES, birthday=1990-01-01, username=marydoe, phoneNumber=+37-150-111-22-33, email=marydoe@example.com, password=666, salary=50000.0, roles=null)]. EMPLOYEE_ALREADY_EXIST_EXCEPTION
-12.06.2024 15:05:25.486 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 15:05:25.871 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
-12.06.2024 15:05:26.127 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
-12.06.2024 19:26:22.072 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 4924 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
-12.06.2024 19:26:22.075 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
-12.06.2024 19:26:24.438 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-12.06.2024 19:26:24.715 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 230 ms. Found 7 JPA repository interfaces.
-12.06.2024 19:26:26.336 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
-12.06.2024 19:26:26.347 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
-12.06.2024 19:26:26.347 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
-12.06.2024 19:26:26.433 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
-12.06.2024 19:26:26.433 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4163 ms
-12.06.2024 19:26:26.713 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
-12.06.2024 19:26:27.283 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a69f9d
-12.06.2024 19:26:27.293 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
-12.06.2024 19:26:28.129 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 19:26:28.137 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
-12.06.2024 19:26:28.144 [main] INFO  liquibase.snapshot - Creating snapshot
-12.06.2024 19:26:29.437 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
-12.06.2024 19:26:29.461 [main] WARN  l.lockservice - Failed to release change log lock
-12.06.2024 19:26:29.463 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
-12.06.2024 19:26:29.463 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 19:26:29.673 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
-12.06.2024 19:26:29.754 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 19:26:29.849 [main] INFO  l.lockservice - Successfully acquired change log lock
-12.06.2024 19:26:29.850 [main] INFO  liquibase.command - Using deploymentId: 8209589850
-12.06.2024 19:26:29.853 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
-12.06.2024 19:26:29.873 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
-12.06.2024 19:26:29.898 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 19:26:29.901 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 28ms
-12.06.2024 19:26:29.918 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
-12.06.2024 19:26:31.046 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 19:26:31.052 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1132ms
-12.06.2024 19:26:31.060 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
-12.06.2024 19:26:31.146 [main] INFO  liquibase.changelog - Custom SQL executed
-12.06.2024 19:26:31.154 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 93ms
-12.06.2024 19:26:31.169 [main] INFO  liquibase.util - UPDATE SUMMARY
-12.06.2024 19:26:31.169 [main] INFO  liquibase.util - Run:                          3
-12.06.2024 19:26:31.169 [main] INFO  liquibase.util - Previously run:               0
-12.06.2024 19:26:31.169 [main] INFO  liquibase.util - Filtered out:                 0
-12.06.2024 19:26:31.169 [main] INFO  liquibase.util - -------------------------------
-12.06.2024 19:26:31.169 [main] INFO  liquibase.util - Total change sets:            3
-12.06.2024 19:26:31.171 [main] INFO  liquibase.util - Update summary generated
-12.06.2024 19:26:31.174 [main] INFO  liquibase.command - Update command completed successfully.
-12.06.2024 19:26:31.175 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
-12.06.2024 19:26:31.184 [main] INFO  l.lockservice - Successfully released change log lock
-12.06.2024 19:26:31.184 [main] INFO  liquibase.command - Command execution complete
-12.06.2024 19:26:31.415 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-12.06.2024 19:26:31.486 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
-12.06.2024 19:26:31.532 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-12.06.2024 19:26:31.856 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-12.06.2024 19:26:33.507 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-12.06.2024 19:26:33.523 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-12.06.2024 19:26:35.863 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-12.06.2024 19:26:37.619 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@63f88d35, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e962cec, org.springframework.security.web.context.SecurityContextHolderFilter@674f22ce, org.springframework.security.web.authentication.logout.LogoutFilter@7335414e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ddf193a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@25c6a9de, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@78543f0d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@250fc0d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@53eb4dae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23df16cf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10e28d97, org.springframework.security.web.access.ExceptionTranslationFilter@522db06e, org.springframework.security.web.access.intercept.AuthorizationFilter@52268f73]
-12.06.2024 19:26:38.498 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
-12.06.2024 19:26:38.523 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 17.886 seconds (process running for 20.269)
-12.06.2024 19:28:07.955 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 19:28:23.690 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
-12.06.2024 19:28:24.538 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 19:28:26.258 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 19:28:27.092 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 19:28:28.151 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 19:28:28.720 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 19:28:38.632 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 19:28:38.793 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 19:29:55.604 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
-12.06.2024 19:29:56.639 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
-12.06.2024 19:29:57.928 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
-12.06.2024 19:30:04.761 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
-12.06.2024 19:30:05.439 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
-12.06.2024 19:30:11.262 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
-12.06.2024 19:30:11.525 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
-12.06.2024 19:30:12.820 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
-12.06.2024 19:30:18.802 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
+13.06.2024 00:01:48.799 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 00:01:48.986 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13.06.2024 00:01:49.198 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+13.06.2024 00:03:40.902 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 2916 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+13.06.2024 00:03:40.905 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+13.06.2024 00:03:43.027 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13.06.2024 00:03:43.167 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 123 ms. Found 7 JPA repository interfaces.
+13.06.2024 00:03:44.322 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+13.06.2024 00:03:44.335 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+13.06.2024 00:03:44.335 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+13.06.2024 00:03:44.417 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+13.06.2024 00:03:44.417 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3293 ms
+13.06.2024 00:03:44.687 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+13.06.2024 00:03:46.011 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4070ace9
+13.06.2024 00:03:46.014 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+13.06.2024 00:03:46.763 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 00:03:46.775 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
+13.06.2024 00:03:46.794 [main] INFO  liquibase.snapshot - Creating snapshot
+13.06.2024 00:03:48.324 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
+13.06.2024 00:03:48.342 [main] WARN  l.lockservice - Failed to release change log lock
+13.06.2024 00:03:48.347 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
+13.06.2024 00:03:48.347 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 00:03:48.557 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
+13.06.2024 00:03:48.624 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 00:03:48.744 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 00:03:48.745 [main] INFO  liquibase.command - Using deploymentId: 8226228745
+13.06.2024 00:03:48.750 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 00:03:48.791 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
+13.06.2024 00:03:48.823 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 00:03:48.825 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 31ms
+13.06.2024 00:03:48.842 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+13.06.2024 00:03:50.221 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 00:03:50.222 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1380ms
+13.06.2024 00:03:50.235 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
+13.06.2024 00:03:50.335 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 00:03:50.340 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 104ms
+13.06.2024 00:03:50.358 [main] INFO  liquibase.util - UPDATE SUMMARY
+13.06.2024 00:03:50.359 [main] INFO  liquibase.util - Run:                          3
+13.06.2024 00:03:50.359 [main] INFO  liquibase.util - Previously run:               0
+13.06.2024 00:03:50.359 [main] INFO  liquibase.util - Filtered out:                 0
+13.06.2024 00:03:50.359 [main] INFO  liquibase.util - -------------------------------
+13.06.2024 00:03:50.359 [main] INFO  liquibase.util - Total change sets:            3
+13.06.2024 00:03:50.365 [main] INFO  liquibase.util - Update summary generated
+13.06.2024 00:03:50.368 [main] INFO  liquibase.command - Update command completed successfully.
+13.06.2024 00:03:50.369 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
+13.06.2024 00:03:50.385 [main] INFO  l.lockservice - Successfully released change log lock
+13.06.2024 00:03:50.386 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 00:03:50.566 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13.06.2024 00:03:50.638 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+13.06.2024 00:03:50.682 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+13.06.2024 00:03:50.938 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+13.06.2024 00:03:52.379 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13.06.2024 00:03:52.384 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 00:03:54.798 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13.06.2024 00:03:56.676 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@17f216cc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ab4215d, org.springframework.security.web.context.SecurityContextHolderFilter@5ddd3fbd, org.springframework.security.web.authentication.logout.LogoutFilter@627a1c77, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5a41183b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@d2eddc2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@57dee2b9, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3b386ba7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43e6bcfd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@361d56a3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5ed52389, org.springframework.security.web.access.ExceptionTranslationFilter@1e686da2, org.springframework.security.web.access.intercept.AuthorizationFilter@50aa5826]
+13.06.2024 00:03:57.540 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+13.06.2024 00:03:57.559 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 17.872 seconds (process running for 19.621)
+13.06.2024 00:09:20.536 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+13.06.2024 00:09:37.646 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
+13.06.2024 00:09:38.559 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
+13.06.2024 00:09:40.294 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+13.06.2024 00:09:41.632 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+13.06.2024 00:09:42.612 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+13.06.2024 00:09:43.231 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+13.06.2024 00:10:13.298 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
+13.06.2024 00:10:13.467 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+13.06.2024 00:31:13.150 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [b23a92eb-398c-4ba9-9680-b4b3a72a911d]. ADDRESS_NOT_EXIST
+13.06.2024 00:31:30.708 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [PRODUCTION]. DEPARTMENT_NOT_EXIST
+13.06.2024 00:31:31.708 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [7270910c-cc71-4634-97a0-a242eb5b6066]. EMPLOYEE_NOT_EXIST
+13.06.2024 00:31:33.395 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [8881bf3e-73a9-47da-8bae-e2e253a30ddd]. EMPLOYEE_NOT_EXIST
+13.06.2024 00:31:34.978 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [1f486486-97dc-4f50-8fb1-cd87d5dd37e2]. PERSONAL_INFO_NOT_EXIST
+13.06.2024 00:31:36.685 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [INVALID_ROLE]. Invalid role name: INVALID_ROLE
+13.06.2024 00:31:37.104 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [44d1e267-7034-4c72-989b-0e3214f264ce]. ROLE_ID_NOT_FOUND_EXCEPTION
+13.06.2024 00:31:46.214 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [VacancyCreateDto(position=HR_MANAGER, vacancyDescription=HR Position Description, vacancyRequirements=Requirements for HR manager Position, vacancyContactInfo=contact@example.com, depName=HR)]. VACANCY_ALREADY_EXIST
+13.06.2024 00:31:46.466 [main] ERROR c.e.e.a.LoggingAspect - Request throw an exception. Cause - [61b02a7e-e57c-4321-ba34-73d59bfbddec]. VACANCY_NOT_EXIST
+13.06.2024 00:33:39.383 [main] INFO  c.e.e.EmployeeOfficeApplication - Starting EmployeeOfficeApplication using Java 17.0.6 with PID 5368 (C:\Users\LeonovaAV\IdeaProjects\employeeOffice\target\classes started by LeonovaAV in C:\Users\LeonovaAV\IdeaProjects\employeeOffice)
+13.06.2024 00:33:39.387 [main] INFO  c.e.e.EmployeeOfficeApplication - No active profile set, falling back to 1 default profile: "default"
+13.06.2024 00:33:41.837 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13.06.2024 00:33:42.051 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 192 ms. Found 7 JPA repository interfaces.
+13.06.2024 00:33:43.495 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http)
+13.06.2024 00:33:43.519 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+13.06.2024 00:33:43.520 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+13.06.2024 00:33:43.764 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+13.06.2024 00:33:43.765 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4199 ms
+13.06.2024 00:33:44.017 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+13.06.2024 00:33:44.562 [main] INFO  c.z.h.p.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37e55819
+13.06.2024 00:33:44.567 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+13.06.2024 00:33:45.354 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 00:33:45.364 [main] INFO  liquibase.command - Dropping Database Objects in schema: employee_office.employee_office
+13.06.2024 00:33:45.371 [main] INFO  liquibase.snapshot - Creating snapshot
+13.06.2024 00:33:46.935 [main] INFO  liquibase.database - Successfully deleted all supported object types in schema employee_office.employee_office.
+13.06.2024 00:33:46.957 [main] WARN  l.lockservice - Failed to release change log lock
+13.06.2024 00:33:46.961 [main] INFO  liquibase.ui - All objects dropped from root@localhost@jdbc:mysql://localhost:3306/employee_office?allowMultiQueries=true
+13.06.2024 00:33:46.962 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 00:33:47.203 [main] INFO  liquibase.changelog - Creating database history table with name: employee_office.databasechangelog
+13.06.2024 00:33:47.270 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 00:33:47.378 [main] INFO  l.lockservice - Successfully acquired change log lock
+13.06.2024 00:33:47.379 [main] INFO  liquibase.command - Using deploymentId: 8228027379
+13.06.2024 00:33:47.385 [main] INFO  liquibase.changelog - Reading from employee_office.databasechangelog
+13.06.2024 00:33:47.436 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll
+13.06.2024 00:33:47.479 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 00:33:47.482 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/drop_tables.sql::raw::includeAll ran successfully in 44ms
+13.06.2024 00:33:47.500 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll
+13.06.2024 00:33:49.175 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 00:33:49.176 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/init-db.sql::raw::includeAll ran successfully in 1676ms
+13.06.2024 00:33:49.188 [main] INFO  liquibase.ui - Running Changeset: db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase
+13.06.2024 00:33:49.262 [main] INFO  liquibase.changelog - Custom SQL executed
+13.06.2024 00:33:49.270 [main] INFO  liquibase.changelog - ChangeSet db/changelog/v0.0.1-SNAPSHOT/data.sql::13::liquibase ran successfully in 82ms
+13.06.2024 00:33:49.285 [main] INFO  liquibase.util - UPDATE SUMMARY
+13.06.2024 00:33:49.285 [main] INFO  liquibase.util - Run:                          3
+13.06.2024 00:33:49.285 [main] INFO  liquibase.util - Previously run:               0
+13.06.2024 00:33:49.285 [main] INFO  liquibase.util - Filtered out:                 0
+13.06.2024 00:33:49.285 [main] INFO  liquibase.util - -------------------------------
+13.06.2024 00:33:49.285 [main] INFO  liquibase.util - Total change sets:            3
+13.06.2024 00:33:49.286 [main] INFO  liquibase.util - Update summary generated
+13.06.2024 00:33:49.290 [main] INFO  liquibase.command - Update command completed successfully.
+13.06.2024 00:33:49.291 [main] INFO  liquibase.ui - Liquibase: Update has been successful. Rows affected: 64
+13.06.2024 00:33:49.299 [main] INFO  l.lockservice - Successfully released change log lock
+13.06.2024 00:33:49.300 [main] INFO  liquibase.command - Command execution complete
+13.06.2024 00:33:49.484 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+13.06.2024 00:33:49.591 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+13.06.2024 00:33:49.651 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+13.06.2024 00:33:49.933 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+13.06.2024 00:33:51.358 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+13.06.2024 00:33:51.364 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 00:33:54.505 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13.06.2024 00:33:56.450 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@22112da1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f0969db, org.springframework.security.web.context.SecurityContextHolderFilter@47bcb545, org.springframework.security.web.authentication.logout.LogoutFilter@3b035d0c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@44929971, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@544502d6, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@38eb2140, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6d6c4775, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3df88502, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@591b9836, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f06006d, org.springframework.security.web.access.ExceptionTranslationFilter@5a131edc, org.springframework.security.web.access.intercept.AuthorizationFilter@2c8174ce]
+13.06.2024 00:33:57.707 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+13.06.2024 00:33:57.725 [main] INFO  c.e.e.EmployeeOfficeApplication - Started EmployeeOfficeApplication in 19.564 seconds (process running for 24.742)
+13.06.2024 00:42:37.883 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13.06.2024 00:42:37.917 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13.06.2024 00:42:38.149 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 227 ms
+13.06.2024 00:50:54.145 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13.06.2024 00:50:54.239 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13.06.2024 00:50:54.480 [SpringApplicationShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
