@@ -6,7 +6,8 @@ import com.example.employeeoffice.exception.*;
 import com.example.employeeoffice.repository.PersonalInfoRepository;
 import com.example.employeeoffice.repository.RoleRepository;
 import com.example.employeeoffice.service.interfaces.PersonalInfoService;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     }
 
     @Override
-    @Transactional
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public PersonalInfo updatePersonalInfoById(UUID persInfoId, PersonalInfo personalInfo) {
 
         PersonalInfo updatePersonalInfo = personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);

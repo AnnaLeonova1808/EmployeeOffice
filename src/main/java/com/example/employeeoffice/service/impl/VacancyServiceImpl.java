@@ -12,9 +12,11 @@ import com.example.employeeoffice.mapper.VacancyMapper;
 import com.example.employeeoffice.repository.DepartmentRepository;
 import com.example.employeeoffice.repository.VacancyRepository;
 import com.example.employeeoffice.service.interfaces.VacancyService;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 
 import java.util.UUID;
 
@@ -26,7 +28,7 @@ public class VacancyServiceImpl implements VacancyService {
     private final DepartmentRepository departmentRepository;
 
     @Override
-    @Transactional
+    @Transactional (isolation = Isolation.READ_COMMITTED)
     public String deleteVacancyById(UUID vacancyId) {
 
         Vacancy vacancy = vacancyRepository.findById(vacancyId).orElse(null);
@@ -39,7 +41,7 @@ public class VacancyServiceImpl implements VacancyService {
     }
 
     @Override
-    @Transactional
+    @Transactional (isolation = Isolation.READ_COMMITTED)
     public VacancyAfterCreationDto createVacancy(VacancyCreateDto vacancyCreateDto) {
 
         Vacancy vacancy = vacancyRepository.findByVacancyDescription(vacancyCreateDto.getVacancyDescription());

@@ -2,22 +2,23 @@ package com.example.employeeoffice.service.impl;
 
 import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
 import com.example.employeeoffice.dto.EmployeeRegistrationDto;
-import com.example.employeeoffice.entity.Department;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.entity.Role;
-import com.example.employeeoffice.entity.enums.DepartmentName;
 import com.example.employeeoffice.entity.enums.RolesName;
-import com.example.employeeoffice.exception.*;
+import com.example.employeeoffice.exception.EmployeeAlreadyExistException;
+import com.example.employeeoffice.exception.EmployeeNotExistException;
+import com.example.employeeoffice.exception.ErrorMessage;
+import com.example.employeeoffice.exception.RoleNotFoundException;
 import com.example.employeeoffice.mapper.EmployeeMapper;
-import com.example.employeeoffice.repository.DepartmentRepository;
 import com.example.employeeoffice.repository.EmployeeRepository;
 import com.example.employeeoffice.repository.PersonalInfoRepository;
 import com.example.employeeoffice.repository.RoleRepository;
 import com.example.employeeoffice.service.interfaces.EmployeeService;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.Collections;
@@ -34,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final RoleRepository roleRepository;
 
     @Override
-    @Transactional
+    @Transactional (isolation = Isolation.READ_COMMITTED)
     public Employee getEmployeeById(UUID empId) {
         Employee employee = employeeRepository.getEmployeeByEmpId(empId);
         if (employee == null) {
@@ -44,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    @Transactional
+    @Transactional (isolation = Isolation.READ_COMMITTED)
     public String deleteEmployeeById(UUID empId) {
 
         Employee employee = employeeRepository.getEmployeeByEmpId(empId);
@@ -58,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    @Transactional
+    @Transactional (isolation = Isolation.READ_COMMITTED)
     public EmployeeAfterRegistrationDto createEmployee(EmployeeRegistrationDto employeeRegistrationDto) {
 
         if (personalInfoRepository.existsByEmail(employeeRegistrationDto.getEmail())) {

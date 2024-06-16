@@ -169,7 +169,7 @@ SpringDoc OpenAPI (including springdoc-openapi-starter-webmvc-ui and springdoc-o
 Lombok (for simplifying code)
 MapStruct (for object mapping)
 Swagger (via swagger-annotations)
-jBCrypt (for password hashing)
+BCrypt (for password hashing)
 Liquibase (for database migrations management)
 JavaFaker (for generating test data)
 Database: MySQL (main database), H2 (for testing)

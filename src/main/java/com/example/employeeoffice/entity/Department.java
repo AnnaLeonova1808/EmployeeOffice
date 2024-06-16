@@ -83,7 +83,7 @@ public class Department {
     @OneToMany(mappedBy = "department", orphanRemoval = true, fetch = FetchType.LAZY,
             cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
     @Schema(description = "Vacancies in the department")
-    private Set<Vacancy> vacancies; // (5)  в одном отделе может быть несколько вакансий. Связь с вакансиями в отделе
+    private Set<Vacancy> vacancies;
 
     @Override
     public boolean equals(Object o) {
