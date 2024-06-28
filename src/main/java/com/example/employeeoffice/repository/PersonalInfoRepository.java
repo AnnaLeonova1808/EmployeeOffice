@@ -22,4 +22,5 @@ public interface PersonalInfoRepository extends JpaRepository <PersonalInfo, UUI
    Optional<PersonalInfo> findByUsername(String username);
 
 
+
 }

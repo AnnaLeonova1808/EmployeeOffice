@@ -44,7 +44,7 @@ import java.lang.annotation.Target;
                                                   "username": "marydoe",
                                                   "phoneNumber": "+37-150-111-22-33",
                                                   "email": "marydoe@example.com",
-                                                  "password": "666",
+                                                  "password": "$2y$10$wFgx/tp1w/CuUWW5RuLR6eFo2thoa4nfO9UWOEkiuzkmhXg7Mkdga",
                                                   "salary": 50000.0,
                                                   "employeeStatus": "EMPLOYEE CREATED"
                                                 }

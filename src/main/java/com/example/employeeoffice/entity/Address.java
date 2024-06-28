@@ -5,6 +5,7 @@ import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -38,6 +39,7 @@ public class Address {
      */
     @Column(name = "country")
     @Schema(description = "Country of the address")
+    @NotNull(message = "Country cannot be null")
     private String country;
 
     /**
@@ -45,6 +47,7 @@ public class Address {
      */
     @Column(name = "city")
     @Schema(description = "City of the address")
+    @NotNull(message = "City cannot be null")
     private String city;
 
     /**
@@ -52,6 +55,7 @@ public class Address {
      */
     @Column(name = "street")
     @Schema(description = "Street of the address")
+    @NotNull(message = "Street cannot be null")
     private String street;
 
     /**
@@ -59,6 +63,7 @@ public class Address {
      */
     @Column(name = "house_number")
     @Schema(description = "House number of the address")
+    @NotNull(message = "House Number cannot be null")
     private String houseNumber;
 
     /**
@@ -66,6 +71,7 @@ public class Address {
      */
     @Column(name = "apart_number")
     @Schema(description = "Apartment number of the address")
+    @NotNull(message = "Apart Number cannot be null")
     private String apartNumber;
 
     /**

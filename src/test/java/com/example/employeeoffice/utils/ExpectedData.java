@@ -27,6 +27,19 @@ public class ExpectedData {
         return address;
     }
 
+    public static Address returnUpdateAddress() {
+        Address address = new Address();
+        address.setAddressId(UUID.fromString("0b751135-128c-46c9-b554-8c6e05bcd2d8"));
+        address.setCountry("Germany");
+        address.setCity("Hamburg");
+        address.setStreet("Am Markt");
+        address.setHouseNumber("789");
+        address.setApartNumber("Büro 301");
+        address.setAddressType(AddressType.HOME);
+
+        return address;
+    }
+
     public static VacancyCreateDto returnVacancyCreateDto() {
         VacancyCreateDto vacancyCreateDto = new VacancyCreateDto();
         vacancyCreateDto.setPosition(Position.PROGRAMMER);

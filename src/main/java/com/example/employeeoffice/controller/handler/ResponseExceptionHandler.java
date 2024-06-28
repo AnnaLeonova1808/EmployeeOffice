@@ -2,18 +2,31 @@ package com.example.employeeoffice.controller.handler;
 
 import com.example.employeeoffice.exception.*;
 import jakarta.validation.ConstraintViolationException;
-import org.springframework.context.annotation.Description;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestControllerAdvice
 public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(AddressNotExistException.class)
     public ResponseEntity<ErrorExtension> handleAddressNotExistException(AddressNotExistException e) {
+
+        return new ResponseEntity<>(new ErrorExtension(
+                e.getMessage(), HttpStatus.BAD_REQUEST),
+                HttpStatus.BAD_REQUEST);
+
+    }
+    @ExceptionHandler(AddressNotFoundException.class)
+    public ResponseEntity<ErrorExtension> handleAddressNotFoundException(AddressNotFoundException e) {
 
         return new ResponseEntity<>(new ErrorExtension(
                 e.getMessage(), HttpStatus.NOT_FOUND),
@@ -56,6 +69,12 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.BAD_REQUEST);
 
     }
+    @ExceptionHandler(PersonalInfoNotFoundException.class)
+    public ResponseEntity<ErrorExtension> handlePersonalInfoNotFoundException(PersonalInfoNotFoundException e) {
+        ErrorExtension errorExtension = new ErrorExtension(e.getMessage(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(errorExtension, HttpStatus.NOT_FOUND);
+    }
+
 
     @ExceptionHandler(VacancyNotFoundException.class)
     public ResponseEntity<ErrorExtension> handleVacancyNotExistException(VacancyNotFoundException e) {
@@ -114,5 +133,19 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.BAD_REQUEST);
 
     }
+
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+                                                                  HttpHeaders headers,
+                                                                  HttpStatus status,
+                                                                  WebRequest request) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach(error -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
+
 
 }

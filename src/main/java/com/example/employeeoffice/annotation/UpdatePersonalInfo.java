@@ -25,7 +25,7 @@ import java.lang.annotation.Target;
 @Operation(
         summary = "Update  salary by id",
         description = "The request includes updating the salary field and returning the updated personal information.",
-        tags = {""},
+        tags = {"PERSONAL_INFO"},
         parameters = {
                 @Parameter(
                         name = "persInfoId",

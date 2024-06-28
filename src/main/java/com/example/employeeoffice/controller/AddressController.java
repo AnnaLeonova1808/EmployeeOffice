@@ -1,15 +1,21 @@
 package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.annotation.GetAddress;
+import com.example.employeeoffice.annotation.GetAddressesByPersonalInfoId;
+import com.example.employeeoffice.annotation.UpdateAddress;
+import com.example.employeeoffice.annotation.UpdatePersonalInfo;
 import com.example.employeeoffice.entity.Address;
+import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.service.interfaces.AddressService;
+import com.example.employeeoffice.service.interfaces.PersonalInfoService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -21,6 +27,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AddressController {
     private final AddressService addressService;
+    private final PersonalInfoService personalInfoService;
 
     /**
      * Retrieves an address by its unique identifier.
@@ -33,6 +40,18 @@ public class AddressController {
     public Address showAddressById(@PathVariable(name = "addressId") @UuidFormatChecker String addressId) {
 
         return addressService.showAddressById(UUID.fromString(addressId));
+    }
+    @UpdateAddress(path = "/update_address/{addressId}")
+    public Address updateAddressById(@PathVariable(name = "addressId") @UuidFormatChecker String addressId,
+                                               @RequestBody @Valid Address address) {
+
+        return addressService.updateAddressById(UUID.fromString(addressId), address);
+
+    }
+    @GetAddressesByPersonalInfoId(path = "/find_by_pers_info_id/{persInfoId}")
+    public ResponseEntity<List<Address>> findByPersInfoId(@PathVariable(name = "persInfoId") @UuidFormatChecker String persInfoId) {
+        List<Address> addresses = addressService.findAllAddressesByPersInfoId(UUID.fromString(persInfoId));
+        return ResponseEntity.ok(addresses);
     }
 }
 

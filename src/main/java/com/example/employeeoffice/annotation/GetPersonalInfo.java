@@ -1,5 +1,6 @@
 package com.example.employeeoffice.annotation;
 
+import com.example.employeeoffice.controller.handler.ErrorExtension;
 import com.example.employeeoffice.controller.handler.ResponseExceptionHandler;
 import com.example.employeeoffice.entity.PersonalInfo;
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,7 +45,7 @@ import java.lang.annotation.Target;
                                 ),
                                 @ExampleObject(
                                         name = "Example request with invalid Id",
-                                        value = "invalidId"
+                                        value = "11111111"
                                 )
                         }
                 )
@@ -59,19 +60,20 @@ import java.lang.annotation.Target;
                         )
                 ),
                 @ApiResponse(
-                        responseCode = "400",
-                        description = "Invalid ID",
-                        content = @Content(
-                                mediaType = "application/json",
-                                schema = @Schema(implementation = ResponseExceptionHandler.class)
-                        )
-                ),
-                @ApiResponse(
                         responseCode = "404",
                         description = "Personal info not found",
                         content = @Content(
                                 mediaType = "application/json",
-                                schema = @Schema(implementation = ResponseExceptionHandler.class)
+                                schema = @Schema(implementation = ErrorExtension.class)
+                        )
+
+                ),
+                @ApiResponse(
+                        responseCode = "400",
+                        description = "Invalid ID",
+                        content = @Content(
+                                mediaType = "application/json",
+                                schema = @Schema(implementation = ErrorExtension.class)
                         )
                 )
         },

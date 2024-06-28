@@ -26,20 +26,7 @@ import java.lang.annotation.Target;
         summary = "Show roles",
         description = "Retrieve all role names",
         tags = {"ROLE"},
-//        parameters = {
-//                @Parameter(
-//                        name = "roles",
-//                        description = "The unique identifier of the role",
-//                        required = true,
-//                        in = ParameterIn.PATH,
-//                        schema = @Schema(type = "string", format = "string"),
-//                        examples = {
-//                                @ExampleObject(
-//                                        name = "Example request with correct"
-//                                )
-//                        }
-//                )
-//        },
+
         responses = {
                 @ApiResponse(
                         responseCode = "200",

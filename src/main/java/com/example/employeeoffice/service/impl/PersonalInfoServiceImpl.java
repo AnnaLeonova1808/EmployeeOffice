@@ -27,7 +27,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         PersonalInfo personalInfo = personalInfoRepository.getPersonalInfoByPersInfoId(persInfoId);
 
         if (personalInfo == null) {
-            throw new PersonalInfoNotExistException(ErrorMessage.PERSONAL_INFO_NOT_EXIST);
+            throw new PersonalInfoNotFoundException(ErrorMessage.PERSONAL_INFO_NOT_FOUND);
         }
         return personalInfo;
     }
