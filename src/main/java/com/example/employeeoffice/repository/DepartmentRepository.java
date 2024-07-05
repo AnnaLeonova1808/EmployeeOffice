@@ -10,5 +10,6 @@ import java.util.UUID;
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, UUID> {
     Department findByDepName(DepartmentName depName);
+    Department saveAndFlush(Department department);
 
 }

@@ -1,11 +1,11 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.annotation.CreateEmployee;
-import com.example.employeeoffice.annotation.DeleteEmployee;
-import com.example.employeeoffice.annotation.GetEmployeeById;
+import com.example.employeeoffice.annotation.*;
 import com.example.employeeoffice.dto.EmployeeAfterRegistrationDto;
 import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Employee;
+import com.example.employeeoffice.entity.WorkSchedule;
+import com.example.employeeoffice.entity.enums.WorkScheduleName;
 import com.example.employeeoffice.service.interfaces.EmployeeService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 /**
  * Controller for managing employees.
@@ -65,4 +66,31 @@ public class EmployeeController {
         return employeeService.createEmployee(employeeRegistrationDto);
 
     }
+
+    /**
+     * Retrieves a list of employees by city.
+     *
+     * @param workScheduleName the workSchedule to filter employees by
+     * @return the list of employees working in the specified workSchedule
+     */
+
+    @GetAllEmployeeByWorkSchedule(path = "/allEmployeeByWorkSchedule/{workScheduleName}")
+    public List<Employee> getAllEmployeeByWorkSchedule(@PathVariable(name = "workScheduleName") WorkScheduleName workScheduleName) {
+        return employeeService.getAllEmployeeByWorkSchedule(workScheduleName);
+
+    }
+
+    /**
+     * Endpoint to retrieve a list of all employees.
+     *
+     * This method handles HTTP GET requests to the "/showAll" endpoint.
+     * It retrieves a list of all employees from the employee service.
+     *
+     * @return a list of {@link Employee} objects representing all employees.
+     */
+    @ShowAllEmployee(path = "/showAll")
+    public List<Employee> showAllEmployees(){
+        return employeeService.showAllEmployees();
+    }
+
 }

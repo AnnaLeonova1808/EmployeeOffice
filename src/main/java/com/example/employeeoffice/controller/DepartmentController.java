@@ -1,5 +1,6 @@
 package com.example.employeeoffice.controller;
 
+import com.example.employeeoffice.annotation.CreateDepartment;
 import com.example.employeeoffice.annotation.ShowDepartment;
 import com.example.employeeoffice.entity.Department;
 import com.example.employeeoffice.entity.enums.DepartmentName;
@@ -7,10 +8,9 @@ import com.example.employeeoffice.exception.DepartmentNotFoundException;
 import com.example.employeeoffice.exception.ErrorMessage;
 import com.example.employeeoffice.service.interfaces.DepartmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/department")
@@ -30,6 +30,12 @@ public class DepartmentController {
             throw new DepartmentNotFoundException(ErrorMessage.DEPARTMENT_NOT_EXIST);
 
         }
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @CreateDepartment(path = "/add_new_department")
+    public Department addNewDepartment(@RequestBody Department department) {
+        return departmentService.addDepartment(department);
     }
 }
 

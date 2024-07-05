@@ -6,6 +6,7 @@ public class ErrorMessage {
     public static final String EMPLOYEE_ALREADY_EXIST_EXCEPTION = "EMPLOYEE_ALREADY_EXIST_EXCEPTION";
 
     public static final String LIST_OF_PERSONAL_INFO_IS_EMPTY = "THE_LIST_OF_PERSONAL_INFO_IS_EMPTY";
+    public static final String LIST_OF_EMPLOYEE_IS_EMPTY = "THE_LIST_OF_EMPLOYEE_IS_EMPTY";
 
     public static final String PERSONAL_INFO_NOT_EXIST = "PERSONAL_INFO_NOT_EXIST";
     public static final String PERSONAL_INFO_NOT_FOUND = "PERSONAL_INFO_NOT_FOUND";
@@ -16,6 +17,8 @@ public class ErrorMessage {
     public static final String ADDRESS_NOT_FOUND = "ADDRESS_NOT_FOUND";
 
     public static final String DEPARTMENT_NOT_EXIST = "DEPARTMENT_NOT_EXIST";
+
+    public static final String DEPARTMENT_ALREADY_EXIST = "DEPARTMENT_ALREADY_EXIST";
 
     public static final String VACANCY_NOT_EXIST = "VACANCY_NOT_EXIST";
 

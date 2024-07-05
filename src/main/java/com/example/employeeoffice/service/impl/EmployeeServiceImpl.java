@@ -5,25 +5,24 @@ import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.entity.Employee;
 import com.example.employeeoffice.entity.PersonalInfo;
 import com.example.employeeoffice.entity.Role;
+import com.example.employeeoffice.entity.WorkSchedule;
 import com.example.employeeoffice.entity.enums.RolesName;
-import com.example.employeeoffice.exception.EmployeeAlreadyExistException;
-import com.example.employeeoffice.exception.EmployeeNotExistException;
-import com.example.employeeoffice.exception.ErrorMessage;
-import com.example.employeeoffice.exception.RoleNotFoundException;
+import com.example.employeeoffice.entity.enums.WorkScheduleName;
+import com.example.employeeoffice.exception.*;
 import com.example.employeeoffice.mapper.EmployeeMapper;
 import com.example.employeeoffice.repository.EmployeeRepository;
 import com.example.employeeoffice.repository.PersonalInfoRepository;
 import com.example.employeeoffice.repository.RoleRepository;
 import com.example.employeeoffice.service.interfaces.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeMapper employeeMapper;
 
     private final RoleRepository roleRepository;
+
 
     @Override
     @Transactional (isolation = Isolation.READ_COMMITTED)
@@ -94,6 +94,36 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee savedEmployee = employeeRepository.save(entity);
 
         return employeeMapper.toDto(savedEmployee);
+    }
+
+
+
+    @Override
+    @Transactional (isolation = Isolation.READ_COMMITTED)
+    public List<Employee> getAllEmployeeByWorkSchedule(WorkScheduleName workScheduleName) {
+        List<Employee> employeeList = employeeRepository.findAllByWorkSchedule_SchedName(workScheduleName);
+        if (employeeList.isEmpty()) {
+            throw new ListOfEmployeeIsEmptyException(ErrorMessage.LIST_OF_EMPLOYEE_IS_EMPTY);
+        }
+        return employeeList;
+    }
+
+    @Override
+    public List<Employee> getAllEmployeeByWorkSchedule(String workScheduleName) {
+        try {
+            WorkScheduleName scheduleName = WorkScheduleName.valueOf(workScheduleName.toUpperCase());
+            return getAllEmployeeByWorkSchedule(scheduleName);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid work schedule");
+        }
+
+    }
+
+    @Override
+    public List<Employee> showAllEmployees() {
+        List<Employee> employeeList = employeeRepository.findAll();
+        if (employeeList.isEmpty()) throw new ListOfEmployeeIsEmptyException(ErrorMessage.LIST_OF_EMPLOYEE_IS_EMPTY);
+        return employeeList;
     }
 
 }
