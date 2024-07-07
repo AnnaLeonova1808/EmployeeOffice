@@ -23,8 +23,7 @@ public interface PersonalInfoRepository extends JpaRepository <PersonalInfo, UUI
 
    @EntityGraph(attributePaths = "roles")
    Optional<PersonalInfo> findByUsername(String username);
-//   @Query("SELECT p FROM PersonalInfo p JOIN p.addresses a WHERE a.city = :city AND a.addressType = :addressType")
-//   List<PersonalInfo> findAllByCityAndAddressType(@Param("city") String city, @Param("addressType") AddressType addressType);
+
 }
 
 

@@ -1,12 +1,9 @@
 package com.example.employeeoffice.annotation;
 
-import com.example.employeeoffice.controller.handler.ResponseExceptionHandler;
-import com.example.employeeoffice.entity.Role;
+import com.example.employeeoffice.entity.Department;
+import com.example.employeeoffice.entity.Event;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -23,25 +20,16 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @RequestMapping(method = RequestMethod.GET)
 @Operation(
-        summary = "Show roles",
-        description = "Retrieve all role names",
-        tags = {"ROLE"},
-
+        summary = "Show all events",
+        description = "Get a list of all existing event",
+        tags = {"DEPARTMENT"},
         responses = {
                 @ApiResponse(
                         responseCode = "200",
-                        description = "Roles found and returned",
+                        description = "All departments received or no departments found",
                         content = @Content(
                                 mediaType = "application/json",
-                                schema = @Schema(type = "array", implementation = Role.class)
-                        )
-                ),
-                @ApiResponse(
-                        responseCode = "404",
-                        description = "Roles not found",
-                        content = @Content(
-                                mediaType = "application/json",
-                                schema = @Schema(implementation = ResponseExceptionHandler.class)
+                                schema = @Schema(implementation = Department.class)
                         )
                 )
         },
@@ -49,7 +37,8 @@ import java.lang.annotation.Target;
                 @SecurityRequirement(name = "safety requirements")
         }
 )
-public @interface GetAllRolesNames {
+
+public @interface ShowAllDepartments {
     @AliasFor(annotation = RequestMapping.class, attribute = "path")
     String[] path() default {};
 }

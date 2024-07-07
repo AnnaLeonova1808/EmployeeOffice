@@ -7,6 +7,11 @@ public class ErrorMessage {
 
     public static final String LIST_OF_PERSONAL_INFO_IS_EMPTY = "THE_LIST_OF_PERSONAL_INFO_IS_EMPTY";
     public static final String LIST_OF_EMPLOYEE_IS_EMPTY = "THE_LIST_OF_EMPLOYEE_IS_EMPTY";
+    public static final String LIST_OF_EVENT_IS_EMPTY = "THE_LIST_OF_EVENT_IS_EMPTY";
+    public static final String LIST_OF_WORK_SCHEDULE_IS_EMPTY = "THE_LIST_OF_WORK_SCHEDULE_IS_EMPTY";
+    public static final String LIST_OF_DEPARTMENT_IS_EMPTY = "THE_LIST_OF_DEPARTMENT_IS_EMPTY";
+    public static final String LIST_OF_VACANCY_IS_EMPTY = "THE_LIST_OF_VACANCY_IS_EMPTY";
+    public static final String LIST_OF_AUTHORITY_IS_EMPTY = "THE_LIST_OF_AUTHORITY_IS_EMPTY";
 
     public static final String PERSONAL_INFO_NOT_EXIST = "PERSONAL_INFO_NOT_EXIST";
     public static final String PERSONAL_INFO_NOT_FOUND = "PERSONAL_INFO_NOT_FOUND";
@@ -19,6 +24,7 @@ public class ErrorMessage {
     public static final String DEPARTMENT_NOT_EXIST = "DEPARTMENT_NOT_EXIST";
 
     public static final String DEPARTMENT_ALREADY_EXIST = "DEPARTMENT_ALREADY_EXIST";
+    public static final String WORK_SCHEDULE_ALREADY_EXIST = "WORK_SCHEDULE_ALREADY_EXIST";
 
     public static final String VACANCY_NOT_EXIST = "VACANCY_NOT_EXIST";
 

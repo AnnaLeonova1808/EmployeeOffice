@@ -36,7 +36,9 @@ public class AuthorityRoleList {
             "/event/**",
             "/personal_info/**",
             "/role/**",
-            "/vacancy/**"
+            "/authority/**",
+            "/vacancy/**",
+            "/work_schedules/**"
     };
 
     public static final String[] MANAGER_LIST = {

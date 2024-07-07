@@ -2,8 +2,12 @@ package com.example.employeeoffice.controller;
 
 import com.example.employeeoffice.annotation.CreateVacancyDto;
 import com.example.employeeoffice.annotation.DeleteVacancy;
+import com.example.employeeoffice.annotation.ShowAllDepartments;
+import com.example.employeeoffice.annotation.ShowAllVacancies;
 import com.example.employeeoffice.dto.VacancyAfterCreationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
+import com.example.employeeoffice.entity.Department;
+import com.example.employeeoffice.entity.Vacancy;
 import com.example.employeeoffice.service.interfaces.VacancyService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -34,7 +39,6 @@ public class VacancyController {
     public String deleteVacancyById(@PathVariable(name = "vacancyId") @UuidFormatChecker String vacancyId) {
 
         return vacancyService.deleteVacancyById(UUID.fromString(vacancyId));
-
     }
 
     /**
@@ -48,6 +52,16 @@ public class VacancyController {
     public VacancyAfterCreationDto creteVacancy(@RequestBody VacancyCreateDto vacancyCreateDto) {
 
         return vacancyService.createVacancy(vacancyCreateDto);
+    }
 
+    /**
+     * Retrieves all vacancies.
+     *
+     * @return a list of all vacancies
+     */
+    @ShowAllVacancies(path = "/showAll")
+    public List<Vacancy> showAllVacancies() {
+
+        return vacancyService.showAllVacancies();
     }
 }

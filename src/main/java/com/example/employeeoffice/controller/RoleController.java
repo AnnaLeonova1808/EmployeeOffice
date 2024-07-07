@@ -1,6 +1,6 @@
 package com.example.employeeoffice.controller;
 
-import com.example.employeeoffice.annotation.GetAllRolesNames;
+import com.example.employeeoffice.annotation.ShowAllRolesNames;
 import com.example.employeeoffice.annotation.GetRole;
 import com.example.employeeoffice.entity.Role;
 import com.example.employeeoffice.service.interfaces.RoleService;
@@ -41,7 +41,7 @@ public class RoleController {
      *
      * @return a set of all role names
      */
-    @GetAllRolesNames(path = "/rolesNames")
+    @ShowAllRolesNames(path = "/rolesNames")
     public Set<String> getAllRolesNames() {
 
         return roleService.getAllRoleNames();

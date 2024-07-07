@@ -41,13 +41,27 @@ public class AddressController {
 
         return addressService.showAddressById(UUID.fromString(addressId));
     }
+
+    /**
+     * Updates an address by its unique identifier.
+     *
+     * @param addressId The unique identifier of the address.
+     * @param address The updated address details.
+     * @return The updated address with the specified ID.
+     */
     @UpdateAddress(path = "/update_address/{addressId}")
     public Address updateAddressById(@PathVariable(name = "addressId") @UuidFormatChecker String addressId,
                                                @RequestBody @Valid Address address) {
 
         return addressService.updateAddressById(UUID.fromString(addressId), address);
-
     }
+
+    /**
+     * Finds addresses by personal information ID.
+     *
+     * @param persInfoId The unique identifier of the personal information.
+     * @return A list of addresses associated with the specified personal information ID.
+     */
     @GetAddressesByPersonalInfoId(path = "/find_by_pers_info_id/{persInfoId}")
     public ResponseEntity<List<Address>> findByPersInfoId(@PathVariable(name = "persInfoId") @UuidFormatChecker String persInfoId) {
         List<Address> addresses = addressService.findAllAddressesByPersInfoId(UUID.fromString(persInfoId));

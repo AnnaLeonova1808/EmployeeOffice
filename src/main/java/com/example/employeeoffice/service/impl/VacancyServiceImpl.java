@@ -5,9 +5,7 @@ import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.entity.Department;
 import com.example.employeeoffice.entity.Vacancy;
 import com.example.employeeoffice.entity.enums.DepartmentName;
-import com.example.employeeoffice.exception.ErrorMessage;
-import com.example.employeeoffice.exception.VacancyAlreadyExistsException;
-import com.example.employeeoffice.exception.VacancyNotFoundException;
+import com.example.employeeoffice.exception.*;
 import com.example.employeeoffice.mapper.VacancyMapper;
 import com.example.employeeoffice.repository.DepartmentRepository;
 import com.example.employeeoffice.repository.VacancyRepository;
@@ -18,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -64,4 +63,12 @@ public class VacancyServiceImpl implements VacancyService {
         Vacancy vacancyAfterCreation = vacancyRepository.save(entity);
         return vacancyMapper.toDto(vacancyAfterCreation);
     }
+
+    @Override
+    public List<Vacancy> showAllVacancies() {
+        List<Vacancy> vacancyList = vacancyRepository.findAll();
+        if (vacancyList.isEmpty()) throw new ListOfVacancyIsEmptyException(ErrorMessage.LIST_OF_VACANCY_IS_EMPTY);
+        return vacancyList;
+    }
+
 }

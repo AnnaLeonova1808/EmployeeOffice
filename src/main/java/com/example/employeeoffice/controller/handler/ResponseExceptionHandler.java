@@ -45,6 +45,40 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
                 HttpStatus.NOT_FOUND);
 
     }
+    @ExceptionHandler(DepartmentAlreadyExistException.class)
+    public ResponseEntity<ErrorExtension> handleDepartmentAlreadyExistException(DepartmentAlreadyExistException e) {
+
+        return new ResponseEntity<>(new ErrorExtension(
+                e.getMessage(), HttpStatus.BAD_REQUEST),
+                HttpStatus.BAD_REQUEST);
+
+    }
+
+    @ExceptionHandler(WorkScheduleNotFoundException.class)
+    public ResponseEntity<ErrorExtension> handleWorkScheduleNotFoundException(WorkScheduleNotFoundException e) {
+
+        return new ResponseEntity<>(new ErrorExtension(
+                e.getMessage(), HttpStatus.NOT_FOUND),
+                HttpStatus.NOT_FOUND);
+
+    }
+    @ExceptionHandler(WorkScheduleAlreadyExistException.class)
+    public ResponseEntity<ErrorExtension> handleWorkScheduleAlreadyExistException(WorkScheduleAlreadyExistException e) {
+
+        return new ResponseEntity<>(new ErrorExtension(
+                e.getMessage(), HttpStatus.BAD_REQUEST),
+                HttpStatus.BAD_REQUEST);
+
+    }
+    @ExceptionHandler(ListOfWorkScheduleIsEmptyException.class)
+    public ResponseEntity<ErrorExtension> handleListOfWorkScheduleIsEmptyException(ListOfWorkScheduleIsEmptyException e) {
+
+        return new ResponseEntity<>(new ErrorExtension(
+                e.getMessage(), HttpStatus.NOT_FOUND),
+                HttpStatus.NOT_FOUND);
+
+    }
+
 
     @ExceptionHandler(EmployeeNotExistException.class)
     public ResponseEntity<ErrorExtension> handleEmployeeNotExistException(EmployeeNotExistException e) {
@@ -144,6 +178,14 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
                 e.getMessage(), HttpStatus.NOT_FOUND),
                 HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(ListOfEventIsEmptyException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<ErrorExtension> handleListOfEventIsEmptyException(ListOfEventIsEmptyException e) {
+        return new ResponseEntity<>(new ErrorExtension(
+                e.getMessage(), HttpStatus.NOT_FOUND),
+                HttpStatus.NOT_FOUND);
+    }
+
 
     @ExceptionHandler(ResponseStatusException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

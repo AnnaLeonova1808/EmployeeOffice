@@ -68,6 +68,5 @@ public class PersonalInfoController {
     public List<PersonalInfo> showAllPersonalInfoByRoleName(@PathVariable(name = "roleName") String roleName) {
 
         return personalInfoService.showAllPersonalInfoByRoleName(roleName);
-
     }
 }
