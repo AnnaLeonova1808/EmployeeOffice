@@ -5,6 +5,7 @@ import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.entity.Department;
 import com.example.employeeoffice.entity.Vacancy;
 import com.example.employeeoffice.entity.enums.DepartmentName;
+import com.example.employeeoffice.entity.enums.Position;
 import com.example.employeeoffice.exception.*;
 import com.example.employeeoffice.mapper.VacancyMapper;
 import com.example.employeeoffice.repository.DepartmentRepository;
@@ -14,10 +15,11 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -65,10 +67,23 @@ public class VacancyServiceImpl implements VacancyService {
     }
 
     @Override
-    public List<Vacancy> showAllVacancies() {
+    public Set<String> showAllVacancies() {
         List<Vacancy> vacancyList = vacancyRepository.findAll();
-        if (vacancyList.isEmpty()) throw new ListOfVacancyIsEmptyException(ErrorMessage.LIST_OF_VACANCY_IS_EMPTY);
-        return vacancyList;
+        if (vacancyList.isEmpty()) {
+            throw new ListOfVacancyIsEmptyException(ErrorMessage.LIST_OF_VACANCY_IS_EMPTY);
+        }
+        return vacancyList.stream()
+                .map(Vacancy::getPosition)
+                .map(Position::name)
+                .collect(Collectors.toSet());
     }
+//        List<Vacancy> vacancyList = vacancyRepository.findAll();
+//        if (vacancyList.isEmpty()) throw new ListOfVacancyIsEmptyException(ErrorMessage.LIST_OF_VACANCY_IS_EMPTY);
+//        return vacancyList.stream()
+//                .map(Vacancy::getPosition)
+//                .map(Position::name)
+//                .collect(Collectors.toSet());
+//    }
+
 
 }

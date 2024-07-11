@@ -20,7 +20,9 @@ public class WorkScheduleServiceImpl implements WorkScheduleService {
     @Override
     public WorkSchedule showByName(WorkScheduleName schedName) {
         WorkSchedule workSchedule = workScheduleRepository.findBySchedName(schedName);
-        if (workSchedule == null) throw new WorkScheduleNotFoundException(schedName + "WorkSchedule not found");
+        if (workSchedule == null) {
+            throw new WorkScheduleNotFoundException(ErrorMessage.WORK_SCHEDULE_NOT_FOUND);
+        }
         return workSchedule;
     }
 

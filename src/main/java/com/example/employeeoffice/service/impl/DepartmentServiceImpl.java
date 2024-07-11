@@ -28,15 +28,6 @@ public class DepartmentServiceImpl implements DepartmentService {
         return department;
     }
 
-    @Override
-    @Transactional
-    public Department addDepartment(Department department) {
-        Department check = departmentRepository.findByDepName(department.getDepName());
-        if (check != null) throw new DepartmentAlreadyExistException
-                (ErrorMessage.DEPARTMENT_ALREADY_EXIST);
-
-        return departmentRepository.saveAndFlush(department);
-    }
 
     @Override
     public Set<String> showAllDepartment() {

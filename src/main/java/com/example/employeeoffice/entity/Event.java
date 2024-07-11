@@ -5,6 +5,7 @@ import com.example.employeeoffice.generator.UuidTimeSequenceGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,6 +41,7 @@ public class Event {
     /**
      * Start date and time of the event.
      */
+    @NotNull(message = "Event type cannot be null")
     @Enumerated(EnumType.STRING)
     @Column(name = "ev_type")
     @Schema(description = "Start date and time of the event")
@@ -55,6 +57,7 @@ public class Event {
     /**
      * Location of the event.
      */
+    @NotNull(message = "Location cannot be null")
     @Column(name = "location")
     @Schema(description = "Location of the event")
     private String location;

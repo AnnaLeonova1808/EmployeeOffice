@@ -3,7 +3,11 @@ package com.example.employeeoffice.controller;
 import com.example.employeeoffice.annotation.ShowAllWorkSchedule;
 import com.example.employeeoffice.annotation.ShowWorkScheduleByName;
 import com.example.employeeoffice.entity.WorkSchedule;
+import com.example.employeeoffice.entity.enums.DepartmentName;
 import com.example.employeeoffice.entity.enums.WorkScheduleName;
+import com.example.employeeoffice.exception.DepartmentNotFoundException;
+import com.example.employeeoffice.exception.ErrorMessage;
+import com.example.employeeoffice.exception.WorkScheduleNotFoundException;
 import com.example.employeeoffice.service.interfaces.WorkScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,8 +35,14 @@ public class WorkScheduleController {
      * @return The work schedule with the specified name.
      */
     @ShowWorkScheduleByName(path = "/showByName/{schedName}")
-    public WorkSchedule showByName(@PathVariable (name = "schedName") WorkScheduleName schedName) {
-        return workScheduleService.showByName(schedName);
+    public WorkSchedule showByName(@PathVariable (name = "schedName") String schedName) {
+        try {
+            return workScheduleService.showByName(WorkScheduleName.valueOf(schedName));
+
+        } catch (IllegalArgumentException e) {
+
+            throw new WorkScheduleNotFoundException(ErrorMessage.WORK_SCHEDULE_NOT_FOUND);
+        }
     }
 
     /**

@@ -22,7 +22,8 @@ public class AuthorityController {
      * @return a list of all authorities
      */
     @ShowAllAuthority(path = "/showAllAuthority")
-    public Set<String> showAllEvent() {
+    public Set<String> showAllAuthority() {
+
         return authorityService.showAllAuthority();
     }
 

@@ -3,11 +3,11 @@ package com.example.employeeoffice.controller;
 import com.example.employeeoffice.dto.VacancyAfterCreationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.entity.Department;
-import com.example.employeeoffice.entity.Event;
 import com.example.employeeoffice.entity.Vacancy;
 import com.example.employeeoffice.entity.enums.DepartmentName;
-import com.example.employeeoffice.entity.enums.VacancyStatus;
+import com.example.employeeoffice.entity.enums.Position;
 import com.example.employeeoffice.exception.ErrorMessage;
+import com.example.employeeoffice.exception.ListOfVacancyIsEmptyException;
 import com.example.employeeoffice.exception.VacancyAlreadyExistsException;
 import com.example.employeeoffice.exception.VacancyNotFoundException;
 import com.example.employeeoffice.mapper.VacancyMapper;
@@ -15,8 +15,9 @@ import com.example.employeeoffice.repository.DepartmentRepository;
 import com.example.employeeoffice.repository.VacancyRepository;
 import com.example.employeeoffice.service.interfaces.VacancyService;
 import com.example.employeeoffice.utils.ExpectedData;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -31,16 +32,18 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willThrow;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -65,6 +68,8 @@ public class VacancyControllerTest {
     @MockBean
     private VacancyMapper vacancyMapper;
 
+
+
     @Test
     public void creteVacancyTestPositive() throws Exception {
 
@@ -77,7 +82,7 @@ public class VacancyControllerTest {
 
         String vacancyWrite = new ObjectMapper().writeValueAsString(vacancyCreateDto);
 
-        MvcResult createVacancyResult = mockMvc.perform(MockMvcRequestBuilders.post("/vacancy/create_vacancy")
+        MvcResult createVacancyResult = mockMvc.perform(MockMvcRequestBuilders.post("/vacancies/create_vacancy")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(vacancyWrite))
                 .andExpect(status().isCreated())
@@ -98,7 +103,7 @@ public class VacancyControllerTest {
         when(vacancyService.createVacancy(any(VacancyCreateDto.class)))
                 .thenThrow(new VacancyAlreadyExistsException(ErrorMessage.VACANCY_ALREADY_EXIST));
 
-        MockHttpServletResponse response = mockMvc.perform(MockMvcRequestBuilders.post("/vacancy/create_vacancy")
+        MockHttpServletResponse response = mockMvc.perform(MockMvcRequestBuilders.post("/vacancies/create_vacancy")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(vacancyCreateAlreadyExistsException)))
                 .andExpect(status().isConflict())
@@ -116,7 +121,7 @@ public class VacancyControllerTest {
         doThrow(new VacancyNotFoundException(ErrorMessage.VACANCY_NOT_EXIST))
                 .when(vacancyService).deleteVacancyById(vacancyId);
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/vacancy/delete_vacancy/{vacancyId}", vacancyId)
+        mockMvc.perform(MockMvcRequestBuilders.delete("/vacancies/delete_vacancy/{vacancyId}", vacancyId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -140,7 +145,7 @@ public class VacancyControllerTest {
         when(vacancyMapper.toDto(any(Vacancy.class))).thenReturn(vacancyAfterCreationDto);
         when(vacancyRepository.save(any(Vacancy.class))).thenReturn(vacancy);
 
-        MockHttpServletResponse response = mockMvc.perform(MockMvcRequestBuilders.post("/vacancy/create_vacancy")
+        MockHttpServletResponse response = mockMvc.perform(MockMvcRequestBuilders.post("/vacancies/create_vacancy")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(vacancyCreateDto)))
                 .andExpect(status().isCreated())
@@ -157,7 +162,7 @@ public class VacancyControllerTest {
         when(vacancyService.deleteVacancyById(vacancyId))
                 .thenReturn("Vacancy with this ID was deleted SUCCESSFULLY");
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/vacancy/delete_vacancy/{vacancyId}", vacancyId)
+        mockMvc.perform(MockMvcRequestBuilders.delete("/vacancies/delete_vacancy/{vacancyId}", vacancyId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN))
@@ -165,4 +170,50 @@ public class VacancyControllerTest {
                 .andReturn().getResponse().getStatus();
     }
 
+    @BeforeEach
+    public void setup() {
+        List<Vacancy> expectedVacancies = new ArrayList<>(ExpectedData.returnAllVacancies());
+        when(vacancyRepository.findAll()).thenReturn(expectedVacancies);
+        System.out.println("Mock setup: " + expectedVacancies);
+    }
+
+    @Test
+    void showAllVacancyPositiveTest() throws Exception {
+        Set<Vacancy> vacancySet = ExpectedData.returnAllVacancies();
+        List<Vacancy> vacancyList = new ArrayList<>(vacancySet);
+
+        given(vacancyRepository.findAll()).willReturn(vacancyList);
+        given(vacancyService.showAllVacancies()).willReturn(
+                vacancyList.stream().map(Vacancy::getPosition).map(Position::name).collect(Collectors.toSet())
+        );
+
+        Set<String> expectedVacancyNames = vacancySet.stream()
+                .map(Vacancy::getPosition)
+                .map(Position::name)
+                .collect(Collectors.toSet());
+
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/vacancies/showAll"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andReturn();
+
+        String vacancyListJSON = mvcResult.getResponse().getContentAsString();
+        Set<String> actualVacancyNames = new ObjectMapper().readValue(vacancyListJSON, new TypeReference<Set<String>>() {});
+
+        assertEquals(expectedVacancyNames, actualVacancyNames);
+    }
+
+    @Test
+    void showAllVacancyNegativeTest() throws Exception {
+
+        given(vacancyRepository.findAll()).willReturn(Collections.emptyList());
+        willThrow(new ListOfVacancyIsEmptyException(ErrorMessage.LIST_OF_VACANCY_IS_EMPTY))
+                .given(vacancyService).showAllVacancies();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/vacancies/showAll"))
+                .andExpect(status().isNotFound())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.message").value(ErrorMessage.LIST_OF_VACANCY_IS_EMPTY))
+                .andExpect(jsonPath("$.errorCode").value("404 NOT_FOUND"));
+    }
 }

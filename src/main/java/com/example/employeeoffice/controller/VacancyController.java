@@ -12,10 +12,12 @@ import com.example.employeeoffice.service.interfaces.VacancyService;
 import com.example.employeeoffice.validation.annotation.UuidFormatChecker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -23,7 +25,7 @@ import java.util.UUID;
  */
 @Validated
 @RestController
-@RequestMapping("/vacancy")
+@RequestMapping("/vacancies")
 @RequiredArgsConstructor
 public class VacancyController {
     private final VacancyService vacancyService;
@@ -60,8 +62,11 @@ public class VacancyController {
      * @return a list of all vacancies
      */
     @ShowAllVacancies(path = "/showAll")
-    public List<Vacancy> showAllVacancies() {
-
-        return vacancyService.showAllVacancies();
+    public ResponseEntity<Set<String>> showAllVacancies() {
+        Set<String> vacancies = vacancyService.showAllVacancies();
+        if (vacancies.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(vacancies, HttpStatus.OK);
     }
 }

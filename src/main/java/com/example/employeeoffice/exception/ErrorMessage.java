@@ -3,7 +3,10 @@ package com.example.employeeoffice.exception;
 public class ErrorMessage {
 
     public static final String EMPLOYEE_NOT_EXIST = "EMPLOYEE_NOT_EXIST";
+
+    public static final String EVENT_NOT_EXIST = "EVENT_NOT_EXIST";
     public static final String EMPLOYEE_ALREADY_EXIST_EXCEPTION = "EMPLOYEE_ALREADY_EXIST_EXCEPTION";
+    public static final String EVENT_ALREADY_EXIST_EXCEPTION = "EVENT_ALREADY_EXIST_EXCEPTION";
 
     public static final String LIST_OF_PERSONAL_INFO_IS_EMPTY = "THE_LIST_OF_PERSONAL_INFO_IS_EMPTY";
     public static final String LIST_OF_EMPLOYEE_IS_EMPTY = "THE_LIST_OF_EMPLOYEE_IS_EMPTY";
@@ -24,7 +27,10 @@ public class ErrorMessage {
     public static final String DEPARTMENT_NOT_EXIST = "DEPARTMENT_NOT_EXIST";
 
     public static final String DEPARTMENT_ALREADY_EXIST = "DEPARTMENT_ALREADY_EXIST";
+
     public static final String WORK_SCHEDULE_ALREADY_EXIST = "WORK_SCHEDULE_ALREADY_EXIST";
+
+    public static final String WORK_SCHEDULE_NOT_FOUND = "WORK_SCHEDULE_NOT_FOUND";
 
     public static final String VACANCY_NOT_EXIST = "VACANCY_NOT_EXIST";
 

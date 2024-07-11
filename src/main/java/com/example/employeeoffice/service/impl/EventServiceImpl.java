@@ -2,6 +2,7 @@ package com.example.employeeoffice.service.impl;
 
 import com.example.employeeoffice.entity.Event;
 import com.example.employeeoffice.exception.ErrorMessage;
+import com.example.employeeoffice.exception.EventAlreadyExistException;
 import com.example.employeeoffice.exception.ListOfEventIsEmptyException;
 import com.example.employeeoffice.repository.EventRepository;
 import com.example.employeeoffice.service.interfaces.EventService;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

@@ -7,6 +7,7 @@ import com.example.employeeoffice.entity.Event;
 import com.example.employeeoffice.entity.WorkSchedule;
 import com.example.employeeoffice.entity.enums.WorkScheduleName;
 import com.example.employeeoffice.service.interfaces.EventService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public class EventController {
      */
     @CreateEvent(path = "/create_event")
     @ResponseStatus(HttpStatus.CREATED)
-    public Event createEvent(@RequestBody Event event) {
+    public Event createEvent(@Valid @RequestBody Event event) {
 
         return eventService.createEvent(event);
     }

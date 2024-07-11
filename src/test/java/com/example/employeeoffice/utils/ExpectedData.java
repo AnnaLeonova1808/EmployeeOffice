@@ -1,6 +1,5 @@
 package com.example.employeeoffice.utils;
 
-import com.example.employeeoffice.annotation.CreateEvent;
 import com.example.employeeoffice.dto.EmployeeRegistrationDto;
 import com.example.employeeoffice.dto.VacancyCreateDto;
 import com.example.employeeoffice.entity.*;
@@ -8,6 +7,7 @@ import com.example.employeeoffice.entity.enums.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -151,4 +151,193 @@ public class ExpectedData {
 
     }
 
+    public static Set<Authority> returnAllAuthorities() {
+        Set<Authority> authorities = new HashSet<>();
+
+        Authority authorities_READ_DOCUMENT = new Authority();
+        authorities_READ_DOCUMENT.setAuthId(UUID.fromString("fcbf07ae-7d86-4a16-935a-36ee7ac89b02"));
+        authorities_READ_DOCUMENT.setAuthority(AuthorityName.READ_DOCUMENT);
+        authorities.add(authorities_READ_DOCUMENT);
+
+        Authority authorities_CREATE_DOCUMENT = new Authority();
+        authorities_CREATE_DOCUMENT.setAuthId(UUID.fromString("cfd9f19b-c9e2-4953-ac31-c61803c0baa3"));
+        authorities_CREATE_DOCUMENT.setAuthority(AuthorityName.CREATE_DOCUMENT);
+        authorities.add(authorities_CREATE_DOCUMENT);
+
+        Authority authorities_DELETE_DOCUMENT = new Authority();
+        authorities_DELETE_DOCUMENT.setAuthId(UUID.fromString("a1a62aae-38fa-4900-b392-c2ce5afbb5da"));
+        authorities_DELETE_DOCUMENT.setAuthority(AuthorityName.DELETE_DOCUMENT);
+        authorities.add(authorities_DELETE_DOCUMENT);
+
+        Authority authorities_UPDATE_DOCUMENT = new Authority();
+        authorities_UPDATE_DOCUMENT.setAuthId(UUID.fromString("16001a26-ce5f-423a-afde-4bea256cec90"));
+        authorities_UPDATE_DOCUMENT.setAuthority(AuthorityName.UPDATE_DOCUMENT);
+        authorities.add(authorities_UPDATE_DOCUMENT);
+
+        return authorities;
+    }
+    public static Set<Department> returnAllDepartments() {
+        Set<Department> departments = new HashSet<>();
+
+        Department department_1 = new Department();
+        department_1.setDepId(UUID.fromString("ef6869b7-2402-48c7-bff4-141563be2d8c"));
+        department_1.setDepName(DepartmentName.HR);
+        department_1.setDepPhone("+12-345-678-90-24");
+        department_1.setDepEmail("hr@example.com");
+        departments.add(department_1);
+
+        Department department_2 = new Department();
+        department_2.setDepId(UUID.fromString("3c004a2b-3ff3-4413-8ce3-e72ec557b6fc"));
+        department_2.setDepName(DepartmentName.WAREHOUSE);
+        department_2.setDepPhone("+12-345-678-90-25");
+        department_2.setDepEmail("warehouse@example.com");
+        departments.add(department_2);
+
+        Department department_3 = new Department();
+        department_3.setDepId(UUID.fromString("f80a04a4-8015-41b7-8458-8ca40416b4a3"));
+        department_3.setDepName(DepartmentName.FINANCE);
+        department_3.setDepPhone("+12-345-678-90-26");
+        department_3.setDepEmail("finance@example.com");
+        departments.add(department_3);
+
+        Department department_4 = new Department();
+        department_4.setDepId(UUID.fromString("88a71c7e-d011-40e3-b9b5-78315c983b21"));
+        department_4.setDepName(DepartmentName.IT);
+        department_4.setDepPhone("+12-345-678-90-22");
+        department_4.setDepEmail("operations@example.com");
+        departments.add(department_4);
+
+        Department department_5 = new Department();
+        department_5.setDepId(UUID.fromString("2e88a78d-b4a7-4a00-b590-4d0f7abe6c04"));
+        department_5.setDepName(DepartmentName.SALES);
+        department_5.setDepPhone("+12-345-678-90-23");
+        department_5.setDepEmail("sales@example.com");
+        departments.add(department_5);
+
+        return departments;
+    }
+    public static Set<Employee> returnAllEmployees() {
+        Set<Employee> employees = new HashSet<>();
+
+        Employee employee_1 = new Employee();
+        employee_1.setEmpId(UUID.fromString("55035fe9-37e3-466f-ba4a-197f23fc5700"));
+        employee_1.setFirstName("Daniel");
+        employee_1.setLastName("Brown");
+        employee_1.setPosition(Position.valueOf("SALES_MANAGER"));
+        employee_1.setStatusEmp(StatusEmployee.valueOf("VACATION"));
+        employees.add(employee_1);
+
+        Employee employee_2 = new Employee();
+        employee_2.setEmpId(UUID.fromString("7270910c-cc71-4634-97a0-a242eb5b6064"));
+        employee_2.setFirstName("Michael");
+        employee_2.setLastName("Johnson");
+        employee_2.setPosition(Position.valueOf("HR_MANAGER"));
+        employee_2.setStatusEmp(StatusEmployee.valueOf("WORK"));
+        employees.add(employee_2);
+
+        return employees;
+    }
+    public static Set<Event> returnAllEvents() {
+        Set<Event> events = new HashSet<>();
+
+        Event event_1 = new Event();
+        event_1.setEvId(UUID.fromString("92683b96-579e-4fee-9329-b442639582e7"));
+        event_1.setEvType(EventType.valueOf("CONFERENCE"));
+        events.add(event_1);
+
+        Event event_2 = new Event();
+        event_2.setEvId(UUID.fromString("d4379c09-f871-45a1-93b4-a52d9f91ac57"));
+        event_2.setEvType(EventType.valueOf("SEMINAR"));
+        events.add(event_2);
+
+
+        return events;
+    }
+    public static Set<Vacancy> returnAllVacancies() {
+        Set<Vacancy> vacancies = new HashSet<>();
+
+        Vacancy vacancy_1 = new Vacancy();
+        vacancy_1.setVacancyId(UUID.fromString("51b02a7e-e57c-4321-ba34-73d59bfbddec"));
+        vacancy_1.setPosition(Position.PROGRAMMER);
+        vacancy_1.setVacancyDescription("Receptionist Position Description");
+        vacancy_1.setVacancyRequirements("Requirements for Receptionist Position");
+        vacancy_1.setVacancySalary(Double.parseDouble("48000.00"));
+        vacancy_1.setWorkplaceLocation(WorkPlaceLocation.OFFICE);
+        vacancy_1.setVacancyStatus(VacancyStatus.valueOf("ACTIVE"));
+        vacancy_1.setVacancyContactInfo("contact@example.com");
+        vacancies.add(vacancy_1);
+
+        Vacancy vacancy_2 = new Vacancy();
+        vacancy_2.setVacancyId(UUID.fromString("5c2f14e9-e9f2-4e67-9911-2c3bed21b74d"));
+        vacancy_2.setPosition(Position.DRIVER);
+        vacancy_2.setVacancyDescription("Driver Position Description");
+        vacancy_2.setVacancyRequirements("Requirements for Driver Position");
+        vacancy_2.setVacancySalary(Double.parseDouble("55000.00"));
+        vacancy_2.setWorkplaceLocation(WorkPlaceLocation.WAREHOUSE);
+        vacancy_2.setVacancyStatus(VacancyStatus.valueOf("ACTIVE"));
+        vacancy_2.setVacancyContactInfo("contact@example.com");
+        vacancies.add(vacancy_2);
+
+        Vacancy vacancy_3 = new Vacancy();
+        vacancy_3.setVacancyId(UUID.fromString("6f8fdfd4-419c-46a7-9ba2-33a32723cd6c"));
+        vacancy_3.setPosition(Position.SALES_MANAGER);
+        vacancy_3.setVacancyDescription("Analyst Position Description");
+        vacancy_3.setVacancyRequirements("Requirements for Analyst Position");
+        vacancy_3.setVacancySalary(Double.parseDouble("75000.00"));
+        vacancy_3.setWorkplaceLocation(WorkPlaceLocation.SALES_AGENT_ROUTE);
+        vacancy_3.setVacancyStatus(VacancyStatus.valueOf("ACTIVE"));
+        vacancy_3.setVacancyContactInfo("contact@example.com");
+        vacancies.add(vacancy_3);
+
+        Vacancy vacancy_4 = new Vacancy();
+        vacancy_4.setVacancyId(UUID.fromString("aa51c3f9-0329-4633-9811-882bd21ec67b"));
+        vacancy_4.setPosition(Position.ECONOMIST);
+        vacancy_4.setVacancyDescription("Analyst Position Description");
+        vacancy_4.setVacancyRequirements("Requirements for Security Guard Position");
+        vacancy_4.setVacancySalary(Double.parseDouble("60000.00"));
+        vacancy_4.setWorkplaceLocation(WorkPlaceLocation.OFFICE);
+        vacancy_4.setVacancyStatus(VacancyStatus.valueOf("ACTIVE"));
+        vacancy_4.setVacancyContactInfo("contact@example.com");
+        vacancies.add(vacancy_4);
+
+        Vacancy vacancy_5 = new Vacancy();
+        vacancy_5.setVacancyId(UUID.fromString("efff9467-a80e-447d-8763-ee7acfa5c29c"));
+        vacancy_5.setPosition(Position.HR_MANAGER);
+        vacancy_5.setVacancyDescription("HR Position Description");
+        vacancy_5.setVacancyRequirements("Requirements for HR manager Position");
+        vacancy_5.setVacancySalary(Double.parseDouble("90000.00"));
+        vacancy_5.setWorkplaceLocation(WorkPlaceLocation.OFFICE);
+        vacancy_5.setVacancyStatus(VacancyStatus.valueOf("ACTIVE"));
+        vacancy_5.setVacancyContactInfo("contact@example.com");
+        vacancies.add(vacancy_5);
+
+        return vacancies;
+    }
+
+    public static WorkSchedule returnWorkScheduleByName() {
+        WorkSchedule workSchedule = new WorkSchedule();
+        workSchedule.setSchedId(UUID.fromString("b6892135-bc87-427b-b23e-be0ccafecb7e"));
+        workSchedule.setSchedName(WorkScheduleName.SHIFT_WORK);
+        workSchedule.setStartTime(LocalTime.parse("06:00:00"));
+        workSchedule.setEndTime(LocalTime.parse("18:00:00"));
+
+        return workSchedule;
+    }
+
+    public static Set<WorkSchedule> returnAllWorkSchedules() {
+        Set<WorkSchedule> workSchedules = new HashSet<>();
+
+        WorkSchedule workSchedule_1 = new WorkSchedule();
+        workSchedule_1.setSchedId(UUID.fromString("94752fc8-87e8-4cf6-ab17-f91d1720c20d"));
+        workSchedule_1.setSchedName(WorkScheduleName.FIVE_DAY_SHIFT_09_18);
+        workSchedules.add(workSchedule_1);
+
+        WorkSchedule workSchedule_2 = new WorkSchedule();
+        workSchedule_2.setSchedId(UUID.fromString("b6892135-bc87-427b-b23e-be0ccafecb7e"));
+        workSchedule_2.setSchedName(WorkScheduleName.SHIFT_WORK);
+        workSchedules.add(workSchedule_2);
+
+
+        return workSchedules;
+    }
 }
